@@ -252,23 +252,23 @@ clang
 
 跳转到定义(快捷键gd)，跳转到引用(快捷键gr)
 
-![Peek 2019-05-13 21-21](assets/Peek 2019-05-13 21-21.gif)
+![Peek 2019-05-13 21-21](assets/Peek2019-05-1321-21.gif)
 
 格式化(:Format)
 
-![Peek 2019-05-13 21-22](assets/Peek 2019-05-13 21-22.gif)
+![Peek 2019-05-13 21-22](assets/Peek2019-05-1321-22.gif)
 
 hover(快捷键 shift k, space k)
 
-![Peek 2019-05-13 21-24](assets/Peek 2019-05-13 21-24.gif)
+![Peek 2019-05-13 21-24](assets/Peek2019-05-1321-24.gif)
 
 diagnostics(快捷键 space d)
 
-![Peek 2019-05-13 23-30](assets/Peek 2019-05-13 23-30.gif)
+![Peek 2019-05-13 23-30](assets/Peek2019-05-1323-30.gif)
 
 rename(快捷键 space r n)
 
-![Peek 2019-05-13 23-31](assets/Peek 2019-05-13 23-31.gif)
+![Peek 2019-05-13 23-31](assets/Peek2019-05-1323-31.gif)
 
 ##### 编译运行
 
@@ -352,23 +352,23 @@ rename(快捷键 space r n)
 
 autocompletion
 
-![Peek 2019-05-14 00-22](assets/Peek 2019-05-14 00-22.gif)
+![Peek 2019-05-14 00-22](assets/Peek2019-05-1400-22.gif)
 
 hover
 
-![Peek 2019-05-14 00-27](assets/Peek 2019-05-14 00-27.gif)
+![Peek 2019-05-14 00-27](assets/Peek2019-05-1400-27.gif)
 
 jump to def
 
-![Peek 2019-05-14 00-28](assets/Peek 2019-05-14 00-28.gif)
+![Peek 2019-05-14 00-28](assets/Peek2019-05-1400-28.gif)
 
 go to ref
 
-![Peek 2019-05-14 00-30](assets/Peek 2019-05-14 00-30.gif)
+![Peek 2019-05-14 00-30](assets/Peek2019-05-1400-30.gif)
 
 Diagnostics
 
-![Peek 2019-05-14 00-31](assets/Peek 2019-05-14 00-31.gif)
+![Peek 2019-05-14 00-31](assets/Peek2019-05-1400-31.gif)
 
 ##### 编译运行
 
@@ -398,11 +398,11 @@ Diagnostics
 
 format
 
-![Peek 2019-05-14 09-44](assets/Peek 2019-05-14 09-44.gif)
+![Peek 2019-05-14 09-44](assets/Peek2019-05-1409-44.gif)
 
 outline
 
-![Peek 2019-05-14 09-50](assets/Peek 2019-05-14 09-50.gif)
+![Peek 2019-05-14 09-50](assets/Peek2019-05-1409-50.gif)
 
 ##### 编译运行
 
@@ -441,11 +441,11 @@ bash的lsp是bash-language-server，需要单独安装，然后需要进行如�
 
 autocomplete
 
-![Peek 2019-05-14 10-41](assets/Peek 2019-05-14 10-41.gif)
+![Peek 2019-05-14 10-41](assets/Peek2019-05-1410-41.gif)
 
 goto def goto ref hover
 
-![Peek 2019-05-14 10-45](assets/Peek 2019-05-14 10-45.gif)
+![Peek 2019-05-14 10-45](assets/Peek2019-05-1410-45.gif)
 
 ##### 编译运行
 
