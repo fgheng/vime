@@ -1,6 +1,57 @@
 # vime
 
-[TOC]
+<!-- vim-markdown-toc GitLab -->
+
+* [开发使用](#开发使用)
+    * [c/c++](#cc)
+        * [准备](#准备)
+        * [`.ccls`简单使用](#ccls简单使用)
+        * [展示](#展示)
+            * [lsp基本功能](#lsp基本功能)
+            * [编译运行](#编译运行)
+            * [debug](#debug)
+    * [python](#python)
+        * [准备](#准备-1)
+        * [展示](#展示-1)
+            * [lsp基本功能](#lsp基本功能-1)
+            * [编译运行](#编译运行-1)
+            * [debug](#debug-1)
+    * [js/ts](#jsts)
+        * [准备](#准备-2)
+        * [展示](#展示-2)
+            * [lsp基本功能](#lsp基本功能-2)
+            * [编译运行](#编译运行-2)
+            * [debug](#debug-2)
+    * [java](#java)
+        * [准备](#准备-3)
+        * [展示](#展示-3)
+            * [lsp 基本功能](#lsp-基本功能)
+            * [编译运行](#编译运行-3)
+            * [debug](#debug-3)
+    * [html css](#html-css)
+        * [准备](#准备-4)
+        * [展示](#展示-4)
+            * [lsp 基本功能](#lsp-基本功能-1)
+            * [编译运行](#编译运行-4)
+            * [debug](#debug-4)
+    * [bash](#bash)
+        * [准备](#准备-5)
+        * [展示](#展示-5)
+            * [lsp 基本功能](#lsp-基本功能-2)
+            * [编译运行](#编译运行-5)
+            * [debug](#debug-5)
+* [插件快捷键](#插件快捷键)
+    * [coc](#coc)
+    * [ale](#ale)
+    * [多光标](#多光标)
+    * [leaderf](#leaderf)
+    * [always match tag](#always-match-tag)
+    * [easymotion](#easymotion)
+    * [](#)
+* [vime插件介绍与配置](#vime插件介绍与配置)
+* [TODO](#todo)
+
+<!-- vim-markdown-toc -->
 
 作为一个初级vimer，我也是一点点在尝试各种插件，很多内容都是我自己的理解，可能会出错。
 
