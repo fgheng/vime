@@ -1,0 +1,80 @@
+{
+    "coc.preferences.colorSupport": true,
+
+    "suggest.triggerAfterInsertEnter": true,
+    "suggest.acceptSuggestionOnCommitCharacter": true,
+    "suggest.timeout": 2000,
+    "suggest.noselect": true,
+    "suggest.detailField": "abbr",
+    "suggest.triggerCompletionWait": 50,
+    "suggest.snippetIndicator": "✔",
+    //"diagnostic.displayByAle": true,
+    // 插入模式也可以使用diagnostic
+    "diagnostic.refreshOnInsertMode": true,
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "ϟ",
+    "python.autoComplete.addBrackets": true,
+    "python.jediEnabled": false,
+    "highlight.colors.enable": true,
+    "highlight.document.enable": true,
+
+    "list.maxHeight": 10,
+    "list.previewSplitRight": true,
+
+    // lsp
+    "languageserver": {
+
+        // 安装bash-language-server
+        "bash": {
+            "command": "bash-language-server",
+            "args": [
+                "start"
+            ],
+            "filetypes": [
+                "sh"
+            ],
+            "ignoredRootPaths": [
+                "~"
+            ]
+        },
+
+        // 安装ccls
+        "ccls": {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "cuda",
+                "objc",
+                "objcpp"
+            ],
+            "rootPatterns": [
+                ".clang",
+                ".ccls",
+                "compile_commands.json",
+                ".vim/",
+                ".git/",
+                ".hg/"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": ".ccls-cache"
+                }
+            }
+        },
+
+        // jdt
+        "java": {
+            "command": "jdtls",
+            "filetypes": [
+                "java",
+                "class"
+            ],
+            "rootPatterns": [
+                "maven",
+                ".git",
+                ".vim"
+            ]
+        }
+    }
+}
