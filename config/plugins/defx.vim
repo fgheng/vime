@@ -1,7 +1,10 @@
 
 call defx#custom#option('_', {
         \ 'winwidth': 30,
-        \ 'split': 'vertical',
+        \ 'winheight': 60,
+        \ 'winrow': 0,
+        \ 'wincol': 0,
+        \ 'split': 'floating',
         \ 'direction': 'leftabove',
         \ 'show_ignored_files': 0,
         \ 'buffer_name': '',
@@ -9,13 +12,16 @@ call defx#custom#option('_', {
         \ 'resume': 1,
         \ 'columns': "git:mark:indent:icon:icons:filename"
         \ })
+        " \ 'split': 'vertical',
+        " \ 'wincol': (&columns - &winwidth)/2,
+        " \ 'winrow': (&lines - &winheight)/2,
 
 call defx#custom#column('filename', {
             \ 'directory_icon': '▸',
             \ 'opened_icon': '▾',
             \ 'root_icon': ' ',
             \ 'min_width': 5,
-            \ 'max_width': 40,
+            \ 'max_width': 35,
             \ })
 
 call defx#custom#column('mark', {

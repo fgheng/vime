@@ -23,7 +23,8 @@ Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
 " "}}
 
 " "{{--------markdown
-Plug 'tpope/vim-markdown', {'for': ['markdown', 'md']}
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'md'] }
 " "}}
 
