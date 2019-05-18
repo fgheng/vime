@@ -41,3 +41,14 @@ nnoremap <c-t> :call OpenTerminalS()<cr>
 " nnoremap <c-t>v :call OpenTerminalV()<cr>
 
 command! -nargs=0 Ter :call OpenTerminal()<cr>
+
+"-----------------------------------------
+function! Tagbar_or_markdown_bar()
+    if &ft == 'markdown'
+        exe "Toc"
+    else
+        exe "TagbarToggle"
+    endif
+endfunction
+
+nnoremap <F3> :call Tagbar_or_markdown_bar()<cr>

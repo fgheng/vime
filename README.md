@@ -619,7 +619,7 @@ goto def goto ref hover
 
 ## TODO
 
-- [ ] defx悬浮窗口显示
+- [X] defx悬浮窗口显示
 - [ ] defx增加buffer支持
 - [ ] 一键安装
 - [ ] 分离式设计，只要在插件配置文件中关闭，那么关于该插件的所有配置均不载入
