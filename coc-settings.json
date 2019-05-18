@@ -1,5 +1,14 @@
 {
     "coc.preferences.colorSupport": true,
+    "coc.preferences.jumpCommand": "vsplit",
+    "coc.preferences.rootPatterns": [
+        ".vim",
+        ".git",
+        ".hg",
+        ".projections.json"
+    ],
+    "coc.preferences.formatOnType": true,
+    "coc.preferences.extensionUpdateCheck": "daily",
 
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
@@ -14,7 +23,7 @@
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "ϟ",
     "python.autoComplete.addBrackets": true,
-    "python.jediEnabled": false,
+    //"python.jediEnabled": false,
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
 
@@ -44,6 +53,7 @@
             "filetypes": [
                 "c",
                 "cpp",
+                "cu",
                 "cuda",
                 "objc",
                 "objcpp"
@@ -54,7 +64,8 @@
                 "compile_commands.json",
                 ".vim/",
                 ".git/",
-                ".hg/"
+                ".hg/",
+                ".clang_complete"
             ],
             "initializationOptions": {
                 "cache": {

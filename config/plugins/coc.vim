@@ -3,7 +3,6 @@ let g:coc_global_extensions =
             \ 'coc-ccls',
             \ 'coc-python',
             \ 'coc-tsserver',
-            \ 'coc-java',
             \ 'coc-vimtex',
             \ 'coc-html',
             \ 'coc-css',
@@ -25,6 +24,7 @@ let g:coc_global_extensions =
             " \ 'coc-ultisnips',
             " \ 'coc-syntax',
             " \ 'coc-pyls',
+            " \ 'coc-java',
 
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 " 使用ctrl j ctrl k来跳转补全块

@@ -23,7 +23,7 @@ Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
 " "}}
 
 " "{{--------markdown
-Plug 'mzlogin/vim-markdown-toc'
+Plug 'mzlogin/vim-markdown-toc', {'for': ['markdown', 'md']}
 Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'md'] }
 " "}}
@@ -37,7 +37,7 @@ Plug 'w0rp/ale'
 " "}}
 
 " "{{--------code format
-"Plug 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
 "Plug 'sbdchd/neoformat'
 " "}}
 
@@ -73,7 +73,11 @@ Plug 'Yggdroot/LeaderF',  { 'do': './install.sh' }
 Plug 'Shougo/defx.nvim',  { 'do': ':UpdateRemotePlugins'}
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
-" Plug 'francoiscabrol/ranger.vim'
+if has('nvim')
+    Plug 'rbgrouleff/bclose.vim'
+endif
+Plug 'francoiscabrol/ranger.vim'
+"Plug 'Lokaltog/neoranger'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'SirVer/ultisnips'
@@ -88,6 +92,8 @@ Plug 'voldikss/vim-translate-me', {'on': ['<Plug>Translate', '<Plug>TranslateW']
 " Plug 'terryma/vim-smooth-scroll'
 " Plug 'yuttie/comfortable-motion.vim'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+" Plug 'vim-scripts/ZoomWin'
+Plug 'troydm/zoomwintab.vim'
 " "}}
 "
 call plug#end()

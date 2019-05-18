@@ -1,20 +1,23 @@
 
 call defx#custom#option('_', {
-        \ 'winwidth': 30,
-        \ 'winheight': 60,
-        \ 'winrow': 0,
-        \ 'wincol': 0,
-        \ 'split': 'floating',
         \ 'direction': 'leftabove',
+        \ 'split': 'vertical',
+        \ 'winwidth': 30,
         \ 'show_ignored_files': 0,
         \ 'buffer_name': '',
         \ 'toggle': 1,
         \ 'resume': 1,
-        \ 'columns': "git:mark:indent:icon:icons:filename"
+        \ 'columns': "git:mark:indent:icon:icons:filename:size"
         \ })
+
         " \ 'split': 'vertical',
         " \ 'wincol': (&columns - &winwidth)/2,
         " \ 'winrow': (&lines - &winheight)/2,
+        " \ 'winwidth': &columns,
+        " \ 'winheight': &winwidth,
+        " \ 'winheight': 100,
+        " \ 'winrow': 0,
+        " \ 'wincol': 0,
 
 call defx#custom#column('filename', {
             \ 'directory_icon': '▸',
@@ -48,6 +51,7 @@ function! s:defx_my_settings() abort
     nnoremap <silent><buffer><expr> l       defx#do_action('call', 'DefxSmartL')
     nnoremap <silent><buffer><expr> o       defx#do_action('call', 'DefxSmartL')
     nnoremap <silent><buffer><expr> <Cr>    defx#is_directory() ? defx#do_action('open_directory') : defx#do_action('drop')
+    " nnoremap <silent><buffer><expr> <Cr>    defx#do_action('call', 'DefxSmartL')
     nnoremap <silent><buffer><expr> <2-LeftMouse> defx#is_directory() ? defx#do_action('open_tree') : defx#do_action('drop')
     nnoremap <silent><buffer><expr> sv      defx#do_action('drop', 'vsplit')
     nnoremap <silent><buffer><expr> sh      defx#do_action('drop', 'split')
@@ -73,14 +77,25 @@ function! s:defx_my_settings() abort
     "
 endfunction
 
+function! DefxSmartCr(_)
+    if defx#is_directory()
+        defx#call_action('open_directory')
+    else
+        defx#call_action('drop')
+    endif
+endfunction
+
 " in this function we should vim-choosewin if possible
 function! DefxSmartL(_)
+    " exec 'wal'
     if defx#is_directory()
         call defx#call_action('open_tree')
         normal! j
     else
         let filepath = defx#get_candidate()['action__path']
         if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
+            " 应该改为判断当前defx是否已经打开
+            exec 'Defx'
             if exists(':ChooseWin') == 2
                 ChooseWin
             else
@@ -98,6 +113,7 @@ function! DefxSmartL(_)
             endif
             exec 'e' filepath
         else
+            exec 'Defx'
             exec 'wincmd w'
             exec 'e' filepath
         endif

@@ -7,15 +7,17 @@ set number
 set numberwidth=4
 set shiftround
 set relativenumber
-set smartindent
+set smartindent " 智能缩进
 set autoindent " 自动换行缩进
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set showmatch
-set linebreak
-set ignorecase
+set linebreak "软折行
+set noswapfile " 禁止生成swap文件
+set ignorecase " 忽略大小写
+set smartcase " 智能大小写
 set incsearch
 set hlsearch
 set foldenable
@@ -25,13 +27,19 @@ set cmdheight=1
 "set autochdir   " 将文件所在路径设置为vim的当前路径
 let autosave=10
 set laststatus=0
+set colorcolumn=80 " 高亮第80行
 "set conceallevel=0  " json正常显示文本
 set switchbuf=useopen,usetab,newtab "这样quickfix里面的跳转会先复用已有文件的窗口，再复用已有标签，最后没有的话新建标签
 set tw=80
 set shortmess+=c
-set signcolumn=auto:3 " neovim的新特性，标识列自动变化
+if has('nvim')
+    set signcolumn=auto:3 " neovim的新特性，标识列自动变化
+else
+    set scl=yes
+endif
 
 "记住退出位置
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+

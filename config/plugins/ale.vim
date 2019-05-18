@@ -6,7 +6,6 @@ let g:ale_linters = {
             \   'nasm': ['nasm'],
             \   'c': ['cppcheck'],
             \   'cpp': ['cppcheck'],
-            \   'python': ['pylint', 'flake8'],
             \   'cuda': ['nvcc'],
             \   'java': ['javac'],
             \   'javascript': ['eslint'],
@@ -14,6 +13,8 @@ let g:ale_linters = {
             \   'yaml': ['prettier'],
             \   'latex': ['alex'],
             \ }
+            " \   'python': ['pylint', 'flake8'],
+
 
 " 使用开启列标志
 let g:ale_sign_column_always = 1

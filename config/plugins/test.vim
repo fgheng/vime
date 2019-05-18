@@ -1,7 +1,7 @@
 " 用于测试插件配置
 "
 if has('nvim')
-  fu! OpenTerminal()
+  fu! OpenTerminalS()
    " open split windows on the topleft
    botright split
    " resize the height of terminal windows to 30
@@ -9,7 +9,7 @@ if has('nvim')
    :terminal
   endf
 else
-  fu! OpenTerminal()
+  fu! OpenTerminalS()
    " open split windows on the topleft
    botright split
    " resize the height of terminal windows to 30
@@ -18,6 +18,26 @@ else
   endf
 endif
 
-nnoremap <c-t> :call OpenTerminal()<cr>
+if has('nvim')
+  fu! OpenTerminalV()
+   " open split windows on the topleft
+   botright split
+   " resize the height of terminal windows to 30
+   resize 15
+   :terminal
+  endf
+else
+  fu! OpenTerminalS()
+   " open split windows on the topleft
+   botright split
+   " resize the height of terminal windows to 30
+   resize 15
+   :call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})
+  endf
+endif
+
+nnoremap <c-t> :call OpenTerminalS()<cr>
+" nnoremap <c-t>s :call OpenTerminalS()<cr>
+" nnoremap <c-t>v :call OpenTerminalV()<cr>
 
 command! -nargs=0 Ter :call OpenTerminal()<cr>
