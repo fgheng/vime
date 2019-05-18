@@ -67,11 +67,9 @@
 
 ```shell
 .
-├── autoload
-│   └── plug.vim  // 插件管理器
 ├── coc-settings.json   // coc用户配置文件
 ├── colors              // 颜色主题
-├── config
+├── config              // 所有配置均在这个文件夹下面
 │   ├── base.vim        // 基本配置
 │   ├── keymap.vim      // 键盘映射
 │   ├── plugins         // 各种插件的配置均在该文件夹下面，与插件同名
