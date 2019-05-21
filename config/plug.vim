@@ -5,7 +5,7 @@ Plug 'neoclide/coc.nvim', { 'do': './install.sh nightly' }
 " "}}
 
 " "{{--------git
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 "Plug 'neoclide/vim-easygit'
 "Plug 'rhysd/git-messenger.vim'
 " "}}
