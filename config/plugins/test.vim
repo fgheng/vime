@@ -1,17 +1,19 @@
 " 用于测试插件配置
 "
 if has('nvim')
-  fu! OpenTerminalS()
+  " 在当前窗口下打开终端
+  fu! OpenTerminalSCurrent()
    " open split windows on the topleft
-   botright split
+   echo 'ok'
+   belowright split
    " resize the height of terminal windows to 30
    resize 15
    :terminal
   endf
 else
-  fu! OpenTerminalS()
+  fu! OpenTerminalSCurrent()
    " open split windows on the topleft
-   botright split
+   belowright split
    " resize the height of terminal windows to 30
    resize 15
    :call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})
@@ -19,8 +21,9 @@ else
 endif
 
 if has('nvim')
-  fu! OpenTerminalV()
-   " open split windows on the topleft
+  " 在整个窗口下打开终端
+  fu! OpenTerminalSWindow()
+   " open vsplit windows on the topleft
    botright split
    " resize the height of terminal windows to 30
    resize 15
@@ -28,7 +31,7 @@ if has('nvim')
   endf
 else
   fu! OpenTerminalS()
-   " open split windows on the topleft
+   " open vsplit windows on the topleft
    botright split
    " resize the height of terminal windows to 30
    resize 15
@@ -36,11 +39,10 @@ else
   endf
 endif
 
-nnoremap <c-t> :call OpenTerminalS()<cr>
-" nnoremap <c-t>s :call OpenTerminalS()<cr>
-" nnoremap <c-t>v :call OpenTerminalV()<cr>
-
-command! -nargs=0 Ter :call OpenTerminal()<cr>
+" command! -nargs=0 TerSmall :call OpenTerminalSCurrent()<cr>
+" command! -nargs=0 TerBig :call OpenTerminalSWindow()<cr>
+command Ter call OpenTerminalSCurrent()
+command Terb call OpenTerminalSWindow()
 
 "-----------------------------------------
 function! Tagbar_or_markdown_bar()

@@ -1,6 +1,5 @@
 let g:coc_global_extensions =
             \ [
-            \ 'coc-ccls',
             \ 'coc-python',
             \ 'coc-tsserver',
             \ 'coc-vimtex',
@@ -13,6 +12,7 @@ let g:coc_global_extensions =
             \ 'coc-emoji',
             \ 'coc-highlight',
             \ 'coc-git',
+            \ 'coc-calc',
             \ ]
             " \ 'coc-java',
             " \ 'coc-sh',
