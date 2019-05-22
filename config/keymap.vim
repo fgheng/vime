@@ -114,3 +114,12 @@ map <F4> <esc>:MundoToggle<cr>
 noremap <leader>s <esc>:Startify<cr>
 
 "------------------------------------------- window
+"
+"------------------------------------------- coc-git
+" " navigate chunks of current buffer
+" nmap [g <Plug>(coc-git-prevchunk)
+" nmap ]g <Plug>(coc-git-nextchunk)
+" " show chunk diff at current position
+" nmap gs <Plug>(coc-git-chunkinfo)
+" " show commit ad current position
+" nmap gc <Plug>(coc-git-commit)

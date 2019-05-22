@@ -9,7 +9,6 @@
     ],
     "coc.preferences.formatOnType": true,
     "coc.preferences.extensionUpdateCheck": "daily",
-
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 2000,
@@ -26,13 +25,18 @@
     //"python.jediEnabled": false,
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
-
     "list.maxHeight": 10,
     "list.previewSplitRight": true,
 
+    "git.removedSign.text": "-",
+    //"git.addedSign.hlGroup": "GitGutterAdd",
+    //"git.changedSign.hlGroup": "GitGutterChange",
+    //"git.removedSign.hlGroup": "GitGutterDelete",
+    //"git.topRemovedSign.hlGroup": "GitGutterDelete",
+    //"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+
     // lsp
     "languageserver": {
-
         // 安装bash-language-server
         "bash": {
             "command": "bash-language-server",
@@ -46,7 +50,6 @@
                 "~"
             ]
         },
-
         // 安装ccls
         "ccls": {
             "command": "ccls",
@@ -73,7 +76,6 @@
                 }
             }
         },
-
         // jdt
         "java": {
             "command": "jdtls",
@@ -88,5 +90,4 @@
             ]
         }
     },
-    "git.enableGutters": false
 }

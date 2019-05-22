@@ -31,4 +31,6 @@ highlight Lf_hl_matchRefine  gui=bold guifg=Magenta cterm=bold ctermfg=201
 
 "------------------------statusline----------------------"
 set statusline=%F%m%r%h%w%=\ [ft=%Y]\ %{\"[fenc=\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\"+\":\"\").\"]\"}\ [ff=%{&ff}]\ [asc=%03.3b]\ [hex=%02.2B]\ [pos=%04l,%04v][%p%%]\ [len=%L]\ [coc=%{coc#status()}]
+set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}
+"set statusline^=%{FugitiveStatusline()}
 set laststatus=2

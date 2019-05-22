@@ -17,7 +17,7 @@ set showmatch
 set linebreak "软折行
 set noswapfile " 禁止生成swap文件
 set ignorecase " 忽略大小写
-set smartcase " 智能大小写
+"set smartcase " 智能大小写
 set incsearch
 set hlsearch
 set foldenable
