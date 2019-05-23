@@ -41,8 +41,11 @@ endif
 
 " command! -nargs=0 TerSmall :call OpenTerminalSCurrent()<cr>
 " command! -nargs=0 TerBig :call OpenTerminalSWindow()<cr>
-command Ter call OpenTerminalSCurrent()
-command Terb call OpenTerminalSWindow()
+imap <c-t> <esc>:call OpenTerminalSCurrent()<cr>
+nnoremap <c-t> :call OpenTerminalSCurrent()<cr>
+
+" command Ter call OpenTerminalSCurrent()
+command Ter call OpenTerminalSWindow()
 
 "-----------------------------------------
 function! Tagbar_or_markdown_bar()

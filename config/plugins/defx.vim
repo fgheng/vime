@@ -95,7 +95,7 @@ function! DefxSmartL(_)
         let filepath = defx#get_candidate()['action__path']
         if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
             " 应该改为判断当前defx是否已经打开
-            exec 'Defx'
+            " exec 'Defx'
             if exists(':ChooseWin') == 2
                 ChooseWin
             else
@@ -113,7 +113,7 @@ function! DefxSmartL(_)
             endif
             exec 'e' filepath
         else
-            exec 'Defx'
+            " exec 'Defx'
             exec 'wincmd w'
             exec 'e' filepath
         endif

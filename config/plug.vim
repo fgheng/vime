@@ -70,7 +70,13 @@ Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-expand-region'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 Plug 'Yggdroot/LeaderF',  { 'do': './install.sh' }
-Plug 'Shougo/defx.nvim',  { 'do': ':UpdateRemotePlugins'}
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 if has('nvim')

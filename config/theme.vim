@@ -9,10 +9,9 @@ function! s:patch_lucius_colors()
 
 endfunction
 
-autocmd! colorscheme space-vim-dark call s:patch_lucius_colors()
+autocmd! colorscheme PaperColor call s:patch_lucius_colors()
 " autocmd! colorscheme  tender call s:patch_lucius_colors()
-colorscheme space-vim-dark
-" colorscheme tender
+colorscheme PaperColor
 
 " set background=light
 " colorscheme PaperColor

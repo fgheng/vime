@@ -12,7 +12,8 @@
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 2000,
-    "suggest.noselect": true,
+    // 选中第一个
+    "suggest.noselect": false,
     "suggest.detailField": "abbr",
     "suggest.triggerCompletionWait": 50,
     "suggest.snippetIndicator": "✔",
@@ -29,11 +30,6 @@
     "list.previewSplitRight": true,
 
     "git.removedSign.text": "-",
-    //"git.addedSign.hlGroup": "GitGutterAdd",
-    //"git.changedSign.hlGroup": "GitGutterChange",
-    //"git.removedSign.hlGroup": "GitGutterDelete",
-    //"git.topRemovedSign.hlGroup": "GitGutterDelete",
-    //"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
 
     // lsp
     "languageserver": {
