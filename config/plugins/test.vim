@@ -9,6 +9,7 @@ if has('nvim')
    " resize the height of terminal windows to 30
    resize 15
    :terminal
+   :normal! a
   endf
 else
   fu! OpenTerminalSCurrent()
@@ -17,6 +18,7 @@ else
    " resize the height of terminal windows to 30
    resize 15
    :call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})
+   :normal! a
   endf
 endif
 
@@ -28,6 +30,7 @@ if has('nvim')
    " resize the height of terminal windows to 30
    resize 15
    :terminal
+   :normal! a
   endf
 else
   fu! OpenTerminalS()
@@ -36,6 +39,7 @@ else
    " resize the height of terminal windows to 30
    resize 15
    :call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})
+   :normal! a
   endf
 endif
 
@@ -57,3 +61,17 @@ function! Tagbar_or_markdown_bar()
 endfunction
 
 nnoremap <F3> :call Tagbar_or_markdown_bar()<cr>
+
+"-----------------------------------------changewindowsize
+" function! JudgeWindowSize()
+"     if wincol() < 85
+"         exe "vertical resize 85"
+"     endif
+" endfunction
+
+" autocmd WinEnter * call JudgeWindowSize()
+
+"----------------------------------------filetype
+" markdown 不换行
+autocmd FileType markdown setlocal nowrap
+" autocmd FileType markdown setlocal spell

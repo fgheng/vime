@@ -13,7 +13,7 @@
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 2000,
     // 选中第一个
-    "suggest.noselect": false,
+    //"suggest.noselect": false,
     "suggest.detailField": "abbr",
     "suggest.triggerCompletionWait": 50,
     "suggest.snippetIndicator": "✔",

@@ -1,9 +1,10 @@
 "------------------------------------------- base key map
 inoremap jk <esc>
 "nnoremap ;; <esc>:
-nnoremap q <esc>:close<cr>
-vnoremap q <esc>:close<cr>
-nnoremap , q
+" nnoremap q <esc>:close<cr>
+" vnoremap q <esc>:close<cr>
+nnoremap zz <esc>:close<cr>
+vnoremap zz <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr>
 
 " 窗口

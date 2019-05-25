@@ -5,13 +5,13 @@ set encoding=utf8
 set helplang=cn
 set number
 set numberwidth=4
-set shiftround
-set relativenumber
+set relativenumber " 设置行号相关
 set smartindent " 智能缩进
 set autoindent " 自动换行缩进
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set shiftround "缩进取整到 'shiftwidth' 的倍数
 set expandtab
 set showmatch
 set linebreak "软折行
@@ -22,6 +22,7 @@ set incsearch
 set hlsearch
 set foldenable
 set wildmenu
+set wrap
 " set noshowmode " 不显示模式
 set cmdheight=1
 "set autochdir   " 将文件所在路径设置为vim的当前路径
@@ -43,3 +44,5 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+set list
+set lcs=tab:\ .,nbsp:%

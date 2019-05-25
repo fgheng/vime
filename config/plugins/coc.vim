@@ -125,3 +125,5 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " show coclist
 nnoremap <silent> <space>l  :<C-u>CocList<CR>
+
+" autocmd FileType markdown let b:coc_pairs_disabled = ['`']
