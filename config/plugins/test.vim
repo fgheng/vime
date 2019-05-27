@@ -49,7 +49,7 @@ imap <c-t> <esc>:call OpenTerminalSCurrent()<cr>
 nnoremap <c-t> :call OpenTerminalSCurrent()<cr>
 
 " command Ter call OpenTerminalSCurrent()
-command Ter call OpenTerminalSWindow()
+command! Ter call OpenTerminalSWindow()
 
 "-----------------------------------------
 function! Tagbar_or_markdown_bar()
@@ -73,5 +73,11 @@ nnoremap <F3> :call Tagbar_or_markdown_bar()<cr>
 
 "----------------------------------------filetype
 " markdown 不换行
-autocmd FileType markdown setlocal nowrap
+augroup filetype_autocommand
+    au!
+    autocmd FileType markdown setlocal nowrap
+augroup END
 " autocmd FileType markdown setlocal spell
+
+"----------------------------------------自动resource
+" autocmd  BufWritePost *.vim source $MYVIMRC

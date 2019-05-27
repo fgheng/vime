@@ -3,9 +3,15 @@ inoremap jk <esc>
 "nnoremap ;; <esc>:
 " nnoremap q <esc>:close<cr>
 " vnoremap q <esc>:close<cr>
-nnoremap zz <esc>:close<cr>
-vnoremap zz <esc>:close<cr>
+nnoremap wq <esc>:close<cr>
+vnoremap wq <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr>
+
+inoremap <c-i> <esc>I
+inoremap <c-a> <esc>A
+" inoremap <c-h> <esc>xi
+" inoremap <c-l> <esc><right>xi
+" inoremap <c-w>
 
 " 窗口
 noremap <C-h> <C-w>h
@@ -26,7 +32,7 @@ nnoremap <c-w>j :exe 'to split' <cr>
 nnoremap <c-w>j :exe 'bo split' <cr>
 
 imap <C-s> <esc>:w<cr>
-" imap <C-o> <esc>o
+imap <C-o> <esc>o
 " buffer 操作
 nnoremap  [b :bp<CR>
 nnoremap  ]b :bn<CR>
@@ -88,7 +94,7 @@ nnoremap <silent> <M-w> :ChooseWin<CR>
 " nnoremap <M-i> :Autoformat<cr>
 
 "------------------------------------------- defx
-function Open_cur_file_dir()
+function! Open_cur_file_dir()
     exec 'wal'
     " let g:cur_dir = expand("%:p:h")
     " exec 'Defx '.g:cur_dir

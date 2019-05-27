@@ -60,6 +60,7 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'ryanoasis/vim-devicons'
+" Plug 'junegunn/vim-emoji'
 " "}}
 
 " "{{----------工具

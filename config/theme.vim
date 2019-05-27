@@ -13,9 +13,6 @@ autocmd! colorscheme PaperColor call s:patch_lucius_colors()
 " autocmd! colorscheme  tender call s:patch_lucius_colors()
 colorscheme PaperColor
 
-" set background=light
-" colorscheme PaperColor
-
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色
 hi Search cterm=NONE ctermfg=yellow ctermbg=NONE gui=NONE guifg=#FFFF00 guibg=NONE
@@ -29,7 +26,11 @@ highlight Lf_hl_match gui=bold guifg=Red cterm=bold ctermfg=21
 highlight Lf_hl_matchRefine  gui=bold guifg=Magenta cterm=bold ctermfg=201
 
 "------------------------statusline----------------------"
-set statusline=%F%m%r%h%w%=\ [ft=%Y]\ %{\"[fenc=\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\"+\":\"\").\"]\"}\ [ff=%{&ff}]\ [asc=%03.3b]\ [hex=%02.2B]\ [pos=%04l,%04v][%p%%]\ [len=%L]\ [coc=%{coc#status()}]
-set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}
+set statusline=%F%m%r%h%w%=\ ->花无重开日，人无再少年<-\ [ft:%Y]\ %{\"[fenc:\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\"+\":\"\").\"]\"}\ [ff:%{&ff}]\ [asc:%03.3b]\ [hex:%02.2B]\ [(%l,%v)/%L][%p%%]\ [coc:%{coc#status()}]
+set statusline+=[git:%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}]
 "set statusline^=%{FugitiveStatusline()}
 set laststatus=2
+
+" set statusline=%f
+" set statusline+=%y
+" set statusline+=[%l/%L]
