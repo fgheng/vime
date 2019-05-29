@@ -101,6 +101,8 @@ Plug 'voldikss/vim-translate-me', {'on': ['<Plug>Translate', '<Plug>TranslateW']
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'vim-scripts/ZoomWin'
 Plug 'troydm/zoomwintab.vim'
+Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
 " "}}
 "
 call plug#end()

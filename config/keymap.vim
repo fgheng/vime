@@ -3,12 +3,12 @@ inoremap jk <esc>
 "nnoremap ;; <esc>:
 " nnoremap q <esc>:close<cr>
 " vnoremap q <esc>:close<cr>
-nnoremap wq <esc>:close<cr>
-vnoremap wq <esc>:close<cr>
+nnoremap q <esc>:close<cr>
+vnoremap q <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr>
 
-inoremap <c-i> <esc>I
-inoremap <c-a> <esc>A
+imap <M-h> <esc>I
+imap <M-l> <esc>:exe "normal! A"
 " inoremap <c-h> <esc>xi
 " inoremap <c-l> <esc><right>xi
 " inoremap <c-w>
@@ -19,20 +19,21 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 " 更改窗口大小
-nmap <C-w>[ :vertical resize -3<CR>
-nmap <C-w>] :vertical resize +3<CR>
+nnoremap <C-w>[ :vertical resize -3<CR>
+nnoremap <C-w>] :vertical resize +3<CR>
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 " 分割窗口
 nnoremap <c-w>s <esc><c-w>s<esc><c-w>j
 nnoremap <c-w>v <esc><c-w>v<esc><c-w>l
-nnoremap <c-w>k :exe 'abo split' <cr>
-nnoremap <c-w>j :exe 'bel split' <cr>
-nnoremap <c-w>j :exe 'to split' <cr>
-nnoremap <c-w>j :exe 'bo split' <cr>
+nnoremap <c-w>k :abo split <cr>
+nnoremap <c-w>h :abo vsplit <cr>
+nnoremap <c-w>j :rightbelow split <cr>
+nnoremap <c-w>l :rightbelow vsplit <cr>
 
 imap <C-s> <esc>:w<cr>
-imap <C-o> <esc>o
+imap <M-o> <esc>o
+
 " buffer 操作
 nnoremap  [b :bp<CR>
 nnoremap  ]b :bn<CR>
@@ -46,10 +47,13 @@ vnoremap j gj
 vnoremap k gk
 
 "tabline operation
-nmap <leader>tn :tabnew<cr>
-nmap <leader>te :tabedit
-nmap <leader>tc :tabclose<cr>
-nmap <leader>tm :tabmove
+nnoremap <leader>tn :tabnew<cr>
+nnoremap <leader>te :tabedit
+nnoremap <leader>tc :tabclose<cr>
+nnoremap <leader>tm :tabmove
+" gt gT
+"nnoremap  ]t :tabNext<CR>
+" nnoremap  [t :tabprevious<CR>
 
 "yank to end
 nnoremap Y y$
@@ -74,7 +78,7 @@ nmap <silent> <c-]> <Plug>(ale_next_wrap)
 nnoremap <M-f> :LeaderfFile<CR>
 nnoremap <M-t> :LeaderfBufTag<CR>
 nnoremap <M-T> :LeaderfBufTagAll<CR>
-nnoremap <M-o> :LeaderfBufferAll<CR><TAB>
+nnoremap <M-o> :LeaderfBufferAll<CR>
 nnoremap <M-b> :LeaderfTabBufferAll<CR><TAB>
 nnoremap <M-s> :LeaderfLine<CR>
 nnoremap <M-S> :LeaderfLineAll<CR>
@@ -83,6 +87,9 @@ nnoremap <M-r> :LeaderfMru<CR>
 "------------------------------------------- easymotion
 nmap <M-k> <Plug>(easymotion-overwin-f)
 nmap <M-j> <Plug>(easymotion-overwin-line)
+imap <M-k> <esc><Plug>(easymotion-overwin-f)
+imap <M-j> <esc><Plug>(easymotion-overwin-line)
+" nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 "------------------------------------------- goyo
 nnoremap <F7> <esc>:Goyo<cr>
@@ -130,3 +137,20 @@ noremap <leader>s <esc>:Startify<cr>
 " nmap gs <Plug>(coc-git-chunkinfo)
 " " show commit ad current position
 " nmap gc <Plug>(coc-git-commit)
+
+"-------------------------------------------- quickfix
+let g:quickfix_is_open = 0
+function! QuickfixToggle()
+     if g:quickfix_is_open
+        cclose
+        let g:quickfix_is_open = 0
+        execute g:quickfix_return_to_window . "wincmd w"
+    else
+        let g:quickfix_return_to_window = winnr()
+        copen
+        let g:quickfix_is_open = 1
+    endif
+endfunction
+
+nnoremap <F10> :call QuickfixToggle()<cr>
+

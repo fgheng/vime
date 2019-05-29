@@ -1,6 +1,5 @@
 let g:coc_global_extensions =
             \ [
-            \ 'coc-python',
             \ 'coc-tsserver',
             \ 'coc-vimtex',
             \ 'coc-html',
@@ -16,6 +15,7 @@ let g:coc_global_extensions =
             " \ 'coc-java',
             " \ 'coc-sh',
             """""""
+            " \ 'coc-python',
             " \ 'coc-ccls',
             " \ 'coc-diagnostic',
             " \ 'coc-prettier',

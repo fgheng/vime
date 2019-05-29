@@ -1,6 +1,6 @@
 {
     "coc.preferences.colorSupport": true,
-    "coc.preferences.jumpCommand": "vsplit",
+    //"coc.preferences.jumpCommand": "vsplit",
     "coc.preferences.rootPatterns": [
         ".vim",
         ".git",
@@ -22,7 +22,7 @@
     "diagnostic.refreshOnInsertMode": true,
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "ϟ",
-    "python.autoComplete.addBrackets": true,
+    //"python.autoComplete.addBrackets": true,
     //"python.jediEnabled": false,
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
@@ -71,6 +71,18 @@
                     "directory": ".ccls-cache"
                 }
             }
+        },
+        "pyls": {
+            "command": "pyls",
+            "filetypes": [
+                "py",
+                "python"
+            ],
+            "rootPatterns": [
+                ".venv",
+                ".vim/",
+                ".git/",
+            ],
         },
         // jdt
         "java": {
