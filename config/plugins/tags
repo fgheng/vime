@@ -1,0 +1,203 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3fdf28bc/
+$FZF_DEFAULT_OPTS	fzf.vim	/^let $FZF_DEFAULT_OPTS = '--layout=reverse'$/;"	v
+'	defx.vim	/^    nnoremap <silent><buffer><expr> '       defx#do_action('toggle_select') . 'j'$/;"	m
+*	defx.vim	/^    nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')$/;"	m
+.	defx.vim	/^    nnoremap <silent><buffer><expr> .       defx#do_action('toggle_ignored_files')$/;"	m
+<2-LeftMouse>	defx.vim	/^    nnoremap <silent><buffer><expr> <2-LeftMouse> defx#is_directory() ? defx#do_action('open_tre/;"	m
+<C-g>	defx.vim	/^    nnoremap <silent><buffer><expr> <C-g>   defx#do_action('print')$/;"	m
+<C-l>	vimtex.vim	/^    inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u$/;"	m
+<C-r>	defx.vim	/^    nnoremap <silent><buffer><expr> <C-r>   defx#do_action('redraw')$/;"	m
+<Cr>	defx.vim	/^    nnoremap <silent><buffer><expr> <Cr>    defx#is_directory() ? defx#do_action('open_directory/;"	m
+<F3>	test.vim	/^nnoremap <F3> :call Tagbar_or_markdown_bar()<cr>$/;"	m
+<F8>	vim-dispatch.vim	/^nnoremap <F8> :Dispatch<cr>$/;"	m
+<F9>	test.vim	/^nnoremap <F9> :tabnew<cr>:term<cr>a$/;"	m
+<S-TAB>	coc.vim	/^inoremap <expr><S-TAB> pumvisible() ? "\\<C-p>" : "\\<C-h>"$/;"	m
+<TAB>	coc.vim	/^inoremap <silent><expr> <TAB>$/;"	m
+<c-space>	coc.vim	/^inoremap <silent><expr> <c-space> coc#refresh()$/;"	m
+<c-t>	test.vim	/^imap <c-t> <esc>:call OpenTerminalSCurrent()<cr>$/;"	m
+<c-t>	test.vim	/^nnoremap <c-t> :call OpenTerminalSCurrent()<cr>$/;"	m
+<cr>	coc.vim	/^inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :$/;"	m
+<space>[	coc.vim	/^nmap <silent> <space>[ <Plug>(coc-diagnostic-prev)$/;"	m
+<space>]	coc.vim	/^nmap <silent> <space>] <Plug>(coc-diagnostic-next)$/;"	m
+<space>c	coc.vim	/^nnoremap <silent> <space>c  :<C-u>CocList commands<cr>$/;"	m
+<space>d	coc.vim	/^nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>$/;"	m
+<space>e	coc.vim	/^nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>$/;"	m
+<space>f	coc.vim	/^nmap <space>f  <Plug>(coc-format-selected)$/;"	m
+<space>f	coc.vim	/^xmap <space>f  <Plug>(coc-format-selected)$/;"	m
+<space>k	coc.vim	/^nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>$/;"	m
+<space>l	coc.vim	/^nnoremap <silent> <space>l  :<C-u>CocList<CR>$/;"	m
+<space>p	coc.vim	/^nnoremap <silent> <space>p  :<C-u>CocListResume<CR>$/;"	m
+<space>qf	coc.vim	/^nmap <space>qf  <Plug>(coc-fix-current)$/;"	m
+<space>rn	coc.vim	/^nmap <space>rn <Plug>(coc-rename)$/;"	m
+<space>s	coc.vim	/^nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>$/;"	m
+<space>t	coc.vim	/^nnoremap <silent> <space>t  :<C-u>CocList outline<cr>$/;"	m
+DefxSmartCr	defx.vim	/^function! DefxSmartCr(_)$/;"	f
+DefxSmartL	defx.vim	/^function! DefxSmartL(_)$/;"	f
+Format	coc.vim	/^command! -nargs=0 Format :call CocAction('format')$/;"	c
+K	coc.vim	/^nnoremap <silent> K :call <SID>show_documentation()<CR>$/;"	m
+Mp	markdown.vim	/^command! -nargs=0 Mp :MarkdownPreview<cr>$/;"	c
+N	defx.vim	/^    nnoremap <silent><buffer><expr> N       defx#do_action('new_file')$/;"	m
+OpenFloatingWin	fzf.vim	/^function! OpenFloatingWin()$/;"	f
+OpenTerminalS	test.vim	/^    fu! OpenTerminalS()$/;"	f
+OpenTerminalSCurrent	test.vim	/^    fu! OpenTerminalSCurrent()$/;"	f
+OpenTerminalSWindow	test.vim	/^    fu! OpenTerminalSWindow()$/;"	f
+P	defx.vim	/^    nnoremap <silent><buffer><expr> P       defx#do_action('open', 'pedit')$/;"	m
+S	defx.vim	/^    nnoremap <silent><buffer><expr> S       defx#do_action('toggle_sort', 'time')$/;"	m
+Tagbar_or_markdown_bar	test.vim	/^function! Tagbar_or_markdown_bar()$/;"	f
+Ter	test.vim	/^command! Ter call OpenTerminalSWindow()$/;"	c
+X	defx.vim	/^    nnoremap <silent><buffer><expr> X       defx#do_action('execute_system')$/;"	m
+\\	defx.vim	/^    nnoremap <silent><buffer><expr> \\       defx#do_action('cd', getcwd())$/;"	m
+\x21	defx.vim	/^    nnoremap <silent><buffer><expr> !       defx#do_action('execute_command')$/;"	m
+dd	defx.vim	/^    nnoremap <silent><buffer><expr> dd      defx#do_action('remove_trash')$/;"	m
+filetype_autocommand	test.vim	/^augroup filetype_autocommand$/;"	a
+g:EasyMotion_do_mapping	vim-easymotion.vim	/^let g:EasyMotion_do_mapping = 0$/;"	v
+g:EasyMotion_smartcase	vim-easymotion.vim	/^let g:EasyMotion_smartcase = 1$/;"	v
+g:NERDSpaceDelims	nerdcommenter.vim	/^    let g:NERDSpaceDelims = 1$/;"	v
+g:NERDToggleCheckAllLines	nerdcommenter.vim	/^    let g:NERDToggleCheckAllLines = 1$/;"	v
+g:NERDTreeHijackNetrw	ranger.vim	/^let g:NERDTreeHijackNetrw = 0 " add this line if you use NERDTree$/;"	v
+g:UltiSnipsExpandTrigger	ultisnips.vim	/^let g:UltiSnipsExpandTrigger       = '<M-l>'$/;"	v
+g:UltiSnipsJumpBackwardTrigger	ultisnips.vim	/^let g:UltiSnipsJumpBackwardTrigger = '<M-h>'$/;"	v
+g:UltiSnipsJumpForwardTrigger	ultisnips.vim	/^let g:UltiSnipsJumpForwardTrigger  = '<M-l>'$/;"	v
+g:UltiSnipsSnippetDirectories	ultisnips.vim	/^let g:UltiSnipsSnippetDirectories = ['UltiSnips']$/;"	v
+g:UltiSnipsSnippetsDir	ultisnips.vim	/^let g:UltiSnipsSnippetsDir = '~\/.cache\/plugins\/vim-snippets\/'$/;"	v
+g:VM_default_mappings	vim-multiple-cursors.vim	/^let g:VM_default_mappings = 0$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps = {}$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Add Cursor At Pos"]           = '<C-c>'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Add Cursor Down"]             = '<C-Down>'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Add Cursor Up"]               = '<C-Up>'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Alt Skip"]                    = 'q'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Find Next"]                   = ']'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Find Operator"]               = "m"$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Find Prev"]                   = '['$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Goto Next"]                   = '}'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Goto Prev"]                   = '{'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Invert Direction"]            = 'o'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Remove Region"]               = 'Q'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Select All"]                  = '<c-a>'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Skip Region"]                 = '<C-s>'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Surround"]                    = 'S' " 需要vim-Surround支持$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Switch Mode"]                 = '<Tab>'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Visual Add"]                  = '\\\\a'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Visual All"]                  = '\\\\A'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps["Visual Regex"]                = '\\\\\/'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps['Find Subword Under']          = '<C-n>'$/;"	v
+g:VM_maps	vim-multiple-cursors.vim	/^let g:VM_maps['Find Under']                  = '<C-n>'$/;"	v
+g:VM_mouse_mappings	vim-multiple-cursors.vim	/^let g:VM_mouse_mappings = 0$/;"	v
+g:VM_mouse_mappings	vim-visual-multi.vim	/^let g:VM_mouse_mappings = 1$/;"	v
+g:ale_completion_enabled	ale.vim	/^let g:ale_completion_enabled = 1$/;"	v
+g:ale_cpp_ccls_init_options	ale.vim	/^let g:ale_cpp_ccls_init_options = {$/;"	v
+g:ale_echo_msg_error_str	ale.vim	/^let g:ale_echo_msg_error_str = 'ㄨ'$/;"	v
+g:ale_echo_msg_format	ale.vim	/^let g:ale_echo_msg_format = '[%severity% %linter%] -> %s'$/;"	v
+g:ale_echo_msg_warning_str	ale.vim	/^let g:ale_echo_msg_warning_str = 'ϟ'$/;"	v
+g:ale_linters	ale.vim	/^let g:ale_linters = {$/;"	v
+g:ale_linters_explicit	ale.vim	/^let g:ale_linters_explicit = 1$/;"	v
+g:ale_sign_column_always	ale.vim	/^let g:ale_sign_column_always = 1$/;"	v
+g:ale_sign_error	ale.vim	/^let g:ale_sign_error = 'E'$/;"	v
+g:ale_sign_warning	ale.vim	/^let g:ale_sign_warning = 'W'$/;"	v
+g:ale_statusline_format	ale.vim	/^let g:ale_statusline_format = ['ㄨ %d', 'ϟ %d', '✔ OK']$/;"	v
+g:better_whitespace_guicolor	vim-better-whitespace.vim	/^    let g:better_whitespace_guicolor='white'$/;"	v
+g:clever_f_across_no_line	clever-f.vim	/^let g:clever_f_across_no_line=0$/;"	v
+g:clever_f_show_prompt	clever-f.vim	/^let g:clever_f_show_prompt=1$/;"	v
+g:clever_f_smart_case	clever-f.vim	/^let g:clever_f_smart_case=1$/;"	v
+g:closetag_close_shortcut	vim-closetag.vim	/^let g:closetag_close_shortcut = '<leader>>'$/;"	v
+g:closetag_emptyTags_caseSensitive	vim-closetag.vim	/^let g:closetag_emptyTags_caseSensitive = 1$/;"	v
+g:closetag_filenames	vim-closetag.vim	/^let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.xml'$/;"	v
+g:closetag_filetypes	vim-closetag.vim	/^let g:closetag_filetypes = 'html,xhtml,phtml'$/;"	v
+g:closetag_regions	vim-closetag.vim	/^let g:closetag_regions = {$/;"	v
+g:closetag_shortcut	vim-closetag.vim	/^let g:closetag_shortcut = '>'$/;"	v
+g:closetag_xhtml_filetypes	vim-closetag.vim	/^let g:closetag_xhtml_filetypes = 'xhtml,jsx'$/;"	v
+g:coc_global_extensions	coc.vim	/^let g:coc_global_extensions =$/;"	v
+g:coc_snippet_next	coc.vim	/^let g:coc_snippet_next = '<M-l>'$/;"	v
+g:coc_snippet_pre	coc.vim	/^let g:coc_snippet_pre = '<M-h>'$/;"	v
+g:defx_git#indicators	defx.vim	/^let g:defx_git#indicators = {$/;"	v
+g:defx_icons_column_length	defx.vim	/^let g:defx_icons_column_length = 2$/;"	v
+g:defx_icons_default_icon	defx.vim	/^let g:defx_icons_default_icon = ''$/;"	v
+g:defx_icons_directory_icon	defx.vim	/^let g:defx_icons_directory_icon = ''$/;"	v
+g:defx_icons_directory_symlink_icon	defx.vim	/^let g:defx_icons_directory_symlink_icon = ''$/;"	v
+g:defx_icons_enable_syntax_highlight	defx.vim	/^let g:defx_icons_enable_syntax_highlight = 1$/;"	v
+g:defx_icons_mark_icon	defx.vim	/^let g:defx_icons_mark_icon = '*'$/;"	v
+g:defx_icons_nested_closed_tree_icon	defx.vim	/^let g:defx_icons_nested_closed_tree_icon = ''$/;"	v
+g:defx_icons_nested_opened_tree_icon	defx.vim	/^let g:defx_icons_nested_opened_tree_icon = ''$/;"	v
+g:defx_icons_parent_icon	defx.vim	/^let g:defx_icons_parent_icon = ''$/;"	v
+g:defx_icons_root_opened_tree_icon	defx.vim	/^let g:defx_icons_root_opened_tree_icon = ''$/;"	v
+g:formatdef_my_custom_c	vim-autoformat.vim	/^let g:formatdef_my_custom_c = "'astyle --mode=c --style=allman '"$/;"	v
+g:formatdef_my_custom_cpp	vim-autoformat.vim	/^let g:formatdef_my_custom_cpp = "'astyle --style=google' "$/;"	v
+g:formatdef_my_custom_h	vim-autoformat.vim	/^let g:formatdef_my_custom_h = '"astyle --mode=c --style=allman" '$/;"	v
+g:formatdef_my_custom_hpp	vim-autoformat.vim	/^let g:formatdef_my_custom_hpp = "'astyle --style=google' "$/;"	v
+g:formatdef_my_custom_java	vim-autoformat.vim	/^let g:formatdef_my_custom_java = "'astyle --style=java'"$/;"	v
+g:formatdef_my_custom_py	vim-autoformat.vim	/^let g:formatdef_my_custom_py = "'autopep8 --in-place --aggressive --max-line-length=120 '"$/;"	v
+g:formatters_c	vim-autoformat.vim	/^let g:formatters_c = ['my_custom_c']$/;"	v
+g:formatters_cpp	vim-autoformat.vim	/^let g:formatters_cpp = ['my_custom_cpp']$/;"	v
+g:formatters_h	vim-autoformat.vim	/^let g:formatters_h = ['my_custom_h']$/;"	v
+g:formatters_hpp	vim-autoformat.vim	/^let g:formatters_hpp = ['my_custom_hpp']$/;"	v
+g:formatters_java	vim-autoformat.vim	/^let g:formatters_java = ['my_custom_java']$/;"	v
+g:formatters_py	vim-autoformat.vim	/^let g:formatters_py = ['my_custom_py']$/;"	v
+g:fzf_layout	fzf.vim	/^let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }$/;"	v
+g:goyo_height	goyo.vim	/^let g:goyo_height = '90%'$/;"	v
+g:goyo_linenr	goyo.vim	/^let g:goyo_linenr = 4$/;"	v
+g:goyo_width	goyo.vim	/^let g:goyo_width = '80'$/;"	v
+g:indentLine_char	indentline.vim	/^let g:indentLine_char = '┊'$/;"	v
+g:indentLine_concealcursor	indentline.vim	/^let g:indentLine_concealcursor = 'niv'$/;"	v
+g:indentLine_enable	indentline.vim	/^let g:indentLine_enable = 1$/;"	v
+g:indentline_filetypeexclude	indentline.vim	/^let g:indentline_filetypeexclude = ['startify']$/;"	v
+g:limelight_bop	limelight.vim	/^    let g:limelight_bop = '^\\s'$/;"	v
+g:limelight_conceal_ctermfg	limelight.vim	/^    let g:limelight_conceal_ctermfg = 'gray'$/;"	v
+g:limelight_conceal_ctermfg	limelight.vim	/^    let g:limelight_conceal_ctermfg = 240$/;"	v
+g:limelight_conceal_guifg	limelight.vim	/^    let g:limelight_conceal_guifg = '#777777'$/;"	v
+g:limelight_conceal_guifg	limelight.vim	/^    let g:limelight_conceal_guifg = 'DarkGray'$/;"	v
+g:limelight_default_coefficient	limelight.vim	/^    let g:limelight_default_coefficient = 0.7$/;"	v
+g:limelight_eop	limelight.vim	/^    let g:limelight_eop = '\\ze\\n^\\s'$/;"	v
+g:limelight_paragraph_span	limelight.vim	/^    let g:limelight_paragraph_span = 5$/;"	v
+g:limelight_priority	limelight.vim	/^    let g:limelight_priority = -1$/;"	v
+g:markdown_fenced_languages	vim-markdown.vim	/^let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']$/;"	v
+g:markdown_minlines	vim-markdown.vim	/^let g:markdown_minlines = 50$/;"	v
+g:markdown_syntax_conceal	vim-markdown.vim	/^let g:markdown_syntax_conceal = 1$/;"	v
+g:mta_filetypes	MatchTagAlways.vim	/^let g:mta_filetypes = {$/;"	v
+g:mundo_help	vim-mundo.vim	/^let g:mundo_help = 0$/;"	v
+g:mundo_preview_bottom	vim-mundo.vim	/^let g:mundo_preview_bottom = 1$/;"	v
+g:mundo_preview_height	vim-mundo.vim	/^let g:mundo_preview_height = 15$/;"	v
+g:mundo_right	vim-mundo.vim	/^let g:mundo_right = 1$/;"	v
+g:mundo_width	vim-mundo.vim	/^let g:mundo_width = 60$/;"	v
+g:rainbow_active	rainbow.vim	/^    let g:rainbow_active = 1$/;"	v
+g:ranger_replace_netrw	ranger.vim	/^let g:ranger_replace_netrw = 1 " open ranger when vim open a directory$/;"	v
+g:startify_custom_footer	startify.vim	/^let g:startify_custom_footer = [$/;"	v
+g:startify_custom_header	startify.vim	/^let g:startify_custom_header = [$/;"	v
+g:startify_padding_left	startify.vim	/^let g:startify_padding_left = 10$/;"	v
+g:strip_whitespace_confirm	vim-better-whitespace.vim	/^    let g:strip_whitespace_confirm = 0$/;"	v
+g:strip_whitespace_on_save	vim-better-whitespace.vim	/^    let g:strip_whitespace_on_save = 1$/;"	v
+g:tagbar_width	tagbar.vim	/^let g:tagbar_width = 35$/;"	v
+g:tex_flavor	vimtex.vim	/^let g:tex_flavor='latex'$/;"	v
+g:vim_markdown_folding_disabled	markdown.vim	/^let g:vim_markdown_folding_disabled=1 " 取消markdown的默认折叠$/;"	v
+g:vim_markdown_toc_autofit	markdown.vim	/^let g:vim_markdown_toc_autofit=1    " toc自动修复$/;"	v
+g:vimtex_quickfix_mode	vimtex.vim	/^let g:vimtex_quickfix_mode=0$/;"	v
+g:vimtex_view_method	vimtex.vim	/^let g:vimtex_view_method='zathura'$/;"	v
+g:vtm_default_api	vim-translate-me.vim	/^let g:vtm_default_api='youdao'$/;"	v
+g:vtm_default_to_lang	vim-translate-me.vim	/^let g:vtm_default_to_lang='en'$/;"	v
+gd	coc.vim	/^nmap <silent> gd <Plug>(coc-definition)$/;"	m
+gi	coc.vim	/^nmap <silent> gi <Plug>(coc-implementation)$/;"	m
+gr	coc.vim	/^nmap <silent> gr <Plug>(coc-references)$/;"	m
+gy	coc.vim	/^nmap <silent> gy <Plug>(coc-type-definition)$/;"	m
+h	defx.vim	/^    nnoremap <silent><buffer><expr> h       defx#is_opened_tree() ? defx#do_action('close_tree')/;"	m
+j	defx.vim	/^    nnoremap <silent><buffer><expr> j       line('.') == line('$') ? 'gg' : 'j'$/;"	m
+k	defx.vim	/^    nnoremap <silent><buffer><expr> k       line('.') == 1 ? 'G' : 'k'$/;"	m
+l	defx.vim	/^    nnoremap <silent><buffer><expr> l       defx#do_action('call', 'DefxSmartL')$/;"	m
+m	defx.vim	/^    nnoremap <silent><buffer><expr> m       defx#do_action('move')$/;"	m
+mygroup	coc.vim	/^augroup mygroup$/;"	a
+o	defx.vim	/^    nnoremap <silent><buffer><expr> o       defx#do_action('call', 'DefxSmartL')$/;"	m
+p	defx.vim	/^    nnoremap <silent><buffer><expr> p       defx#do_action('paste')$/;"	m
+q	defx.vim	/^    nnoremap <silent><buffer><expr> q       defx#do_action('quit')$/;"	m
+r	defx.vim	/^    nnoremap <silent><buffer><expr> r       defx#do_action('rename')$/;"	m
+s:check_back_space	coc.vim	/^function! s:check_back_space() abort$/;"	f
+s:defx_my_settings	defx.vim	/^function! s:defx_my_settings() abort$/;"	f
+s:show_documentation	coc.vim	/^function! s:show_documentation()$/;"	f
+sh	defx.vim	/^    nnoremap <silent><buffer><expr> sh      defx#do_action('drop', 'split')$/;"	m
+st	defx.vim	/^    nnoremap <silent><buffer><expr> st      defx#do_action('drop', 'tabedit')$/;"	m
+sv	defx.vim	/^    nnoremap <silent><buffer><expr> sv      defx#do_action('drop', 'vsplit')$/;"	m
+yy	defx.vim	/^    nnoremap <silent><buffer><expr> yy      defx#do_action('copy')$/;"	m
+~	defx.vim	/^    nnoremap <silent><buffer><expr> ~       defx#do_action('cd')$/;"	m

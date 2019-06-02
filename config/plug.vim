@@ -70,7 +70,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-expand-region'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
-Plug 'Yggdroot/LeaderF',  { 'do': './install.sh' }
+" Plug 'Yggdroot/LeaderF',  { 'do': './install.sh' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else

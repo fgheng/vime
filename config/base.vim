@@ -36,6 +36,12 @@ set switchbuf=useopen,usetab,newtab "这样quickfix里面的跳转会先复用�
 set tw=80
 set shortmess+=c
 set hidden " 终端隐藏后不结束
+set nobackup
+set nowritebackup
+set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
+set shortmess+=c " don't give ins-completion-menu messages.
+set signcolumn=yes " always show signcolumns
+
 if has('nvim')
     set signcolumn=auto:3 " neovim的新特性，标识列自动变化
 else

@@ -75,14 +75,26 @@ nmap <silent> <c-]> <Plug>(ale_next_wrap)
 " nmap b] <Plug>AirlineSelectNextTab
 
 "------------------------------------------- leaderf
-nnoremap <M-f> :LeaderfFile<CR>
-nnoremap <M-t> :LeaderfBufTag<CR>
-nnoremap <M-T> :LeaderfBufTagAll<CR>
-nnoremap <M-o> :LeaderfBufferAll<CR>
-nnoremap <M-b> :LeaderfTabBufferAll<CR><TAB>
-nnoremap <M-s> :LeaderfLine<CR>
-nnoremap <M-S> :LeaderfLineAll<CR>
-nnoremap <M-r> :LeaderfMru<CR>
+" nnoremap <M-f> :LeaderfFile<CR>
+" nnoremap <M-t> :LeaderfBufTag<CR>
+" nnoremap <M-T> :LeaderfBufTagAll<CR>
+" nnoremap <M-o> :LeaderfBufferAll<CR>
+" nnoremap <M-b> :LeaderfTabBufferAll<CR><TAB>
+" nnoremap <M-s> :LeaderfLine<CR>
+" nnoremap <M-S> :LeaderfLineAll<CR>
+" nnoremap <M-r> :LeaderfMru<CR>
+
+"------------------------------------------- fzf
+nnoremap <M-f> :Files<CR>
+nnoremap <M-t> :BTags<CR>
+nnoremap <M-T> :Tags<CR>
+nnoremap <M-o> :Buffers<CR>
+nnoremap <M-s> :BLines<CR>
+nnoremap <M-S> :Lines<CR>
+nnoremap <M-r> :History<CR>
+nnoremap <M-g> :GFiles?<CR>
+nnoremap <M-G> :GFiles<CR>
+nnoremap <M-m> :Marks<CR>
 
 "------------------------------------------- easymotion
 nmap <M-k> <Plug>(easymotion-overwin-f)

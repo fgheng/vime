@@ -23,7 +23,8 @@
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "ϟ",
     //"python.autoComplete.addBrackets": true,
-    //"python.jediEnabled": false,
+    "python.jediEnabled": true,
+
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
     "list.maxHeight": 10,
@@ -84,7 +85,7 @@
                 ".git/",
             ],
         },
-        // jdt
+        // jdtls
         "java": {
             "command": "jdtls",
             "filetypes": [
