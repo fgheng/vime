@@ -87,3 +87,4 @@ augroup END
 
 "----------------------------------------自动resource
 " autocmd  BufWritePost *.vim source $MYVIMRC
+"

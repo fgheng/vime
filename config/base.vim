@@ -28,7 +28,9 @@ set ead=ver
 " set noshowmode " 不显示模式
 set cmdheight=1
 "set autochdir   " 将文件所在路径设置为vim的当前路径
+set autowrite " 在切换文件的时候自动存盘
 let autosave=10
+set backup " 在当前文件下生成备份文件
 set laststatus=0
 set colorcolumn=80 " 高亮第80行
 "set conceallevel=0  " json正常显示文本

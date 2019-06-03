@@ -2,16 +2,16 @@ function! s:patch_lucius_colors()
     if has('termguicolors')
         set termguicolors
     endif
-    hi Normal     ctermbg=NONE guibg=NONE
-    hi LineNr     ctermbg=NONE guibg=NONE
-    hi SignColumn ctermbg=NONE guibg=NONE
+    " hi Normal     ctermbg=NONE guibg=NONE
+    " hi LineNr     ctermbg=NONE guibg=NONE
+    " hi SignColumn ctermbg=NONE guibg=NONE
     " set background=light
 
 endfunction
 
-autocmd! colorscheme PaperColor call s:patch_lucius_colors()
+autocmd! colorscheme space-vim-dark call s:patch_lucius_colors()
 " autocmd! colorscheme  tender call s:patch_lucius_colors()
-colorscheme PaperColor
+colorscheme space-vim-dark
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色

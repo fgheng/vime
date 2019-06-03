@@ -12,6 +12,7 @@ let g:coc_global_extensions =
             \ 'coc-emoji',
             \ 'coc-highlight',
             \ 'coc-calc',
+            \ 'coc-git',
             \ ]
             " \ 'coc-java',
             " \ 'coc-sh',

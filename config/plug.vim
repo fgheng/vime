@@ -105,6 +105,7 @@ Plug 'voldikss/vim-translate-me', {'on': ['<Plug>Translate', '<Plug>TranslateW']
 Plug 'troydm/zoomwintab.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
+Plug 'thinca/vim-quickrun'
 " "}}
 "
 call plug#end()

@@ -90,7 +90,7 @@ nnoremap <M-t> :BTags<CR>
 nnoremap <M-T> :Tags<CR>
 nnoremap <M-o> :Buffers<CR>
 nnoremap <M-s> :BLines<CR>
-nnoremap <M-S> :Lines<CR>
+nnoremap <M-S> :Rg<CR>
 nnoremap <M-r> :History<CR>
 nnoremap <M-g> :GFiles?<CR>
 nnoremap <M-G> :GFiles<CR>

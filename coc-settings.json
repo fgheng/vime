@@ -22,15 +22,29 @@
     "diagnostic.refreshOnInsertMode": true,
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "ϟ",
+    "diagnostic.displayByAle": false,
     //"python.autoComplete.addBrackets": true,
-    "python.jediEnabled": true,
+    //"python.jediEnabled": true,
 
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
     "list.maxHeight": 10,
     "list.previewSplitRight": true,
 
-    "git.removedSign.text": "-",
+    //snippet
+    "coc.preferences.snippetStatusText": "Ⓢ ",
+    //git
+    "git.enableGutters": true,
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    "git.addedSign.text":"▎",
+    "git.changedSign.text":"▎",
+    "git.removedSign.text":"▏",
+    "git.topRemovedSign.text": "▔",
+    "git.changeRemovedSign.text": "▋",
 
     // lsp
     "languageserver": {

@@ -40,7 +40,7 @@ call defx#custom#column('mark', {
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
 
-    nnoremap <silent><buffer><expr> '       defx#do_action('toggle_select') . 'j'
+    nnoremap <silent><buffer><expr> V       defx#do_action('toggle_select') . 'j'
     nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')
     nnoremap <silent><buffer><expr> X       defx#do_action('execute_system')
     nnoremap <silent><buffer><expr> yy      defx#do_action('copy')

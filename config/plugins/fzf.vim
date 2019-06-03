@@ -8,12 +8,6 @@ function! OpenFloatingWin()
   let height = &lines - 3
   let width = float2nr(&columns - (&columns * 2 / 10))
   let col = float2nr((&columns - width) / 2)
-  " echom "win height ".l:height
-  " echom "win width ".l:width
-  " echom "columns ".&columns
-  " echom "pos x ".l:col
-  " echom "lines ".&lines
-  " echom "pos y".l:height
 
   " 设置浮动窗口打开的位置，大小等。
   " 这里的大小配置可能不是那么的 flexible 有继续改进的空间
@@ -30,7 +24,27 @@ function! OpenFloatingWin()
 
   " 设置浮动窗口高亮
   call setwinvar(win, '&winhl', 'Normal:Pmenu')
+  call setwinvar(win, '&relativenumber', 0)
 
+  " let buf = nvim_create_buf(v:false, v:true)
+  " call setbufvar(buf, 'number', 'no')
+
+  " let height = float2nr(&lines/2)
+  " let width = float2nr(&columns - (&columns * 2 / 10))
+  " "let width = &columns
+  " let row = float2nr(&lines / 3)
+  " let col = float2nr((&columns - width) / 3)
+
+  " let opts = {
+  "       \ 'relative': 'editor',
+  "       \ 'row': row,
+  "       \ 'col': col,
+  "       \ 'width': width,
+  "       \ 'height':height,
+  "       \ }
+  " let win =  nvim_open_win(buf, v:true, opts)
+  " call setwinvar(win, '&number', 0)
+  " call setwinvar(win, '&relativenumber', 0)
   setlocal
         \ buftype=nofile
         \ nobuflisted
@@ -60,3 +74,28 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', '#5f5f87'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+if executable('rg')
+  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+  set grepprg=rg\ --vimgrep
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+endif
+
+let g:fzf_commits_log_options = '--graph --color=always
+  \ --format="%C(yellow)%h%C(red)%d%C(reset)
+  \ - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)"'
