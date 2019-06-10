@@ -23,14 +23,12 @@
     "diagnostic.errorSign": "✖",
     "diagnostic.warningSign": "ϟ",
     "diagnostic.displayByAle": false,
-    //"python.autoComplete.addBrackets": true,
-    //"python.jediEnabled": true,
-
+    "python.autoComplete.addBrackets": true,
+    "python.jediEnabled": true,
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
     "list.maxHeight": 10,
     "list.previewSplitRight": true,
-
     //snippet
     "coc.preferences.snippetStatusText": "Ⓢ ",
     //git
@@ -40,12 +38,11 @@
     "git.removedSign.hlGroup": "GitGutterDelete",
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
     "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-    "git.addedSign.text":"▎",
-    "git.changedSign.text":"▎",
-    "git.removedSign.text":"▏",
+    "git.addedSign.text": "▎",
+    "git.changedSign.text": "▎",
+    "git.removedSign.text": "▏",
     "git.topRemovedSign.text": "▔",
     "git.changeRemovedSign.text": "▋",
-
     // lsp
     "languageserver": {
         // 安装bash-language-server
@@ -55,7 +52,9 @@
                 "start"
             ],
             "filetypes": [
-                "sh", "bash", "zsh"
+                "sh",
+                "bash",
+                "zsh"
             ],
             "ignoredRootPaths": [
                 "~"
@@ -64,6 +63,7 @@
         // 安装ccls
         "ccls": {
             "command": "ccls",
+            "trace.server": "verbose",
             "filetypes": [
                 "c",
                 "cpp",
@@ -83,22 +83,89 @@
             ],
             "initializationOptions": {
                 "cache": {
-                    "directory": ".ccls-cache"
+                    "directory": "/tmp/ccls-cache"
                 }
             }
         },
-        "pyls": {
-            "command": "pyls",
-            "filetypes": [
-                "py",
-                "python"
-            ],
-            "rootPatterns": [
-                ".venv",
-                ".vim/",
-                ".git/",
-            ],
-        },
+        //"pyls": {
+        //    "command": "pyls",
+        //    "filetypes": [
+        //        "py",
+        //        "python"
+        //    ],
+        //    "rootPatterns": [
+        //        ".venv",
+        //        ".vim/",
+        //        ".git/",
+        //    ],
+        //},
+        //"python": {
+        //    "command": "python",
+        //    "args": [
+        //        "-mpyls",
+        //        "-vv",
+        //        "--log-file",
+        //        "/tmp/lsp_python.log"
+        //    ],
+        //    "trace.server": "verbose",
+        //    "filetypes": [
+        //        "python"
+        //    ],
+        //    "settings": {
+        //        "pyls": {
+        //            "enable": true,
+        //            "trace": {
+        //                "server": "verbose"
+        //            },
+        //            "commandPath": "",
+        //            "configurationSources": [
+        //                "pycodestyle"
+        //            ],
+        //            "plugins": {
+        //                "jedi_completion": {
+        //                    "enabled": true
+        //                },
+        //                "jedi_hover": {
+        //                    "enabled": true
+        //                },
+        //                "jedi_references": {
+        //                    "enabled": true
+        //                },
+        //                "jedi_signature_help": {
+        //                    "enabled": true
+        //                },
+        //                "jedi_symbols": {
+        //                    "enabled": true,
+        //                    "all_scopes": true
+        //                },
+        //                "mccabe": {
+        //                    "enabled": true,
+        //                    "threshold": 15
+        //                },
+        //                "preload": {
+        //                    "enabled": true
+        //                },
+        //                "pycodestyle": {
+        //                    "enabled": true
+        //                },
+        //                "pydocstyle": {
+        //                    "enabled": false,
+        //                    "match": "(?!test_).*\\.py",
+        //                    "matchDir": "[^\\.].*"
+        //                },
+        //                "pyflakes": {
+        //                    "enabled": true
+        //                },
+        //                "rope_completion": {
+        //                    "enabled": true
+        //                },
+        //                "yapf": {
+        //                    "enabled": true
+        //                }
+        //            }
+        //        }
+        //    }
+        //},
         // jdtls
         "java": {
             "command": "jdtls",
@@ -111,6 +178,12 @@
                 ".git",
                 ".vim"
             ]
+        },
+        "latex": {
+            "command": "java",
+            "args": ["-jar", "~/Software/texlab.jar"],
+            "ignoreRootPaths": ["~"],
+            "filetypes": ["tex", "bib", "plaintex", "context"]
         }
     },
 }

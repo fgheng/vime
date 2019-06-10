@@ -94,8 +94,6 @@ function! DefxSmartL(_)
     else
         let filepath = defx#get_candidate()['action__path']
         if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
-            " 应该改为判断当前defx是否已经打开
-            " exec 'Defx'
             if exists(':ChooseWin') == 2
                 ChooseWin
             else
@@ -123,12 +121,12 @@ endfunction
 " defx git
 let g:defx_git#indicators = {
     \ 'Modified'  : 'M',
-    \ 'Staged'    : 'm',
+    \ 'Staged'    : 'S',
     \ 'Untracked' : '?',
-    \ 'Renamed'   : '≫',
-    \ 'Unmerged'  : 'u',
-    \ 'Ignored'   : 'i',
-    \ 'Deleted'   : '✖',
+    \ 'Renamed'   : 'R',
+    \ 'Unmerged'  : 'U',
+    \ 'Ignored'   : 'I',
+    \ 'Deleted'   : 'D',
     \ 'Unknown'   : '⁇'
     \ }
 

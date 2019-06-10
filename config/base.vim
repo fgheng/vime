@@ -45,7 +45,8 @@ set shortmess+=c " don't give ins-completion-menu messages.
 set signcolumn=yes " always show signcolumns
 
 if has('nvim')
-    set signcolumn=auto:3 " neovim的新特性，标识列自动变化
+    " set signcolumn=auto:3 " neovim的新特性，标识列自动变化
+    set signcolumn=yes
 else
     set scl=yes
 endif
@@ -57,3 +58,5 @@ endif
 
 set list
 set lcs=tab:\ .,nbsp:%
+
+let g:tex_flavor = "latex"

@@ -32,8 +32,8 @@ let g:ale_statusline_format = ['ㄨ %d', 'ϟ %d', '✔ OK']
 let g:ale_echo_msg_format = '[%severity% %linter%] -> %s'
 let g:ale_echo_msg_error_str = 'ㄨ'
 let g:ale_echo_msg_warning_str = 'ϟ'
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
+" highlight clear ALEErrorSign
+" highlight clear ALEWarningSign
 
 "ccls
 let g:ale_cpp_ccls_init_options = {

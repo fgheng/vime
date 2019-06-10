@@ -1,5 +1,6 @@
 let g:coc_global_extensions =
             \ [
+            \ 'coc-python',
             \ 'coc-tsserver',
             \ 'coc-vimlsp',
             \ 'coc-vimtex',
@@ -13,10 +14,13 @@ let g:coc_global_extensions =
             \ 'coc-highlight',
             \ 'coc-calc',
             \ 'coc-git',
+            \ 'coc-marketplace'
             \ ]
+            """""""
             " \ 'coc-java',
             " \ 'coc-sh',
-            """""""
+            " \ 'coc-pyls',
+            " \ 'coc-lists',
             " \ 'coc-python',
             " \ 'coc-ccls',
             " \ 'coc-diagnostic',
@@ -29,7 +33,6 @@ let g:coc_global_extensions =
             " \ 'coc-git',
 
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-" 使用ctrl j ctrl k来跳转补全块
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -75,7 +78,7 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
 
 " Highlight symbol under cursor on CursorHold
-set updatetime=100
+set updatetime=50
 au CursorHold * silent call CocActionAsync('highlight')
 au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
@@ -94,7 +97,7 @@ augroup end
 " xmap <leader>a  <Plug>(coc-codeaction-selected)
 " nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap for do codeAction of current line
-" nmap <leader>ac  <Plug>(coc-codeaction)
+" nmap <leader>al  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 " lsp如果实现quickfix功能，那么通过space qf就可以快速进行修复
 nmap <space>qf  <Plug>(coc-fix-current)
@@ -104,9 +107,10 @@ xmap <space>f  <Plug>(coc-format-selected)
 nmap <space>f  <Plug>(coc-format-selected)
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 Run :call CocAction('codeAction')
 
 " Use `:Fold` to fold current buffer
-"command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Using CocList
 " Show all diagnostics
@@ -115,6 +119,7 @@ nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
 nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+vnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
 nnoremap <silent> <space>t  :<C-u>CocList outline<cr>
 " Search workspace symbols
@@ -127,5 +132,6 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " show coclist
 nnoremap <silent> <space>l  :<C-u>CocList<CR>
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 
 " autocmd FileType markdown let b:coc_pairs_disabled = ['`']

@@ -33,10 +33,11 @@ nnoremap <c-w>l :rightbelow vsplit <cr>
 
 imap <C-s> <esc>:w<cr>
 imap <M-o> <esc>o
+imap <M-O> <esc>O
 
 " buffer 操作
-nnoremap  [b :bp<CR>
-nnoremap  ]b :bn<CR>
+nnoremap  <m-[> :bp<CR>
+nnoremap  <m-]> :bn<CR>
 nnoremap <C-x>  :bd<CR>
 
 noremap <space><space> <esc>:wal<cr>
@@ -52,8 +53,10 @@ nnoremap <leader>te :tabedit
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tm :tabmove
 " gt gT
-"nnoremap  ]t :tabNext<CR>
-" nnoremap  [t :tabprevious<CR>
+nnoremap  <m-l> :tabnext<cr>
+nnoremap  <m-h> :tabprevious<CR>
+tnoremap  <m-l> <c-\><c-n>:tabnext<cr>
+tnoremap  <m-h> <c-\><c-n>:tabprevious<CR>
 
 "yank to end
 nnoremap Y y$

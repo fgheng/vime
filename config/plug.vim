@@ -17,8 +17,6 @@ Plug 'valloric/MatchTagAlways', {'for': ['html', 'htm', 'xml', 'xhtml']}
 " "}}
 
 " "{{--------viml
-Plug 'Shougo/neco-vim', {'for': ['vim', 'viml']}
-Plug 'neoclide/coc-neco', {'for': ['vim', 'viml']}
 Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
 " "}}
 
@@ -43,7 +41,7 @@ Plug 'w0rp/ale'
 
 " "{{---------文档类
 Plug 'scrooloose/nerdcommenter'
-" Plug 'vim-scripts/DoxygenToolkit.vim', {'on': ['Dox', 'DoxAuthor', 'DoxBlock', 'DoxLic', 'DoxUndoc' ]}
+Plug 'vim-scripts/DoxygenToolkit.vim', {'on': ['Dox', 'DoxAuthor', 'DoxBlock', 'DoxLic', 'DoxUndoc' ]}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 " "}}
@@ -86,7 +84,6 @@ if has('nvim')
     Plug 'rbgrouleff/bclose.vim'
 endif
 Plug 'francoiscabrol/ranger.vim'
-"Plug 'Lokaltog/neoranger'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'SirVer/ultisnips'
