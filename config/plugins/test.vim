@@ -123,8 +123,10 @@ fu! OpenTerminalTab()
     else
         " 终端不存在,新建tab,新建终端
         if has('nvim')
+            echom "create new term"
             exe "tabnew | term"
         else
+            echom "vim create new term"
             exe "tabnew"
             exe "call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})"
         endif
@@ -137,10 +139,12 @@ endf
 
 fu! OpenTerminalTabToggle()
     " 位于终端处,关闭终端
-    if bufname("%") == s:tbna
+    if bufname("%") && bufname("%") == s:tbna
+        echom "close tab"
         exe "tabclose"
     else
         " 没有位于终端处, 打开终端
+        echom "will open termianl"
         :call OpenTerminalTab()
     endif
 endf
