@@ -1,6 +1,3 @@
-" auto-pairs config begin
+if HasPlug('auto-pairs')
 
-" if !empty(glob(plug_home."/auto-pairs"))
-
-" endif
-" auto-pairs config end
+endif

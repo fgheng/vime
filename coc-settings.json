@@ -43,6 +43,9 @@
     "git.removedSign.text": "▏",
     "git.topRemovedSign.text": "▔",
     "git.changeRemovedSign.text": "▋",
+
+    "project.dbpath": "~/cache/.coc-project",
+
     // lsp
     "languageserver": {
         // 安装bash-language-server
@@ -182,7 +185,6 @@
         "latex": {
             "command": "java",
             "args": ["-jar", "~/Software/texlab.jar"],
-            "ignoreRootPaths": ["~"],
             "filetypes": ["tex", "bib", "plaintex", "context"]
         }
     },

@@ -9,6 +9,9 @@ let file_list = split(globpath(plugin_config_path,'*.vim'),'\n')
 " 定义加载文件的命令
 command! -nargs=1 LoadScript exec 'source '.s:home.'/'.'<args>'
 
+" 加载插件
+LoadScript plug.vim
+
 " 加载基础配置
 LoadScript base.vim
 
@@ -18,8 +21,6 @@ LoadScript keymap.vim
 " 加载主题配置
 LoadScript theme.vim
 
-" 加载插件
-LoadScript plug.vim
 " 加载插件配置
 for file in file_list
     exec 'source' fnameescape(file)

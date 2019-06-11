@@ -47,13 +47,12 @@ Plug 'yianwillis/vimcdoc'
 " "}}
 
 " "{{---------美化
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot' " 代码着色
 Plug 'Yggdroot/indentLine', { 'for': ['asm', 'h', 'hpp', 'c', 'cpp', 'python', 'js', 'ts', 'java', 'go', 'html', 'css', 'vim', 'sh', 'tex']}
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
-" Plug 'liuchengxu/eleline.vim'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Plug 'bagrat/vim-buffet'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
@@ -68,9 +67,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-expand-region'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
-" Plug 'Yggdroot/LeaderF',  { 'do': './install.sh' }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/LeaderF',  { 'do': './install.sh' }
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -106,3 +105,12 @@ Plug 'thinca/vim-quickrun'
 " "}}
 "
 call plug#end()
+
+" 判断是否有这个插件
+function! HasPlug(plugName)
+    if index(g:plugs_order, a:plugName) > -1
+        return 1
+    else
+        return 0
+    endif
+endfunction

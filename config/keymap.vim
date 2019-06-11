@@ -36,8 +36,6 @@ imap <M-o> <esc>o
 imap <M-O> <esc>O
 
 " buffer 操作
-nnoremap  <m-[> :bp<CR>
-nnoremap  <m-]> :bn<CR>
 nnoremap <C-x>  :bd<CR>
 
 noremap <space><space> <esc>:wal<cr>
@@ -69,103 +67,120 @@ tnoremap <c-l> <c-\><c-n><c-w>l
 tnoremap <c-h> <c-\><c-n><c-w>h
 
 "------------------------------------------- ale
-nmap <silent> <c-[> <Plug>(ale_previous_wrap)
-nmap <silent> <c-]> <Plug>(ale_next_wrap)
+if HasPlug('ale')
+    nmap <silent> <c-[> <Plug>(ale_previous_wrap)
+    nmap <silent> <c-]> <Plug>(ale_next_wrap)
+endif
 
 "------------------------------------------- airline buffer
 " airline key map
-" nmap [b <Plug>AirlineSelectPrevTab
-" nmap b] <Plug>AirlineSelectNextTab
+if HasPlug('vim-airline')
+    nmap <m-[> <Plug>AirlineSelectPrevTab
+    nmap <m-]> <Plug>AirlineSelectNextTab
+else
+    nnoremap  <m-[> :bp<CR>
+    nnoremap  <m-]> :bn<CR>
+endif
 
 "------------------------------------------- leaderf
-" nnoremap <M-f> :LeaderfFile<CR>
-" nnoremap <M-t> :LeaderfBufTag<CR>
-" nnoremap <M-T> :LeaderfBufTagAll<CR>
-" nnoremap <M-o> :LeaderfBufferAll<CR>
-" nnoremap <M-b> :LeaderfTabBufferAll<CR><TAB>
-" nnoremap <M-s> :LeaderfLine<CR>
-" nnoremap <M-S> :LeaderfLineAll<CR>
-" nnoremap <M-r> :LeaderfMru<CR>
+if HasPlug('LeaderF')
+    nnoremap <M-f> :LeaderfFile<CR>
+    nnoremap <M-t> :LeaderfBufTag<CR>
+    nnoremap <M-T> :LeaderfBufTagAll<CR>
+    nnoremap <M-o> :LeaderfBufferAll<CR>
+    nnoremap <M-b> :LeaderfTabBufferAll<CR><TAB>
+    nnoremap <M-s> :LeaderfLine<CR>
+    nnoremap <M-S> :<C-U><C-R>=printf("Leaderf rg -S --fullPath %s", getcwd())<cr><cr>
+    nnoremap <M-r> :LeaderfMru<CR>
+endif
 
 "------------------------------------------- fzf
-nnoremap <M-f> :Files<CR>
-nnoremap <M-t> :BTags<CR>
-nnoremap <M-T> :Tags<CR>
-nnoremap <M-o> :Buffers<CR>
-nnoremap <M-s> :BLines<CR>
-nnoremap <M-S> :Rg<CR>
-nnoremap <M-r> :History<CR>
-nnoremap <M-g> :GFiles?<CR>
-nnoremap <M-G> :GFiles<CR>
-nnoremap <M-m> :Marks<CR>
+if HasPlug('fzf')
+    nnoremap <M-f> :Files<CR>
+    nnoremap <M-t> :BTags<CR>
+    nnoremap <M-T> :Tags<CR>
+    nnoremap <M-o> :Buffers<CR>
+    nnoremap <M-s> :BLines<CR>
+    nnoremap <M-S> :Rg<CR>
+    nnoremap <M-r> :History<CR>
+    nnoremap <M-g> :GFiles?<CR>
+    nnoremap <M-G> :GFiles<CR>
+    nnoremap <M-m> :Marks<CR>
+endif
 
 "------------------------------------------- easymotion
-nmap <M-k> <Plug>(easymotion-overwin-f)
-nmap <M-j> <Plug>(easymotion-overwin-line)
-imap <M-k> <esc><Plug>(easymotion-overwin-f)
-imap <M-j> <esc><Plug>(easymotion-overwin-line)
-" nmap <Leader>w <Plug>(easymotion-overwin-w)
+if HasPlug('vim-easymotion')
+    nmap <M-k> <Plug>(easymotion-overwin-f)
+    nmap <M-j> <Plug>(easymotion-overwin-line)
+    imap <M-k> <esc><Plug>(easymotion-overwin-f)
+    imap <M-j> <esc><Plug>(easymotion-overwin-line)
+    " nmap <Leader>w <Plug>(easymotion-overwin-w)
+endif
 
 "------------------------------------------- goyo
-nnoremap <F7> <esc>:Goyo<cr>
+if HasPlug('goyo.vim')
+    nnoremap <F7> <esc>:Goyo<cr>
+endif
 
 "------------------------------------------- ChooseWin
-nnoremap <silent> <M-w> :ChooseWin<CR>
+if HasPlug('vim-choosewin')
+    nnoremap <silent> <M-w> :ChooseWin<CR>
+endif
 
 "------------------------------------------- Autoformat
-" nnoremap <M-i> :Autoformat<cr>
+if HasPlug('vim-autoformat')
+    nnoremap <M-i> :Autoformat<cr>
+endif
 
 "------------------------------------------- defx
-function! Open_cur_file_dir()
-    exec 'wal'
-    " let g:cur_dir = expand("%:p:h")
-    " exec 'Defx '.g:cur_dir
-    exec 'Defx'
-endfunction
-
-nnoremap <silent> <F2> <esc>:call Open_cur_file_dir()<cr>
-" nnoremap <silent> <F2> <esc>:Defx<cr>
-" nnoremap <silent> <F2> <esc>:Ranger<cr>
+if HasPlug('defx.nvim')
+    function! Open_cur_file_dir()
+        exec 'wal'
+        " let g:cur_dir = expand("%:p:h")
+        " exec 'Defx '.g:cur_dir
+        exec 'Defx'
+    endfunction
+    nnoremap <silent> <F2> <esc>:call Open_cur_file_dir()<cr>
+    " nnoremap <silent> <F2> <esc>:Defx<cr>
+    " nnoremap <silent> <F2> <esc>:Ranger<cr>
+endif
 
 "------------------------------------------- matchtag
-nnoremap <space>5 :MtaJumpToOtherTag<cr>
+if HasPlug('MatchTagAlways')
+    nnoremap <space>5 :MtaJumpToOtherTag<cr>
+endif
 
 "------------------------------------------- vimtranslateme
-nmap <silent> <M-d> <Plug>TranslateW
-vmap <silent> <M-d> <Plug>TranslateWV
-nmap <silent> <Leader>r <Plug>TranslateR
-vmap <silent> <Leader>r <Plug>TranslateRV
+if HasPlug('vim-translate-me')
+    nmap <silent> <M-d> <Plug>TranslateW
+    vmap <silent> <M-d> <Plug>TranslateWV
+    nmap <silent> <Leader>r <Plug>TranslateR
+    vmap <silent> <Leader>r <Plug>TranslateRV
+endif
 
 "------------------------------------------- mundo
-map <F4> <esc>:MundoToggle<cr>
+if HasPlug('vim-mundo')
+    map <F4> <esc>:MundoToggle<cr>
+endif
 
 "------------------------------------------- Startify
-noremap <leader>s <esc>:Startify<cr>
-
-"------------------------------------------- window
-"
-"------------------------------------------- coc-git
-" " navigate chunks of current buffer
-" nmap [g <Plug>(coc-git-prevchunk)
-" nmap ]g <Plug>(coc-git-nextchunk)
-" " show chunk diff at current position
-" nmap gs <Plug>(coc-git-chunkinfo)
-" " show commit ad current position
-" nmap gc <Plug>(coc-git-commit)
+if HasPlug('vim-startify')
+    noremap <leader>s <esc>:Startify<cr>
+endif
 
 "-------------------------------------------- quickfix
-let g:quickfix_is_open = 0
-function! QuickfixToggle()
-     if g:quickfix_is_open
-        cclose
-        let g:quickfix_is_open = 0
-        execute g:quickfix_return_to_window . "wincmd w"
-    else
-        let g:quickfix_return_to_window = winnr()
-        copen
-        let g:quickfix_is_open = 1
-    endif
-endfunction
+" let g:quickfix_is_open = 0
+" function! QuickfixToggle()
+"      if g:quickfix_is_open
+"         cclose
+"         let g:quickfix_is_open = 0
+"         execute g:quickfix_return_to_window . "wincmd w"
+"     else
+"         let g:quickfix_return_to_window = winnr()
+"         copen
+"         let g:quickfix_is_open = 1
+"     endif
+" endfunction
 
-nnoremap <F10> :call QuickfixToggle()<cr>
+" nnoremap <F10> :call QuickfixToggle()<cr>
 
