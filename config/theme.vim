@@ -27,7 +27,7 @@ highlight Lf_hl_matchRefine  gui=bold guifg=Magenta cterm=bold ctermfg=201
 
 "------------------------statusline----------------------"
 "
-if !HasPlug('vim-airline')
+if !HasPlug('vim-airline') && !HasPlug('powerline')
     set statusline=%F%m%r%h%w%=\ ->花无重开日，人无再少年<-\ [ft:%Y]\ %{\"[fenc:\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\"+\":\"\").\"]\"}\ [ff:%{&ff}]\ [asc:%03.3b]\ [hex:%02.2B]\ [(%l,%v)/%L][%p%%]\ [coc:%{coc#status()}]
     set statusline+=[git:%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}]
     "set statusline^=%{FugitiveStatusline()}

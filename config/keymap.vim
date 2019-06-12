@@ -124,7 +124,7 @@ endif
 
 "------------------------------------------- ChooseWin
 if HasPlug('vim-choosewin')
-    nnoremap <silent> <M-w> :ChooseWin<CR>
+    nnoremap <silent> - :ChooseWin<CR>
 endif
 
 "------------------------------------------- Autoformat
@@ -133,17 +133,6 @@ if HasPlug('vim-autoformat')
 endif
 
 "------------------------------------------- defx
-if HasPlug('defx.nvim')
-    function! Open_cur_file_dir()
-        exec 'wal'
-        " let g:cur_dir = expand("%:p:h")
-        " exec 'Defx '.g:cur_dir
-        exec 'Defx'
-    endfunction
-    nnoremap <silent> <F2> <esc>:call Open_cur_file_dir()<cr>
-    " nnoremap <silent> <F2> <esc>:Defx<cr>
-    " nnoremap <silent> <F2> <esc>:Ranger<cr>
-endif
 
 "------------------------------------------- matchtag
 if HasPlug('MatchTagAlways')

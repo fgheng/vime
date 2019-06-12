@@ -9,17 +9,17 @@ if !&hidden
 endif
 
 " terminal 这个buff是否存在
-fu! TerminalBufferIsExisting(tnmb, tname)
-    redir => buffers
-    silent ls
-    redir END
-    for buf in split(buffers, '\n')
-        if match(buf, '\v^\s*'.a:tnmb) > -1 && match(buf, a:tname) > -1
-            return 1
-        endif
-    endfor
-    return 0
-endf
+"fu! TerminalBufferIsExisting(tnmb, tname)
+"    redir => buffers
+"    silent ls
+"    redir END
+"    for buf in split(buffers, '\n')
+"        if match(buf, '\v^\s*'.a:tnmb) > -1 && match(buf, a:tname) > -1
+"            return 1
+"        endif
+"    endfor
+"    return 0
+"endf
 
 " terminal 这个buffer是否正在某个窗口中显示
 fu! TerminalIsShowingInWindows(tnmb, tname)
@@ -52,9 +52,13 @@ let s:bna = ""
 let s:winnr = -1
 " 底部打开终端
 fu! OpenTerminalBottom()
+    "let a:curBufView = winsaveview()
+    "let a:curWinnr = winnr()
     botright split
     resize 15
-    if TerminalBufferIsExisting(s:bnr, s:bna)
+
+    "if TerminalBufferIsExisting(s:bnr, s:bna)
+    if bufexists(s:bnr)
         exe "b".s:bnr
     else
         if has('nvim')
@@ -67,6 +71,9 @@ fu! OpenTerminalBottom()
         let s:bna = bufname("%")
         let s:winnr = winnr()
     endif
+    "exe a:curWinnr . "wincmd w"
+    "call winrestview(a:curBufView)
+    "exe s:winnr . "wincmd w"
 endf
 
 fu! OpenTerminalBottomToggle()
@@ -93,7 +100,8 @@ let s:tbna = ""
 let s:twinnr = -1
 fu! OpenTerminalTab()
     " 判断终端buffer是否存在
-    if TerminalBufferIsExisting(s:tbnr, s:tbna)
+    "if TerminalBufferIsExisting(s:tbnr, s:tbna)
+    if bufexists(s:tbnr)
         " 终端存在
         " 判断终端是否正在某个tab中的窗口中显示
         if TerminalIsShowingInTabWindows(s:tbnr, s:tbna)
@@ -158,11 +166,11 @@ endf
 fu! OpenTerminalTabToggle()
     " 位于终端处,关闭终端
     "
-    if tabpagewinnr(tabpagenr(), '$') == 1
-        " 只有一个空窗口，可以直接打开终端
-    else
-        " 在新标签页打开终端
-    endif
+    "if tabpagewinnr(tabpagenr(), '$') == 1
+    "    " 只有一个空窗口，可以直接打开终端
+    "else
+    "    " 在新标签页打开终端
+    "endif
     if bufname("%") != "" && bufname("%") == s:tbna
         " 如果在这个终端页面中打开了其他窗口,那么应该只关闭该终端窗口
         " 或者不允许建立新的窗口
@@ -184,20 +192,21 @@ let s:fwinnr = -1
 
 
 fu! OpenTerminalInFloatWindowToggle()
-    let s:height = &lines / 2
-    let s:width = float2nr(&columns - (&columns * 2 / 10))
-    let s:col = float2nr((&columns - s:width) / 2)
+    let a:height = &lines / 2
+    let a:width = float2nr(&columns - (&columns * 2 / 6))
+    let a:col = float2nr((&columns - a:width) / 2)
 
-    let s:opts = {
+    let a:opts = {
             \ 'relative': 'editor',
-            \ 'row': s:height * 0.6,
-            \ 'col': s:col,
-            \ 'width': s:width,
-            \ 'height': s:height
+            \ 'row': a:height * 0.5,
+            \ 'col': a:col,
+            \ 'width': a:width,
+            \ 'height': a:height
             \ }
 
     " 首先判断浮动终端buffer是否存在
-    if TerminalBufferIsExisting(s:fbnr, s:fbna)
+    "if TerminalBufferIsExisting(s:fbnr, s:fbna)
+    if bufexists(s:fbnr)
         " 检查buffer是否正显示在浮动窗口中
         if TerminalIsShowingInWindows(s:fbnr, s:fbna)
             " 是的话需要判断当前光标的窗口是否是浮动终端
@@ -213,15 +222,16 @@ fu! OpenTerminalInFloatWindowToggle()
         else
             " 没有显示在浮动窗口中, 创建浮动窗口
             let a:buf = nvim_create_buf(v:false, v:true)
-            let a:fwin = nvim_open_win(a:buf, v:true, s:opts)
+            let a:fwin = nvim_open_win(a:buf, v:true, a:opts)
             let s:fwinnr = winnr()
             " 显示终端
             exec s:fbnr . "b"
+
         endif
     else
         " 没有显示在浮动窗口中, 创建浮动窗口
         let a:buf = nvim_create_buf(v:false, v:true)
-        let a:fwin = nvim_open_win(a:buf, v:true, s:opts)
+        let a:fwin = nvim_open_win(a:buf, v:true, a:opts)
         let s:fwinnr = winnr()
         " 不存在, 那么新建一个终端
         exec "terminal"
@@ -232,7 +242,10 @@ fu! OpenTerminalInFloatWindowToggle()
         setlocal nonumber
         setlocal norelativenumber
         setlocal signcolumn=no
+        highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
+
     endif
+
 endf
 
 imap <F10> <esc>:call OpenTerminalInFloatWindowToggle()<cr>

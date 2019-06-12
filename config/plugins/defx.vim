@@ -1,23 +1,82 @@
 if HasPlug('defx.nvim')
-    call defx#custom#option('_', {
-            \ 'direction': 'leftabove',
-            \ 'split': 'vertical',
-            \ 'winwidth': 30,
-            \ 'show_ignored_files': 0,
-            \ 'buffer_name': '',
-            \ 'toggle': 1,
-            \ 'resume': 1,
-            \ 'columns': "git:mark:indent:icon:icons:filename:size"
-            \ })
 
-            " \ 'split': 'vertical',
-            " \ 'wincol': (&columns - &winwidth)/2,
-            " \ 'winrow': (&lines - &winheight)/2,
-            " \ 'winwidth': &columns,
-            " \ 'winheight': &winwidth,
-            " \ 'winheight': 100,
-            " \ 'winrow': 0,
-            " \ 'wincol': 0,
+    let s:DefxWinNr = -1
+    let s:beforWinnr = -1
+    function! OpenDefx()
+        exec 'wal'
+        let s:beforWinnr = getwininfo(win_getid())[0]['winnr']
+        let a:wincol = getwininfo(win_getid())[0]['wincol']
+        let a:winrow = getwininfo(win_getid())[0]['winrow']
+        call defx#custom#option('_', {
+                \ 'direction': 'leftabove',
+                \ 'split': 'floating',
+                \ 'wincol': a:wincol,
+                \ 'winrow': a:winrow,
+                \ 'winwidth': winwidth(0),
+                \ 'winheight': winheight(0)+1,
+                \ 'show_ignored_files': 0,
+                \ 'buffer_name': '',
+                \ 'toggle': 1,
+                \ 'resume': 1,
+                \ 'columns': "git:mark:indent:icon:icons:filename:size"
+                \ })
+
+        "if winwidth(0) <= 120
+        "    let a:wincol = getwininfo(win_getid())[0]['wincol']
+        "    let a:winrow = getwininfo(win_getid())[0]['winrow']
+        "    call defx#custom#option('_', {
+        "            \ 'direction': 'leftabove',
+        "            \ 'split': 'floating',
+        "            \ 'wincol': a:wincol,
+        "            \ 'winrow': a:winrow,
+        "            \ 'winwidth': winwidth(0),
+        "            \ 'winheight': winheight(0),
+        "            \ 'show_ignored_files': 0,
+        "            \ 'buffer_name': '',
+        "            \ 'toggle': 1,
+        "            \ 'resume': 1,
+        "            \ 'columns': "git:mark:indent:icon:icons:filename:size"
+        "            \ })
+
+        "    "exec "Defx -winwidth=`winwidth(0)` -winheight=`winheight(0)`"
+        "    "exec "Defx -winwidth=50 -winheight=`winheight(0)`"
+        "    "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
+        "else
+        "    call defx#custom#option('_', {
+        "            \ 'direction': 'leftabove',
+        "            \ 'split': 'vertical',
+        "            \ 'winwidth': 35,
+        "            \ 'show_ignored_files': 0,
+        "            \ 'buffer_name': '',
+        "            \ 'toggle': 1,
+        "            \ 'resume': 1,
+        "            \ 'columns': "git:mark:indent:icon:icons:filename:size"
+        "            \ })
+
+        "endif
+
+        exec "Defx"
+        "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
+        let s:DefxWinNr = winnr()
+    endfunction
+
+    function! OpenDefxLeft()
+        exec 'wal'
+        call defx#custom#option('_', {
+                \ 'direction': 'leftabove',
+                \ 'split': 'vertical',
+                \ 'winwidth': 35,
+                \ 'show_ignored_files': 0,
+                \ 'buffer_name': '',
+                \ 'toggle': 1,
+                \ 'resume': 1,
+                \ 'columns': "git:mark:indent:icon:icons:filename:size"
+                \ })
+        exec "Defx"
+        highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
+    endfunction
+    nnoremap <silent> <F2> <esc>:call OpenDefx()<cr>
+    "nnoremap <silent> <leader>d <esc>:call OpenDefxLeft()<cr>
 
     call defx#custom#column('filename', {
                 \ 'directory_icon': '▸',
@@ -29,15 +88,11 @@ if HasPlug('defx.nvim')
 
     call defx#custom#column('mark', {
                 \ 'selected_icon': '✓',
-                \ 'readonly_icon': '✗',
+                \ 'readonly_icon': 'O',
                 \ })
 
-    "call defx#custom#column('icon', {
-    "            \ 'readonly_icon': '✗',
-    "            \ 'selected_icon': '✓',
-    "            \ })
-
     autocmd FileType defx call s:defx_my_settings()
+
     function! s:defx_my_settings() abort
 
         nnoremap <silent><buffer><expr> V       defx#do_action('toggle_select') . 'j'
@@ -49,15 +104,16 @@ if HasPlug('defx.nvim')
         nnoremap <silent><buffer><expr> p       defx#do_action('paste')
         nnoremap <silent><buffer><expr> h       defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('cd', ['..'])
         nnoremap <silent><buffer><expr> l       defx#do_action('call', 'DefxSmartL')
-        nnoremap <silent><buffer><expr> o       defx#do_action('call', 'DefxSmartL')
-        nnoremap <silent><buffer><expr> <Cr>    defx#is_directory() ? defx#do_action('open_directory') : defx#do_action('drop')
-        " nnoremap <silent><buffer><expr> <Cr>    defx#do_action('call', 'DefxSmartL')
+        nnoremap <silent><buffer><expr> o       defx#do_action('call', 'DefxSmartO')
+        "nnoremap <silent><buffer><expr> <Cr>    defx#is_directory() ? defx#do_action('open_directory') : defx#do_action('drop')
+        nnoremap <silent><buffer><expr> <Cr>    defx#do_action('call', 'DefxSmartCr')
+
         nnoremap <silent><buffer><expr> <2-LeftMouse> defx#is_directory() ? defx#do_action('open_tree') : defx#do_action('drop')
         nnoremap <silent><buffer><expr> sv      defx#do_action('drop', 'vsplit')
         nnoremap <silent><buffer><expr> sh      defx#do_action('drop', 'split')
         nnoremap <silent><buffer><expr> st      defx#do_action('drop', 'tabedit')
         nnoremap <silent><buffer><expr> S       defx#do_action('toggle_sort', 'time')
-        nnoremap <silent><buffer><expr> P       defx#do_action('open', 'pedit')
+        nnoremap <silent><buffer><expr> P       defx#do_action('open', 'pedit' )
         nnoremap <silent><buffer><expr> N       defx#do_action('new_file')
         nnoremap <silent><buffer><expr> dd      defx#do_action('remove_trash')
         nnoremap <silent><buffer><expr> r       defx#do_action('rename')
@@ -79,9 +135,21 @@ if HasPlug('defx.nvim')
 
     function! DefxSmartCr(_)
         if defx#is_directory()
-            defx#call_action('open_directory')
+            call defx#call_action('open_directory')
         else
-            defx#call_action('drop')
+            let a:filepath = defx#get_candidate()['action__path']
+            exec "close " . s:DefxWinNr
+            exec s:beforWinnr . "wincmd w"
+            exec 'e'. a:filepath
+        endif
+    endfunction
+
+    function! DefxSmartO(_)
+        if defx#is_directory()
+            call defx#call_action('open_directory')
+        else
+            call defx#call_action('drop')
+            exec "close " . s:DefxWinNr
         endif
     endfunction
 
@@ -92,8 +160,9 @@ if HasPlug('defx.nvim')
             call defx#call_action('open_tree')
             normal! j
         else
-            let filepath = defx#get_candidate()['action__path']
-            if tabpagewinnr(tabpagenr(), '$') >= 3    " if there are more than 2 normal windows
+            let a:filepath = defx#get_candidate()['action__path']
+            exec "close " . s:DefxWinNr
+            if tabpagewinnr(tabpagenr(), '$') >= 2    " if there are more than 2 normal windows
                 if exists(':ChooseWin') == 2
                     ChooseWin
                 else
@@ -109,11 +178,10 @@ if HasPlug('defx.nvim')
                     if input == winnr() | return | endif
                     exec input . 'wincmd w'
                 endif
-                exec 'e' filepath
+                exec 'e' a:filepath
             else
-                " exec 'Defx'
                 exec 'wincmd w'
-                exec 'e' filepath
+                exec 'e' a:filepath
             endif
         endif
     endfunction
@@ -148,7 +216,7 @@ if HasPlug('defx.nvim')
     let g:defx_icons_parent_icon = ''
     let g:defx_icons_default_icon = ''
     let g:defx_icons_directory_symlink_icon = ''
-    " Options below are applicable only when using "tree" feature
+                   " Options below are applicable only when using "tree" feature
     let g:defx_icons_root_opened_tree_icon = ''
     let g:defx_icons_nested_opened_tree_icon = ''
     let g:defx_icons_nested_closed_tree_icon = ''
