@@ -58,5 +58,4 @@ endif
 
 set list
 set lcs=tab:\ .,nbsp:%
-
-let g:tex_flavor = "latex"
+let g:tex_flavor='latex'

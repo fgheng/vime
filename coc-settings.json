@@ -11,7 +11,9 @@
     "coc.preferences.extensionUpdateCheck": "daily",
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
+    // 超过2s就停止
     "suggest.timeout": 2000,
+    "suggest.minTriggerInputLength": 2,
     // 选中第一个
     //"suggest.noselect": false,
     "suggest.detailField": "abbr",

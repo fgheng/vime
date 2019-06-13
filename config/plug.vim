@@ -2,11 +2,15 @@ call plug#begin('~/.cache/plugins')
 
 " "{{--------coc 补全框架
 Plug 'neoclide/coc.nvim', { 'do': './install.sh nightly' }
+"augroup load_coc
+"    autocmd!
+"    autocmd InsertEnter * call plug#load('neoclide/coc.nvim') | autocmd! load_cmd
+"augroup END
 " "}}
 
 " "{{--------git
 " Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive', {}
 "Plug 'neoclide/vim-easygit'
 "Plug 'rhysd/git-messenger.vim'
 " "}}
@@ -21,17 +25,17 @@ Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
 " "}}
 
 " "{{--------markdown
-Plug 'mzlogin/vim-markdown-toc', {'for': ['markdown', 'md']}
+Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM',  'GenTocGitLab',  'GenTocMarked',  'GenTocModeline',  'GenTocRedcarpet']}
 Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'md'] }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() },  'on': 'MarkdownPreview' }
 " "}}
 
 " "{{--------latex
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', {'for': ['latex']}
 " "}}
 
 " "{{--------code check
-Plug 'w0rp/ale'
+Plug 'w0rp/ale', {'for': ['c', 'cpp', 'hpp', 'h']}
 " "}}
 
 " "{{--------code format
@@ -53,53 +57,48 @@ Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'bagrat/vim-buffet'
-"Plug 'powerline/powerline'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'ryanoasis/vim-devicons'
-" Plug 'junegunn/vim-emoji'
 " "}}
 
 " "{{----------工具
-Plug 'majutsushi/tagbar',  { 'for': ['asm', 'h', 'hpp', 'c', 'cpp', 'python', 'js', 'ts', 'java', 'go', 'html', 'css', 'vim', 'sh', 'tex', 'md'] }
+Plug 'majutsushi/tagbar',  { 'on': 'Tagbar' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'terryma/vim-expand-region'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
-Plug 'Yggdroot/LeaderF',  { 'do': './install.sh' }
+Plug 'Yggdroot/LeaderF',  { 'do': './install.sh', 'on': ['LeaderfFile', 'LeaderfBufTag', 'LeaderfBufTagAll', 'LeaderfBufferAll', 'LeaderfTabBufferAll', 'LeaderfLine', 'Leaderf', 'LeaderfMru'] }
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'junegunn/fzf.vim'
 if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'}
 else
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/defx.nvim', {}
+  Plug 'roxma/nvim-yarp', {}
+  Plug 'roxma/vim-hug-neovim-rpc', {}
 endif
-Plug 'kristijanhusak/defx-git'
-Plug 'kristijanhusak/defx-icons'
-if has('nvim')
-    Plug 'rbgrouleff/bclose.vim'
-endif
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
+Plug 'kristijanhusak/defx-git', {'on': 'Defx'}
+Plug 'kristijanhusak/defx-icons', {}
+Plug 'francoiscabrol/ranger.vim', {'on': [ 'Ranger', 'RangerCurrentDirectory',  'RangerCurrentDirectoryNewTab',  'RangerCurrentFile',  'RangerCurrentFileNewTab',  'RangerNewTab',  'RangerWorkingDirectory',  'RangerWorkingDirectoryNewTab' ]}
+" 关闭buffer，不关闭window
+Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'andys8/vscode-jest-snippets'
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
-Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
 Plug 'rhysd/clever-f.vim'
 Plug 'mg979/vim-visual-multi'
-Plug 'voldikss/vim-translate-me', {'on': ['<Plug>Translate', '<Plug>TranslateW']  }
+Plug 'voldikss/vim-translate-me', {'on': ['<Plug>TranslateW', '<Plug>TranslateW', '<Plug>TranslateWV', '<Plug>TranslateR', '<Plug>TranslateRV']  }
 " Plug 'terryma/vim-smooth-scroll'
 " Plug 'yuttie/comfortable-motion.vim'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'vim-scripts/ZoomWin'
-Plug 'troydm/zoomwintab.vim'
+Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'thinca/vim-quickrun'

@@ -36,7 +36,8 @@ imap <M-o> <esc>o
 imap <M-O> <esc>O
 
 " buffer 操作
-nnoremap <C-x>  :bd<CR>
+"nnoremap <C-x>  :bd<CR>
+nnoremap <C-x>  :Bclose<CR>
 
 noremap <space><space> <esc>:wal<cr>
 
@@ -173,3 +174,8 @@ endif
 
 " nnoremap <F10> :call QuickfixToggle()<cr>
 
+
+"-------------------------------------------- zoomwintab
+if HasPlug('zoomwintab.vim')
+    nnoremap  <c-w>o :ZoomWinTabToggle<cr>
+endif

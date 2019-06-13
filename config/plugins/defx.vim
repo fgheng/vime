@@ -88,7 +88,7 @@ if HasPlug('defx.nvim')
 
     call defx#custom#column('mark', {
                 \ 'selected_icon': '✓',
-                \ 'readonly_icon': 'O',
+                \ 'readonly_icon': '○',
                 \ })
 
     autocmd FileType defx call s:defx_my_settings()
