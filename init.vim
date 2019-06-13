@@ -1,4 +1,3 @@
-
 " 获得当前文件所在目录
 let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 let s:home = s:home.'/config'

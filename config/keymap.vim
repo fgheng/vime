@@ -133,8 +133,6 @@ if HasPlug('vim-autoformat')
     nnoremap <M-i> :Autoformat<cr>
 endif
 
-"------------------------------------------- defx
-
 "------------------------------------------- matchtag
 if HasPlug('MatchTagAlways')
     nnoremap <space>5 :MtaJumpToOtherTag<cr>
@@ -178,4 +176,10 @@ endif
 "-------------------------------------------- zoomwintab
 if HasPlug('zoomwintab.vim')
     nnoremap  <c-w>o :ZoomWinTabToggle<cr>
+endif
+
+"-------------------------------------------- tagbar
+if HasPlug('tagbar')
+    nnoremap <F3> :TagbarToggle<cr>
+    "inoremap <F3> <esc>:TagbarToggle<cr>
 endif

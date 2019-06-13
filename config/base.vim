@@ -59,3 +59,5 @@ endif
 set list
 set lcs=tab:\ .,nbsp:%
 let g:tex_flavor='latex'
+
+"let $NVIMRUNTIME="/home/forever/Software/nvim-linux64/share/nvim/runtime"

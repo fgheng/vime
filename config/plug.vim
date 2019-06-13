@@ -63,7 +63,7 @@ Plug 'ryanoasis/vim-devicons'
 " "}}
 
 " "{{----------工具
-Plug 'majutsushi/tagbar',  { 'on': 'Tagbar' }
+Plug 'majutsushi/tagbar',  { 'on': 'TagbarToggle' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -99,6 +99,8 @@ Plug 'voldikss/vim-translate-me', {'on': ['<Plug>TranslateW', '<Plug>TranslateW'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'vim-scripts/ZoomWin'
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
+
+" 编译运行
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'thinca/vim-quickrun'
