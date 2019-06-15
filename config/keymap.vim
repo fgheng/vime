@@ -127,7 +127,9 @@ endif
 
 "------------------------------------------- matchtag
 if HasPlug('MatchTagAlways')
-    nnoremap <space>5 :MtaJumpToOtherTag<cr>
+    if &ft == 'html' || &ft == 'xhtml' || &ft == 'htm' || &ft == 'xml'
+        nnoremap <space>5 :MtaJumpToOtherTag<cr>
+    endif
 endif
 
 "------------------------------------------- vimtranslateme

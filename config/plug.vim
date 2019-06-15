@@ -1,7 +1,7 @@
 call plug#begin('~/.cache/plugins')
 
 " "{{--------coc 补全框架
-Plug 'neoclide/coc.nvim', { 'do': './install.sh nightly' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 "augroup load_coc
 "    autocmd!
 "    autocmd InsertEnter * call plug#load('neoclide/coc.nvim') | autocmd! load_cmd
@@ -83,7 +83,7 @@ else
 endif
 Plug 'kristijanhusak/defx-git', {'on': 'Defx'}
 Plug 'kristijanhusak/defx-icons', {}
-Plug 'francoiscabrol/ranger.vim', {'on': [ 'Ranger', 'RangerCurrentDirectory',  'RangerCurrentDirectoryNewTab',  'RangerCurrentFile',  'RangerCurrentFileNewTab',  'RangerNewTab',  'RangerWorkingDirectory',  'RangerWorkingDirectoryNewTab' ]}
+Plug 'francoiscabrol/ranger.vim'
 " 关闭buffer，不关闭window
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 Plug 'ntpeters/vim-better-whitespace'

@@ -54,8 +54,12 @@ if HasPlug('coc.nvim')
         \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
         \ <SID>check_back_space() ? "\<TAB>" :
         \ coc#refresh()
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    inoremap <expr><S-TAB>
+        \ pumvisible() ? "\<C-p>" : "\<C-h>"
+        "\ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
     let g:coc_snippet_next = '<tab>'
+    let g:coc_snippet_prev = '<S-TAB>'
+    vmap <tab> <Plug>(coc-snippets-select)
 
     " 回车补全选中的内容
     inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :

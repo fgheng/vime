@@ -142,7 +142,7 @@ fu! OpenTerminalTab()
 
         else
             " 没有,需要新建tab,然后显示终端
-            exe "tabnew"
+            exe "$tabnew"
             exe "b".s:tbnr
         endif
 
@@ -150,10 +150,10 @@ fu! OpenTerminalTab()
     else
         " 终端不存在,新建tab,新建终端
         if has('nvim')
-            exe "tabnew | term"
+            exe "$tabnew | term"
             exe "normal a"
         else
-            exe "tabnew"
+            exe "$tabnew"
             exe "call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})"
             exe "normal a"
         endif
