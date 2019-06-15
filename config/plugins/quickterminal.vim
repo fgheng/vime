@@ -48,8 +48,14 @@ endf
 let s:bnr = -1
 let s:bna = ""
 let s:winnr = -1
+"let s:winviews = []
 " 底部打开终端
 fu! OpenTerminalBottom()
+    "let a:allwindows = getwininfo()
+    "for a:win in a:allwindows
+    "    exec a:win['winnr'] . "wincmd w"
+    "    let s:winviews = add(s:winviews, winsaveview())
+    "endfor
     "let a:curBufView = winsaveview()
     "let a:curWinnr = winnr()
     botright split
@@ -72,6 +78,10 @@ fu! OpenTerminalBottom()
     "exe a:curWinnr . "wincmd w"
     "call winrestview(a:curBufView)
     "exe s:winnr . "wincmd w"
+    "for a:v in s:winviews
+    "    call winrestview(a:v)
+    "endfor
+    "call empty(s:winviews)
 endf
 
 fu! OpenTerminalBottomToggle()

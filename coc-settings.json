@@ -1,42 +1,52 @@
 {
     "coc.preferences.colorSupport": true,
-    //"coc.preferences.jumpCommand": "vsplit",
+    //"coc.preferences.jumpCommand": "split",
     "coc.preferences.rootPatterns": [
         ".vim",
         ".git",
         ".hg",
-        ".projections.json"
+        ".projections.json",
+        ".project/"
     ],
+    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown"],
     "coc.preferences.formatOnType": true,
     "coc.preferences.extensionUpdateCheck": "daily",
+    // suggest
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
-    // 超过2s就停止
-    "suggest.timeout": 2000,
+    "suggest.timeout": 1000, // 超过1s就停止
     "suggest.minTriggerInputLength": 2,
-    // 选中第一个
-    //"suggest.noselect": false,
+    //"suggest.noselect": false, // 选中第一个
     "suggest.detailField": "abbr",
-    "suggest.triggerCompletionWait": 50,
-    "suggest.snippetIndicator": "✔",
+    "suggest.triggerCompletionWait": 100,
+    "suggest.snippetIndicator": " [*]",
+    // diagnostic
     //"diagnostic.displayByAle": true,
     // 插入模式也可以使用diagnostic
     "diagnostic.refreshOnInsertMode": true,
-    "diagnostic.errorSign": "✖",
-    "diagnostic.warningSign": "ϟ",
+    "diagnostic.signOffset": 9999999,
+	"diagnostic.errorSign": "●",
+	"diagnostic.warningSign": "●",
     "diagnostic.displayByAle": false,
+    // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
     "python.jediEnabled": true,
+    // vimlsp
     "vimlsp.trace.server": "verbose",
+    // highlight
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
-    "list.maxHeight": 10,
-    "list.previewSplitRight": true,
+    // list
+    //"list.maxHeight": 20,
+    //"list.previewSplitRight": true,
     //snippet
     "coc.preferences.snippetStatusText": "Ⓢ ",
     //git
     "git.enableGutters": true,
+    "git.addGlameToBufferVar": true,
+    "git.addGlameToVirtualText": true,
+    "git.virtualTextPrefix": "              [commit log]: ",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
     "git.removedSign.hlGroup": "GitGutterDelete",
@@ -47,8 +57,10 @@
     "git.removedSign.text": "▏",
     "git.topRemovedSign.text": "▔",
     "git.changeRemovedSign.text": "▋",
-
+    // project
     "project.dbpath": "~/cache/.coc-project",
+    // emmet
+    "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
 
     // lsp
     "languageserver": {
@@ -82,11 +94,12 @@
             "rootPatterns": [
                 ".clang",
                 ".ccls",
-                "compile_commands.json",
                 ".vim/",
                 ".git/",
                 ".hg/",
-                ".clang_complete"
+                ".clang_complete",
+                "compile_commands.json",
+                "compile_flags.txt"
             ],
             "initializationOptions": {
                 "cache": {

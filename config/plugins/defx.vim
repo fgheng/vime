@@ -5,13 +5,14 @@ if HasPlug('defx.nvim')
     function! OpenDefx()
         exec 'wal'
         let s:beforWinnr = getwininfo(win_getid())[0]['winnr']
-        let a:wincol = getwininfo(win_getid())[0]['wincol']
-        let a:winrow = getwininfo(win_getid())[0]['winrow']
+        "let a:wincol = getwininfo(win_getid())[0]['wincol']
+        "let a:winrow = getwininfo(win_getid())[0]['winrow']
         call defx#custom#option('_', {
                 \ 'direction': 'leftabove',
                 \ 'split': 'floating',
-                \ 'wincol': a:wincol,
-                \ 'winrow': a:winrow,
+                \ 'wincol': 0,
+                \ 'winrow': 0,
+                \ 'winrelative': 'win',
                 \ 'winwidth': winwidth(0),
                 \ 'winheight': winheight(0)+1,
                 \ 'show_ignored_files': 0,
@@ -56,7 +57,7 @@ if HasPlug('defx.nvim')
         "endif
 
         exec "Defx"
-        "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
+        highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
         let s:DefxWinNr = winnr()
     endfunction
 

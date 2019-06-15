@@ -7,8 +7,8 @@ nnoremap q <esc>:close<cr>
 vnoremap q <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr>
 
-imap <M-h> <esc>I
-imap <M-l> <esc>:exe "normal! A"
+"imap <M-h> <esc>I
+"imap <M-l> <esc>:exe "normal! A"
 " inoremap <c-h> <esc>xi
 " inoremap <c-l> <esc><right>xi
 " inoremap <c-w>
@@ -36,8 +36,8 @@ imap <M-o> <esc>o
 imap <M-O> <esc>O
 
 " buffer 操作
-"nnoremap <C-x>  :bd<CR>
-nnoremap <C-x>  :Bclose<CR>
+"nnoremap <C-c>  :bd<CR>
+nnoremap <C-c>  :Bclose<CR>
 
 noremap <space><space> <esc>:wal<cr>
 
@@ -52,10 +52,10 @@ nnoremap <leader>te :tabedit
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tm :tabmove
 " gt gT
-nnoremap  <m-l> :tabnext<cr>
-nnoremap  <m-h> :tabprevious<CR>
-tnoremap  <m-l> <c-\><c-n>:tabnext<cr>
-tnoremap  <m-h> <c-\><c-n>:tabprevious<CR>
+"nnoremap  <m-0> :tabnext<cr>
+"nnoremap  <m-9> :tabprevious<CR>
+"tnoremap  <m-0> <c-\><c-n>:tabnext<cr>
+"tnoremap  <m-9> <c-\><c-n>:tabprevious<CR>
 
 "yank to end
 nnoremap Y y$
@@ -69,18 +69,8 @@ tnoremap <c-h> <c-\><c-n><c-w>h
 
 "------------------------------------------- ale
 if HasPlug('ale')
-    nmap <silent> <c-[> <Plug>(ale_previous_wrap)
-    nmap <silent> <c-]> <Plug>(ale_next_wrap)
-endif
-
-"------------------------------------------- airline buffer
-" airline key map
-if HasPlug('vim-airline')
-    nmap <m-[> <Plug>AirlineSelectPrevTab
-    nmap <m-]> <Plug>AirlineSelectNextTab
-else
-    nnoremap  <m-[> :bp<CR>
-    nnoremap  <m-]> :bn<CR>
+    nmap <silent> <space>{ <Plug>(ale_previous_wrap)
+    nmap <silent> <space>} <Plug>(ale_next_wrap)
 endif
 
 "------------------------------------------- leaderf
@@ -111,16 +101,18 @@ endif
 
 "------------------------------------------- easymotion
 if HasPlug('vim-easymotion')
-    nmap <M-k> <Plug>(easymotion-overwin-f)
-    nmap <M-j> <Plug>(easymotion-overwin-line)
-    imap <M-k> <esc><Plug>(easymotion-overwin-f)
-    imap <M-j> <esc><Plug>(easymotion-overwin-line)
+    nmap gk <Plug>(easymotion-overwin-f)
+    nmap gl <Plug>(easymotion-overwin-line)
+    "imap <M-k> <esc><Plug>(easymotion-overwin-f)
+    "imap <M-j> <esc><Plug>(easymotion-overwin-line)
     " nmap <Leader>w <Plug>(easymotion-overwin-w)
 endif
 
 "------------------------------------------- goyo
 if HasPlug('goyo.vim')
     nnoremap <F7> <esc>:Goyo<cr>
+    "setlocal nonumber
+    "setlocal norelativenumber
 endif
 
 "------------------------------------------- ChooseWin

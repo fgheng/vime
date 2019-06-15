@@ -27,7 +27,7 @@ Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
 " "{{--------markdown
 Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM',  'GenTocGitLab',  'GenTocMarked',  'GenTocModeline',  'GenTocRedcarpet']}
 Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() },  'on': 'MarkdownPreview' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['md', 'markdown'] }
 " "}}
 
 " "{{--------latex
@@ -63,6 +63,8 @@ Plug 'ryanoasis/vim-devicons'
 " "}}
 
 " "{{----------工具
+" 浏览器
+"Plug 'yuratomo/w3m.vim'
 Plug 'majutsushi/tagbar',  { 'on': 'TagbarToggle' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
@@ -85,7 +87,7 @@ Plug 'francoiscabrol/ranger.vim', {'on': [ 'Ranger', 'RangerCurrentDirectory',  
 " 关闭buffer，不关闭window
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'andys8/vscode-jest-snippets'
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }

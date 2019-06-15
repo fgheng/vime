@@ -2,9 +2,9 @@ if HasPlug('ultisnips')
     let g:UltiSnipsSnippetsDir = '~/.cache/plugins/vim-snippets/'
     let g:UltiSnipsSnippetDirectories = ['UltiSnips']
     "let g:UltiSnipsEditSplit="heroize"
-    let g:UltiSnipsExpandTrigger       = '<M-l>'
-    let g:UltiSnipsJumpForwardTrigger  = '<M-l>'
-    let g:UltiSnipsJumpBackwardTrigger = '<M-h>'
+    let g:UltiSnipsExpandTrigger       = '<tab>'
+    let g:UltiSnipsJumpForwardTrigger  = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
     " if &filetype == "tex"
     "     " 失败了
