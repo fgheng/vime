@@ -37,7 +37,7 @@ imap <M-O> <esc>O
 
 " buffer 操作
 "nnoremap <C-c>  :bd<CR>
-nnoremap <C-c>  :Bclose<CR>
+nnoremap <C-x>  :Bclose<CR>
 
 noremap <space><space> <esc>:wal<cr>
 

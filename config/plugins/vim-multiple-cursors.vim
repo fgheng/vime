@@ -1,10 +1,15 @@
-if HasPlug('mg979/vim-visual-multi')
-
+if HasPlug('vim-visual-multi')
+    echom "hello world"
     " let g:VM_leader = "'"
     " " 取消默认按键映射
     "let g:VM_default_mappings = 0
     " 开启鼠标选择
     let g:VM_mouse_mappings = 0
+    let g:VM_maps = {}
+    let g:VM_maps["Add Cursor At Pos"]            = '<c-c>'
+    let g:VM_maps['Visual Add']                   = '<c-c>'
+    let g:VM_maps["Select All"]                   = '<c-a>'
+    let g:VM_maps['Visual All']                   = '<c-a>'
 
     "let g:VM_maps = {}
     "let g:VM_maps["Switch Mode"]                 = '<Tab>'
