@@ -1,5 +1,4 @@
 if HasPlug('vim-visual-multi')
-    echom "hello world"
     " let g:VM_leader = "'"
     " " 取消默认按键映射
     "let g:VM_default_mappings = 0

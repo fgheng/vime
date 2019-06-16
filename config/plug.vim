@@ -83,8 +83,9 @@ else
 endif
 Plug 'kristijanhusak/defx-git', {'on': 'Defx'}
 Plug 'kristijanhusak/defx-icons', {}
-Plug 'francoiscabrol/ranger.vim'
-" 关闭buffer，不关闭window
+if !has('gui_running') && executable('ranger')
+    Plug 'francoiscabrol/ranger.vim'
+endif
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 Plug 'ntpeters/vim-better-whitespace'
 "Plug 'SirVer/ultisnips'
