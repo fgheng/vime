@@ -65,7 +65,7 @@ Plug 'ryanoasis/vim-devicons'
 " "{{----------工具
 " 浏览器
 "Plug 'yuratomo/w3m.vim'
-Plug 'majutsushi/tagbar',  { 'on': 'TagbarToggle' }
+Plug 'majutsushi/tagbar',  { 'on': ['TagbarToggle', 'TagbarOpen', 'TagbarClose'] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'

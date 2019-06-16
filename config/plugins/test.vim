@@ -52,6 +52,7 @@ if HasPlug('vim-markdown')
             endif
         else
             exec "Toc"
+            exec "wincmd L | vertical res 35"
             let s:tocNr = bufnr("%")
         endif
     endf

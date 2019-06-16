@@ -6,7 +6,7 @@ if HasPlug('indentLine')
     " let g:indentLine_bgcolor_gui = '#FF5F00'
 
     let g:indentLine_enable = 1
-    let g:indentLine_char_list = ['|', '¦', '┆', '┊', '▏']
+    let g:indentLine_char_list = ['|', '┆', '┊', '▏']
     "let g:indentLine_char = '┊'
 
     let g:indentline_filetypeexclude = ['defx', 'startify']
