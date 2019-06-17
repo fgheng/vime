@@ -198,7 +198,6 @@ let s:fbnr = -1
 let s:fbna = ""
 let s:fwinnr = -1
 
-
 fu! OpenTerminalInFloatWindowToggle()
     let a:height = &lines / 2
     let a:width = float2nr(&columns - (&columns * 2 / 6))

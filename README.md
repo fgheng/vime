@@ -6,6 +6,7 @@
     * [c/c++](#cc)
         * [准备](#准备)
         * [`.ccls`简单使用](#ccls简单使用)
+        * [使用clangd](#使用clangd)
         * [展示](#展示)
             * [lsp基本功能](#lsp基本功能)
             * [编译运行](#编译运行)
@@ -202,6 +203,13 @@ clang
 4. 其他
 
    第一行如果不是`%compile_commands.json`，那么通常就是clang，不推荐clang++，因为如果有c文件，那么容易出错。
+
+#### 使用clangd 
+
+基本与使用`.ccls文件一样`
+
+在工程根目录下建立文件`compile_flags.txt`文件，内容同`.ccls`
+
 
 #### 展示
 

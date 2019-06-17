@@ -33,7 +33,7 @@ let autosave=10
 set backup " 在当前文件下生成备份文件
 set laststatus=0
 set colorcolumn=80 " 高亮第80行
-"set conceallevel=0  " json正常显示文本
+"set conceallevel=0  " json正常显示文本, conceal是隐藏
 set switchbuf=useopen,usetab,newtab "这样quickfix里面的跳转会先复用已有文件的窗口，再复用已有标签，最后没有的话新建标签
 set tw=80
 set shortmess+=c
