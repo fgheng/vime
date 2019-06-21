@@ -8,7 +8,10 @@
         ".projections.json",
         ".project/"
     ],
-    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown"],
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "markdown"
+    ],
     "coc.preferences.formatOnType": true,
     "coc.preferences.extensionUpdateCheck": "daily",
     // suggest
@@ -25,8 +28,8 @@
     // 插入模式也可以使用diagnostic
     "diagnostic.refreshOnInsertMode": true,
     "diagnostic.signOffset": 9999999,
-	"diagnostic.errorSign": "●",
-	"diagnostic.warningSign": "●",
+    "diagnostic.errorSign": "●",
+    "diagnostic.warningSign": "●",
     "diagnostic.displayByAle": false,
     // python
     "python.autoComplete.addBrackets": true,
@@ -60,8 +63,10 @@
     // project
     "project.dbpath": "~/cache/.coc-project",
     // emmet
-    "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
-
+    "emmet.includeLanguages": {
+        "vue-html": "html",
+        "javascript": "javascriptreact"
+    },
     // lsp
     "languageserver": {
         // 安装bash-language-server
@@ -71,9 +76,7 @@
                 "start"
             ],
             "filetypes": [
-                "sh",
-                "bash",
-                "zsh"
+                "sh"
             ],
             "ignoredRootPaths": [
                 "~"
@@ -201,8 +204,16 @@
         },
         "latex": {
             "command": "java",
-            "args": ["-jar", "~/Software/texlab.jar"],
-            "filetypes": ["tex", "bib", "plaintex", "context"]
+            "args": [
+                "-jar",
+                "~/Software/texlab.jar"
+            ],
+            "filetypes": [
+                "tex",
+                "bib",
+                "plaintex",
+                "context"
+            ]
         }
     },
 }

@@ -148,6 +148,7 @@ endif
 "------------------------------------------- Startify
 if HasPlug('vim-startify')
     noremap <leader>s <esc>:Startify<cr>
+    au FileType startify noremap q :q<cr>
 endif
 
 "-------------------------------------------- quickfix
