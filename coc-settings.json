@@ -17,7 +17,7 @@
     // suggest
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
-    "suggest.timeout": 500, // 超过1s就停止
+    "suggest.timeout": 500, // 超过500ms就停止
     "suggest.minTriggerInputLength": 2,
     //"suggest.noselect": false, // 选中第一个
     "suggest.detailField": "abbr",
@@ -82,7 +82,7 @@
                 "~"
             ]
         },
-        // 安装ccls
+       //  安装ccls
         "ccls": {
             "command": "ccls",
             "trace.server": "verbose",
@@ -110,85 +110,6 @@
                 }
             }
         },
-        //"pyls": {
-        //    "command": "pyls",
-        //    "filetypes": [
-        //        "py",
-        //        "python"
-        //    ],
-        //    "rootPatterns": [
-        //        ".venv",
-        //        ".vim/",
-        //        ".git/",
-        //    ],
-        //},
-        //"python": {
-        //    "command": "python",
-        //    "args": [
-        //        "-mpyls",
-        //        "-vv",
-        //        "--log-file",
-        //        "/tmp/lsp_python.log"
-        //    ],
-        //    "trace.server": "verbose",
-        //    "filetypes": [
-        //        "python"
-        //    ],
-        //    "settings": {
-        //        "pyls": {
-        //            "enable": true,
-        //            "trace": {
-        //                "server": "verbose"
-        //            },
-        //            "commandPath": "",
-        //            "configurationSources": [
-        //                "pycodestyle"
-        //            ],
-        //            "plugins": {
-        //                "jedi_completion": {
-        //                    "enabled": true
-        //                },
-        //                "jedi_hover": {
-        //                    "enabled": true
-        //                },
-        //                "jedi_references": {
-        //                    "enabled": true
-        //                },
-        //                "jedi_signature_help": {
-        //                    "enabled": true
-        //                },
-        //                "jedi_symbols": {
-        //                    "enabled": true,
-        //                    "all_scopes": true
-        //                },
-        //                "mccabe": {
-        //                    "enabled": true,
-        //                    "threshold": 15
-        //                },
-        //                "preload": {
-        //                    "enabled": true
-        //                },
-        //                "pycodestyle": {
-        //                    "enabled": true
-        //                },
-        //                "pydocstyle": {
-        //                    "enabled": false,
-        //                    "match": "(?!test_).*\\.py",
-        //                    "matchDir": "[^\\.].*"
-        //                },
-        //                "pyflakes": {
-        //                    "enabled": true
-        //                },
-        //                "rope_completion": {
-        //                    "enabled": true
-        //                },
-        //                "yapf": {
-        //                    "enabled": true
-        //                }
-        //            }
-        //        }
-        //    }
-        //},
         // jdtls
         "java": {
             "command": "jdtls",

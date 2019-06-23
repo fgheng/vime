@@ -28,7 +28,7 @@ Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
 Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM',  'GenTocGitLab',  'GenTocMarked',  'GenTocModeline',  'GenTocRedcarpet']}
 Plug 'godlygeek/tabular', {'for': ['markdown', 'md']}
 Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['md', 'markdown'] }
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['md', 'markdown'] }
 " "}}
 
 " "{{--------latex

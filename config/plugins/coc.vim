@@ -4,6 +4,7 @@ if HasPlug('coc.nvim')
                 \ [
                 \ 'coc-python',
                 \ 'coc-tsserver',
+                \ 'coc-java',
                 \ 'coc-vimlsp',
                 \ 'coc-vimtex',
                 \ 'coc-html',
@@ -16,7 +17,8 @@ if HasPlug('coc.nvim')
                 \ 'coc-highlight',
                 \ 'coc-calc',
                 \ 'coc-git',
-                \ 'coc-marketplace'
+                \ 'coc-marketplace',
+                \ 'coc-project'
                 \ ]
                 """""""
                 " \ 'coc-java',
