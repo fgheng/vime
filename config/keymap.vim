@@ -7,8 +7,11 @@ nnoremap q <esc>:close<cr>
 vnoremap q <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr>
 
-"imap <M-h> <esc>I
-"imap <M-l> <esc>:exe "normal! A"
+inoremap <M-h> <esc>I
+inoremap <M-l> <esc>A
+"inoremap <M-j> <down>
+"inoremap <M-k> <up>
+
 " inoremap <c-h> <esc>xi
 " inoremap <c-l> <esc><right>xi
 " inoremap <c-w>
@@ -56,6 +59,11 @@ nnoremap <leader>tm :tabmove
 "nnoremap  <m-9> :tabprevious<CR>
 "tnoremap  <m-0> <c-\><c-n>:tabnext<cr>
 "tnoremap  <m-9> <c-\><c-n>:tabprevious<CR>
+
+nnoremap  <M-l> :tabnext<cr>
+nnoremap  <M-h> :tabprevious<CR>
+tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
+tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
 
 "yank to end
 nnoremap Y y$

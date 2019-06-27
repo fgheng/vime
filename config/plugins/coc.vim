@@ -18,7 +18,9 @@ if HasPlug('coc.nvim')
                 \ 'coc-calc',
                 \ 'coc-git',
                 \ 'coc-marketplace',
-                \ 'coc-project'
+                \ 'coc-project',
+                \ 'coc-post',
+                \ 'coc-xml'
                 \ ]
                 """""""
                 " \ 'coc-java',
@@ -54,8 +56,9 @@ if HasPlug('coc.nvim')
     inoremap <silent><expr> <TAB>
         \ pumvisible() ? "\<C-n>" :
         \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
+        \ "\<TAB>"
+        "\ <SID>check_back_space() ? "\<TAB>" :
+        "\ coc#refresh()
     inoremap <expr><S-TAB>
         \ pumvisible() ? "\<C-p>" : "\<C-h>"
         "\ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -67,7 +70,7 @@ if HasPlug('coc.nvim')
     inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
                 \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-    " 使用ctrl space触发补全
+    " 使用ctrl space强制触发补全
     inoremap <silent><expr> <c-space> coc#refresh()
 
     " diagnostic 跳转

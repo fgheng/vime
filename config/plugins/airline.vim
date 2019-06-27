@@ -35,12 +35,10 @@ if HasPlug('vim-airline')
      "let g:airline_detect_crypt=1
      "let g:airline_highlighting_cache = 1
      if  g:airline#extensions#tabline#enabled == 1
-        nmap <M-h> <Plug>AirlineSelectPrevTab
-        nmap <M-l> <Plug>AirlineSelectNextTab
+        nmap <M-k> <Plug>AirlineSelectPrevTab
+        nmap <M-j> <Plug>AirlineSelectNextTab
     else
-        nnoremap  <M-l> :tabnext<cr>
-        nnoremap  <M-h> :tabprevious<CR>
-        tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
-        tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
+        nmap <M-j> :bn<cr>
+        nmap <M-k> :bp<cr>
     endif
 endif

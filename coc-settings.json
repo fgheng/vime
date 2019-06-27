@@ -34,7 +34,7 @@
     // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
-    "python.jediEnabled": true,
+    "python.jediEnabled": true,     // 需要按转jdei
     // vimlsp
     "vimlsp.trace.server": "verbose",
     // highlight
@@ -45,6 +45,8 @@
     //"list.previewSplitRight": true,
     //snippet
     "coc.preferences.snippetStatusText": "Ⓢ ",
+    //post
+    "post.root": "~/.cache/coc-post",
     //git
     "git.enableGutters": true,
     "git.addGlameToBufferVar": true,
@@ -67,6 +69,8 @@
         "vue-html": "html",
         "javascript": "javascriptreact"
     },
+    // xml
+    //"xml.java.home": "/usr/bin/java",
     // lsp
     "languageserver": {
         // 安装bash-language-server
@@ -82,7 +86,7 @@
                 "~"
             ]
         },
-       //  安装ccls
+        //  安装ccls
         "ccls": {
             "command": "ccls",
             "trace.server": "verbose",
@@ -136,5 +140,5 @@
                 "context"
             ]
         }
-    },
+    }
 }

@@ -91,7 +91,7 @@ Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 Plug 'ntpeters/vim-better-whitespace'
 "Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'andys8/vscode-jest-snippets'
+"Plug 'andys8/vscode-jest-snippets'
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
