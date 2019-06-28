@@ -1,17 +1,20 @@
 if HasPlug('tagbar')
     let g:tagbar_width = 35
     function! Tagbar_Toggle()
+        let a:bufnr = bufnr('__vista__')
+        let a:bufwinnr = bufwinnr(a:bufnr)
+
         " 如果存在这个buf
-        if bufnr('__Tagbar__') > -1
+        if a:bufnr > -1
             " 如果正在窗口中显示
-            if bufwinnr(bufnr('__Tagbar__')) > -1
+            if a:bufwinnr > -1
                 " 如果当前在这个窗口这里
-                if winnr() == bufwinnr(bufnr('__Tagbar__'))
+                if winnr() == a:bufwinnr
                     " 关闭
                     exe "TagbarClose"
                 else
                     " 跳转过去
-                    exe bufwinnr(bufnr('__Tagbar__')) . " wincmd w"
+                    exe a:bufwinnr . " wincmd w"
                 endif
             else
                 exe "TagbarOpen"

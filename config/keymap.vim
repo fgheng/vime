@@ -84,10 +84,10 @@ endif
 "------------------------------------------- leaderf
 if HasPlug('LeaderF')
     nnoremap <M-f> :LeaderfFile<CR>
-    nnoremap <M-t> :LeaderfBufTag<CR>
-    nnoremap <M-T> :LeaderfBufTagAll<CR>
+    "nnoremap <M-t> :LeaderfBufTag<CR>
+    "nnoremap <M-T> :LeaderfBufTagAll<CR>
     nnoremap <M-o> :LeaderfBufferAll<CR>
-    nnoremap <M-b> :LeaderfTabBufferAll<CR><TAB>
+    "nnoremap <M-b> :LeaderfTabBufferAll<CR><TAB>
     nnoremap <M-s> :LeaderfLine<CR>
     nnoremap <M-S> :<C-U><C-R>=printf("Leaderf rg -S --fullPath %s", getcwd())<cr><cr>
     nnoremap <M-r> :LeaderfMru<CR>
@@ -96,8 +96,8 @@ endif
 "------------------------------------------- fzf
 if HasPlug('fzf')
     nnoremap <M-f> :Files<CR>
-    nnoremap <M-t> :BTags<CR>
-    nnoremap <M-T> :Tags<CR>
+    "nnoremap <M-t> :BTags<CR>
+    "nnoremap <M-T> :Tags<CR>
     nnoremap <M-o> :Buffers<CR>
     nnoremap <M-s> :BLines<CR>
     nnoremap <M-S> :Rg<CR>
@@ -156,7 +156,7 @@ endif
 "------------------------------------------- Startify
 if HasPlug('vim-startify')
     noremap <leader>s <esc>:Startify<cr>
-    au FileType startify noremap q :q<cr>
+    "au FileType startify noremap q :q<cr>
 endif
 
 "-------------------------------------------- quickfix

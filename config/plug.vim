@@ -56,8 +56,9 @@ Plug 'sheerun/vim-polyglot' " 代码着色
 Plug 'Yggdroot/indentLine', { 'for': ['asm', 'h', 'hpp', 'c', 'cpp', 'python', 'js', 'ts', 'java', 'go', 'html', 'css', 'vim', 'sh', 'tex']}
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'liuchengxu/eleline.vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'ryanoasis/vim-devicons'
@@ -66,6 +67,7 @@ Plug 'ryanoasis/vim-devicons'
 " "{{----------工具
 " 浏览器
 "Plug 'yuratomo/w3m.vim'
+Plug 'liuchengxu/vista.vim'
 Plug 'majutsushi/tagbar',  { 'on': ['TagbarToggle', 'TagbarOpen', 'TagbarClose'] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'

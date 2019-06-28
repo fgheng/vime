@@ -4,5 +4,5 @@ if HasPlug('ranger.vim')
     let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
     " 显示隐藏文件
     let ranger_command_override = 'ranger --cmd "set show_hidden=true"'
-    noremap <leader>f :Ranger<cr>
+    noremap <leader>f :RangerCurrentFile<cr>
 endif

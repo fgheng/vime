@@ -20,7 +20,7 @@ if HasPlug('coc.nvim')
                 \ 'coc-marketplace',
                 \ 'coc-project',
                 \ 'coc-post',
-                \ 'coc-xml'
+                \ 'coc-xml',
                 \ ]
                 """""""
                 " \ 'coc-java',
@@ -71,6 +71,8 @@ if HasPlug('coc.nvim')
                 \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
     " 使用ctrl space强制触发补全
+    "inoremap <silent><expr> <c-space>
+    "            \ pumvisible() ?  "\<C-r>=coc#_hide()\<cr>" : coc#refresh()
     inoremap <silent><expr> <c-space> coc#refresh()
 
     " diagnostic 跳转
@@ -138,7 +140,7 @@ if HasPlug('coc.nvim')
     nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
     vnoremap <silent> <space>c  :<C-u>CocList commands<cr>
     " Find symbol of current document
-    nnoremap <silent> <space>t  :<C-u>CocList outline<cr>
+    "nnoremap <silent> <space>t  :<C-u>CocList outline<cr>
     " Search workspace symbols
     nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
     " Do default action for next item.

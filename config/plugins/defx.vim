@@ -2,13 +2,13 @@ if HasPlug('defx.nvim')
 
     let s:DefxWinNr = -1
     let s:beforWinnr = -1
+
     function! OpenDefx()
         exec 'wal'
         let s:beforWinnr = getwininfo(win_getid())[0]['winnr']
         "let a:wincol = getwininfo(win_getid())[0]['wincol']
         "let a:winrow = getwininfo(win_getid())[0]['winrow']
         call defx#custom#option('_', {
-                \ 'direction': 'leftabove',
                 \ 'split': 'floating',
                 \ 'wincol': 0,
                 \ 'winrow': 0,
@@ -57,7 +57,7 @@ if HasPlug('defx.nvim')
         "endif
 
         exec "Defx"
-        highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
+        "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
         let s:DefxWinNr = winnr()
     endfunction
 
@@ -74,7 +74,7 @@ if HasPlug('defx.nvim')
                 \ 'columns': "git:mark:indent:icon:icons:filename:size"
                 \ })
         exec "Defx"
-        highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
+        "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
     endfunction
     nnoremap <silent> <F2> <esc>:call OpenDefx()<cr>
     "nnoremap <silent> <leader>d <esc>:call OpenDefxLeft()<cr>
@@ -89,7 +89,7 @@ if HasPlug('defx.nvim')
 
     call defx#custom#column('mark', {
                 \ 'selected_icon': '✓',
-                \ 'readonly_icon': '○',
+                \ 'readonly_icon': '',
                 \ })
 
     autocmd FileType defx call s:defx_my_settings()
@@ -103,7 +103,9 @@ if HasPlug('defx.nvim')
         nnoremap <silent><buffer><expr> q       defx#do_action('quit')
         nnoremap <silent><buffer><expr> m       defx#do_action('move')
         nnoremap <silent><buffer><expr> p       defx#do_action('paste')
-        nnoremap <silent><buffer><expr> h       defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('cd', ['..'])
+        "nnoremap <silent><buffer><expr> h       defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('cd', ['..'])
+
+        nnoremap <silent><buffer><expr> h defx#do_action('call', 'DefxSmartH')
         nnoremap <silent><buffer><expr> l       defx#do_action('call', 'DefxSmartL')
         nnoremap <silent><buffer><expr> o       defx#do_action('call', 'DefxSmartO')
         "nnoremap <silent><buffer><expr> <Cr>    defx#is_directory() ? defx#do_action('open_directory') : defx#do_action('drop')
@@ -185,6 +187,32 @@ if HasPlug('defx.nvim')
                 exec 'e' a:filepath
             endif
         endif
+    endfunction
+
+    function! DefxSmartH(_)
+        " if cursor line is first line, or in empty dir
+        if line('.') ==# 1 || line('$') ==# 1
+            return defx#call_action('cd', ['..'])
+        endif
+
+        " candidate is opend tree?
+        if defx#is_opened_tree()
+            return defx#call_action('close_tree')
+        endif
+
+        " parent is root?
+        let s:candidate = defx#get_candidate()
+        let s:parent = fnamemodify(s:candidate['action__path'], s:candidate['is_directory'] ? ':p:h:h' : ':p:h')
+        "let sep = s:SYS.isWindows ? '\\' :  '/'
+        "if s:trim_right(s:parent, sep) == s:trim_right(b:defx.paths[0], sep)
+        "    return defx#call_action('cd', ['..'])
+        "endif
+
+        " move to parent.
+        call defx#call_action('search', s:parent)
+
+        " if you want close_tree immediately, enable below line.
+        call defx#call_action('close_tree')
     endfunction
 
     " defx git
