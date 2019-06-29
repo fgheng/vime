@@ -58,6 +58,7 @@ if HasPlug('defx.nvim')
 
         exec "Defx"
         "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
+        highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=None guibg=None
         let s:DefxWinNr = winnr()
     endfunction
 
@@ -92,9 +93,9 @@ if HasPlug('defx.nvim')
                 \ 'readonly_icon': '',
                 \ })
 
-    autocmd FileType defx call s:defx_my_settings()
+    autocmd FileType defx call s:defx_custom_settings()
 
-    function! s:defx_my_settings() abort
+    function! s:defx_custom_settings() abort
 
         nnoremap <silent><buffer><expr> V       defx#do_action('toggle_select') . 'j'
         nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')
@@ -106,6 +107,7 @@ if HasPlug('defx.nvim')
         "nnoremap <silent><buffer><expr> h       defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('cd', ['..'])
         nnoremap <silent><buffer><expr> h       defx#do_action('call', 'DefxSmartH')
         nnoremap <silent><buffer><expr> l       defx#do_action('call', 'DefxSmartL')
+        nnoremap <silent><buffer><expr> L       defx#do_action('call', 'DefxSmartBigL')
         nnoremap <silent><buffer><expr> o       defx#do_action('call', 'DefxSmartO')
         "nnoremap <silent><buffer><expr> <Cr>    defx#is_directory() ? defx#do_action('open_directory') : defx#do_action('drop')
         nnoremap <silent><buffer><expr> <Cr>    defx#do_action('call', 'DefxSmartCr')
@@ -160,6 +162,38 @@ if HasPlug('defx.nvim')
         " exec 'wal'
         if defx#is_directory()
             call defx#call_action('open_tree')
+            normal! j
+        else
+            let a:filepath = defx#get_candidate()['action__path']
+            exec "close " . s:DefxWinNr
+            if tabpagewinnr(tabpagenr(), '$') >= 2    " if there are more than 2 normal windows
+                if exists(':ChooseWin') == 2
+                    ChooseWin
+                else
+                    if has('nvim')
+                        let input = input({
+                                    \ 'prompt'      : 'ChooseWin No.: ',
+                                    \ 'cancelreturn': 0,
+                                    \ })
+                        if input == 0 | return | endif
+                    else
+                        let input = input('ChooseWin No.: ')
+                    endif
+                    if input == winnr() | return | endif
+                    exec input . 'wincmd w'
+                endif
+                exec 'e' a:filepath
+            else
+                exec 'wincmd w'
+                exec 'e' a:filepath
+            endif
+        endif
+    endfunction
+
+    function! DefxSmartBigL(_)
+        " exec 'wal'
+        if defx#is_directory()
+            call defx#call_action('open_tree_recursive')
             normal! j
         else
             let a:filepath = defx#get_candidate()['action__path']

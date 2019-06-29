@@ -71,6 +71,8 @@
     },
     // xml
     //"xml.java.home": "/usr/bin/java",
+    // yank
+    "yank.highlight.duration": 200,
     // lsp
     "languageserver": {
         // 安装bash-language-server

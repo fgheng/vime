@@ -21,8 +21,10 @@ if HasPlug('coc.nvim')
                 \ 'coc-project',
                 \ 'coc-post',
                 \ 'coc-xml',
+                \ 'coc-yank',
                 \ ]
                 """""""
+                " \ 'coc-yank' "复制"
                 " \ 'coc-java',
                 " \ 'coc-sh',
                 " \ 'coc-pyls',
@@ -165,5 +167,10 @@ if HasPlug('coc.nvim')
     "    \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
     "    \ <SID>check_back_space() ? "\<TAB>" :
     "    \ coc#refresh()
+    "
+    "
 
+    "---------------------------------------------- coc yank
+    nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 endif
+
