@@ -49,4 +49,7 @@ if HasPlug('vista.vim')
     endfunction
 
     nnoremap <F3> :call Vista_Toggle()<CR>
+
+    "  将默认/调用fzf改为默认的/
+    au FileType vista nnoremap <buffer> / <esc>:/
 endif
