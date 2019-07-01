@@ -52,4 +52,6 @@ if HasPlug('vista.vim')
 
     "  将默认/调用fzf改为默认的/
     au FileType vista nnoremap <buffer> / <esc>:/
+    au FileType vista setlocal incsearch
+
 endif

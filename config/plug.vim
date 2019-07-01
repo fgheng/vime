@@ -113,6 +113,11 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'thinca/vim-quickrun'
 " "}}
 "
+
+" 其他
+" 需要按照python-pysdl2 sdl2_mixer
+Plug 'skywind3000/vim-keysound'
+
 call plug#end()
 
 " 判断是否有这个插件

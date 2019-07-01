@@ -1,3 +1,4 @@
+"if has_key(g:plugs, 'coc.nvim')
 if HasPlug('coc.nvim')
     " coc插件
     let g:coc_global_extensions =
