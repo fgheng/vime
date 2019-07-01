@@ -1,5 +1,7 @@
 {
+    // preferences
     "coc.preferences.colorSupport": true,
+    //"coc.preferences.snippetStatusText": "Ⓢ ",
     //"coc.preferences.jumpCommand": "split",
     "coc.preferences.rootPatterns": [
         ".vim",
@@ -22,7 +24,7 @@
     //"suggest.noselect": false, // 选中第一个
     "suggest.detailField": "abbr",
     "suggest.triggerCompletionWait": 100,
-    "suggest.snippetIndicator": " [*]",
+    "suggest.snippetIndicator": "  Ⓢ ",
     // diagnostic
     //"diagnostic.displayByAle": true,
     // 插入模式也可以使用diagnostic
@@ -44,7 +46,7 @@
     //"list.maxHeight": 20,
     //"list.previewSplitRight": true,
     //snippet
-    "coc.preferences.snippetStatusText": "Ⓢ ",
+    //"snippets.shortcut": "Ⓢ",
     //post
     "post.root": "~/.cache/coc-post",
     //git

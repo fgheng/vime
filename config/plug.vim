@@ -56,7 +56,8 @@ Plug 'sheerun/vim-polyglot' " 代码着色
 Plug 'Yggdroot/indentLine', { 'for': ['asm', 'h', 'hpp', 'c', 'cpp', 'python', 'js', 'ts', 'java', 'go', 'html', 'css', 'vim', 'sh', 'tex']}
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
-Plug 'liuchengxu/eleline.vim'
+Plug 'itchyny/lightline.vim'
+"Plug 'liuchengxu/eleline.vim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }

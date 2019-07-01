@@ -3,7 +3,12 @@ if HasPlug('defx.nvim')
     let s:DefxWinNr = -1
     let s:beforWinnr = -1
 
+    let s:openfloat = 0
+    let s:openleft = 0
+
     function! OpenDefx()
+        let s:openfloat = 1
+
         exec 'wal'
         let s:beforWinnr = getwininfo(win_getid())[0]['winnr']
         "let a:wincol = getwininfo(win_getid())[0]['wincol']
@@ -63,22 +68,24 @@ if HasPlug('defx.nvim')
     endfunction
 
     function! OpenDefxLeft()
+        let s:openleft = 1
         exec 'wal'
         call defx#custom#option('_', {
                 \ 'direction': 'leftabove',
                 \ 'split': 'vertical',
-                \ 'winwidth': 35,
+                \ 'winwidth': 25,
                 \ 'show_ignored_files': 0,
                 \ 'buffer_name': '',
                 \ 'toggle': 1,
                 \ 'resume': 1,
-                \ 'columns': "git:mark:indent:icon:icons:filename:size"
+                \ 'columns': "git:mark:indent:icon:icons:filename"
                 \ })
         exec "Defx"
         "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
     endfunction
-    nnoremap <silent> <F2> <esc>:call OpenDefx()<cr>
-    "nnoremap <silent> <leader>d <esc>:call OpenDefxLeft()<cr>
+
+    "nnoremap <silent> <F2> <esc>:call OpenDefx()<cr>
+    nnoremap <silent> <F2> <esc>:call OpenDefxLeft()<cr>
 
     call defx#custom#column('filename', {
                 \ 'directory_icon': '▸',
@@ -113,9 +120,11 @@ if HasPlug('defx.nvim')
         nnoremap <silent><buffer><expr> <Cr>    defx#do_action('call', 'DefxSmartCr')
 
         nnoremap <silent><buffer><expr> <2-LeftMouse> defx#is_directory() ? defx#do_action('open_tree') : defx#do_action('drop')
-        nnoremap <silent><buffer><expr> sv      defx#do_action('drop', 'vsplit')
-        nnoremap <silent><buffer><expr> sh      defx#do_action('drop', 'split')
-        nnoremap <silent><buffer><expr> st      defx#do_action('drop', 'tabedit')
+        if s:openleft
+            nnoremap <silent><buffer><expr> sv      defx#do_action('drop', 'vsplit')
+            nnoremap <silent><buffer><expr> sh      defx#do_action('drop', 'split')
+            nnoremap <silent><buffer><expr> st      defx#do_action('drop', 'tabedit')
+        endif
         nnoremap <silent><buffer><expr> S       defx#do_action('toggle_sort', 'time')
         nnoremap <silent><buffer><expr> P       defx#do_action('open', 'pedit' )
         nnoremap <silent><buffer><expr> N       defx#do_action('new_file')
@@ -142,18 +151,24 @@ if HasPlug('defx.nvim')
             call defx#call_action('open_directory')
         else
             let a:filepath = defx#get_candidate()['action__path']
-            exec "close " . s:DefxWinNr
-            exec s:beforWinnr . "wincmd w"
-            exec 'e'. a:filepath
+            if s:openfloat
+                exec "close " . s:DefxWinNr
+                exec s:beforWinnr . "wincmd w"
+                exec 'e'. a:filepath
+            elseif s:openleft
+                call defx#call_action('drop')
+            endif
         endif
     endfunction
 
     function! DefxSmartO(_)
-        if defx#is_directory()
-            call defx#call_action('open_directory')
-        else
-            call defx#call_action('drop')
-            exec "close " . s:DefxWinNr
+        if s:openfloat
+            if defx#is_directory()
+                call defx#call_action('open_directory')
+            else
+                call defx#call_action('drop')
+                exec "close " . s:DefxWinNr
+            endif
         endif
     endfunction
 
@@ -165,7 +180,9 @@ if HasPlug('defx.nvim')
             normal! j
         else
             let a:filepath = defx#get_candidate()['action__path']
-            exec "close " . s:DefxWinNr
+            if s:openfloat
+                exec "close " . s:DefxWinNr
+            endif
             if tabpagewinnr(tabpagenr(), '$') >= 2    " if there are more than 2 normal windows
                 if exists(':ChooseWin') == 2
                     ChooseWin
@@ -182,7 +199,13 @@ if HasPlug('defx.nvim')
                     if input == winnr() | return | endif
                     exec input . 'wincmd w'
                 endif
-                exec 'e' a:filepath
+
+                if &ft == 'defx'
+                    return
+                else
+                    exec 'e' a:filepath
+                endif
+
             else
                 exec 'wincmd w'
                 exec 'e' a:filepath
@@ -197,7 +220,9 @@ if HasPlug('defx.nvim')
             normal! j
         else
             let a:filepath = defx#get_candidate()['action__path']
-            exec "close " . s:DefxWinNr
+            if s:openfloat
+                exec "close " . s:DefxWinNr
+            endif
             if tabpagewinnr(tabpagenr(), '$') >= 2    " if there are more than 2 normal windows
                 if exists(':ChooseWin') == 2
                     ChooseWin
@@ -214,7 +239,13 @@ if HasPlug('defx.nvim')
                     if input == winnr() | return | endif
                     exec input . 'wincmd w'
                 endif
-                exec 'e' a:filepath
+
+                if &ft == 'defx'
+                    return
+                else
+                    exec 'e' a:filepath
+                endif
+
             else
                 exec 'wincmd w'
                 exec 'e' a:filepath

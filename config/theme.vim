@@ -5,7 +5,7 @@ function! s:patch_lucius_colors()
     hi Normal     ctermbg=NONE guibg=NONE
     hi LineNr     ctermbg=NONE guibg=NONE
     hi SignColumn ctermbg=NONE guibg=NONE
-    set background=light
+    "set background=light
 
 endfunction
 

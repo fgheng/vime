@@ -61,6 +61,7 @@ if HasPlug('coc.nvim')
         \ "\<TAB>"
         "\ <SID>check_back_space() ? "\<TAB>" :
         "\ coc#refresh()
+        "coc#expandable coc#jumpable
     inoremap <expr><S-TAB>
         \ pumvisible() ? "\<C-p>" : "\<C-h>"
         "\ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -69,8 +70,9 @@ if HasPlug('coc.nvim')
     vmap <tab> <Plug>(coc-snippets-select)
 
     " 回车补全选中的内容
-    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
-                \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    "inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
+    "            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
     " 使用ctrl space强制触发补全
     "inoremap <silent><expr> <c-space>

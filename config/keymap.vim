@@ -9,6 +9,10 @@ nnoremap <BackSpace> :nohl<cr>
 
 inoremap <M-h> <esc>I
 inoremap <M-l> <esc>A
+"inoremap <c-h> <left>
+"inoremap <c-l> <right>
+"inoremap <c-j> <down>
+"inoremap <c-k> <up>
 "inoremap <M-j> <down>
 "inoremap <M-k> <up>
 
