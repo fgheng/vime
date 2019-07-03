@@ -175,5 +175,17 @@ if HasPlug('coc.nvim')
 
     "---------------------------------------------- coc yank
     nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+    "---------------------------------------------- coc list
+    nnoremap <M-f> :CocList files<CR>
+    "nnoremap <M-t> :CocList tags<CR>
+    "nnoremap <M-T> :LeaderfBufTagAll<CR>
+    nnoremap <M-o> :CocList buffers<CR>
+    "nnoremap <M-b> :CocList buffers<CR><TAB>
+    nnoremap <M-s> :CocList words<CR>
+    nnoremap <M-S> :CocList grep<cr>
+    nnoremap <M-r> :CocList mru<CR>
+    nnoremap <M-m> :CocList marks<CR>
+    nnoremap <M-w> :CocList windows<CR>
 endif
 
