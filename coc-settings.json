@@ -37,6 +37,8 @@
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
     "python.jediEnabled": true,     // 需要按转jdei
+    // java
+    "java.trace.server": "verbose",
     // vimlsp
     "vimlsp.trace.server": "verbose",
     // highlight
@@ -53,7 +55,7 @@
     "git.enableGutters": true,
     "git.addGlameToBufferVar": true,
     "git.addGlameToVirtualText": true,
-    "git.virtualTextPrefix": "              [commit log]: ",
+    "git.virtualTextPrefix":  "  ... ",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
     "git.removedSign.hlGroup": "GitGutterDelete",
@@ -75,6 +77,11 @@
     //"xml.java.home": "/usr/bin/java",
     // yank
     "yank.highlight.duration": 200,
+    // lists
+    "session.directory": ".cache",
+    //"list.source.grep.useLiteral": false,
+    "list.source.grep.command": "rg",
+    "list.source.grep.args": [],
     // lsp
     "languageserver": {
         // 安装bash-language-server
@@ -119,18 +126,18 @@
             }
         },
         // jdtls
-        "java": {
-            "command": "jdtls",
-            "filetypes": [
-                "java",
-                "class"
-            ],
-            "rootPatterns": [
-                "maven",
-                ".git",
-                ".vim"
-            ]
-        },
+        //"java": {
+        //    "command": "jdtls",
+        //    "filetypes": [
+        //        "java",
+        //        "class"
+        //    ],
+        //    "rootPatterns": [
+        //        "maven",
+        //        ".git",
+        //        ".vim"
+        //    ]
+        //},
         "latex": {
             "command": "java",
             "args": [

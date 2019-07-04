@@ -23,13 +23,12 @@ if HasPlug('coc.nvim')
                 \ 'coc-post',
                 \ 'coc-xml',
                 \ 'coc-yank',
+                \ 'coc-lists',
                 \ ]
                 """""""
                 " \ 'coc-yank' "复制"
-                " \ 'coc-java',
                 " \ 'coc-sh',
                 " \ 'coc-pyls',
-                " \ 'coc-lists',
                 " \ 'coc-python',
                 " \ 'coc-ccls',
                 " \ 'coc-diagnostic',
@@ -78,7 +77,8 @@ if HasPlug('coc.nvim')
     " 使用ctrl space强制触发补全
     "inoremap <silent><expr> <c-space>
     "            \ pumvisible() ?  "\<C-r>=coc#_hide()\<cr>" : coc#refresh()
-    inoremap <silent><expr> <c-space> coc#refresh()
+    "inoremap <silent><expr> <c-space> coc#refresh()
+    inoremap <expr><c-space> pumvisible() ? "\<C-e>" : coc#refresh()
 
     " diagnostic 跳转
     nmap <silent> <space>[ <Plug>(coc-diagnostic-prev)
@@ -177,15 +177,17 @@ if HasPlug('coc.nvim')
     nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
     "---------------------------------------------- coc list
-    nnoremap <M-f> :CocList files<CR>
-    "nnoremap <M-t> :CocList tags<CR>
-    "nnoremap <M-T> :LeaderfBufTagAll<CR>
-    nnoremap <M-o> :CocList buffers<CR>
-    "nnoremap <M-b> :CocList buffers<CR><TAB>
-    nnoremap <M-s> :CocList words<CR>
-    nnoremap <M-S> :CocList grep<cr>
-    nnoremap <M-r> :CocList mru<CR>
-    nnoremap <M-m> :CocList marks<CR>
-    nnoremap <M-w> :CocList windows<CR>
+    "nnoremap <M-f> :CocList files<CR>
+    ""nnoremap <M-t> :CocList tags<CR>
+    ""nnoremap <M-T> :LeaderfBufTagAll<CR>
+    "nnoremap <M-o> :CocList buffers<CR>
+    ""nnoremap <M-b> :CocList buffers<CR><TAB>
+    "nnoremap <silent> <M-c> :exe 'CocList -I --normal --input='.expand('<cword>').' words'<cr>
+    "nnoremap <M-s> :CocList words<cr>
+    "nnoremap <M-S> :CocList grep<cr>
+    "nnoremap <M-r> :CocList mru<CR>
+    "nnoremap <M-m> :CocList marks<CR>
+    "nnoremap <M-w> :CocList windows<CR>
+
 endif
 
