@@ -1,14 +1,12 @@
 {
     // preferences
     "coc.preferences.colorSupport": true,
-    //"coc.preferences.snippetStatusText": "Ⓢ ",
-    //"coc.preferences.jumpCommand": "split",
     "coc.preferences.rootPatterns": [
-        ".vim",
         ".git",
+        ".vim",
         ".hg",
         ".projections.json",
-        ".project/"
+        ".project"
     ],
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
@@ -78,7 +76,7 @@
     // yank
     "yank.highlight.duration": 200,
     // lists
-    "session.directory": ".cache",
+    "session.directory": "~/.cache/sessions",
     //"list.source.grep.useLiteral": false,
     "list.source.grep.command": "rg",
     "list.source.grep.args": [],

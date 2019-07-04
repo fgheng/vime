@@ -1,4 +1,3 @@
-"if has_key(g:plugs, 'coc.nvim')
 if HasPlug('coc.nvim')
     " coc插件
     let g:coc_global_extensions =
@@ -25,27 +24,8 @@ if HasPlug('coc.nvim')
                 \ 'coc-yank',
                 \ 'coc-lists',
                 \ ]
-                """""""
-                " \ 'coc-yank' "复制"
-                " \ 'coc-sh',
-                " \ 'coc-pyls',
-                " \ 'coc-python',
-                " \ 'coc-ccls',
-                " \ 'coc-diagnostic',
-                " \ 'coc-prettier',
-                " \ 'coc-pairs',
-                " \ 'coc-ultisnips',
-                " \ 'coc-syntax',
-                " \ 'coc-pyls',
-                " \ 'coc-java',
-                " \ 'coc-git',
 
     "---------------------------------------------- 补全提示框相关
-    "inoremap <silent><expr> <TAB>
-    "    \ pumvisible() ? "\<C-n>" :
-    "    \ <SID>check_back_space() ? "\<TAB>" :
-    "    \ coc#refresh()
-
     " 检查当前光标前面是不是空白字符
     function! s:check_back_space() abort
         let col = col('.') - 1
@@ -70,13 +50,11 @@ if HasPlug('coc.nvim')
     vmap <tab> <Plug>(coc-snippets-select)
 
     " 回车补全选中的内容
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-    "inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
-    "            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :
+                \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
     " 使用ctrl space强制触发补全
-    "inoremap <silent><expr> <c-space>
-    "            \ pumvisible() ?  "\<C-r>=coc#_hide()\<cr>" : coc#refresh()
     "inoremap <silent><expr> <c-space> coc#refresh()
     inoremap <expr><c-space> pumvisible() ? "\<C-e>" : coc#refresh()
 
@@ -157,37 +135,24 @@ if HasPlug('coc.nvim')
     " show coclist
     nnoremap <silent> <space>a  :<C-u>CocList<CR>
     nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-
-    " autocmd FileType markdown let b:coc_pairs_disabled = ['`']
-
-    "---------------------------------------------- coc snippets
-    "imap <M-j> <Plug>(coc-snippets-expand-jump)
-    "let g:coc_snippet_next = '<m-j>'
-    "let g:coc_snippet_pre = '<m-k>'
-
-    "inoremap <silent><expr> <TAB>
-    "    \ pumvisible() ? coc#_select_confirm() :
-    "    \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-    "    \ <SID>check_back_space() ? "\<TAB>" :
-    "    \ coc#refresh()
-    "
-    "
+    " 切换cwd
+    "nnoremap <silent> <space>w  :<C-u>CocList folders<cr>
 
     "---------------------------------------------- coc yank
     nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
     "---------------------------------------------- coc list
-    "nnoremap <M-f> :CocList files<CR>
-    ""nnoremap <M-t> :CocList tags<CR>
-    ""nnoremap <M-T> :LeaderfBufTagAll<CR>
-    "nnoremap <M-o> :CocList buffers<CR>
-    ""nnoremap <M-b> :CocList buffers<CR><TAB>
-    "nnoremap <silent> <M-c> :exe 'CocList -I --normal --input='.expand('<cword>').' words'<cr>
-    "nnoremap <M-s> :CocList words<cr>
-    "nnoremap <M-S> :CocList grep<cr>
-    "nnoremap <M-r> :CocList mru<CR>
-    "nnoremap <M-m> :CocList marks<CR>
-    "nnoremap <M-w> :CocList windows<CR>
+    nnoremap <M-f> :CocList files<CR>
+    "nnoremap <M-t> :CocList tags<CR>
+    "nnoremap <M-T> :LeaderfBufTagAll<CR>
+    nnoremap <M-o> :CocList buffers<CR>
+    "nnoremap <M-b> :CocList buffers<CR><TAB>
+    nnoremap <silent> <M-c> :exe 'CocList -I --normal --input='.expand('<cword>').' words'<cr>
+    nnoremap <M-s> :CocList words<cr>
+    nnoremap <M-S> :CocList grep<cr>
+    nnoremap <M-r> :CocList mru<CR>
+    nnoremap <M-m> :CocList marks<CR>
+    nnoremap <M-w> :CocList windows<CR>
 
 endif
 

@@ -1,8 +1,5 @@
 "------------------------------------------- base key map
 inoremap jk <esc>
-"nnoremap ;; <esc>:
-" nnoremap q <esc>:close<cr>
-" vnoremap q <esc>:close<cr>
 nnoremap q <esc>:close<cr>
 vnoremap q <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr>
@@ -15,10 +12,6 @@ inoremap <M-l> <esc>A
 "inoremap <c-k> <up>
 "inoremap <M-j> <down>
 "inoremap <M-k> <up>
-
-" inoremap <c-h> <esc>xi
-" inoremap <c-l> <esc><right>xi
-" inoremap <c-w>
 
 " 窗口
 noremap <C-h> <C-w>h
@@ -43,9 +36,7 @@ imap <M-o> <esc>o
 imap <M-O> <esc>O
 
 " buffer 操作
-"nnoremap <C-c>  :bd<CR>
 nnoremap <C-x>  :Bclose<CR>
-
 noremap <space><space> <esc>:wal<cr>
 
 nnoremap j gj
@@ -190,3 +181,6 @@ if HasPlug('tagbar')
     nnoremap <F3> :TagbarToggle<cr>
     "inoremap <F3> <esc>:TagbarToggle<cr>
 endif
+
+"-------------------------------------------- coc
+
