@@ -239,13 +239,10 @@ fu! OpenTerminalInFloatWindowToggle()
         let a:buf = nvim_create_buf(v:false, v:true)
         let a:fwin = nvim_open_win(a:buf, v:true, a:opts)
         let s:fwinnr = winnr()
+
         " 不存在, 那么新建一个终端
-        if has('nvim')
-            exec "terminal"
-            exec "normal a"
-        else
-            :call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})
-        endif
+        exec "terminal"
+        exec "normal a"
 
         let s:fbnr = bufnr("%")
         let s:fbna = bufname("%")

@@ -70,7 +70,7 @@ if !has('nvim')
     Plug 'vim-utils/vim-alt-mappings'
 endif
 Plug 'liuchengxu/vista.vim'
-Plug 'majutsushi/tagbar',  { 'on': ['TagbarToggle', 'TagbarOpen', 'TagbarClose'] }
+"Plug 'majutsushi/tagbar',  { 'on': ['TagbarToggle', 'TagbarOpen', 'TagbarClose'] }
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'

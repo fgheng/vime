@@ -17,11 +17,10 @@ LoadScript plug.vim
 " 加载按键映射配置
 LoadScript keymap.vim
 
-" 加载主题配置
-LoadScript theme.vim
-
 " 加载插件配置
 for file in file_list
     exec 'source' fnameescape(file)
 endfor
 
+" 加载主题配置
+LoadScript theme.vim
