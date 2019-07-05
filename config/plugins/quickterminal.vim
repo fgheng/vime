@@ -67,10 +67,10 @@ fu! OpenTerminalBottom()
     else
         if has('nvim')
             exec "terminal"
+            exe "normal! a"
         else
             :call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})
         endif
-        exe "normal! a"
         let s:bnr = bufnr("%")
         let s:bna = bufname("%")
         let s:winnr = winnr()
@@ -155,7 +155,6 @@ fu! OpenTerminalTab()
         else
             exe "$tabnew"
             exe "call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})"
-            exe "normal a"
         endif
 
         let s:tbnr = bufnr("%")
@@ -241,8 +240,13 @@ fu! OpenTerminalInFloatWindowToggle()
         let a:fwin = nvim_open_win(a:buf, v:true, a:opts)
         let s:fwinnr = winnr()
         " 不存在, 那么新建一个终端
-        exec "terminal"
-        exec "normal a"
+        if has('nvim')
+            exec "terminal"
+            exec "normal a"
+        else
+            :call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})
+        endif
+
         let s:fbnr = bufnr("%")
         let s:fbna = bufname("%")
 

@@ -66,8 +66,9 @@ Plug 'ryanoasis/vim-devicons'
 " "}}
 
 " "{{----------工具
-" 浏览器
-"Plug 'yuratomo/w3m.vim'
+if !has('nvim')
+    Plug 'vim-utils/vim-alt-mappings'
+endif
 Plug 'liuchengxu/vista.vim'
 Plug 'majutsushi/tagbar',  { 'on': ['TagbarToggle', 'TagbarOpen', 'TagbarClose'] }
 Plug 'jiangmiao/auto-pairs'

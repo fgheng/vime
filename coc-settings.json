@@ -43,7 +43,7 @@
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
     // list
-    //"list.maxHeight": 20,
+    "list.maxHeight": 15,
     //"list.previewSplitRight": true,
     //snippet
     //"snippets.shortcut": "Ⓢ",

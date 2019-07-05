@@ -154,5 +154,10 @@ if HasPlug('coc.nvim')
     nnoremap <M-m> :CocList marks<CR>
     nnoremap <M-w> :CocList windows<CR>
 
+    "---------------------------------------------- folders
+    " 根据具体文件设定cwd
+    set sessionoptions+=globals
+    autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
+    autocmd FileType c,cpp let b:coc_root_patterns = ['.git', '.ccls', 'compile_flags.txt']
 endif
 
