@@ -34,7 +34,8 @@
     // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
-    "python.jediEnabled": true,     // 需要按转jdei
+    // 需要安装jdei
+    "python.jediEnabled": true,
     // java
     "java.trace.server": "verbose",
     // vimlsp
