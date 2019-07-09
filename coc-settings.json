@@ -19,14 +19,14 @@
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 500, // 超过500ms就停止
     "suggest.minTriggerInputLength": 2,
+    "suggest.numberSelect": false,
     //"suggest.noselect": false, // 选中第一个
     "suggest.detailField": "abbr",
     "suggest.triggerCompletionWait": 100,
     "suggest.snippetIndicator": "  Ⓢ ",
     // diagnostic
     //"diagnostic.displayByAle": true,
-    // 插入模式也可以使用diagnostic
-    "diagnostic.refreshOnInsertMode": true,
+    "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
     "diagnostic.signOffset": 9999999,
     "diagnostic.errorSign": "●",
     "diagnostic.warningSign": "●",
@@ -34,8 +34,7 @@
     // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
-    // 需要安装jdei
-    "python.jediEnabled": true,
+    "python.jediEnabled": true, // 需要安装jdei
     // java
     "java.trace.server": "verbose",
     // vimlsp
@@ -65,13 +64,13 @@
     "git.removedSign.text": "▏",
     "git.topRemovedSign.text": "▔",
     "git.changeRemovedSign.text": "▋",
-    // project
-    "project.dbpath": "~/cache/.coc-project",
     // emmet
     "emmet.includeLanguages": {
         "vue-html": "html",
         "javascript": "javascriptreact"
     },
+    //prettier
+    "prettier.tabWidth": 4,
     // xml
     //"xml.java.home": "/usr/bin/java",
     // yank

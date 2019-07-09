@@ -9,9 +9,9 @@ function! s:patch_lucius_colors()
 
 endfunction
 
-autocmd! colorscheme space-vim-dark call s:patch_lucius_colors()
-" autocmd! colorscheme  tender call s:patch_lucius_colors()
-colorscheme space-vim-dark
+autocmd! colorscheme molokai call s:patch_lucius_colors()
+"colorscheme kuroi
+colorscheme molokai
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色

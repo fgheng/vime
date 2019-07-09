@@ -626,7 +626,9 @@ goto def goto ref hover
 所有插件均可以在[这里](config/plugins.vim)查看
 
 ## TODO
-- [ ]更换leaderf为coc-list
+- [ ]defx需要好好配置一下
+- [ ]lightline需要好好配置一下
+- [X]更换leaderf为coc-list
 - [ ]coc-list支持模糊搜索当前文件内容功能
 - [ ]coc快速更换工作空间功能
 - [ ]coc mru修复
@@ -634,4 +636,4 @@ goto def goto ref hover
 - [X]coc session 删除 action里面
 - [X] defx悬浮窗口显示
 - [ ] 一键安装
-- [ ] 分离式设计，只要在插件配置文件中关闭，那么关于该插件的所有配置均不载入
+- [X] 分离式设计，只要在插件配置文件中关闭，那么关于该插件的所有配置均不载入

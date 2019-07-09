@@ -78,8 +78,8 @@ Plug 'terryma/vim-expand-region'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 "使用coc list代替
 "Plug 'Yggdroot/LeaderF',  { 'do': './install.sh', 'on': ['LeaderfFile', 'LeaderfBufTag', 'LeaderfBufTagAll', 'LeaderfBufferAll', 'LeaderfTabBufferAll', 'LeaderfLine', 'Leaderf', 'LeaderfMru'] }
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'}
 else
@@ -120,7 +120,8 @@ Plug 'thinca/vim-quickrun'
 " 需要按照python-pysdl2 sdl2_mixer
 " TODO 需要将依赖进行集成
 Plug 'skywind3000/vim-keysound'
-
+" 主题
+Plug 'flazz/vim-colorschemes'
 call plug#end()
 
 " 判断是否有这个插件

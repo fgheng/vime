@@ -9,6 +9,8 @@ if HasPlug('coc.nvim')
                 \ 'coc-vimtex',
                 \ 'coc-html',
                 \ 'coc-css',
+                \ 'coc-tailwindcss',
+                \ 'coc-prettier',
                 \ 'coc-json',
                 \ 'coc-yaml',
                 \ 'coc-snippets',
@@ -18,12 +20,16 @@ if HasPlug('coc.nvim')
                 \ 'coc-calc',
                 \ 'coc-git',
                 \ 'coc-marketplace',
-                \ 'coc-project',
                 \ 'coc-post',
                 \ 'coc-xml',
                 \ 'coc-yank',
                 \ 'coc-lists',
                 \ ]
+
+    " web
+    " coc-tsserver coc-html coc-css coc-tailwindcss coc-prettier coc-eslint
+    " eslint 代码规范检查
+    " prettier 前端代码格式化
 
     "---------------------------------------------- 补全提示框相关
     " 检查当前光标前面是不是空白字符
@@ -142,17 +148,19 @@ if HasPlug('coc.nvim')
     nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
 
     "---------------------------------------------- coc list
-    nnoremap <M-f> :CocList files<CR>
-    "nnoremap <M-t> :CocList tags<CR>
-    "nnoremap <M-T> :LeaderfBufTagAll<CR>
-    nnoremap <M-o> :CocList buffers<CR>
-    "nnoremap <M-b> :CocList buffers<CR><TAB>
-    nnoremap <silent> <M-c> :exe 'CocList -I --normal --input='.expand('<cword>').' words'<cr>
-    nnoremap <M-s> :CocList words<cr>
-    nnoremap <M-S> :CocList grep<cr>
-    nnoremap <M-r> :CocList mru<CR>
-    nnoremap <M-m> :CocList marks<CR>
-    nnoremap <M-w> :CocList windows<CR>
+    if !HasPlug('leaderF') && !HasPlug('fzf')
+        nnoremap <M-f> :CocList files<CR>
+        "nnoremap <M-t> :CocList tags<CR>
+        "nnoremap <M-T> :LeaderfBufTagAll<CR>
+        nnoremap <M-o> :CocList buffers<CR>
+        "nnoremap <M-b> :CocList buffers<CR><TAB>
+        nnoremap <silent> <M-c> :exe 'CocList -I --normal --input='.expand('<cword>').' words'<cr>
+        nnoremap <M-s> :CocList words<cr>
+        nnoremap <M-S> :CocList grep<cr>
+        nnoremap <M-r> :CocList -A mru<CR>
+        nnoremap <M-m> :CocList marks<CR>
+        nnoremap <M-w> :CocList windows<CR>
+    endif
 
     "---------------------------------------------- folders
     " 根据具体文件设定cwd
