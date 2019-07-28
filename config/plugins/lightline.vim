@@ -17,7 +17,7 @@ if HasPlug('lightline.vim')
         \ },
         \ 'component': {
         \   'asc': '%03.3b',
-        \   'hex': '0x%B',
+        \   'hex': '0x%hhhB',
         \ },
         \ 'component_function': {
         \   'cocstatus': 'coc#status',
@@ -85,7 +85,7 @@ if HasPlug('lightline.vim')
     endfunction
 
     function! LightLineCocError()
-        let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
+        let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'hhhE')
         let info = get(b:, 'coc_diagnostic_info', {})
         if empty(info)
             return ''

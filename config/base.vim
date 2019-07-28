@@ -44,6 +44,10 @@ set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set shortmess+=c " don't give ins-completion-menu messages.
 set signcolumn=yes " always show signcolumns
 
+set ts=4
+set expandtab
+set autoindent
+
 if has('nvim')
     " set signcolumn=auto:3 " neovim的新特性，标识列自动变化
     set signcolumn=yes

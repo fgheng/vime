@@ -25,7 +25,7 @@ if HasPlug('ale')
     " 高亮显示错误地方
     "let g:ale_set_highlights = 1
     "自定义error和warning图标
-    let g:ale_sign_error = 'E'
+    let g:ale_sign_error = 'hhhE'
     let g:ale_sign_warning = 'W'
     "状态栏设置,状态栏中整合ale
     let g:ale_statusline_format = ['ㄨ %d', 'ϟ %d', '✔ OK']

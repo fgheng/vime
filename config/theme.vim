@@ -6,12 +6,14 @@ function! s:patch_lucius_colors()
     hi LineNr     ctermbg=NONE guibg=NONE
     hi SignColumn ctermbg=NONE guibg=NONE
     "set background=light
+    " coc多光标颜色
+    hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 
 endfunction
 
-autocmd! colorscheme molokai call s:patch_lucius_colors()
+autocmd! colorscheme ayu call s:patch_lucius_colors()
 "colorscheme kuroi
-colorscheme molokai
+colorscheme ayu
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色

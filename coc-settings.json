@@ -23,14 +23,21 @@
     //"suggest.noselect": false, // 选中第一个
     "suggest.detailField": "abbr",
     "suggest.triggerCompletionWait": 100,
-    "suggest.snippetIndicator": "  Ⓢ ",
+    //"suggest.snippetIndicator": "  Ⓢ ",
     // diagnostic
     //"diagnostic.displayByAle": true,
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
     "diagnostic.signOffset": 9999999,
     "diagnostic.errorSign": "●",
     "diagnostic.warningSign": "●",
+    "diagnostic.infoSign": ">>",
+    "diagnostic.hintSign": ">>",
     "diagnostic.displayByAle": false,
+    // refactor
+    //"refactor.openCommand": "vsplit",
+    //"refactor.afterContext": 3,
+    //"refactor.beforeContext": 3,
+    "cursors.cancelKey": "<BackSpace>",
     // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
@@ -44,9 +51,13 @@
     "highlight.document.enable": true,
     // list
     "list.maxHeight": 15,
+    "list.source.mru.defaultArgs": ["-A"],
+    //"list.previewSplitRight": true,
     //"list.previewSplitRight": true,
     //snippet
-    //"snippets.shortcut": "Ⓢ",
+    //"snippets.autoTrigger": false,
+    "snippets.ultisnips.enable": false,
+    "snippets.shortcut": "  Ⓢ",
     //post
     "post.root": "~/.cache/coc-post",
     //git

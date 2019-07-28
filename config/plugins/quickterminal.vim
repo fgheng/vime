@@ -59,7 +59,7 @@ fu! OpenTerminalBottom()
     "let a:curBufView = winsaveview()
     "let a:curWinnr = winnr()
     botright split
-    resize 15
+    resize 10
 
     "if TerminalBufferIsExisting(s:bnr, s:bna)
     if bufexists(s:bnr)
@@ -67,7 +67,6 @@ fu! OpenTerminalBottom()
     else
         if has('nvim')
             exec "terminal"
-            exe "normal! a"
         else
             :call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})
         endif
@@ -151,7 +150,6 @@ fu! OpenTerminalTab()
         " 终端不存在,新建tab,新建终端
         if has('nvim')
             exe "$tabnew | term"
-            exe "normal a"
         else
             exe "$tabnew"
             exe "call term_start('bash', {'curwin' : 1, 'term_finish' : 'close'})"

@@ -60,6 +60,8 @@ if HasPlug('fzf') && HasPlug('fzf.vim')
                 \ norelativenumber
                 \ signcolumn=no
         nnoremap <buffer> <esc> <esc>:close<cr>
+        imap <buffer> <esc> <esc>:close<cr>
+        vnoremap <buffer> <esc> <esc>:close<cr>
         nnoremap <buffer> <c-j> <nop>
         nnoremap <buffer> <c-k> <nop>
         tnoremap <c-j> <down>

@@ -1,12 +1,12 @@
 if HasPlug('coc.nvim')
+    "let g:coc_extension_root = "~/.cache/coc/extensions"
     " coc插件
     let g:coc_global_extensions =
                 \ [
                 \ 'coc-python',
                 \ 'coc-tsserver',
                 \ 'coc-java',
-                \ 'coc-vimlsp',
-                \ 'coc-vimtex',
+                \ 'coc-rls',
                 \ 'coc-html',
                 \ 'coc-css',
                 \ 'coc-tailwindcss',
@@ -22,10 +22,13 @@ if HasPlug('coc.nvim')
                 \ 'coc-marketplace',
                 \ 'coc-post',
                 \ 'coc-xml',
+                \ 'coc-texlab',
                 \ 'coc-yank',
                 \ 'coc-lists',
+                \ 'coc-import-cost',
+                \ 'coc-imselect',
                 \ ]
-
+                "\ 'coc-vimtex',
     " web
     " coc-tsserver coc-html coc-css coc-tailwindcss coc-prettier coc-eslint
     " eslint 代码规范检查
@@ -41,18 +44,27 @@ if HasPlug('coc.nvim')
     " 有没有弹出窗口，有的话tab按键进行选择,
     " 没有的话判断当前是否可以扩展或者是否可以跳转, 是的话进行扩展或者跳转
     " 不是的话输入一个tab按键
+    "
+    """
     inoremap <silent><expr> <TAB>
+        \ <SID>check_back_space() ? "\<TAB>" :
         \ pumvisible() ? "\<C-n>" :
-        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap',\ ['snippets-expand-jump',''])\<CR>" :
         \ "\<TAB>"
-        "\ <SID>check_back_space() ? "\<TAB>" :
-        "\ coc#refresh()
-        "coc#expandable coc#jumpable
     inoremap <expr><S-TAB>
         \ pumvisible() ? "\<C-p>" : "\<C-h>"
         "\ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    """
+
+    "inoremap <silent><expr> <TAB>
+    "  \ pumvisible() ? "\<C-n>" :
+    "  \ <SID>check_back_space() ? "\<TAB>" :
+    "  \ coc#refresh()
+    "inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
     let g:coc_snippet_next = '<tab>'
     let g:coc_snippet_prev = '<S-TAB>'
+
     vmap <tab> <Plug>(coc-snippets-select)
 
     " 回车补全选中的内容
@@ -167,5 +179,17 @@ if HasPlug('coc.nvim')
     set sessionoptions+=globals
     autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
     autocmd FileType c,cpp let b:coc_root_patterns = ['.git', '.ccls', 'compile_flags.txt']
+
+    "---------------------------------------------- 多光标
+    " ctrl n下一个，ctrl p上一个
+    nmap <silent> <C-c> <Plug>(coc-cursors-position)
+    nmap <silent> <C-d> <Plug>(coc-cursors-word)
+    xmap <silent> <C-d> <Plug>(coc-cursors-range)
+    nmap <silent> <C-a> :CocCommand document.renameCurrentWord<cr>
+    " use normal command like `<leader>xi(`
+    nmap <leader>x  <Plug>(coc-cursors-operator)
+    " 重构,需要lsp支持
+    "nmap <silent> <space>rf <Plug>(coc-refactor)
+    nmap <silent> <space>rf <Plug>(coc-refactor)
 endif
 

@@ -16,8 +16,8 @@ Plug 'tpope/vim-fugitive', {}
 " "}}
 
 " "{{--------web
-Plug 'alvan/vim-closetag', {'for': ['html', 'htm', 'xml', 'xhtml']}
-Plug 'valloric/MatchTagAlways', {'for': ['html', 'htm', 'xml', 'xhtml']}
+Plug 'alvan/vim-closetag'
+Plug 'valloric/MatchTagAlways'
 " "}}
 
 " "{{--------viml
@@ -36,7 +36,7 @@ Plug 'lervag/vimtex', {'for': ['latex']}
 " "}}
 
 " "{{--------code check
-Plug 'w0rp/ale', {'for': ['c', 'cpp', 'hpp', 'h']}
+"Plug 'w0rp/ale', {'for': ['c', 'cpp', 'hpp', 'h']} " 可以使用coc代替了
 " "}}
 
 " "{{--------code format
@@ -78,8 +78,8 @@ Plug 'terryma/vim-expand-region'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 "使用coc list代替
 "Plug 'Yggdroot/LeaderF',  { 'do': './install.sh', 'on': ['LeaderfFile', 'LeaderfBufTag', 'LeaderfBufTagAll', 'LeaderfBufferAll', 'LeaderfTabBufferAll', 'LeaderfLine', 'Leaderf', 'LeaderfMru'] }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'}
 else
@@ -101,7 +101,7 @@ Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
 Plug 'rhysd/clever-f.vim'
-Plug 'mg979/vim-visual-multi'
+"Plug 'mg979/vim-visual-multi'
 Plug 'voldikss/vim-translate-me', {'on': ['<Plug>TranslateW', '<Plug>TranslateW', '<Plug>TranslateWV', '<Plug>TranslateR', '<Plug>TranslateRV']  }
 " Plug 'terryma/vim-smooth-scroll'
 " Plug 'yuttie/comfortable-motion.vim'
@@ -120,8 +120,10 @@ Plug 'thinca/vim-quickrun'
 " 需要按照python-pysdl2 sdl2_mixer
 " TODO 需要将依赖进行集成
 Plug 'skywind3000/vim-keysound'
+
 " 主题
 Plug 'flazz/vim-colorschemes'
+
 call plug#end()
 
 " 判断是否有这个插件

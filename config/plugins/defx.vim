@@ -134,7 +134,7 @@ if HasPlug('defx.nvim')
         nnoremap <silent><buffer><expr> ~       defx#do_action('cd')
         nnoremap <silent><buffer><expr> !       defx#do_action('execute_command')
         nnoremap <silent><buffer><expr> j       line('.') == line('$') ? 'gg' : 'j'
-        nnoremap <silent><buffer><expr> k       line('.') == 1 ? 'G' : 'k'
+        nnoremap <silent><buffer><expr> k       line('.') == 1 ? 'hhhG' : 'k'
         nnoremap <silent><buffer><expr> <C-r>   defx#do_action('redraw')
         nnoremap <silent><buffer><expr> <C-g>   defx#do_action('print')
         nnoremap <silent><buffer><expr> \       defx#do_action('cd', getcwd())
@@ -274,9 +274,9 @@ if HasPlug('defx.nvim')
         \ 'Staged'    : 'S',
         \ 'Untracked' : '?',
         \ 'Renamed'   : 'R',
-        \ 'Unmerged'  : 'U',
+        \ 'Unmerged'  : 'hhhU',
         \ 'Ignored'   : 'I',
-        \ 'Deleted'   : 'D',
+        \ 'Deleted'   : 'hhhD',
         \ 'Unknown'   : '⁇'
         \ }
 

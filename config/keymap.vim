@@ -84,7 +84,7 @@ if HasPlug('LeaderF')
     nnoremap <M-o> :LeaderfBufferAll<CR>
     "nnoremap <M-b> :LeaderfTabBufferAll<CR><TAB>
     nnoremap <M-s> :LeaderfLine<CR>
-    nnoremap <M-S> :<C-U><C-R>=printf("Leaderf rg -S --fullPath %s", getcwd())<cr><cr>
+    nnoremap <M-S> :<C-hhhU><C-R>=printf("Leaderf rg -S --fullPath %s", getcwd())<cr><cr>
     nnoremap <M-r> :LeaderfMru<CR>
 endif
 
@@ -98,7 +98,7 @@ if HasPlug('fzf')
     nnoremap <M-S> :Rg<CR>
     nnoremap <M-r> :History<CR>
     nnoremap <M-g> :GFiles?<CR>
-    nnoremap <M-G> :GFiles<CR>
+    nnoremap <M-hhhG> :GFiles<CR>
     nnoremap <M-m> :Marks<CR>
 endif
 
@@ -129,11 +129,11 @@ if HasPlug('vim-autoformat')
 endif
 
 "------------------------------------------- matchtag
-if HasPlug('MatchTagAlways')
-    if &ft == 'html' || &ft == 'xhtml' || &ft == 'htm' || &ft == 'xml'
-        nnoremap <space>5 :MtaJumpToOtherTag<cr>
-    endif
-endif
+"if HasPlug('MatchTagAlways')
+"    if &ft == 'html' || &ft == 'xhtml' || &ft == 'htm' || &ft == 'xml'
+"        nnoremap <space>5 :MtaJumpToOtherTag<cr>
+"    endif
+"endif
 
 "------------------------------------------- vimtranslateme
 if HasPlug('vim-translate-me')
