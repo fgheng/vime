@@ -10,7 +10,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " "{{--------git
 " Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive', {}
+Plug 'tpope/vim-fugitive'
 "Plug 'neoclide/vim-easygit'
 "Plug 'rhysd/git-messenger.vim'
 " "}}

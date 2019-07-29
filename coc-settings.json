@@ -52,6 +52,7 @@
     // list
     "list.maxHeight": 15,
     "list.source.mru.defaultArgs": ["-A"],
+    //"list.source.files.args": ['--hidden', '--files'], // 允许搜索隐藏文件
     //"list.previewSplitRight": true,
     //"list.previewSplitRight": true,
     //snippet

@@ -47,10 +47,10 @@ if HasPlug('coc.nvim')
     "
     """
     inoremap <silent><expr> <TAB>
-        \ <SID>check_back_space() ? "\<TAB>" :
         \ pumvisible() ? "\<C-n>" :
         \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap',\ ['snippets-expand-jump',''])\<CR>" :
         \ "\<TAB>"
+        "\ <SID>check_back_space() ? "\<TAB>" :
     inoremap <expr><S-TAB>
         \ pumvisible() ? "\<C-p>" : "\<C-h>"
         "\ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
