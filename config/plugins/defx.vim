@@ -6,6 +6,7 @@ if HasPlug('defx.nvim')
     let s:openfloat = 0
     let s:openleft = 0
 
+
     function! OpenDefx()
         let s:openfloat = 1
 
@@ -24,8 +25,8 @@ if HasPlug('defx.nvim')
                 \ 'buffer_name': '',
                 \ 'toggle': 1,
                 \ 'resume': 1,
-                \ 'columns': "git:mark:indent:icon:icons:filename:size"
                 \ })
+                "\ 'columns': "git:mark:icon:icons:filename:size"
 
         "if winwidth(0) <= 120
         "    let a:wincol = getwininfo(win_getid())[0]['wincol']
@@ -72,35 +73,35 @@ if HasPlug('defx.nvim')
         exec 'wal'
         call defx#custom#option('_', {
                 \ 'direction': 'leftabove',
+                \ 'winwidth': 30,
                 \ 'split': 'vertical',
-                \ 'winwidth': 25,
                 \ 'show_ignored_files': 0,
-                \ 'buffer_name': '',
+                \ 'buffer_name': 'defx',
                 \ 'toggle': 1,
                 \ 'resume': 1,
-                \ 'columns': "git:mark:indent:icon:icons:filename"
+                \ 'columns': "mark:indent:icon:icons:filename:size"
                 \ })
+"╰─▸
+        call defx#custom#column('icon', {
+                    \ 'directory_icon': '├─▸',
+                    \ 'opened_icon': '╰─▸',
+                    \ 'root_icon': '─▸',
+                    \ 'file_icon': '╰─▸',
+                    \ })
+        call defx#custom#column('mark', {
+                    \ 'selected_icon': '✓',
+                    \ 'readonly_icon': '',
+                    \ })
         exec "Defx"
+
         "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
     endfunction
 
     "nnoremap <silent> <F2> <esc>:call OpenDefx()<cr>
     nnoremap <silent> <F2> <esc>:call OpenDefxLeft()<cr>
 
-    call defx#custom#column('filename', {
-                \ 'directory_icon': '▸',
-                \ 'opened_icon': '▾',
-                \ 'root_icon': ' ',
-                \ 'min_width': 5,
-                \ 'max_width': 35,
-                \ })
-
-    call defx#custom#column('mark', {
-                \ 'selected_icon': '✓',
-                \ 'readonly_icon': '',
-                \ })
-
     autocmd FileType defx call s:defx_custom_settings()
+    "autocmd FileType defx setlocal laststatus=0
 
     function! s:defx_custom_settings() abort
 
@@ -302,4 +303,5 @@ if HasPlug('defx.nvim')
     let g:defx_icons_root_opened_tree_icon = ''
     let g:defx_icons_nested_opened_tree_icon = ''
     let g:defx_icons_nested_closed_tree_icon = ''
+
 endif

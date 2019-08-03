@@ -23,9 +23,12 @@ if HasPlug('vista.vim')
     "\   "variable": "\uf71b",
     "\  }
 
-    function! Vista_Toggle()
+    " 获取进入vista之前的buf, window编号
+    let s:beforewinnr = -1
+    function! Vista_Toggle() abort
         let a:bufnr = bufnr('__vista__')
         let a:bufwinnr = bufwinnr(a:bufnr)
+
         " 缓冲区存在
         if  a:bufnr > -1
             " 缓冲区在某个窗口中显示
@@ -34,7 +37,12 @@ if HasPlug('vista.vim')
                 if winnr() == a:bufwinnr
                     " 关闭窗口
                     exec "Vista!"
+                    " 跳转回之前进入的窗口
+                    if s:beforewinnr > -1
+                        exec s:beforewinnr . "wincmd w"
+                    endif
                 else
+                    let s:beforewinnr = winnr()
                     " 跳转到窗口
                     exec a:bufwinnr . "wincmd w"
                 endif
@@ -43,6 +51,9 @@ if HasPlug('vista.vim')
                 exec "Vista"
             endif
         else
+            " 获取进入vista之前的buf, window编号
+            let s:beforewinnr = winnr()
+            echom s:beforewinnr
             " buf不存在
             exec "Vista"
         endif
@@ -51,7 +62,7 @@ if HasPlug('vista.vim')
     nnoremap <F3> :call Vista_Toggle()<CR>
 
     "  将默认/调用fzf改为默认的/
-    au FileType vista nnoremap <buffer> / <esc>:/
-    au FileType vista setlocal incsearch
-
+    "au FileType vista nnoremap <buffer> / <esc>:/
+    "au FileType vista setlocal incsearch
+    "au FileType vista setlocal hlsearch
 endif

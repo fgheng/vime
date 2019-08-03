@@ -91,15 +91,16 @@ endif
 "------------------------------------------- fzf
 if HasPlug('fzf')
     nnoremap <M-f> :Files<CR>
-    "nnoremap <M-t> :BTags<CR>
-    "nnoremap <M-T> :Tags<CR>
-    nnoremap <M-o> :Buffers<CR>
-    nnoremap <M-s> :BLines<CR>
-    nnoremap <M-S> :Rg<CR>
+    nnoremap <M-o> :BTags<CR>
+    nnoremap <M-O> :Tags<CR>
+    nnoremap <M-b> :Buffers<CR>
+    nnoremap / :BLines<CR>
+    nnoremap ? :Rg<CR>
     nnoremap <M-r> :History<CR>
     nnoremap <M-g> :GFiles?<CR>
     nnoremap <M-hhhG> :GFiles<CR>
     nnoremap <M-m> :Marks<CR>
+    nnoremap <M-w> :Windows<CR>
 endif
 
 "------------------------------------------- easymotion

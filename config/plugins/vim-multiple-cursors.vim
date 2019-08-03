@@ -1,4 +1,5 @@
 if HasPlug('vim-visual-multi')
+    let g:VM_theme = "pray"
     " let g:VM_leader = "'"
     " " 取消默认按键映射
     "let g:VM_default_mappings = 0

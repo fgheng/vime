@@ -48,20 +48,12 @@ endf
 let s:bnr = -1
 let s:bna = ""
 let s:winnr = -1
-"let s:winviews = []
+
 " 底部打开终端
 fu! OpenTerminalBottom()
-    "let a:allwindows = getwininfo()
-    "for a:win in a:allwindows
-    "    exec a:win['winnr'] . "wincmd w"
-    "    let s:winviews = add(s:winviews, winsaveview())
-    "endfor
-    "let a:curBufView = winsaveview()
-    "let a:curWinnr = winnr()
     botright split
-    resize 10
+    resize 8
 
-    "if TerminalBufferIsExisting(s:bnr, s:bna)
     if bufexists(s:bnr)
         exe "b".s:bnr
     else
@@ -74,13 +66,6 @@ fu! OpenTerminalBottom()
         let s:bna = bufname("%")
         let s:winnr = winnr()
     endif
-    "exe a:curWinnr . "wincmd w"
-    "call winrestview(a:curBufView)
-    "exe s:winnr . "wincmd w"
-    "for a:v in s:winviews
-    "    call winrestview(a:v)
-    "endfor
-    "call empty(s:winviews)
 endf
 
 fu! OpenTerminalBottomToggle()
@@ -89,18 +74,20 @@ fu! OpenTerminalBottomToggle()
         if winnr() == s:winnr
             " 关闭这个窗口
             exec "close ".s:winnr
+            set laststatus=2
         else
             " 跳转到那个窗口
             exec s:winnr . 'wincmd w'
         endif
     else
         :call OpenTerminalBottom()
+        setlocal laststatus=0
     endif
 endf
 
-imap <c-t> <esc>:call OpenTerminalBottomToggle()<cr>
-nnoremap <c-t> <esc>:call OpenTerminalBottomToggle()<cr>
-tnoremap <c-t> <c-\><c-n>:call OpenTerminalBottomToggle()<cr>
+imap <silent> <c-t> <esc>:call OpenTerminalBottomToggle()<cr>
+nnoremap <silent> <c-t> <esc>:call OpenTerminalBottomToggle()<cr>
+tnoremap <silent> <c-t> <c-\><c-n>:call OpenTerminalBottomToggle()<cr>
 
 let s:tbnr = -1
 let s:tbna = ""
@@ -186,9 +173,9 @@ fu! OpenTerminalTabToggle()
     endif
 endf
 
-imap <F9> <esc>:call OpenTerminalTabToggle()<cr>
-nnoremap <F9> <esc>:call OpenTerminalTabToggle()<cr>
-tnoremap <F9> <c-\><c-n>:call OpenTerminalTabToggle()<cr>
+imap <silent> <F9> <esc>:call OpenTerminalTabToggle()<cr>
+nnoremap <silent> <F9> <esc>:call OpenTerminalTabToggle()<cr>
+tnoremap <silent> <F9> <c-\><c-n>:call OpenTerminalTabToggle()<cr>
 
 " 在悬浮窗口中打开终端
 let s:fbnr = -1
@@ -246,14 +233,14 @@ fu! OpenTerminalInFloatWindowToggle()
         let s:fbna = bufname("%")
 
         setlocal nonumber
-        setlocal norelativenumber
         setlocal signcolumn=no
-        highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
+        setlocal noruler
 
+        highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
     endif
 
 endf
 
-imap <F10> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
-nnoremap <F10> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
-tnoremap <F10> <c-\><c-n>:call OpenTerminalInFloatWindowToggle()<cr>
+imap <silent> <F10> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
+nnoremap <silent> <F10> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
+tnoremap <silent> <F10> <c-\><c-n>:call OpenTerminalInFloatWindowToggle()<cr>

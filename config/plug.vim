@@ -57,6 +57,7 @@ Plug 'Yggdroot/indentLine', { 'for': ['asm', 'h', 'hpp', 'c', 'cpp', 'python', '
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
+"Plug 'taigacute/spaceline.vim'
 "Plug 'liuchengxu/eleline.vim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
@@ -69,6 +70,7 @@ Plug 'ryanoasis/vim-devicons'
 if !has('nvim')
     Plug 'vim-utils/vim-alt-mappings'
 endif
+" vista使用coclist outline代替了
 Plug 'liuchengxu/vista.vim'
 "Plug 'majutsushi/tagbar',  { 'on': ['TagbarToggle', 'TagbarOpen', 'TagbarClose'] }
 Plug 'jiangmiao/auto-pairs'
@@ -78,8 +80,8 @@ Plug 'terryma/vim-expand-region'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 "使用coc list代替
 "Plug 'Yggdroot/LeaderF',  { 'do': './install.sh', 'on': ['LeaderfFile', 'LeaderfBufTag', 'LeaderfBufTagAll', 'LeaderfBufferAll', 'LeaderfTabBufferAll', 'LeaderfLine', 'Leaderf', 'LeaderfMru'] }
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'}
 else
@@ -87,8 +89,8 @@ else
   Plug 'roxma/nvim-yarp', {}
   Plug 'roxma/vim-hug-neovim-rpc', {}
 endif
-Plug 'kristijanhusak/defx-git', {'on': 'Defx'}
-Plug 'kristijanhusak/defx-icons', {}
+"Plug 'kristijanhusak/defx-git', {'on': 'Defx'}
+Plug 'kristijanhusak/defx-icons', {'on': 'Defx'}
 if !has('gui_running') && executable('ranger')
     Plug 'francoiscabrol/ranger.vim'
 endif
@@ -101,7 +103,7 @@ Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
 Plug 'rhysd/clever-f.vim'
-"Plug 'mg979/vim-visual-multi'
+Plug 'mg979/vim-visual-multi'
 Plug 'voldikss/vim-translate-me', {'on': ['<Plug>TranslateW', '<Plug>TranslateW', '<Plug>TranslateWV', '<Plug>TranslateR', '<Plug>TranslateRV']  }
 " Plug 'terryma/vim-smooth-scroll'
 " Plug 'yuttie/comfortable-motion.vim'
@@ -119,7 +121,7 @@ Plug 'thinca/vim-quickrun'
 " 其他
 " 需要按照python-pysdl2 sdl2_mixer
 " TODO 需要将依赖进行集成
-Plug 'skywind3000/vim-keysound'
+"Plug 'skywind3000/vim-keysound'
 
 " 主题
 Plug 'flazz/vim-colorschemes'
