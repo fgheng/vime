@@ -57,7 +57,8 @@ if HasPlug('coc.nvim')
         "\ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', \ ['snippets-jump', ''])\<cr>" :
         "\ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', \ ['snippets-expand', ''])\<cr>" :
     inoremap <expr><S-TAB>
-        \ pumvisible() ? "\<C-p>" : "\<C-h>"
+        \ pumvisible() ? "\<C-p>" :
+        \ "\<C-h>"
         "\ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
     """
 
@@ -73,28 +74,25 @@ if HasPlug('coc.nvim')
     vmap <tab> <Plug>(coc-snippets-select)
 
     " 回车补全选中的内容
-    "inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-    function HasSelect() abort
-        if !exists('##TextChangedP')
-            return 1
-        endif
-        let hasSelected = coc#rpc#request('hasSelected', [])
-        if hasSelected
-            return 1
-        else
-            return 0
-        endif
-    endfunction
-    inoremap <silent><expr> <cr> pumvisible() ?
-                \ HasSelect() ?
-                \ coc#_select_confirm() :
-                \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>" :
-                \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-    "inoremap <silent><expr> <cr> pumvisible() ? \coc#_select_confirm() :
-    "            \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    "function HasSelect() abort
+    "    if !exists('##TextChangedP')
+    "        return 1
+    "    endif
+    "    let hasSelected = coc#rpc#request('hasSelected', [])
+    "    if hasSelected
+    "        return 1
+    "    else
+    "        return 0
+    "    endif
+    "endfunction
+    "inoremap <silent><expr> <cr> pumvisible() ?
+    "            \ HasSelect() ?
+    "            \ coc#_select_confirm() :
+    "            \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>" :
+    "            \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
     " 使用ctrl space强制触发补全
-    "inoremap <silent><expr> <c-space> coc#refresh()
     inoremap <expr><c-space> pumvisible() ? "\<C-e>" : coc#refresh()
 
     " diagnostic 跳转
