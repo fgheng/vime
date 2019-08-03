@@ -48,33 +48,42 @@ if HasPlug('coc.nvim')
     " 其次判断是否可以扩展，可以扩展的话在扩展
     " 其他情况输入tab
     "
+    " 弹出框优先，有弹出框的情况下，tab进行选择，s-tab反向，enter选中内容,
+    " 如果没有选中内容，enter表示回车，关闭弹出框
+    " 没有弹出框的话，tab能跳转先跳转，若不能跳转，输入tab
+    " 没有弹出框的话，enter看能不能扩展，可以的话进行扩展，不可以的话回车
     """
+    " 优先级要高
+    let g:coc_snippet_next = '<m-j>'
+    let g:coc_snippet_prev = '<m-k>'
+
     inoremap <silent><expr> <TAB>
         \ pumvisible() ? "\<C-n>" :
-        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap',\ ['snippets-expand-jump',''])\<CR>" :
-        \ "\<TAB>"
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+    "inoremap <silent><expr> <TAB>
+    "    \ pumvisible() ? "\<C-n>" :
+    "    \ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-jump', ''])\<cr>" :
+    "    \ "\<TAB>"
         "\ <SID>check_back_space() ? "\<TAB>" :
-        "\ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', \ ['snippets-jump', ''])\<cr>" :
-        "\ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', \ ['snippets-expand', ''])\<cr>" :
-    inoremap <expr><S-TAB>
+        "\ coc#refresh()
+        "\ pumvisible() ? "\<C-n>" :
+        "\ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand', ''])\<cr>" :
+        "\ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    inoremap <silent><expr> <S-TAB>
         \ pumvisible() ? "\<C-p>" :
         \ "\<C-h>"
         "\ coc#jumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-    """
 
-    "inoremap <silent><expr> <TAB>
-    "  \ pumvisible() ? "\<C-n>" :
-    "  \ <SID>check_back_space() ? "\<TAB>" :
-    "  \ coc#refresh()
-    "inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-    let g:coc_snippet_next = '<tab>'
-    let g:coc_snippet_prev = '<S-TAB>'
-
-    vmap <tab> <Plug>(coc-snippets-select)
+    "vmap <tab> <Plug>(coc-snippets-select)
+    "vmap <cr> <Plug>(coc-snippets-expand)
 
     " 回车补全选中的内容
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    "inoremap <expr> <cr>
+    "    \ pumvisible() ? "\<C-y>" :
+    "    \ coc#expandable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand', ''])\<cr>" :
+    "    \ "\<C-g>u\<CR>"
     "function HasSelect() abort
     "    if !exists('##TextChangedP')
     "        return 1
@@ -96,8 +105,8 @@ if HasPlug('coc.nvim')
     inoremap <expr><c-space> pumvisible() ? "\<C-e>" : coc#refresh()
 
     " diagnostic 跳转
-    nmap <silent> <space>[ <Plug>(coc-diagnostic-prev)
-    nmap <silent> <space>] <Plug>(coc-diagnostic-next)
+    nmap <silent> <space>j <Plug>(coc-diagnostic-prev)
+    nmap <silent> <space>k <Plug>(coc-diagnostic-next)
 
     " 定义, 引用等的跳转
     nmap <silent> gd <Plug>(coc-definition)
@@ -210,5 +219,11 @@ if HasPlug('coc.nvim')
         "nmap <silent> <space>rf <Plug>(coc-refactor)
         nmap <silent> <space>rf <Plug>(coc-refactor)
     endif
+
+    " ----------------------- coc自定义命令
+    call coc#add_command('mundoToggle', 'MundoToggle', '显示撤回列表')
+    call coc#add_command('Goyo', 'Goyo', '阅读模式')
+    call coc#add_command('Defx', 'Defx', '文件管理')
+    "call coc#add_command('vistaToggle', 'call VistaToggle() | \<CR>', '显示函数列表')
 endif
 

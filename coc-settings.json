@@ -17,7 +17,7 @@
     "suggest.timeout": 5000, // 超过500ms就停止
     "suggest.minTriggerInputLength": 2,
     "suggest.numberSelect": false,
-    //"suggest.noselect": false, // 选中第一个
+    "suggest.noselect": true, // 不选中第一个
     "suggest.detailField": "abbr",
     "suggest.triggerCompletionWait": 100,
     //"suggest.snippetIndicator": "  Ⓢ ",

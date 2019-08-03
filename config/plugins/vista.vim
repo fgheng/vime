@@ -25,7 +25,7 @@ if HasPlug('vista.vim')
 
     " 获取进入vista之前的buf, window编号
     let s:beforewinnr = -1
-    function! Vista_Toggle() abort
+    function! VistaToggle() abort
         let a:bufnr = bufnr('__vista__')
         let a:bufwinnr = bufwinnr(a:bufnr)
 
@@ -59,7 +59,7 @@ if HasPlug('vista.vim')
         endif
     endfunction
 
-    nnoremap <F3> :call Vista_Toggle()<CR>
+    nnoremap <F3> :call VistaToggle()<CR>
 
     "  将默认/调用fzf改为默认的/
     "au FileType vista nnoremap <buffer> / <esc>:/
