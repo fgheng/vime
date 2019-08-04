@@ -15,7 +15,7 @@
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 5000, // 超过500ms就停止
-    "suggest.minTriggerInputLength": 2,
+    "suggest.minTriggerInputLength": 0,
     "suggest.numberSelect": false,
     "suggest.noselect": true, // 不选中第一个
     "suggest.detailField": "abbr",

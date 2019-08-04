@@ -5,6 +5,7 @@ if HasPlug('coc.nvim')
                 \ [
                 \ 'coc-python',
                 \ 'coc-tsserver',
+                \ 'coc-java',
                 \ 'coc-rls',
                 \ 'coc-html',
                 \ 'coc-css',
@@ -35,6 +36,12 @@ if HasPlug('coc.nvim')
     " coc-tsserver coc-html coc-css coc-tailwindcss coc-prettier coc-eslint
     " eslint 代码规范检查
     " prettier 前端代码格式化
+
+    " base
+    set updatetime=300
+    " don't give |ins-completion-menu| messages.
+    set shortmess+=c
+    set hidden
 
     "---------------------------------------------- 补全提示框相关
     " 检查当前光标前面是不是空白字符
@@ -104,9 +111,18 @@ if HasPlug('coc.nvim')
     " 使用ctrl space强制触发补全
     inoremap <expr><c-space> pumvisible() ? "\<C-e>" : coc#refresh()
 
-    " diagnostic 跳转
-    nmap <silent> <space>j <Plug>(coc-diagnostic-prev)
-    nmap <silent> <space>k <Plug>(coc-diagnostic-next)
+    " Use `:Format` to format current buffer
+    command! -nargs=0 Format :call CocAction('format')
+    command! -nargs=0 Run :call CocAction('codeAction')
+    " Use `:Fold` to fold current buffer
+    command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+    " use `:OR` for organize import of current buffer
+    command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+
+    " Highlight symbol under cursor on CursorHold
+    au CursorHold * silent call CocActionAsync('highlight')
+    au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
     " 定义, 引用等的跳转
     nmap <silent> gd <Plug>(coc-definition)
@@ -125,14 +141,6 @@ if HasPlug('coc.nvim')
     nnoremap <silent> K :call <SID>show_documentation()<CR>
     nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
 
-    " Highlight symbol under cursor on CursorHold
-    set updatetime=100
-    au CursorHold * silent call CocActionAsync('highlight')
-    au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
-
-    " 重命名
-    nmap <space>rn <Plug>(coc-rename)
-
     augroup mygroup
         autocmd!
         " Setup formatexpr specified filetype(s).
@@ -141,24 +149,17 @@ if HasPlug('coc.nvim')
         autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     augroup end
 
-    " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-    " xmap <leader>a  <Plug>(coc-codeaction-selected)
-    " nmap <leader>a  <Plug>(coc-codeaction-selected)
+    "nmap <silent> <TAB> <Plug>(coc-range-select)
+    "xmap <silent> <TAB> <Plug>(coc-range-select)
+    "xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+
     " Remap for do codeAction of current line
-    " nmap <leader>al  <Plug>(coc-codeaction)
-    " Fix autofix problem of current line
-    " lsp如果实现quickfix功能，那么通过space qf就可以快速进行修复
-    nmap <space>qf  <Plug>(coc-fix-current)
-
-    " Remap for format selected region
-    xmap <space>f  <Plug>(coc-format-selected)
-    nmap <space>f  <Plug>(coc-format-selected)
-    " Use `:Format` to format current buffer
-    command! -nargs=0 Format :call CocAction('format')
-    " command! -nargs=0 Run :call CocAction('codeAction')
-
-    " Use `:Fold` to fold current buffer
-    " command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+    nmap <leader>ac  <Plug>(coc-codeaction)
+    " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+    xmap <leader>a  <Plug>(coc-codeaction-selected)
+    nmap <leader>a  <Plug>(coc-codeaction-selected)
+    " Remap for do codeAction of current line
+    nmap <leader>al  <Plug>(coc-codeaction)
 
     " Using CocList
     " Show all diagnostics
@@ -172,17 +173,26 @@ if HasPlug('coc.nvim')
     "nnoremap <silent> <space>t  :<C-u>CocList outline<cr>
     " Search workspace symbols
     nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-    " Do default action for next item.
-    " nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-    " Do default action for previous item.
-    " nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
     " Resume latest coc list
     nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+    " 执行coclistresume中的命令
+    "nmap <silent> <space>] :<c-u>CocNext<cr>
+    "nmap <silent> <space>[ :<c-u>CocPrev<cr>
     " show coclist
-    nnoremap <silent> <space>a  :<C-u>CocList<CR>
+    nnoremap <silent> <space>l  :<C-u>CocList<CR>
     nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
     " 切换cwd
     "nnoremap <silent> <space>w  :<C-u>CocList folders<cr>
+    " diagnostic 跳转
+    nmap <silent> <space>] <Plug>(coc-diagnostic-prev)
+    nmap <silent> <space>[ <Plug>(coc-diagnostic-next)
+    " Fix autofix problem of current line
+    nmap <space>qf  <Plug>(coc-fix-current)
+    " 重命名
+    nmap <space>rn <Plug>(coc-rename)
+    " Remap for format selected region
+    xmap <space>f  <Plug>(coc-format-selected)
+    nmap <space>f  <Plug>(coc-format-selected)
 
     "---------------------------------------------- coc yank
     nnoremap <silent> <space>y  :<C-u>CocList -A yank<cr>
@@ -192,9 +202,9 @@ if HasPlug('coc.nvim')
         nnoremap <M-f> :CocList files<CR>
         nnoremap <M-b> :CocList buffers<CR>
         nnoremap <M-o> :CocList outline<CR>
-        nnoremap <silent> <M-c> :exe 'CocList -I --normal --input='.expand('<cword>').' words'<cr>
-        nnoremap / :CocList words<cr>
-        nnoremap ? :CocList grep<cr>
+        nnoremap <silent> <M-c> :exe 'CocList -I --input='.expand('<cword>').' words'<cr>
+        nnoremap <M-s> :CocList words<cr>
+        nnoremap <M-S> :CocList grep<cr>
         nnoremap <M-r> :CocList -A mru<CR>
         nnoremap <M-m> :CocList marks<CR>
         nnoremap <M-w> :CocList windows<CR>
@@ -224,6 +234,7 @@ if HasPlug('coc.nvim')
     call coc#add_command('mundoToggle', 'MundoToggle', '显示撤回列表')
     call coc#add_command('Goyo', 'Goyo', '阅读模式')
     call coc#add_command('Defx', 'Defx', '文件管理')
+    call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
     "call coc#add_command('vistaToggle', 'call VistaToggle() | \<CR>', '显示函数列表')
 endif
 

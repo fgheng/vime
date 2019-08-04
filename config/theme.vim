@@ -2,26 +2,38 @@ function! s:patch_lucius_colors()
     if has('termguicolors')
         set termguicolors
     endif
-    hi Normal     ctermbg=NONE guibg=NONE
-    hi LineNr     ctermbg=NONE guibg=NONE
-    hi SignColumn ctermbg=NONE guibg=NONE
+    hi Normal     ctermbg=NONE guibg=#002B36
+    hi LineNr     ctermbg=NONE guibg=#002B36
+    hi SignColumn ctermbg=NONE guibg=#002B36
     "set background=light
-    " coc多光标颜色
-    hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
-    " coc yank背景颜色
-    hi HighlightedyankRegion term=bold ctermbg=0 guibg=purple
+
+    if HasPlug('coc.nvim')
+        if !HasPlug('vim-multiple-cursors.vim')
+            " coc多光标颜色
+            hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
+        endif
+
+        " coc yank背景颜色
+        hi HighlightedyankRegion term=bold ctermbg=0 guibg=purple
+    endif
+
+    if HasPlug('vim-indent-guide')
+        "hi IndentGuidesOdd  guibg=red   ctermbg=3
+        "hi IndentGuidesEven guibg=green ctermbg=4
+    endif
 
 endfunction
 
-autocmd! colorscheme ayu call s:patch_lucius_colors()
-"colorscheme kuroi
-colorscheme ayu
+autocmd! colorscheme srcery-drk call s:patch_lucius_colors()
+colorscheme srcery-drk
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色
-hi Search cterm=NONE ctermfg=yellow ctermbg=NONE gui=NONE guifg=#FFFF00 guibg=NONE
-hi IncSearch cterm=NONE ctermfg=yellow ctermbg=NONE gui=NONE guifg=#FFFF00 guibg=NONE
-hi QuickFixLine cterm=NONE ctermfg=yellow ctermbg=NONE gui=NONE guifg=#FFFF00 guibg=NONE
+if !HasPlug('fzf.vim')
+	hi Search cterm=NONE ctermfg=yellow ctermbg=NONE gui=NONE guifg=#FFFF00 guibg=NONE
+	hi IncSearch cterm=NONE ctermfg=yellow ctermbg=NONE gui=NONE guifg=#FFFF00 guibg=NONE
+	hi QuickFixLine cterm=NONE ctermfg=yellow ctermbg=NONE gui=NONE guifg=#FFFF00 guibg=NONE
+endif
 
 "------------------------statusline----------------------"
 "

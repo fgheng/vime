@@ -1,4 +1,4 @@
-" 'srcery.vim' -- Vim color scheme.
+c 'srcery.vim' -- Vim color scheme.
 " Maintainer:   Roosta (mail@roosta.sh)
 " Description:  Colorscheme that focus ease of use and clearly defined contrasting colors with a slightly earthy tone.
 " Original Source: https://github.com/morhetz/gruvbox

@@ -1,7 +1,8 @@
 if HasPlug('vim-airline')
+
     let g:airline_theme='kolor'
     let g:airline_powerline_fonts = 1
-    let g:airline#extensions#tabline#enabled = 0    " 打开buffer
+    let g:airline#extensions#tabline#enabled = 1    " 打开buffer
     let g:airline#extensions#tabline#formatter = 'unique_tail'
     let g:airline#extensions#tabline#show_tab_nr = 1
     let g:airline#extensions#tabline#tab_nr_type= 2
@@ -12,7 +13,24 @@ if HasPlug('vim-airline')
     let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
     let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
-     "let g:airline#extensions#tabline#show_tab_nr = 1
+    " 显示窗口号
+    function! WindowNumber(...)
+        let builder = a:1
+        let context = a:2
+        call builder.add_section('airline_b', '%{tabpagewinnr(tabpagenr())}')
+        return 0
+    endfunction
+
+    call airline#add_statusline_func('WindowNumber')
+    call airline#add_inactive_statusline_func('WindowNumber')
+
+    " coc
+
+    if HasPlug('coc.nvim')
+        let g:airline_section_x = '%{coc#status()}'
+    endif
+
+    "let g:airline#extensions#tabline#show_tab_nr = 1
      "let g:airline#extensions#tabline#formatter = 'default'
      "let g:airline#extensions#tabline#fnametruncate = 16
      "let g:airline#extensions#tabline#fnamecollapse = 2
@@ -35,10 +53,10 @@ if HasPlug('vim-airline')
      "let g:airline_detect_crypt=1
      "let g:airline_highlighting_cache = 1
      if  g:airline#extensions#tabline#enabled == 1
-        nmap <M-k> <Plug>AirlineSelectPrevTab
-        nmap <M-j> <Plug>AirlineSelectNextTab
-    else
-        nmap <M-j> :bn<cr>
-        nmap <M-k> :bp<cr>
+        nmap <M-h> <Plug>AirlineSelectPrevTab
+        nmap <M-l> <Plug>AirlineSelectNextTab
+    "else
+    "    nmap <M-]> :bn<cr>
+    "    nmap <M-[> :bp<cr>
     endif
 endif

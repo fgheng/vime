@@ -2,10 +2,7 @@ call plug#begin('~/.cache/plugins')
 
 " "{{--------coc 补全框架
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-"augroup load_coc
-"    autocmd!
-"    autocmd InsertEnter * call plug#load('neoclide/coc.nvim') | autocmd! load_cmd
-"augroup END
+"Plug 'kizza/actionmenu.nvim'
 " "}}
 
 " "{{--------git
@@ -21,13 +18,13 @@ Plug 'valloric/MatchTagAlways'
 " "}}
 
 " "{{--------viml
-Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
+"Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
 " "}}
 
 " "{{--------markdown
-Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM',  'GenTocGitLab',  'GenTocMarked',  'GenTocModeline',  'GenTocRedcarpet']}
-Plug 'godlygeek/tabular', {'for': ['markdown', 'md']}
-Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
+"Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM',  'GenTocGitLab',  'GenTocMarked',  'GenTocModeline',  'GenTocRedcarpet']}
+"Plug 'godlygeek/tabular', {'for': ['markdown', 'md']}
+"Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['md', 'markdown'] }
 " "}}
 
@@ -46,21 +43,22 @@ Plug 'lervag/vimtex', {'for': ['latex']}
 
 " "{{---------文档类
 Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/DoxygenToolkit.vim', {'on': ['Dox', 'DoxAuthor', 'DoxBlock', 'DoxLic', 'DoxUndoc' ]}
+"Plug 'vim-scripts/DoxygenToolkit.vim', {'on': ['Dox', 'DoxAuthor', 'DoxBlock', 'DoxLic', 'DoxUndoc' ]}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 " "}}
 
 " "{{---------美化
 Plug 'sheerun/vim-polyglot' " 代码着色
-Plug 'Yggdroot/indentLine', { 'for': ['asm', 'h', 'hpp', 'c', 'cpp', 'python', 'js', 'ts', 'java', 'go', 'html', 'css', 'vim', 'sh', 'tex']}
+Plug 'Yggdroot/indentLine'
+"Plug 'nathanaelkane/vim-indent-guides'
 Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
-Plug 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 "Plug 'taigacute/spaceline.vim'
 "Plug 'liuchengxu/eleline.vim'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'ryanoasis/vim-devicons'
@@ -76,12 +74,12 @@ Plug 'liuchengxu/vista.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'terryma/vim-expand-region'
+"Plug 'terryma/vim-expand-region'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 "使用coc list代替
 "Plug 'Yggdroot/LeaderF',  { 'do': './install.sh', 'on': ['LeaderfFile', 'LeaderfBufTag', 'LeaderfBufTagAll', 'LeaderfBufferAll', 'LeaderfTabBufferAll', 'LeaderfLine', 'Leaderf', 'LeaderfMru'] }
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'}
 else
@@ -112,8 +110,8 @@ Plug 'voldikss/vim-translate-me', {'on': ['<Plug>TranslateW', '<Plug>TranslateW'
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 
 " 编译运行
-Plug 'tpope/vim-dispatch'
-Plug 'radenling/vim-dispatch-neovim'
+"Plug 'tpope/vim-dispatch'
+"Plug 'radenling/vim-dispatch-neovim'
 Plug 'thinca/vim-quickrun'
 " "}}
 "

@@ -69,7 +69,7 @@ if HasPlug('fzf') && HasPlug('fzf.vim')
         tnoremap <c-h> <nop>
 
         "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
-        highlight NormalFloat cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
+        "highlight NormalFloat cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
     endfunction
 
     let g:fzf_history_dir = '~/.cache/fzf-history'
