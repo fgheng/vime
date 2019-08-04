@@ -6,12 +6,6 @@ nnoremap <BackSpace> :nohl<cr>
 
 inoremap <M-h> <esc>I
 inoremap <M-l> <esc>A
-"inoremap <c-h> <left>
-"inoremap <c-l> <right>
-"inoremap <c-j> <down>
-"inoremap <c-k> <up>
-"inoremap <M-j> <down>
-"inoremap <M-k> <up>
 
 " 窗口
 noremap <C-h> <C-w>h
@@ -36,7 +30,10 @@ imap <M-o> <esc>o
 imap <M-O> <esc>O
 
 " buffer 操作
-nnoremap <C-x>  :Bclose<CR>
+if HasPlug('bclose.vim')
+    nnoremap <C-x>  :Bclose<CR>
+endif
+
 noremap <space><space> <esc>:wal<cr>
 
 nnoremap j gj
@@ -44,7 +41,7 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-"tabline operation
+"tabl operation
 nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>te :tabedit
 nnoremap <leader>tc :tabclose<cr>
@@ -129,13 +126,6 @@ if HasPlug('vim-autoformat')
     nnoremap <M-i> :Autoformat<cr>
 endif
 
-"------------------------------------------- matchtag
-"if HasPlug('MatchTagAlways')
-"    if &ft == 'html' || &ft == 'xhtml' || &ft == 'htm' || &ft == 'xml'
-"        nnoremap <space>5 :MtaJumpToOtherTag<cr>
-"    endif
-"endif
-
 "------------------------------------------- vimtranslateme
 if HasPlug('vim-translate-me')
     nmap <silent> <M-d> <Plug>TranslateW
@@ -155,23 +145,6 @@ if HasPlug('vim-startify')
     "au FileType startify noremap q :q<cr>
 endif
 
-"-------------------------------------------- quickfix
-" let g:quickfix_is_open = 0
-" function! QuickfixToggle()
-"      if g:quickfix_is_open
-"         cclose
-"         let g:quickfix_is_open = 0
-"         execute g:quickfix_return_to_window . "wincmd w"
-"     else
-"         let g:quickfix_return_to_window = winnr()
-"         copen
-"         let g:quickfix_is_open = 1
-"     endif
-" endfunction
-
-" nnoremap <F10> :call QuickfixToggle()<cr>
-
-
 "-------------------------------------------- zoomwintab
 if HasPlug('zoomwintab.vim')
     nnoremap  <c-w>o :ZoomWinTabToggle<cr>
@@ -182,6 +155,3 @@ if HasPlug('tagbar')
     nnoremap <F3> :TagbarToggle<cr>
     "inoremap <F3> <esc>:TagbarToggle<cr>
 endif
-
-"-------------------------------------------- coc
-

@@ -92,7 +92,8 @@ Plug 'kristijanhusak/defx-icons', {'on': 'Defx'}
 if !has('gui_running') && executable('ranger')
     Plug 'francoiscabrol/ranger.vim'
 endif
-Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
+" 删除buffer
+"Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 Plug 'ntpeters/vim-better-whitespace'
 "Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
