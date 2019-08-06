@@ -74,14 +74,12 @@ fu! OpenTerminalBottomToggle()
         if winnr() == s:winnr
             " 关闭这个窗口
             exec "close ".s:winnr
-            set laststatus=2
         else
             " 跳转到那个窗口
             exec s:winnr . 'wincmd w'
         endif
     else
         :call OpenTerminalBottom()
-        setlocal laststatus=0
     endif
 endf
 
@@ -241,6 +239,6 @@ fu! OpenTerminalInFloatWindowToggle()
 
 endf
 
-imap <silent> <F10> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
-nnoremap <silent> <F10> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
-tnoremap <silent> <F10> <c-\><c-n>:call OpenTerminalInFloatWindowToggle()<cr>
+imap <silent> <F8> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
+nnoremap <silent> <F8> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
+tnoremap <silent> <F8> <c-\><c-n>:call OpenTerminalInFloatWindowToggle()<cr>

@@ -27,6 +27,7 @@ set shiftround
 set list
 set listchars=tab:→·,nbsp:⣿,trail:·,extends:»,precedes:«,eol:¬
 set listchars+=trail:·
+set ph=20 " 设置弹出框大小, 0 则有多少显示多少
 
 set nobackup
 set noswapfile
@@ -39,6 +40,7 @@ set timeout ttimeout
 set timeoutlen=500
 set ttimeoutlen=10
 set updatetime=100
+set shortmess+=c
 
 au FileType c,cpp,java set mps+==:;
 "-----------------------------
@@ -74,12 +76,12 @@ au FileType c,cpp,java set mps+==:;
 "set switchbuf=useopen,usetab,newtab "这样quickfix里面的跳转会先复用已有文件的窗口，再复用已有标签，最后没有的话新建标签
 "set tw=80 " 文本宽度
 
-"if has('nvim')
-"    " set signcolumn=auto:3 " neovim的新特性，标识列自动变化
-"    set signcolumn=yes
-"else
-"    set scl=yes
-"endif
+if has('nvim')
+    " set signcolumn=auto:3 " neovim的新特性，标识列自动变化
+    set signcolumn=yes
+else
+    set scl=yes
+endif
 
 "记住退出位置
 if has("autocmd")

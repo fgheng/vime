@@ -10,8 +10,6 @@ if HasPlug('vim-airline')
     let g:airline#extensions#tabline#tabs_label = 'TABS'
     let g:airline#extensions#tabline#left_alt_sep = '>'
     let g:airline#extensions#tabline#buffer_nr_show = 1
-    let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-    let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
     " 显示窗口号
     function! WindowNumber(...)
@@ -25,9 +23,12 @@ if HasPlug('vim-airline')
     call airline#add_inactive_statusline_func('WindowNumber')
 
     " coc
-
+    " 关闭airline的coc集成
+    let g:airline#extensions#coc#enabled = 0
     if HasPlug('coc.nvim')
         let g:airline_section_x = '%{coc#status()}'
+        "let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+        "let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
     endif
 
     "let g:airline#extensions#tabline#show_tab_nr = 1

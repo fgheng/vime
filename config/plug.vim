@@ -1,45 +1,29 @@
 call plug#begin('~/.cache/plugins')
 
-" "{{--------coc 补全框架
+" -------- 补全插件
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-"Plug 'kizza/actionmenu.nvim'
-" "}}
+"Plug 'ycm-core/YouCompleteMe'
+"Plug 'w0rp/ale' " 可以使用coc代替了
 
-" "{{--------git
+" --------- git插件
 " Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-"Plug 'neoclide/vim-easygit'
+"Plug 'neoclide/vim-easygit'
 "Plug 'rhysd/git-messenger.vim'
-" "}}
 
-" "{{--------web
+" --------- 前端插件
 Plug 'alvan/vim-closetag'
 Plug 'valloric/MatchTagAlways'
-" "}}
 
-" "{{--------viml
-"Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
-" "}}
-
-" "{{--------markdown
+" --------- markdown 插件
 "Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM',  'GenTocGitLab',  'GenTocMarked',  'GenTocModeline',  'GenTocRedcarpet']}
 "Plug 'godlygeek/tabular', {'for': ['markdown', 'md']}
 "Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['md', 'markdown'] }
-" "}}
 
-" "{{--------latex
+" --------- latex 插件
 Plug 'lervag/vimtex', {'for': ['latex']}
-" "}}
 
-" "{{--------code check
-"Plug 'w0rp/ale', {'for': ['c', 'cpp', 'hpp', 'h']} " 可以使用coc代替了
-" "}}
-
-" "{{--------code format
-" Plug 'Chiel92/vim-autoformat'
-"Plug 'sbdchd/neoformat'
-" "}}
 
 " "{{---------文档类
 Plug 'scrooloose/nerdcommenter'
@@ -48,23 +32,34 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'yianwillis/vimcdoc'
 " "}}
 
-" "{{---------美化
-Plug 'sheerun/vim-polyglot' " 代码着色
+" --------- ui插件
+" 主题
+Plug 'flazz/vim-colorschemes'
+" 代码着色
+Plug 'sheerun/vim-polyglot'
+" 对齐线
 Plug 'Yggdroot/indentLine'
 "Plug 'nathanaelkane/vim-indent-guides'
-Plug 'luochen1990/rainbow'
 Plug 'mhinz/vim-startify'
+" 各种line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 "Plug 'itchyny/lightline.vim'
 "Plug 'taigacute/spaceline.vim'
 "Plug 'liuchengxu/eleline.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+" vim图标
 Plug 'ryanoasis/vim-devicons'
-" "}}
 
 " "{{----------工具
+" 彩虹括号
+Plug 'luochen1990/rainbow'
+"Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
+" 代码格式化
+"Plug 'Chiel92/vim-autoformat'
+"Plug 'sbdchd/neoformat'
 if !has('nvim')
     Plug 'vim-utils/vim-alt-mappings'
 endif
@@ -74,11 +69,12 @@ Plug 'liuchengxu/vista.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-"Plug 'terryma/vim-expand-region'
+" 撤回
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
-"使用coc list代替
+" 各种list
+"Plug 'terryma/vim-expand-region'
 "Plug 'Yggdroot/LeaderF',  { 'do': './install.sh', 'on': ['LeaderfFile', 'LeaderfBufTag', 'LeaderfBufTagAll', 'LeaderfBufferAll', 'LeaderfTabBufferAll', 'LeaderfLine', 'Leaderf', 'LeaderfMru'] }
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf', { 'dir': '~/.cache/fzf', 'do': './install --all' }
 "Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'}
@@ -87,21 +83,22 @@ else
   Plug 'roxma/nvim-yarp', {}
   Plug 'roxma/vim-hug-neovim-rpc', {}
 endif
-"Plug 'kristijanhusak/defx-git', {'on': 'Defx'}
 Plug 'kristijanhusak/defx-icons', {'on': 'Defx'}
 if !has('gui_running') && executable('ranger')
     Plug 'francoiscabrol/ranger.vim'
 endif
 " 删除buffer
 "Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
-Plug 'ntpeters/vim-better-whitespace'
-"Plug 'SirVer/ultisnips'
+" 尾部空格
+"Plug 'ntpeters/vim-better-whitespace'
+" 代码段
 Plug 'honza/vim-snippets'
-"Plug 'andys8/vscode-jest-snippets'
+"Plug 'SirVer/ultisnips'
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
 Plug 'rhysd/clever-f.vim'
+" 多光标
 Plug 'mg979/vim-visual-multi'
 Plug 'voldikss/vim-translate-me', {'on': ['<Plug>TranslateW', '<Plug>TranslateW', '<Plug>TranslateWV', '<Plug>TranslateR', '<Plug>TranslateRV']  }
 " Plug 'terryma/vim-smooth-scroll'
@@ -109,21 +106,16 @@ Plug 'voldikss/vim-translate-me', {'on': ['<Plug>TranslateW', '<Plug>TranslateW'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'vim-scripts/ZoomWin'
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
-
 " 编译运行
+Plug 'thinca/vim-quickrun'
 "Plug 'tpope/vim-dispatch'
 "Plug 'radenling/vim-dispatch-neovim'
-Plug 'thinca/vim-quickrun'
-" "}}
-"
 
-" 其他
+" -------- 其他
 " 需要按照python-pysdl2 sdl2_mixer
 " TODO 需要将依赖进行集成
 "Plug 'skywind3000/vim-keysound'
 
-" 主题
-Plug 'flazz/vim-colorschemes'
 
 call plug#end()
 

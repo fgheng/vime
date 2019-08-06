@@ -43,4 +43,10 @@ if HasPlug('ale')
         \   },
         \ }
     let g:ale_completion_enabled = 1
+
+    " 快捷键
+    nmap gd :ALEGoToDefinition<cr>
+    nmap gr :ALEFindReferences<cr>
+
+    nmap K :ALEHover<cr>
 endif

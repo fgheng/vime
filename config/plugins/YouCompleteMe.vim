@@ -1,21 +1,15 @@
 if HasPlug('YouCompleteMe')
-    " youcomplete config begin
-    " if !empty(glob(plug_home."/YouCompleteMe"))
-    " brief:
-    " 使用tsserver代替tern
-    " python ./install.py --clang-completer --go-completer --ts-completer --java-completer
-    " 需要pip install neovim
-
-    " 原本位于~/.vim/plugins/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.
-    "let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-
-    "let g:ycm_error_symbol = '>>' "✖✘ㄨ✕✕
-    "let g:ycm_warning_symbol = '--' "◯➤
-    " let g:ycm_log_level = 'debug'
+    " 不使用clangd
+    let g:ycm_use_clangd = 0
+    " .ycm_extra_conf.py的路径
+    let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
     "打开加载.ycm_extra_conf.py提示
     let g:ycm_confirm_extra_conf=1
-    " 屏蔽语法检查， 使用ale
-    let g:ycm_show_diagnostics_ui = 0
+    " 错误和警告标志
+    let g:ycm_error_symbol = '●'
+    let g:ycm_warning_symbol = '●'
+    " 开启语法检查
+    let g:ycm_show_diagnostics_ui = 1
     let g:ycm_enable_diagnostic_highlighting = 0
     let g:ycm_enable_diagnostic_signs = 0
     "在注释输入中也能补全
@@ -27,11 +21,13 @@ if HasPlug('YouCompleteMe')
     "开启基于tag的补全，可以在这之后添加需要的标签路径
     let g:ycm_collect_identifiers_from_tags_files = 1
     " 开启 YCM 基于标签引擎
-    let g:ycm_collect_identifiers_from_tags_files=1
-    " 从第2个键入字符就开始罗列匹配项
-    let g:ycm_min_num_of_chars_for_completion=1
+    let g:ycm_collect_identifiers_from_tags_files = 1
+    " 从第1个键入字符就开始罗列匹配项
+    let g:ycm_min_num_of_chars_for_completion = 1
+    " 语义补全快捷键
+    let g:ycm_key_invoke_completion = '<c-space>'
     " 允许缓存匹配项
-    let g:ycm_cache_omnifunc=1
+    let g:ycm_cache_omnifunc = 1
     " 语法关键字补全
     let g:ycm_seed_identifiers_with_syntax=1
     "补全后自动关闭预览窗口, 以后支持悬浮窗口就好了
@@ -61,25 +57,22 @@ if HasPlug('YouCompleteMe')
                 " \ "python":1,
                 " \ "javascript":1,
                 " \ "javascript.jsx":1,
-
-
-    " let g:ycm_filetype_blacklist = {
-    "         \ 'tagbar': 1,
-    "         \ 'notes': 1,
-    "         \ 'markdown': 1,
-    "         \ 'netrw': 1,
-    "         \ 'unite': 1,
-    "         \ 'text': 1,
-    "         \ 'vimwiki': 1,
-    "         \ 'pandoc': 1,
-    "         \ 'infolog': 1,
-    "         \ 'mail': 1
-    "         \ 'html': 1,
-    "         \ 'css': 1,
-    "         \ 'xml': 1,
-    "         \ 'json': 1,
-    "       \ }
-    "
-    " endif
-    " youcomplete config end
+    " 触发语义补全条件
+     let g:ycm_semantic_triggers =  {
+        \   'c' : ['->', '.'],
+        \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+        \             're!\[.*\]\s'],
+        \   'ocaml' : ['.', '#'],
+        \   'cpp,objcpp' : ['->', '.', '::'],
+        \   'perl' : ['->'],
+        \   'php' : ['->', '::'],
+        \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+        \   'ruby' : ['.', '::'],
+        \   'lua' : ['.', ':'],
+        \   'erlang' : [':'],
+    \ }
+    " ------- 快捷键
+    nmap gt :YcmCompleter GoTo<cr>
+    nmap gd :YcmCompleter GoToDefinition<cr>
+    nmap gi :YcmCompleter GoToImprecise<cr>
 endif

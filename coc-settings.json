@@ -1,6 +1,7 @@
 {
     // preferences
     "coc.preferences.colorSupport": true,
+    "coc.preferences.codeLens.enable": true,
     "coc.preferences.rootPatterns": [
         ".git",
         ".vim",
@@ -8,62 +9,72 @@
         ".projections.json",
         ".project"
     ],
-    "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript", "python", "cpp"],
+    "coc.preferences.formatOnSaveFiletypes": [
+        "css",
+        "html",
+        //"markdown",
+        "javascript",
+        "python",
+        "java",
+        "rust"
+    ],
     "coc.preferences.formatOnType": true,   // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily",
     // suggest
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 5000, // 超过500ms就停止
-    "suggest.minTriggerInputLength": 0,
-    "suggest.numberSelect": false,
+    "suggest.minTriggerInputLength": 1, // 触发补全的字符长度
+    "suggest.numberSelect": false, // 使用数字进行选择
     "suggest.noselect": true, // 不选中第一个
-    "suggest.detailField": "abbr",
-    "suggest.triggerCompletionWait": 100,
-    //"suggest.snippetIndicator": "  Ⓢ ",
+    "suggest.detailField": "menu", // abbr menu preview
+    "suggest.triggerCompletionWait": 30, // default 50
     // diagnostic
-    //"diagnostic.displayByAle": true,
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
-    "diagnostic.signOffset": 9999999,
+    "diagnostic.signOffset": 9999,
     "diagnostic.errorSign": "●",
     "diagnostic.warningSign": "●",
     "diagnostic.infoSign": ">>",
     "diagnostic.hintSign": ">>",
     "diagnostic.displayByAle": false,
+    "diagnostic.maxWindowHeight": 10,
     // refactor
     //"refactor.openCommand": "vsplit",
     //"refactor.afterContext": 3,
     //"refactor.beforeContext": 3,
-    "cursors.cancelKey": "<BackSpace>",
+    "cursors.cancelKey": "<BackSpace>", // 多光标取消选择快捷键
     // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
     "python.jediEnabled": true, // 需要安装jdei
+    "python.analysis.openFilesOnly": true, // 只显示当前文件的error和war
     // java
-    //"java.trace.server": "verbose",
-    //"java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
+    "java.trace.server": "verbose",
+    "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
     // vimlsp
     "vimlsp.trace.server": "verbose",
     // highlight
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
     // list
-    "list.maxHeight": 15,
-    "list.source.mru.defaultArgs": ["-A"],
+    "list.maxHeight": 8,
+    "list.maxPreviewHeight": 8,
+    "list.autoResize": false,
+    "list.source.grep.command": "rg",
+    "list.source.grep.args": [],
     //"list.source.files.args": ['--hidden', '--files'], // 允许搜索隐藏文件
     //"list.previewSplitRight": true,
     //"list.previewSplitRight": true,
     //snippet
-    //"snippets.autoTrigger": false,
     "snippets.ultisnips.enable": false,
     "snippets.shortcut": "  Ⓢ",
     //post
-    "post.root": "~/.cache/coc-post",
+    "post.root": "~/.cache/coc/coc-post",
     //git
     "git.enableGutters": true,
     "git.addGlameToBufferVar": true,
     "git.addGlameToVirtualText": true,
-    "git.virtualTextPrefix": "  ... ",
+    "git.virtualTextPrefix": "  ··· ",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
     "git.removedSign.hlGroup": "GitGutterDelete",
@@ -86,11 +97,9 @@
     // yank
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
-    // lists
-    "session.directory": "~/.cache/sessions",
-    //"list.source.grep.useLiteral": false,
-    "list.source.grep.command": "rg",
-    "list.source.grep.args": [],
+    // session
+    "session.directory": "~/.cache/coc/sessions",
+    "session.saveOnVimLeave": true,
     // lsp
     "languageserver": {
         // 安装bash-language-server
@@ -121,10 +130,10 @@
                 }
             }
         },
-        "latex": {
-            "command": "java",
-            "args": ["-jar", "~/Software/texlab.jar"],
-            "filetypes": ["tex", "bib", "plaintex", "context"]
-        }
+        //"latex": {
+        //    "command": "java",
+        //    "args": ["-jar", "~/Software/texlab.jar"],
+        //    "filetypes": ["tex", "bib", "plaintex", "context"]
+        //}
     }
 }

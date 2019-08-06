@@ -32,6 +32,8 @@ imap <M-O> <esc>O
 " buffer 操作
 if HasPlug('bclose.vim')
     nnoremap <C-x>  :Bclose<CR>
+else
+    nnoremap <c-x> :bd<cr>
 endif
 
 noremap <space><space> <esc>:wal<cr>
