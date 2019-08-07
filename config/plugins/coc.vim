@@ -152,7 +152,8 @@ if HasPlug('coc.nvim')
 
     "---------------------------------------------- folders
     " 根据具体文件设定cwd
-    "set sessionoptions+=globals
+    "当前的 workspaceFolders，用于 session 使用。 需添加 `set sessionoptions+=globals` 让 session 支持 globals 变量。
+    set sessionoptions+=globals
     "autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
     "autocmd FileType c,cpp let b:coc_root_patterns = ['.git', '.ccls', 'compile_flags.txt']
 
@@ -175,5 +176,21 @@ if HasPlug('coc.nvim')
     call coc#add_command('Goyo', 'Goyo', '阅读模式')
     call coc#add_command('Defx', 'Defx', '文件管理')
     call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
-endif
 
+    " ----------------------- 自定义事件
+    " 还有问题
+    function! IsOpenFile() abort
+        if !expand('%:F')
+            exec 'CocCommand session.load'
+        endif
+    endfunction
+
+    augroup save_session
+        autocmd!
+        " VimEnter VimLeave VimLeavePre
+        "au VimEnter * timer_start(500, {-> execute('call IsOpenFile()')}, {'repeat':1}))
+        au VimEnter * :CocCommand session.load
+        "au VimLeavePre * :CocCommand session.save
+    augroup END
+    nnoremap <silent> <F6> :CocCommand session.save <cr>
+endif

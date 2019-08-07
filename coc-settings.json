@@ -28,7 +28,7 @@
     "suggest.numberSelect": false, // 使用数字进行选择
     "suggest.noselect": true, // 不选中第一个
     "suggest.detailField": "abbr", // abbr menu preview
-    "suggest.triggerCompletionWait": 30, // default 50
+    "suggest.triggerCompletionWait": 50, // default 50
     // diagnostic
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
     "diagnostic.signOffset": 9999,
@@ -130,10 +130,5 @@
                 }
             }
         },
-        //"latex": {
-        //    "command": "java",
-        //    "args": ["-jar", "~/Software/texlab.jar"],
-        //    "filetypes": ["tex", "bib", "plaintex", "context"]
-        //}
     }
 }

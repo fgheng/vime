@@ -25,6 +25,8 @@ nnoremap <c-w>h :abo vsplit <cr>
 nnoremap <c-w>j :rightbelow split <cr>
 nnoremap <c-w>l :rightbelow vsplit <cr>
 
+nnoremap <F5> :copen<cr>
+
 imap <C-s> <esc>:w<cr>
 imap <M-o> <esc>o
 imap <M-O> <esc>O

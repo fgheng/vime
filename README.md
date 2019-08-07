@@ -639,3 +639,4 @@ goto def goto ref hover
 -   [ ] coc-files 文件管理
 -   [ ] coc 多光标 visual 模式下多选择
 -   [ ] coc project
+
