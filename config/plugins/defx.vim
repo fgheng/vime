@@ -6,8 +6,15 @@ if HasPlug('defx.nvim')
     let s:openfloat = 0
     let s:openleft = 0
 
+    function! OpenDefx() abort
+        if winwidth(0) <= 120
+            call OpenDefxCurWin()
+        else
+            call OpenDefxLeft()
+        endif
+    endf
 
-    function! OpenDefx()
+    function! OpenDefxCurWin()
         let s:openfloat = 1
 
         exec 'wal'
@@ -25,8 +32,8 @@ if HasPlug('defx.nvim')
                 \ 'buffer_name': '',
                 \ 'toggle': 1,
                 \ 'resume': 1,
+                \ 'columns': "mark:indent:icon:icons:filename:size"
                 \ })
-                "\ 'columns': "git:mark:icon:icons:filename:size"
 
         "if winwidth(0) <= 120
         "    let a:wincol = getwininfo(win_getid())[0]['wincol']
@@ -62,7 +69,8 @@ if HasPlug('defx.nvim')
 
         "endif
 
-        exec "Defx"
+        let a:abs_path = expand('%:p:h')
+        exec "Defx ".a:abs_path
         "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
         highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=None guibg=None
         let s:DefxWinNr = winnr()
@@ -92,7 +100,8 @@ if HasPlug('defx.nvim')
                     \ 'selected_icon': '✓',
                     \ 'readonly_icon': '',
                     \ })
-        exec "Defx"
+        let a:abs_path = expand('%:p:h')
+        exec "Defx ".a:abs_path
 
         "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
     endfunction
@@ -103,48 +112,43 @@ if HasPlug('defx.nvim')
     autocmd FileType defx call s:defx_custom_settings()
     "autocmd FileType defx setlocal laststatus=0
 
+    " defx快捷键
     function! s:defx_custom_settings() abort
-
-        nnoremap <silent><buffer><expr> V       defx#do_action('toggle_select') . 'j'
-        nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')
-        nnoremap <silent><buffer><expr> X       defx#do_action('execute_system')
-        nnoremap <silent><buffer><expr> yy      defx#do_action('copy')
+        nnoremap <silent><buffer><expr> N       defx#do_action('new_file') " 新建文件/文件夹
+        nnoremap <silent><buffer><expr> D       defx#do_action('remove_trash') " 删除
+        nnoremap <silent><buffer><expr> Y       defx#do_action('copy') " 复制
+        nnoremap <silent><buffer><expr> P       defx#do_action('paste') " 粘贴
+        nnoremap <silent><buffer><expr> M       defx#do_action('move') " 移动
+        nnoremap <silent><buffer><expr> R       defx#do_action('rename') " 重命名
+        nnoremap <silent><buffer><expr> V       defx#do_action('toggle_select') . 'j' " 选择
+        nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all') " 选择
+        nnoremap <silent><buffer><expr> X       defx#do_action('execute_system') " 执行
+        nnoremap <silent><buffer><expr> yy      defx#do_action('yank_path') " 复制路径
         nnoremap <silent><buffer><expr> q       defx#do_action('quit')
-        nnoremap <silent><buffer><expr> m       defx#do_action('move')
-        nnoremap <silent><buffer><expr> p       defx#do_action('paste')
-        "nnoremap <silent><buffer><expr> h       defx#is_opened_tree() ? defx#do_action('close_tree') : defx#do_action('cd', ['..'])
         nnoremap <silent><buffer><expr> h       defx#do_action('call', 'DefxSmartH')
         nnoremap <silent><buffer><expr> l       defx#do_action('call', 'DefxSmartL')
         nnoremap <silent><buffer><expr> L       defx#do_action('call', 'DefxSmartBigL')
         nnoremap <silent><buffer><expr> o       defx#do_action('call', 'DefxSmartO')
-        "nnoremap <silent><buffer><expr> <Cr>    defx#is_directory() ? defx#do_action('open_directory') : defx#do_action('drop')
         nnoremap <silent><buffer><expr> <Cr>    defx#do_action('call', 'DefxSmartCr')
-
         nnoremap <silent><buffer><expr> <2-LeftMouse> defx#is_directory() ? defx#do_action('open_tree') : defx#do_action('drop')
+
         if s:openleft
             nnoremap <silent><buffer><expr> sv      defx#do_action('drop', 'vsplit')
             nnoremap <silent><buffer><expr> sh      defx#do_action('drop', 'split')
             nnoremap <silent><buffer><expr> st      defx#do_action('drop', 'tabedit')
         endif
-        nnoremap <silent><buffer><expr> S       defx#do_action('toggle_sort', 'time')
-        nnoremap <silent><buffer><expr> P       defx#do_action('open', 'pedit' )
-        nnoremap <silent><buffer><expr> N       defx#do_action('new_file')
-        nnoremap <silent><buffer><expr> dd      defx#do_action('remove_trash')
-        nnoremap <silent><buffer><expr> r       defx#do_action('rename')
+
+        nnoremap <silent><buffer><expr> S       defx#do_action('toggle_sort') " 排序
         nnoremap <silent><buffer><expr> .       defx#do_action('toggle_ignored_files')
         nnoremap <silent><buffer><expr> ~       defx#do_action('cd')
         nnoremap <silent><buffer><expr> !       defx#do_action('execute_command')
         nnoremap <silent><buffer><expr> j       line('.') == line('$') ? 'gg' : 'j'
         nnoremap <silent><buffer><expr> k       line('.') == 1 ? 'hhhG' : 'k'
         nnoremap <silent><buffer><expr> <C-r>   defx#do_action('redraw')
-        nnoremap <silent><buffer><expr> <C-g>   defx#do_action('print')
-        nnoremap <silent><buffer><expr> \       defx#do_action('cd', getcwd())
-        " nnoremap <silent><buffer><expr> cd
-        "                \ defx#do_action('change_vim_cwd')
-        " nnoremap <silent><buffer><expr> c    defx#do_action('yank_path')
-        " nnoremap <silent><buffer><expr> cd
-        "             \ defx#do_action('open_directory')
-        "
+        nnoremap <silent><buffer><expr> <C-p>   defx#do_action('print')
+        nnoremap <silent><buffer><expr> `       defx#do_action('cd', getcwd()) " 回到工作目录
+        nnoremap <silent><buffer><expr> cd      defx#do_action('change_vim_cwd') " 将当前目录设置为工作目录
+        nnoremap <silent><buffer><expr> s       defx#do_action('search', getcwd())
     endfunction
 
     function! DefxSmartCr(_)
@@ -173,9 +177,7 @@ if HasPlug('defx.nvim')
         endif
     endfunction
 
-    " in this function we should vim-choosewin if possible
     function! DefxSmartL(_)
-        " exec 'wal'
         if defx#is_directory()
             call defx#call_action('open_tree')
             normal! j
@@ -269,28 +271,6 @@ if HasPlug('defx.nvim')
         call defx#call_action('close_tree')
     endfunction
 
-    " defx git
-    let g:defx_git#indicators = {
-        \ 'Modified'  : 'M',
-        \ 'Staged'    : 'S',
-        \ 'Untracked' : '?',
-        \ 'Renamed'   : 'R',
-        \ 'Unmerged'  : 'hhhU',
-        \ 'Ignored'   : 'I',
-        \ 'Deleted'   : 'hhhD',
-        \ 'Unknown'   : '⁇'
-        \ }
-
-    hi Defx_git_Untracked ctermfg=12 guifg=#81a2be
-    hi Defx_git_Ignored   ctermfg=8  guifg=#404660
-    hi Defx_git_Unknown   ctermfg=3  guifg=#f0c674
-    hi Defx_git_Renamed   ctermfg=3  guifg=#de935f
-    hi Defx_git_Modified  ctermfg=9  guifg=#cc6666
-    hi Defx_git_Unmerged  ctermfg=14 guifg=#8abeb7
-    hi Defx_git_Deleted   ctermfg=13 guifg=#b294bb
-    hi Defx_git_Staged    ctermfg=10 guifg=#b5bd68
-
-
     " defx icons
     let g:defx_icons_enable_syntax_highlight = 1
     let g:defx_icons_column_length = 2
@@ -299,9 +279,7 @@ if HasPlug('defx.nvim')
     let g:defx_icons_parent_icon = ''
     let g:defx_icons_default_icon = ''
     let g:defx_icons_directory_symlink_icon = ''
-                   " Options below are applicable only when using "tree" feature
     let g:defx_icons_root_opened_tree_icon = ''
     let g:defx_icons_nested_opened_tree_icon = ''
     let g:defx_icons_nested_closed_tree_icon = ''
-
 endif

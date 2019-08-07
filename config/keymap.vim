@@ -48,16 +48,7 @@ nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>te :tabedit
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tm :tabmove
-" gt gT
-"nnoremap  <m-0> :tabnext<cr>
-"nnoremap  <m-9> :tabprevious<CR>
-"tnoremap  <m-0> <c-\><c-n>:tabnext<cr>
-"tnoremap  <m-9> <c-\><c-n>:tabprevious<CR>
 
-nnoremap  <M-l> :tabnext<cr>
-nnoremap  <M-h> :tabprevious<CR>
-tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
-tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
 
 "yank to end
 nnoremap Y y$
@@ -68,6 +59,14 @@ tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 tnoremap <c-l> <c-\><c-n><c-w>l
 tnoremap <c-h> <c-\><c-n><c-w>h
+
+"------------------------------------------- vim-airline
+if !HasPlug('vim-airline')
+    nnoremap  <M-l> :tabnext<cr>
+    nnoremap  <M-h> :tabprevious<CR>
+    tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
+    tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
+endif
 
 "------------------------------------------- ale
 if HasPlug('ale')

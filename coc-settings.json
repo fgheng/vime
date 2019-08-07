@@ -27,7 +27,7 @@
     "suggest.minTriggerInputLength": 1, // 触发补全的字符长度
     "suggest.numberSelect": false, // 使用数字进行选择
     "suggest.noselect": true, // 不选中第一个
-    "suggest.detailField": "menu", // abbr menu preview
+    "suggest.detailField": "abbr", // abbr menu preview
     "suggest.triggerCompletionWait": 30, // default 50
     // diagnostic
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
@@ -50,7 +50,7 @@
     "python.analysis.openFilesOnly": true, // 只显示当前文件的error和war
     // java
     "java.trace.server": "verbose",
-    "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
+    //"java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
     // vimlsp
     "vimlsp.trace.server": "verbose",
     // highlight

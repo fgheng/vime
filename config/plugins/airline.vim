@@ -31,33 +31,8 @@ if HasPlug('vim-airline')
         "let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
     endif
 
-    "let g:airline#extensions#tabline#show_tab_nr = 1
-     "let g:airline#extensions#tabline#formatter = 'default'
-     "let g:airline#extensions#tabline#fnametruncate = 16
-     "let g:airline#extensions#tabline#fnamecollapse = 2
-     "let g:airline#extensions#tabline#buffer_idx_mode = 1
-     "let g:airline#extensions#tabline#fnamemod = ':p:t'
-     "let g:airline#extensions#tabline#buffer_idx_format = {
-     "        \ '0': '➓ ',
-     "        \ '1': '❶ ',
-     "        \ '2': '❷ ',
-     "        \ '3': '❸ ',
-     "        \ '4': '❹ ',
-     "        \ '5': '❺ ',
-     "        \ '6': '❻ ',
-     "        \ '7': '❼ ',
-     "        \ '8': '❽ ',
-     "        \ '9': '❾ '
-     "        \}
-     "let g:airline_detect_modified=1
-     "let g:airline_detect_paste=1
-     "let g:airline_detect_crypt=1
-     "let g:airline_highlighting_cache = 1
-     if  g:airline#extensions#tabline#enabled == 1
+    if  g:airline#extensions#tabline#enabled == 1
         nmap <M-h> <Plug>AirlineSelectPrevTab
         nmap <M-l> <Plug>AirlineSelectNextTab
-    "else
-    "    nmap <M-]> :bn<cr>
-    "    nmap <M-[> :bp<cr>
     endif
 endif

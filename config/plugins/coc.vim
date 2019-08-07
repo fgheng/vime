@@ -135,7 +135,7 @@ if HasPlug('coc.nvim')
     nmap <space>f  <Plug>(coc-format-selected)
 
     "---------------------------------------------- coc yank
-    nnoremap <silent> <space>y  :<C-u>CocList -A yank<cr>
+    nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
     "---------------------------------------------- coc list
     if !HasPlug('leaderF') && !HasPlug('fzf')

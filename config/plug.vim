@@ -4,6 +4,10 @@ call plug#begin('~/.cache/plugins')
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 "Plug 'ycm-core/YouCompleteMe'
 "Plug 'w0rp/ale' " 可以使用coc代替了
+"Plug 'autozimu/LanguageClient-neovim', {
+"    \ 'branch': 'next',
+"    \ 'do': 'bash install.sh',
+"    \ }
 
 " --------- git插件
 " Plug 'airblade/vim-gitgutter'
@@ -90,7 +94,7 @@ endif
 " 删除buffer
 "Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " 尾部空格
-"Plug 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 " 代码段
 Plug 'honza/vim-snippets'
 "Plug 'SirVer/ultisnips'
@@ -106,6 +110,7 @@ Plug 'voldikss/vim-translate-me', {'on': ['<Plug>TranslateW', '<Plug>TranslateW'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'vim-scripts/ZoomWin'
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
+"Plug 'zhaocai/GoldenView.Vim'
 " 编译运行
 Plug 'thinca/vim-quickrun'
 "Plug 'tpope/vim-dispatch'
