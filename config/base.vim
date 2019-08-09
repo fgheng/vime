@@ -25,7 +25,8 @@ set autoindent
 set smartindent
 set shiftround
 set list
-set listchars=tab:→·,nbsp:⣿,trail:·,extends:»,precedes:«,eol:¬
+set listchars=tab:→·,nbsp:⣿,trail:·,extends:»,precedes:«
+set listchars+=eol:¬
 set listchars+=trail:·
 set ph=20 " 设置弹出框大小, 0 则有多少显示多少
 

@@ -104,7 +104,6 @@ Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug
 Plug 'rhysd/clever-f.vim'
 " 多光标
 Plug 'mg979/vim-visual-multi'
-Plug 'voldikss/vim-translate-me', {'on': ['<Plug>TranslateW', '<Plug>TranslateW', '<Plug>TranslateWV', '<Plug>TranslateR', '<Plug>TranslateRV']  }
 " Plug 'terryma/vim-smooth-scroll'
 " Plug 'yuttie/comfortable-motion.vim'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
@@ -119,7 +118,7 @@ Plug 'thinca/vim-quickrun'
 " -------- 其他
 " 需要按照python-pysdl2 sdl2_mixer
 " TODO 需要将依赖进行集成
-"Plug 'skywind3000/vim-keysound'
+Plug 'skywind3000/vim-keysound'
 
 
 call plug#end()

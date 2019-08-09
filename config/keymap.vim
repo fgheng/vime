@@ -129,14 +129,6 @@ if HasPlug('vim-autoformat')
     nnoremap <M-i> :Autoformat<cr>
 endif
 
-"------------------------------------------- vimtranslateme
-if HasPlug('vim-translate-me')
-    nmap <silent> <M-d> <Plug>TranslateW
-    vmap <silent> <M-d> <Plug>TranslateWV
-    nmap <silent> <Leader>r <Plug>TranslateR
-    vmap <silent> <Leader>r <Plug>TranslateRV
-endif
-
 "------------------------------------------- mundo
 if HasPlug('vim-mundo')
     map <F4> <esc>:MundoToggle<cr>

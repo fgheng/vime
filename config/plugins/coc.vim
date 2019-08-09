@@ -27,6 +27,7 @@ if HasPlug('coc.nvim')
                 \ 'coc-lists',
                 \ 'coc-import-cost',
                 \ 'coc-imselect',
+                \ 'coc-translator'
                 \ ]
                 "\ 'coc-vimtex',
                 "\ 'coc-texlab',
@@ -108,7 +109,7 @@ if HasPlug('coc.nvim')
 
     " Using CocList
     " Show all diagnostics
-    nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
+    nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
     " Manage extensions
     nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
     " Show commands
@@ -171,6 +172,15 @@ if HasPlug('coc.nvim')
         nmap <silent> <space>rf <Plug>(coc-refactor)
     endif
 
+    " ----------------------- coc translator
+    " popup
+    nmap <silent> <space>d :CocCommand translator.popup<cr>
+    vmap <silent> <space>d :CocCommand translator.popup<cr>
+    " echo
+    " jmap <Leader>e <Plug>(coc-translator-e)
+    " replace
+    nmap <silent> <space>D :CocCommand translator.replace<cr>
+
     " ----------------------- coc自定义命令
     call coc#add_command('mundoToggle', 'MundoToggle', '显示撤回列表')
     call coc#add_command('Goyo', 'Goyo', '阅读模式')
@@ -188,9 +198,9 @@ if HasPlug('coc.nvim')
     augroup save_session
         autocmd!
         " VimEnter VimLeave VimLeavePre
-        "au VimEnter * timer_start(500, {-> execute('call IsOpenFile()')}, {'repeat':1}))
-        au VimEnter * :CocCommand session.load
+        "au VimEnter * :CocCommand session.load
         "au VimLeavePre * :CocCommand session.save
+        au VimEnter * :CocList sessions
     augroup END
     nnoremap <silent> <F6> :CocCommand session.save <cr>
 endif

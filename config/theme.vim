@@ -2,9 +2,12 @@ function! s:patch_lucius_colors()
     if has('termguicolors')
         set termguicolors
     endif
-    hi Normal     ctermbg=NONE guibg=#002B36
-    hi LineNr     ctermbg=NONE guibg=#002B36
-    hi SignColumn ctermbg=NONE guibg=#002B36
+    "hi Normal     ctermbg=NONE guibg=#002B36
+    "hi LineNr     ctermbg=NONE guibg=#002B36
+    "hi SignColumn ctermbg=NONE guibg=#002B36
+    hi Normal     ctermbg=NONE guibg=NONE
+    hi LineNr     ctermbg=NONE guibg=NONE
+    hi SignColumn ctermbg=NONE guibg=NONE
     "set background=light
 
     if HasPlug('coc.nvim')
@@ -24,8 +27,8 @@ function! s:patch_lucius_colors()
 
 endfunction
 
-autocmd! colorscheme srcery-drk call s:patch_lucius_colors()
-colorscheme srcery-drk
+autocmd! colorscheme srcery call s:patch_lucius_colors()
+colorscheme srcery
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色
