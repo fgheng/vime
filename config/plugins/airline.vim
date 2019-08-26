@@ -1,6 +1,6 @@
 if HasPlug('vim-airline')
 
-    let g:airline_theme='kolor'
+    "let g:airline_theme='kolor'
     let g:airline_powerline_fonts = 1
     let g:airline#extensions#tabline#enabled = 1    " 打开buffer
     let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -10,6 +10,7 @@ if HasPlug('vim-airline')
     let g:airline#extensions#tabline#tabs_label = 'TABS'
     let g:airline#extensions#tabline#left_alt_sep = '>'
     let g:airline#extensions#tabline#buffer_nr_show = 1
+	"let g:airline#extensions#tabline#exclude_buffers = ["[defx]", "!", "vimfiler"]
 
     " 显示窗口号
     function! WindowNumber(...)

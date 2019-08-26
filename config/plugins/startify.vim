@@ -17,9 +17,4 @@ if HasPlug('vim-startify')
     \'                [ 与其纠结，也不如一直学习 ]',
     \'',
     \]
-
-    let g:startify_custom_footer = [
-    \'            [没能力做数学家就做一个好的工程师吧]',
-    \'            [        为中华之崛起而读书        ]',
-    \]
 endif

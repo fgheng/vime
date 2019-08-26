@@ -61,10 +61,4 @@ if HasPlug('vista.vim')
 
     nnoremap <F3> :call VistaToggle()<CR>
 
-    "  将默认/调用fzf改为默认的/
-    if !HasPlug('fzf')
-        au FileType vista nnoremap <buffer> / <esc>:/
-        au FileType vista setlocal incsearch
-        au FileType vista setlocal hlsearch
-    endif
 endif

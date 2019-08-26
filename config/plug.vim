@@ -2,6 +2,15 @@ call plug#begin('~/.cache/plugins')
 
 " -------- 补全插件
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+"Plug 'ncm2/ncm2'
+"Plug 'mhartington/nvim-typescript' " ts
+"Plug 'ncm2/ncm2-jedi'
+"Plug 'ncm2/ncm2-pyclang' " c/c++
+"Plug 'ncm2/ncm2-racer' " rust
+"Plug 'ncm2/ncm2-vim' " viml
+"Plug 'ObserverOfTime/ncm2-jc2' " java
+"Plug 'ncm2/ncm2-cssomni' " css
+
 "Plug 'ycm-core/YouCompleteMe'
 "Plug 'w0rp/ale' " 可以使用coc代替了
 "Plug 'autozimu/LanguageClient-neovim', {
@@ -42,7 +51,7 @@ Plug 'flazz/vim-colorschemes'
 " 代码着色
 Plug 'sheerun/vim-polyglot'
 " 对齐线
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mhinz/vim-startify'
 " 各种line
@@ -92,7 +101,7 @@ if !has('gui_running') && executable('ranger')
     Plug 'francoiscabrol/ranger.vim'
 endif
 " 删除buffer
-"Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
+Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " 尾部空格
 Plug 'ntpeters/vim-better-whitespace'
 " 代码段
@@ -118,7 +127,7 @@ Plug 'thinca/vim-quickrun'
 " -------- 其他
 " 需要按照python-pysdl2 sdl2_mixer
 " TODO 需要将依赖进行集成
-Plug 'skywind3000/vim-keysound'
+"Plug 'skywind3000/vim-keysound'
 
 
 call plug#end()

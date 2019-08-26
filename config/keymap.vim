@@ -4,8 +4,9 @@ nnoremap q <esc>:close<cr>
 vnoremap q <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr>
 
-inoremap <M-h> <esc>I
-inoremap <M-l> <esc>A
+" 使用autopair, c-h表示向前删除
+inoremap <c-l> <esc><right>xi
+
 
 " 窗口
 noremap <C-h> <C-w>h
@@ -27,9 +28,11 @@ nnoremap <c-w>l :rightbelow vsplit <cr>
 
 nnoremap <F5> :copen<cr>
 
-imap <C-s> <esc>:w<cr>
-imap <M-o> <esc>o
-imap <M-O> <esc>O
+inoremap <C-s> <esc>:w<cr>
+inoremap <M-o> <esc>o
+inoremap <M-O> <esc>O
+inoremap <M-h> <esc>I
+inoremap <M-l> <esc>A
 
 " buffer 操作
 if HasPlug('bclose.vim')
@@ -38,7 +41,7 @@ else
     nnoremap <c-x> :bd<cr>
 endif
 
-noremap <space><space> <esc>:wal<cr>
+noremap <space><space> <esc>:w<cr>
 
 nnoremap j gj
 nnoremap k gk
@@ -91,9 +94,9 @@ endif
 "------------------------------------------- fzf
 if HasPlug('fzf')
     nnoremap <M-f> :Files<CR>
-    nnoremap <M-o> :BTags<CR>
-    nnoremap <M-O> :Tags<CR>
-    nnoremap <M-b> :Buffers<CR>
+    nnoremap <space-o> :BTags<CR>
+    nnoremap <space-O> :Tags<CR>
+    nnoremap <M-o> :Buffers<CR>
     nnoremap / :BLines<CR>
     nnoremap ? :Rg<CR>
     nnoremap <M-r> :History<CR>

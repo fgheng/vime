@@ -46,7 +46,7 @@
     // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
-    "python.jediEnabled": true, // 需要安装jdei
+    "python.jediEnabled": false, // 需要安装jdei
     "python.analysis.openFilesOnly": true, // 只显示当前文件的error和war
     // java
     "java.trace.server": "verbose",

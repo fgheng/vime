@@ -14,21 +14,21 @@ set ignorecase " 忽略大小写
 set infercase       " Adjust case in insert completion mode
 set history=500 " 历史命令
 set splitbelow " 在下方分割
-" tab
-set autoindent
-set expandtab
+"" tab
+set autoindent " 使用空格进行缩进
+" set expandtab " tab扩展为空格
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set smarttab
-set autoindent
 set smartindent
 set shiftround
 set list
-set listchars=tab:→·,nbsp:⣿,trail:·,extends:»,precedes:«
+set listchars=tab:→·,nbsp:⣿,extends:»,precedes:«
 set listchars+=eol:¬
-set listchars+=trail:·
-set ph=20 " 设置弹出框大小, 0 则有多少显示多少
+set listchars+=trail:· " 尾部空白
+set listchars+=space:· " 空白
+set pumheight=9 " 设置弹出框大小, 0 则有多少显示多少
 
 set nobackup
 set noswapfile
@@ -42,6 +42,8 @@ set timeoutlen=500
 set ttimeoutlen=10
 set updatetime=100
 set shortmess+=c
+
+set mouse=a " 允许使用鼠标
 
 au FileType c,cpp,java set mps+==:;
 "-----------------------------

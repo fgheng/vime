@@ -109,7 +109,7 @@ if HasPlug('coc.nvim')
 
     " Using CocList
     " Show all diagnostics
-    nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+    nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
     " Manage extensions
     nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
     " Show commands
@@ -121,12 +121,14 @@ if HasPlug('coc.nvim')
     nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
     " show coclist
     nnoremap <silent> <space>l  :<C-u>CocList<CR>
-    nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+    if !HasPlug('fzf')
+        nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+    endif
     " 切换cwd
     nnoremap <silent> <space>`  :<C-u>CocList folders<cr>
     " diagnostic 跳转
-    nmap <silent> <space>] <Plug>(coc-diagnostic-prev)
-    nmap <silent> <space>[ <Plug>(coc-diagnostic-next)
+    nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
+    nmap <silent> <space>j <Plug>(coc-diagnostic-next)
     " Fix autofix problem of current line
     nmap <space>qf  <Plug>(coc-fix-current)
     " 重命名
@@ -141,8 +143,7 @@ if HasPlug('coc.nvim')
     "---------------------------------------------- coc list
     if !HasPlug('leaderF') && !HasPlug('fzf')
         nnoremap <M-f> :CocList files<CR>
-        nnoremap <M-b> :CocList buffers<CR>
-        nnoremap <M-o> :CocList outline<CR>
+        nnoremap <M-o> :CocList buffers<CR>
         nnoremap <silent> <M-c> :exe 'CocList -I --input='.expand('<cword>').' words'<cr>
         nnoremap <M-s> :CocList words<cr>
         nnoremap <M-S> :CocList grep<cr>
