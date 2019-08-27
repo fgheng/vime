@@ -37,6 +37,7 @@ set autowrite " 自动写回
 set confirm " 显示确认对话框
 set laststatus=2
 "set showtabline=2
+set noshowmode
 set timeout ttimeout
 set timeoutlen=500
 set ttimeoutlen=10

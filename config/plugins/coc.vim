@@ -63,6 +63,13 @@ if HasPlug('coc.nvim')
     " 使用ctrl space强制触发补全
     inoremap <expr><c-space> pumvisible() ? "\<C-e>" : coc#refresh()
     " 使用 :Format 进行代码格式化
+	"function FormatCode()
+	"    if mode() == 'v' || mode() == 'V'
+	"        call <Plug>(coc-format-selected)
+	"    else
+	"        call CocAction('format')
+	"    endif
+	"endfunction
     command! -nargs=0 Format :call CocAction('format')
     " 使用 :Fold 对代码进行折叠
     command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -130,12 +137,9 @@ if HasPlug('coc.nvim')
     nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
     nmap <silent> <space>j <Plug>(coc-diagnostic-next)
     " Fix autofix problem of current line
-    nmap <space>qf  <Plug>(coc-fix-current)
+    nmap <space>f  <Plug>(coc-fix-current)
     " 重命名
     nmap <space>rn <Plug>(coc-rename)
-    " Remap for format selected region
-    xmap <space>f  <Plug>(coc-format-selected)
-    nmap <space>f  <Plug>(coc-format-selected)
 
     "---------------------------------------------- coc yank
     nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
