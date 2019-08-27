@@ -17,6 +17,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 "    \ 'branch': 'next',
 "    \ 'do': 'bash install.sh',
 "    \ }
+"Plug 'jupyter-vim/jupyter-vim'
 
 " --------- git插件
 " Plug 'airblade/vim-gitgutter'
@@ -35,7 +36,7 @@ Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['md', 'markdown'] }
 
 " --------- latex 插件
-Plug 'lervag/vimtex', {'for': ['latex']}
+"Plug 'lervag/vimtex', {'for': ['latex']}
 
 
 " "{{---------文档类
