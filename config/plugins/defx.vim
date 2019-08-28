@@ -69,8 +69,8 @@ if HasPlug('defx.nvim')
 
         "endif
 
-        let a:abs_path = expand('%:p:h')
-        exec "Defx ".a:abs_path
+        let a:absPath = expand('%:p:h')
+        exec "Defx ".a:absPath
         "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
         highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=None guibg=None
         let s:DefxWinNr = winnr()
@@ -102,8 +102,8 @@ if HasPlug('defx.nvim')
                     \ 'selected_icon': '✓',
                     \ 'readonly_icon': '',
                     \ })
-        let a:abs_path = expand('%:p:h')
-        exec "Defx ".a:abs_path
+        let s:absPath = expand('%:p:h')
+        exec "Defx ".s:absPath
 
         "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
     endfunction

@@ -18,7 +18,7 @@
         "java",
         "rust"
     ],
-    "coc.preferences.formatOnType": true,   // 回车格式化
+    "coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily",
     // suggest
     "suggest.triggerAfterInsertEnter": true,
@@ -129,6 +129,6 @@
                     "directory": "/tmp/ccls-cache"
                 }
             }
-        },
+        }
     }
 }

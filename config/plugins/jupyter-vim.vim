@@ -1,4 +1,6 @@
 if HasPlug('jupyter-vim')
+	" 取消默认按键
+	let g:jupyter_mapkeys = 0
 	if has('nvim')
 		"let g:python3_host_prog = '~/Software/anaconda3/bin/python'
 	else
@@ -11,21 +13,25 @@ if HasPlug('jupyter-vim')
 		set pythonthreedll=python37.dll
 		set pythonthreehome=C:\Python37
 	endif
-	" Run current file
-	nnoremap <buffer> <silent> <localleader>R :JupyterRunFile<CR>
-	nnoremap <buffer> <silent> <localleader>I :JupyterImportThisFile<CR>
 
-	" Change to directory of current file
-	nnoremap <buffer> <silent> <localleader>d :JupyterCd %:p:h<CR>
+	nnoremap <silent> <space>, :JupyterSendCount<cr><down>
+	vnoremap <silent> <space>, :JupyterSendRange<cr><down>
 
-	" Send a selection of lines
-	nnoremap <buffer> <silent> <localleader>X :JupyterSendCell<CR>
-	nnoremap <buffer> <silent> <localleader>E :JupyterSendRange<CR>
-	nmap     <buffer> <silent> <localleader>e <Plug>JupyterRunTextObj
-	vmap     <buffer> <silent> <localleader>e <Plug>JupyterRunVisual
+	"" Run current file
+	"nnoremap <buffer> <silent> <leader>R :JupyterRunFile<CR>
+	"nnoremap <buffer> <silent> <leader>I :JupyterImportThisFile<CR>
 
-	nnoremap <buffer> <silent> <localleader>U :JupyterUpdateShell<CR>
+	"" Change to directory of current file
+	"nnoremap <buffer> <silent> <leader>d :JupyterCd %:p:h<CR>
 
-	" Debugging maps
-	nnoremap <buffer> <silent> <localleader>b :PythonSetBreak<CR>
+	"" Send a selection of lines
+	"nnoremap <buffer> <silent> <leader>X :JupyterSendCell<CR>
+	"nnoremap <buffer> <silent> <leader>E :JupyterSendRange<CR>
+	"nmap     <buffer> <silent> <leader>e <Plug>JupyterRunTextObj
+	"vmap     <buffer> <silent> <leader>e <Plug>JupyterRunVisual
+
+	"nnoremap <buffer> <silent> <leader>U :JupyterUpdateShell<CR>
+
+	"" Debugging maps
+	"nnoremap <buffer> <silent> <leader>b :PythonSetBreak<CR>
 endif

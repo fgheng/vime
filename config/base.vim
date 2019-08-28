@@ -35,8 +35,8 @@ set noswapfile
 set autoread " 文件在外部被修改过，重新读入
 set autowrite " 自动写回
 set confirm " 显示确认对话框
-set laststatus=2
-"set showtabline=2
+set laststatus=1
+set showtabline=2
 set noshowmode
 set timeout ttimeout
 set timeoutlen=500
@@ -45,6 +45,7 @@ set updatetime=100
 set shortmess+=c
 
 set mouse=a " 允许使用鼠标
+set cmdheight=1
 
 au FileType c,cpp,java set mps+==:;
 "-----------------------------

@@ -31,8 +31,8 @@ nnoremap <F5> :copen<cr>
 " 插入模式下的一些快捷键
 inoremap <C-s> <esc>:w<cr>
 inoremap <C-a> <esc>ggVG
-inoremap <M-j> <esc>o
-inoremap <M-k> <esc>O
+inoremap <M-o> <esc>o
+inoremap <M-O> <esc>O
 inoremap <M-h> <esc>I
 inoremap <M-l> <esc>A
 

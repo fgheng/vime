@@ -17,7 +17,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 "    \ 'branch': 'next',
 "    \ 'do': 'bash install.sh',
 "    \ }
-"Plug 'jupyter-vim/jupyter-vim'
+Plug 'jupyter-vim/jupyter-vim'
+"Plug 'szymonmaszke/vimpyter'
 
 " --------- git插件
 " Plug 'airblade/vim-gitgutter'

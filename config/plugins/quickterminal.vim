@@ -12,7 +12,7 @@ endif
 "    silent ls
 "    redir END
 "    for buf in split(buffers, '\n')
-"        if match(buf, '\v^\s*'.a:tnmb) > -1 && match(buf, a:tname) > -1
+"        if match(buf, '\v^\s*'.s:tnmb) > -1 && match(buf, s:tname) > -1
 "            return 1
 "        endif
 "    endfor
@@ -21,7 +21,7 @@ endif
 
 " terminal 这个buffer是否正在某个窗口中显示
 fu! TerminalIsShowingInWindows(tnmb, tname)
-    if bufwinnr(a:tnmb) > -1
+    if bufwinnr(s:tnmb) > -1
         return 1
     else
         return 0
@@ -33,7 +33,7 @@ fu! TerminalIsShowingInTabWindows(tnmb, tname)
     silent ls
     redir END
     for buf in split(buffers, '\n')
-        if match(buf, '\v^\s*'.a:tnmb) > -1 && match(buf, a:tname) > -1
+        if match(buf, '\v^\s*'.s:tnmb) > -1 && match(buf, s:tname) > -1
             " 有a即活动
             if match(split(buf)[1], "a-") > -1 || match(split(buf)[1], "a") > -1
                 return 1
@@ -181,16 +181,16 @@ let s:fbna = ""
 let s:fwinnr = -1
 
 fu! OpenTerminalInFloatWindowToggle()
-    let a:height = &lines / 2
-    let a:width = float2nr(&columns - (&columns * 2 / 6))
-    let a:col = float2nr((&columns - a:width) / 2)
+    let s:height = &lines / 2
+    let s:width = float2nr(&columns - (&columns * 2 / 6))
+    let s:col = float2nr((&columns - s:width) / 2)
 
-    let a:opts = {
+    let s:opts = {
             \ 'relative': 'editor',
-            \ 'row': a:height * 0.5,
-            \ 'col': a:col,
-            \ 'width': a:width,
-            \ 'height': a:height
+            \ 'row': s:height * 0.5,
+            \ 'col': s:col,
+            \ 'width': s:width,
+            \ 'height': s:height
             \ }
 
     " 首先判断浮动终端buffer是否存在
@@ -210,8 +210,8 @@ fu! OpenTerminalInFloatWindowToggle()
             endif
         else
             " 没有显示在浮动窗口中, 创建浮动窗口
-            let a:buf = nvim_create_buf(v:false, v:true)
-            let a:fwin = nvim_open_win(a:buf, v:true, a:opts)
+            let s:buf = nvim_create_buf(v:false, v:true)
+            let s:fwin = nvim_open_win(s:buf, v:true, s:opts)
             let s:fwinnr = winnr()
             " 显示终端
             exec s:fbnr . "b"
@@ -219,8 +219,8 @@ fu! OpenTerminalInFloatWindowToggle()
         endif
     else
         " 没有显示在浮动窗口中, 创建浮动窗口
-        let a:buf = nvim_create_buf(v:false, v:true)
-        let a:fwin = nvim_open_win(a:buf, v:true, a:opts)
+        let s:buf = nvim_create_buf(v:false, v:true)
+        let s:fwin = nvim_open_win(s:buf, v:true, s:opts)
         let s:fwinnr = winnr()
 
         " 不存在, 那么新建一个终端
