@@ -16,9 +16,9 @@ if HasPlug('coc.nvim')
                 \ 'coc-json',
                 \ 'coc-yaml',
                 \ 'coc-snippets',
-                \ 'coc-highlight',
                 \ 'coc-calc',
                 \ 'coc-git',
+                \ 'coc-highlight',
                 \ 'coc-marketplace',
                 \ 'coc-post',
                 \ 'coc-xml',
@@ -26,7 +26,8 @@ if HasPlug('coc.nvim')
                 \ 'coc-lists',
                 \ 'coc-import-cost',
                 \ 'coc-imselect',
-                \ 'coc-translator'
+                \ 'coc-translator',
+				\ 'coc-tabnine'
                 \ ]
                 "\ 'coc-vimtex',
                 "\ 'coc-texlab',

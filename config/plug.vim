@@ -50,8 +50,10 @@ Plug 'yianwillis/vimcdoc'
 " --------- ui插件
 " 主题
 Plug 'flazz/vim-colorschemes'
-" 代码着色
+"" 代码着色
 Plug 'sheerun/vim-polyglot'
+"" python高亮
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " 对齐线
 "Plug 'Yggdroot/indentLine'
 "Plug 'nathanaelkane/vim-indent-guides'
