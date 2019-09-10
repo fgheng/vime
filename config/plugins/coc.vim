@@ -20,7 +20,6 @@ if HasPlug('coc.nvim')
                 \ 'coc-git',
                 \ 'coc-highlight',
                 \ 'coc-marketplace',
-                \ 'coc-post',
                 \ 'coc-xml',
                 \ 'coc-yank',
                 \ 'coc-lists',
@@ -33,6 +32,7 @@ if HasPlug('coc.nvim')
                 "\ 'coc-texlab',
                 "\ 'coc-vetur', vue
                 "\ 'coc-emoji',
+                "\ 'coc-post',
     " web
     " coc-tsserver coc-html coc-css coc-tailwindcss coc-prettier coc-eslint
     " eslint 代码规范检查
