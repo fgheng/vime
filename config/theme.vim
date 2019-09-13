@@ -24,8 +24,8 @@ endif
 
 if HasPlug('vim-visual-multi')
     " ???
-    highlight multiple_cursors_cursor ctermfg=15 ctermbg=1 guifg=white guibg=red
-    highlight link multiple_cursors_cursor Error
+    "highlight multiple_cursors_cursor ctermfg=15 ctermbg=1 guifg=white guibg=red
+    "highlight link multiple_cursors_cursor Error
 endif
 
 if HasPlug('coc.nvim')

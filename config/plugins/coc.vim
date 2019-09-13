@@ -59,6 +59,12 @@ if HasPlug('coc.nvim')
         \ pumvisible() ? "\<C-p>" :
         \ "\<C-h>"
 
+	"inoremap <silent><expr> <c-j>
+    "    \ pumvisible() ? "\<C-n>" : return
+
+	"inoremap <silent><expr> <c-k>
+    "    \ pumvisible() ? "\<C-p>" : return
+
     " 回车补全选中的内容
     inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
     " 使用ctrl space强制触发补全
@@ -166,15 +172,25 @@ if HasPlug('coc.nvim')
 
     "---------------------------------------------- 多光标
     if !HasPlug("vim-visual-multi")
-        " ctrl n下一个，ctrl p上一个
+		" ctrl n下一个，ctrl p上一个
+        " ctrl c 添加一个光标再按一次取消，
         nmap <silent> <C-c> <Plug>(coc-cursors-position)
-        nmap <silent> <C-d> <Plug>(coc-cursors-word)
-        xmap <silent> <C-d> <Plug>(coc-cursors-range)
+        "nmap <silent> <C-d> <Plug>(coc-cursors-word)
+        "xmap <silent> <C-d> <Plug>(coc-cursors-range)
+		"ctrl d 选取所有v模式选择的内容
+		"nmap <silent> <C-d> <Plug>(coc-cursors-word)*
+		nmap <expr> <silent> <C-d> <SID>select_current_word()
+		function! s:select_current_word()
+			if !get(g:, 'coc_cursors_activated', 0)
+				return "\<Plug>(coc-cursors-word)"
+			endif
+			return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+		endfunc
+		xmap <silent> <C-d> y/\V<C-r>=escape(@",'/\')<CR><CR>gN<Plug>(coc-cursors-range)gn
         nmap <silent> <C-a> :CocCommand document.renameCurrentWord<cr>
         " use normal command like `<leader>xi(`
         nmap <leader>x  <Plug>(coc-cursors-operator)
-        " 重构,需要lsp支持
-        "nmap <silent> <space>rf <Plug>(coc-refactor)
+        " 重构refactor,需要lsp支持
         nmap <silent> <space>rf <Plug>(coc-refactor)
     endif
 

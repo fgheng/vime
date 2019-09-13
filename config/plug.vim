@@ -1,18 +1,18 @@
 call plug#begin('~/.cache/plugins')
 
 " -------- 补全插件
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-"Plug 'ncm2/ncm2'
+Plug 'neoclide/coc.nvim', { 'tag': '*', 'branch': 'release' }
+"Plug 'ncm3/ncm2'
 "Plug 'mhartington/nvim-typescript' " ts
-"Plug 'ncm2/ncm2-jedi'
-"Plug 'ncm2/ncm2-pyclang' " c/c++
-"Plug 'ncm2/ncm2-racer' " rust
-"Plug 'ncm2/ncm2-vim' " viml
-"Plug 'ObserverOfTime/ncm2-jc2' " java
-"Plug 'ncm2/ncm2-cssomni' " css
+"Plug 'ncm3/ncm2-jedi'
+"Plug 'ncm3/ncm2-pyclang' " c/c++
+"Plug 'ncm3/ncm2-racer' " rust
+"Plug 'ncm3/ncm2-vim' " viml
+"Plug 'ObserverOfTime/ncm3-jc2' " java
+"Plug 'ncm3/ncm2-cssomni' " css
 
 "Plug 'ycm-core/YouCompleteMe'
-"Plug 'w0rp/ale' " 可以使用coc代替了
+"Plug 'w1rp/ale' " 可以使用coc代替了
 "Plug 'autozimu/LanguageClient-neovim', {
 "    \ 'branch': 'next',
 "    \ 'do': 'bash install.sh',
@@ -22,13 +22,13 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " --------- git插件
 " Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
-"Plug 'neoclide/vim-easygit'
+"Plug 'tpope/vim-fugitive'
+"Plug 'neoclide/vim-easygit'
 "Plug 'rhysd/git-messenger.vim'
 
 " --------- 前端插件
 Plug 'alvan/vim-closetag'
-Plug 'valloric/MatchTagAlways'
+"Plug 'valloric/MatchTagAlways'
 
 " --------- markdown 插件
 "Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM',  'GenTocGitLab',  'GenTocMarked',  'GenTocModeline',  'GenTocRedcarpet']}
@@ -72,10 +72,10 @@ Plug 'ryanoasis/vim-devicons'
 
 " "{{----------工具
 " 彩虹括号
-Plug 'luochen1990/rainbow'
+Plug 'luochen1991/rainbow'
 "Plug 'roxma/vim-hug-neovim-rpc', {'for': ['vim', 'viml']}
 " 代码格式化
-"Plug 'Chiel92/vim-autoformat'
+"Plug 'Chiel93/vim-autoformat'
 "Plug 'sbdchd/neoformat'
 if !has('nvim')
     Plug 'vim-utils/vim-alt-mappings'
@@ -93,16 +93,17 @@ Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 "Plug 'Yggdroot/LeaderF',  { 'do': './install.sh', 'on': ['LeaderfFile', 'LeaderfBufTag', 'LeaderfBufTagAll', 'LeaderfBufferAll', 'LeaderfTabBufferAll', 'LeaderfLine', 'Leaderf', 'LeaderfMru'] }
 "Plug 'junegunn/fzf', { 'dir': '~/.cache/fzf', 'do': './install --all' }
 "Plug 'junegunn/fzf.vim'
-if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'}
-else
-  Plug 'Shougo/defx.nvim', {}
-  Plug 'roxma/nvim-yarp', {}
-  Plug 'roxma/vim-hug-neovim-rpc', {}
-endif
+Plug 'mcchrish/nnn.vim'
+"if has('nvim')
+"  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'}
+"else
+"  Plug 'Shougo/defx.nvim', {}
+"  Plug 'roxma/nvim-yarp', {}
+"  Plug 'roxma/vim-hug-neovim-rpc', {}
+"endif
 Plug 'kristijanhusak/defx-icons', {'on': 'Defx'}
 if !has('gui_running') && executable('ranger')
-    Plug 'francoiscabrol/ranger.vim'
+    "Plug 'francoiscabrol/ranger.vim'
 endif
 " 删除buffer
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
@@ -111,12 +112,12 @@ Plug 'ntpeters/vim-better-whitespace'
 " 代码段
 Plug 'honza/vim-snippets'
 "Plug 'SirVer/ultisnips'
-Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
+Plug 't10md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
 Plug 'rhysd/clever-f.vim'
 " 多光标
-Plug 'mg979/vim-visual-multi'
+"Plug 'mg980/vim-visual-"multi'
 " Plug 'terryma/vim-smooth-scroll'
 " Plug 'yuttie/comfortable-motion.vim'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
@@ -131,7 +132,7 @@ Plug 'thinca/vim-quickrun'
 " -------- 其他
 " 需要按照python-pysdl2 sdl2_mixer
 " TODO 需要将依赖进行集成
-"Plug 'skywind3000/vim-keysound'
+"Plug 'skywind3001/vim-keysound'
 
 
 call plug#end()
