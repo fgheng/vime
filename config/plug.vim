@@ -33,7 +33,7 @@ Plug 'alvan/vim-closetag'
 " --------- markdown 插件
 "Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM',  'GenTocGitLab',  'GenTocMarked',  'GenTocModeline',  'GenTocRedcarpet']}
 "Plug 'godlygeek/tabular', {'for': ['markdown', 'md']}
-Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
+"Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'md']}
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['md', 'markdown'] }
 
 " --------- latex 插件
@@ -57,7 +57,7 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " 对齐线
 "Plug 'Yggdroot/indentLine'
 "Plug 'nathanaelkane/vim-indent-guides'
-Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify', {'on': 'Startify'}
 " 各种line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -117,7 +117,7 @@ Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
 Plug 'rhysd/clever-f.vim'
 " 多光标
-"Plug 'mg980/vim-visual-"multi'
+Plug 'mg980/vim-visual-multi'
 " Plug 'terryma/vim-smooth-scroll'
 " Plug 'yuttie/comfortable-motion.vim'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }

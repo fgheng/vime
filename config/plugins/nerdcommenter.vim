@@ -1,6 +1,3 @@
-if HasPlug('nredcommenter')
-    " noremap <c-/> <leader>c<space>
-    let g:NERDSpaceDelims = 1
-    let g:NERDToggleCheckAllLines = 1
-
-endif
+" noremap <c-/> <leader>c<space>
+let g:NERDSpaceDelims = 1
+let g:NERDToggleCheckAllLines = 1
