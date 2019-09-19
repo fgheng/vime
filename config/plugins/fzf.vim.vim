@@ -1,5 +1,13 @@
 " 让输入上方，搜索列表在下方
-let $FZF_DEFAULT_OPTS = '--layout=reverse'
+" let $FZF_DEFAULT_OPTS = '--layout=reverse'
+
+let g:fzf_history_dir = '~/.cache/fzf-history'
+" This is the default extra key bindings
+let g:fzf_action = {
+	\ 'ctrl-t': 'tab split',
+	\ 'ctrl-x': 'split',
+	\ 'ctrl-v': 'vsplit'
+	\ }
 
 " 打开 fzf 的方式选择 floating window
 let g:fzf_layout = { 'window': 'call OpenFloatingWin()' }
@@ -71,13 +79,6 @@ function! OpenFloatingWin()
 	"highlight NormalFloat cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 endfunction
 
-let g:fzf_history_dir = '~/.cache/fzf-history'
-" This is the default extra key bindings
-let g:fzf_action = {
-	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-x': 'split',
-	\ 'ctrl-v': 'vsplit'
-	\ }
 
 command! -bang -nargs=* Rg
 	\ call fzf#vim#grep(

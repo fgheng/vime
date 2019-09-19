@@ -55,7 +55,7 @@ Plug 'sheerun/vim-polyglot'
 "" python高亮
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " 对齐线
-"Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mhinz/vim-startify', {'on': 'Startify'}
 " 各种line
@@ -77,6 +77,7 @@ Plug 'luochen1991/rainbow'
 " 代码格式化
 "Plug 'Chiel93/vim-autoformat'
 "Plug 'sbdchd/neoformat'
+" Plug 'chrisbra/csv.vim'
 if !has('nvim')
     Plug 'vim-utils/vim-alt-mappings'
 endif
@@ -90,9 +91,9 @@ Plug 'tpope/vim-repeat'
 Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 " 各种list
 "Plug 'terryma/vim-expand-region'
-"Plug 'Yggdroot/LeaderF',  { 'do': './install.sh', 'on': ['LeaderfFile', 'LeaderfBufTag', 'LeaderfBufTagAll', 'LeaderfBufferAll', 'LeaderfTabBufferAll', 'LeaderfLine', 'Leaderf', 'LeaderfMru'] }
-"Plug 'junegunn/fzf', { 'dir': '~/.cache/fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
+" Plug 'Yggdroot/LeaderF',  { 'do': './install.sh', 'on': ['LeaderfFile', 'LeaderfBufTag', 'LeaderfBufTagAll', 'LeaderfBufferAll', 'LeaderfTabBufferAll', 'LeaderfLine', 'Leaderf', 'LeaderfMru'] }
+" Plug 'junegunn/fzf', { 'dir': '~/.cache/fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
 Plug 'mcchrish/nnn.vim'
 "if has('nvim')
 "  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'}

@@ -28,15 +28,15 @@ set listchars=tab:→·,nbsp:⣿,extends:»,precedes:«
 set listchars+=eol:¬
 set listchars+=trail:· " 尾部空白
 set listchars+=space:· " 空白
-set pumheight=9 " 设置弹出框大小, 0 则有多少显示多少
+set pumheight=20 " 设置弹出框大小, 0 则有多少显示多少
 
 set nobackup
 set noswapfile
 set autoread " 文件在外部被修改过，重新读入
 set autowrite " 自动写回
 set confirm " 显示确认对话框
-set laststatus=1
-set showtabline=2
+set laststatus=2
+set showtabline=0
 set noshowmode
 set timeout ttimeout
 set timeoutlen=500

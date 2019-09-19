@@ -21,7 +21,7 @@ endif
 
 " terminal 这个buffer是否正在某个窗口中显示
 fu! TerminalIsShowingInWindows(tnmb, tname)
-    if bufwinnr(s:tnmb) > -1
+    if bufwinnr(a:tnmb) > -1
         return 1
     else
         return 0
@@ -33,7 +33,7 @@ fu! TerminalIsShowingInTabWindows(tnmb, tname)
     silent ls
     redir END
     for buf in split(buffers, '\n')
-        if match(buf, '\v^\s*'.s:tnmb) > -1 && match(buf, s:tname) > -1
+        if match(buf, '\v^\s*'.a:tnmb) > -1 && match(buf, s:tname) > -1
             " 有a即活动
             if match(split(buf)[1], "a-") > -1 || match(split(buf)[1], "a") > -1
                 return 1
@@ -83,9 +83,9 @@ fu! OpenTerminalBottomToggle()
     endif
 endf
 
-imap <silent> <c-t> <esc>:call OpenTerminalBottomToggle()<cr>
-nnoremap <silent> <c-t> <esc>:call OpenTerminalBottomToggle()<cr>
-tnoremap <silent> <c-t> <c-\><c-n>:call OpenTerminalBottomToggle()<cr>
+imap <silent> <F8> <esc>:call OpenTerminalBottomToggle()<cr>
+nnoremap <silent> <F8> <esc>:call OpenTerminalBottomToggle()<cr>
+tnoremap <silent> <F8> <c-\><c-n>:call OpenTerminalBottomToggle()<cr>
 
 let s:tbnr = -1
 let s:tbna = ""
@@ -171,9 +171,9 @@ fu! OpenTerminalTabToggle()
     endif
 endf
 
-imap <silent> <F9> <esc>:call OpenTerminalTabToggle()<cr>
-nnoremap <silent> <F9> <esc>:call OpenTerminalTabToggle()<cr>
-tnoremap <silent> <F9> <c-\><c-n>:call OpenTerminalTabToggle()<cr>
+" imap <silent> <F9> <esc>:call OpenTerminalTabToggle()<cr>
+" nnoremap <silent> <F9> <esc>:call OpenTerminalTabToggle()<cr>
+" tnoremap <silent> <F9> <c-\><c-n>:call OpenTerminalTabToggle()<cr>
 
 " 在悬浮窗口中打开终端
 let s:fbnr = -1
@@ -240,6 +240,6 @@ fu! OpenTerminalInFloatWindowToggle()
 
 endf
 
-imap <silent> <F8> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
-nnoremap <silent> <F8> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
-tnoremap <silent> <F8> <c-\><c-n>:call OpenTerminalInFloatWindowToggle()<cr>
+imap <silent> <F9> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
+nnoremap <silent> <F9> <esc>:call OpenTerminalInFloatWindowToggle()<cr>
+tnoremap <silent> <F9> <c-\><c-n>:call OpenTerminalInFloatWindowToggle()<cr>

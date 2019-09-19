@@ -5,8 +5,8 @@
 " 开启鼠标选择
 let g:VM_mouse_mappings = 0
 let g:VM_maps = {}
-let g:VM_maps["Add Cursor At Pos"]            = '<c-c>'
-let g:VM_maps['Visual Add']                   = '<c-c>'
+let g:VM_maps["Add Cursor At Pos"]            = '<c-Right>'
+" let g:VM_maps['Visual Add']                   = '<c-i>'
 let g:VM_maps["Select All"]                   = '<c-a>'
 let g:VM_maps['Visual All']                   = '<c-a>'
 

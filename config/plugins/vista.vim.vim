@@ -25,15 +25,15 @@ let g:vista#renderer#enable_icon = 1
 " 获取进入vista之前的buf, window编号
 let s:beforewinnr = -1
 function! VistaToggle() abort
-	let a:bufnr = bufnr('__vista__')
-	let a:bufwinnr = bufwinnr(a:bufnr)
+	let s:bufnr = bufnr('__vista__')
+	let s:bufwinnr = bufwinnr(s:bufnr)
 
 	" 缓冲区存在
-	if  a:bufnr > -1
+	if  s:bufnr > -1
 		" 缓冲区在某个窗口中显示
-		if a:bufwinnr > -1
+		if s:bufwinnr > -1
 			" 当前正好在vista窗口中
-			if winnr() == a:bufwinnr
+			if winnr() == s:bufwinnr
 				" 关闭窗口
 				exec "Vista!"
 				" 跳转回之前进入的窗口
@@ -43,7 +43,7 @@ function! VistaToggle() abort
 			else
 				let s:beforewinnr = winnr()
 				" 跳转到窗口
-				exec a:bufwinnr . "wincmd w"
+				exec s:bufwinnr . "wincmd w"
 			endif
 		else
 			" 没有在窗口中显示

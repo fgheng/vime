@@ -57,11 +57,18 @@
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
     // list
-    "list.maxHeight": 8,
-    "list.maxPreviewHeight": 8,
-    "list.autoResize": false,
-    "list.source.grep.command": "rg",
-    "list.source.grep.args": [],
+    "list.insertMappings": {
+        "<C-t>": "action:tabe",
+        "<c-v>": "action:vsplit",
+        "<c-s>": "action:split",
+        "<C-w>": "command:wincmd k"
+    },
+    "list.maxHeight": 10,
+    "list.maxPreviewHeight": 6,
+    //"list.autoResize": false,
+    //"list.source.grep.command": "rg",
+    "list.source.grep.args": ["-i"],
+	//"list.source.grep.useLiteral": false, // 不要逐字匹配
     //"list.source.files.args": ['--hidden', '--files'], // 允许搜索隐藏文件
     //"list.previewSplitRight": true,
     //"list.previewSplitRight": true,

@@ -1,5 +1,5 @@
-nmap <leader>r :QuickRun<cr>
-vmap <leader>r :QuickRun<cr>
+nmap <F4> :QuickRun<cr>
+vmap <F4> :QuickRun<cr>
 
 let g:quickrun_config = {
 	\   '_': {

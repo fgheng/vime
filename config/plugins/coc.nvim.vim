@@ -17,6 +17,7 @@ let g:coc_global_extensions =
 			\ 'coc-snippets',
 			\ 'coc-calc',
 			\ 'coc-git',
+			\ 'coc-vimlsp',
 			\ 'coc-highlight',
 			\ 'coc-marketplace',
 			\ 'coc-xml',
@@ -24,8 +25,9 @@ let g:coc_global_extensions =
 			\ 'coc-lists',
 			\ 'coc-import-cost',
 			\ 'coc-imselect',
-			\ 'coc-translator',
-			\ 'coc-tabnine'
+			\ 'coc-tabnine',
+			\ 'coc-ecdict',
+			\ 'coc-svg'
 			\ ]
 			"\ 'coc-vimtex',
 			"\ 'coc-texlab',
@@ -151,9 +153,10 @@ nmap <space>rn <Plug>(coc-rename)
 nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
 "---------------------------------------------- coc list
-if !HasPlug('leaderF') && !HasPlug('fzf')
+if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	nnoremap <M-f> :CocList files<CR>
 	nnoremap <M-o> :CocList buffers<CR>
+	nnoremap <M-t> :CocList tags<cr>
 	nnoremap <silent> <M-c> :exe 'CocList -I --input='.expand('<cword>').' words'<cr>
 	nnoremap <M-s> :CocList words<cr>
 	nnoremap <M-S> :CocList grep<cr>
