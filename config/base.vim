@@ -93,8 +93,5 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-"set list
-"set lcs=tab:\ .,nbsp:%
-"let g:tex_flavor='latex'
-
-""let $NVIMRUNTIME="/home/forever/Software/nvim-linux64/share/nvim/runtime"
+" tex文件
+" let g:tex_flavor='latex'

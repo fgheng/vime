@@ -37,7 +37,7 @@ Plug 'alvan/vim-closetag'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['md', 'markdown'] }
 
 " --------- latex 插件
-"Plug 'lervag/vimtex', {'for': ['latex']}
+Plug 'lervag/vimtex'
 
 
 " "{{---------文档类

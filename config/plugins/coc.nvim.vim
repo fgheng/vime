@@ -29,10 +29,8 @@ let g:coc_global_extensions =
 			\ 'coc-ecdict',
 			\ 'coc-svg',
 			\ 'coc-sh',
-			\ 'coc-phpls'
+			\ 'coc-phpls',
 			\ ]
-			"\ 'coc-vimtex',
-			"\ 'coc-texlab',
 			"\ 'coc-vetur', vue
 			"\ 'coc-emoji',
 			"\ 'coc-post',
