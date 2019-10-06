@@ -109,16 +109,9 @@
     "session.saveOnVimLeave": true,
     // lsp
     "languageserver": {
-        // 安装bash-language-server
-        "bash": {
-            "command": "bash-language-server",
-            "args": ["start"],
-            "filetypes": ["sh"],
-            "ignoredRootPaths": ["~"]
-        },
         //  安装ccls
-        "ccls": {
-            "command": "ccls",
+        "clang": {
+            "command": "clangd",
             "trace.server": "verbose",
             "filetypes": ["c", "cpp", "cu", "cuda", "objc", "objcpp"],
             "rootPatterns": [
@@ -133,7 +126,7 @@
             ],
             "initializationOptions": {
                 "cache": {
-                    "directory": "/tmp/ccls-cache"
+                    "directory": "/tmp/clangd-cache"
                 }
             }
         }

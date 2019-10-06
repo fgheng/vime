@@ -27,7 +27,9 @@ let g:coc_global_extensions =
 			\ 'coc-imselect',
 			\ 'coc-tabnine',
 			\ 'coc-ecdict',
-			\ 'coc-svg'
+			\ 'coc-svg',
+			\ 'coc-sh',
+			\ 'coc-phpls'
 			\ ]
 			"\ 'coc-vimtex',
 			"\ 'coc-texlab',
@@ -210,20 +212,3 @@ call coc#add_command('mundoToggle', 'MundoToggle', '显示撤回列表')
 call coc#add_command('Goyo', 'Goyo', '阅读模式')
 call coc#add_command('Defx', 'Defx', '文件管理')
 call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
-
-" ----------------------- 自定义事件
-" 还有问题
-function! IsOpenFile() abort
-	if !expand('%:F')
-		exec 'CocCommand session.load'
-	endif
-endfunction
-
-augroup save_session
-	autocmd!
-	" VimEnter VimLeave VimLeavePre
-	"au VimEnter * :CocCommand session.load
-	"au VimLeavePre * :CocCommand session.save
-	au VimEnter * :CocList sessions
-augroup END
-nnoremap <silent> <F6> :CocCommand session.save <cr>

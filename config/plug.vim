@@ -51,7 +51,7 @@ Plug 'yianwillis/vimcdoc'
 " 主题
 Plug 'flazz/vim-colorschemes'
 "" 代码着色
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 "" python高亮
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " 对齐线
@@ -119,7 +119,7 @@ Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug
 Plug 'rhysd/clever-f.vim'
 " 多光标
 Plug 'mg980/vim-visual-multi'
-" Plug 'terryma/vim-smooth-scroll'
+"Plug 'terryma/vim-smooth-scroll'
 " Plug 'yuttie/comfortable-motion.vim'
 " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 " Plug 'vim-scripts/ZoomWin'
