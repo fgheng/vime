@@ -37,9 +37,7 @@ Plug 'alvan/vim-closetag'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for':['md', 'markdown'] }
 
 " --------- latex 插件
-Plug 'lervag/vimtex'
-
-
+Plug 'lervag/vimtex' " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " "{{---------文档类
 Plug 'scrooloose/nerdcommenter'
 "Plug 'vim-scripts/DoxygenToolkit.vim', {'on': ['Dox', 'DoxAuthor', 'DoxBlock', 'DoxLic', 'DoxUndoc' ]}
