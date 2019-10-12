@@ -26,7 +26,7 @@ nnoremap <c-w>h :abo vsplit <cr>
 nnoremap <c-w>j :rightbelow split <cr>
 nnoremap <c-w>l :rightbelow vsplit <cr>
 
-nnoremap <F5> :copen<cr>
+" nnoremap <F5> :copen<cr>
 
 " 插入模式下的一些快捷键
 inoremap <C-s> <esc>:w<cr>

@@ -10,3 +10,4 @@ let g:mundo_preview_bottom = 0
 let g:mundo_help = 0
 " let g:mundo_preview_statusline = 1
 " let g:mundo_tree_statusline = 1
+noremap <F5> <esc>:MundoToggle<cr>

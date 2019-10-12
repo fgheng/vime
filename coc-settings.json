@@ -76,7 +76,7 @@
     "snippets.ultisnips.enable": false,
     "snippets.shortcut": "  Ⓢ",
     //post
-    "post.root": "~/.cache/coc/coc-post",
+    //"post.root": "~/.cache/coc/coc-post",
     //git
     "git.enableGutters": true,
     "git.addGlameToBufferVar": true,
@@ -107,6 +107,9 @@
     // session
     "session.directory": "~/.cache/coc/sessions",
     "session.saveOnVimLeave": true,
+	// smartf
+	"smartf.wordJump": false,
+	"smartf.jumpOnTrigger": false,
     // lsp
     "languageserver": {
         //  安装ccls
