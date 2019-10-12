@@ -21,6 +21,7 @@ Plug 'alvan/vim-closetag'
 
 " --------- latex 插件
 Plug 'lervag/vimtex' " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
+Plug 'wannesm/wmgraphviz.vim'
 " "{{---------文档类
 Plug 'scrooloose/nerdcommenter' " 注释
 "Plug 'vim-scripts/DoxygenToolkit.vim', {'on': ['Dox', 'DoxAuthor', 'DoxBlock', 'DoxLic', 'DoxUndoc' ]}
