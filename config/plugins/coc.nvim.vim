@@ -1,4 +1,4 @@
-"let g:coc_extension_root = "~/.cache/coc/extensions"
+" let g:coc_extension_root = "~/.cache/coc/extensions"
 " coc插件
 let g:coc_global_extensions =
 			\ [
@@ -10,7 +10,6 @@ let g:coc_global_extensions =
 			\ 'coc-html',
 			\ 'coc-css',
 			\ 'coc-emmet',
-			\ 'coc-vetur',
 			\ 'coc-tailwindcss',
 			\ 'coc-prettier',
 			\ 'coc-yaml',
@@ -30,12 +29,13 @@ let g:coc_global_extensions =
 			\ 'coc-ecdict',
 			\ 'coc-svg',
 			\ 'coc-sh',
-			\ 'coc-phpls',
 			\ 'coc-todolist',
+			\ 'coc-translator',
 			\ ]
-			"\ 'coc-vetur', vue
-			"\ 'coc-emoji',
-			"\ 'coc-post',
+			" \ 'coc-vetur',
+			" \ 'coc-phpls',
+			" \ 'coc-emoji',
+			" \ 'coc-post',
 " web
 " coc-tsserver coc-html coc-css coc-tailwindcss coc-prettier coc-eslint
 " eslint 代码规范检查
@@ -224,3 +224,6 @@ call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
 
 " -------------------- coc explorer
 nmap <F2> :CocCommand explorer<cr>
+
+" -------------------- coc translator
+nmap  <M-e> <Plug>(coc-translator-e)

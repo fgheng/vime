@@ -1,7 +1,6 @@
 {
     // preferences
     "coc.preferences.colorSupport": true,
-    "coc.preferences.codeLens.enable": true,
     "coc.preferences.rootPatterns": [
         ".git",
         ".vim",
@@ -12,11 +11,12 @@
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
         "html",
-        //"markdown",
         "javascript",
         "python",
         "java",
-        "rust"
+        "rust",
+		"c",
+		"cpp"
     ],
     "coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily",
@@ -77,21 +77,23 @@
     "snippets.shortcut": "  Ⓢ",
     //post
     //"post.root": "~/.cache/coc/coc-post",
+	//explorer
+	"explorer.icon.enableNerdfont": true,
     //git
-    "git.enableGutters": true,
-    "git.addGlameToBufferVar": true,
-    "git.addGlameToVirtualText": true,
-    "git.virtualTextPrefix": "  ··· ",
-    "git.addedSign.hlGroup": "GitGutterAdd",
-    "git.changedSign.hlGroup": "GitGutterChange",
-    "git.removedSign.hlGroup": "GitGutterDelete",
-    "git.topRemovedSign.hlGroup": "GitGutterDelete",
-    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-    "git.addedSign.text": "▎",
-    "git.changedSign.text": "▎",
-    "git.removedSign.text": "▏",
-    "git.topRemovedSign.text": "▔",
-    "git.changeRemovedSign.text": "▋",
+    //"git.enableGutters": false,
+    //"git.addGlameToBufferVar": true,
+    //"git.addGlameToVirtualText": true,
+    //"git.virtualTextPrefix": "  ··· ",
+    //"git.addedSign.hlGroup": "GitGutterAdd",
+    //"git.changedSign.hlGroup": "GitGutterChange",
+    //"git.removedSign.hlGroup": "GitGutterDelete",
+    //"git.topRemovedSign.hlGroup": "GitGutterDelete",
+    //"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    //"git.addedSign.text": "▎",
+    //"git.changedSign.text": "▎",
+    //"git.removedSign.text": "▏",
+    //"git.topRemovedSign.text": "▔",
+    //"git.changeRemovedSign.text": "▋",
     // emmet
     "emmet.includeLanguages": {
         "vue-html": "html"
@@ -107,9 +109,6 @@
     // session
     "session.directory": "~/.cache/coc/sessions",
     "session.saveOnVimLeave": true,
-	// smartf
-	"smartf.wordJump": false,
-	"smartf.jumpOnTrigger": false,
     // lsp
     "languageserver": {
         //  安装ccls

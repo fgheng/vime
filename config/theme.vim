@@ -10,9 +10,9 @@ function! s:patch_lucius_colors()
 	" hi SignColumn ctermbg=NONE guibg=NONE
 endfunction
 
-autocmd! colorscheme space-vim-dark call s:patch_lucius_colors()
-colorscheme space-vim-dark
-"set background=light
+autocmd! colorscheme PaperColor call s:patch_lucius_colors()
+colorscheme PaperColor
+" set background=light
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色

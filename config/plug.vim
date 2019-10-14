@@ -11,7 +11,7 @@ Plug 'neoclide/coc.nvim', { 'tag': '*', 'branch': 'release' }
 
 " --------- 前端插件
 Plug 'alvan/vim-closetag'
-"Plug 'valloric/MatchTagAlways'
+Plug 'valloric/MatchTagAlways'
 
 " --------- markdown 插件
 "Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM',  'GenTocGitLab',  'GenTocMarked',  'GenTocModeline',  'GenTocRedcarpet']}
@@ -56,7 +56,7 @@ if !has('nvim')
     Plug 'vim-utils/vim-alt-mappings'
 endif
 Plug 'liuchengxu/vista.vim'
-Plug 'jiangmiao/auto-pairs'
+ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " 撤回
