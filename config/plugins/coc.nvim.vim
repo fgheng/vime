@@ -227,3 +227,4 @@ nmap <F2> :CocCommand explorer<cr>
 
 " -------------------- coc translator
 nmap  <M-e> <Plug>(coc-translator-e)
+nmap  <M-d> <Plug>(coc-translator-p)
