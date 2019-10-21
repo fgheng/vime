@@ -156,15 +156,16 @@ nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
 "---------------------------------------------- coc list
 if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
-	nnoremap <M-f> :CocList files<CR>
-	nnoremap <M-o> :CocList buffers<CR>
-	nnoremap <M-t> :CocList tags<cr>
+	nnoremap <silent> <M-f> :CocList files<CR>
+	nnoremap <silent> <M-b> :CocList buffers<CR>
+	nnoremap <silent> <M-t> :CocList tags<cr>
+	nnoremap <silent> <M-s> :CocList words<cr>
+	nnoremap <silent> <M-S> :CocList grep<cr>
+	nnoremap <silent> <M-r> :CocList mru -A<CR>
+	nnoremap <silent> <M-m> :CocList marks<CR>
+	nnoremap <silent> <M-w> :CocList windows<CR>
+	nnoremap <silent> <M-o> :CocList outline<CR>
 	nnoremap <silent> <M-c> :exe 'CocList -I --input='.expand('<cword>').' words'<cr>
-	nnoremap <M-s> :CocList words<cr>
-	nnoremap <M-S> :CocList grep<cr>
-	nnoremap <M-r> :CocList mru -A<CR>
-	nnoremap <M-m> :CocList marks<CR>
-	nnoremap <M-w> :CocList windows<CR>
 endif
 
 "---------------------------------------------- folders
