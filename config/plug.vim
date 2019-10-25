@@ -45,7 +45,7 @@ Plug 'vim-airline/vim-airline-themes'
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
-" vim图标
+" vim图标, 用coc-explorer 只需要字体支持就好了
 " Plug 'ryanoasis/vim-devicons'
 
 " "{{----------工具

@@ -5,13 +5,13 @@ function! s:patch_lucius_colors()
     " hi Normal     ctermbg=NONE guibg=#31312E
     " hi LineNr     ctermbg=NONE guibg=#31312E
     " hi SignColumn ctermbg=NONE guibg=#31312E
-	" hi Normal     ctermbg=NONE guibg=NONE
-	" hi LineNr     ctermbg=NONE guibg=NONE
-	" hi SignColumn ctermbg=NONE guibg=NONE
+	hi Normal     ctermbg=NONE guibg=NONE
+	hi LineNr     ctermbg=NONE guibg=NONE
+	hi SignColumn ctermbg=NONE guibg=NONE
 endfunction
 
-autocmd! colorscheme space-vim-dark call s:patch_lucius_colors()
-colorscheme space-vim-dark
+autocmd! colorscheme monokai-phoenix call s:patch_lucius_colors()
+colorscheme monokai-phoenix
 " set background=light
 
 "------------------------------------------------------"
@@ -36,10 +36,10 @@ if HasPlug('coc.nvim')
 
     " coc yank背景颜色
     hi HighlightedyankRegion cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffff00
-	" hi link CocErrorSign GruvboxRed
-	" hi link CocWarningSign
-	" hi link CocInfoSign
-	" hi link CocHintSign
+	" hi link CocErrorSign red
+	" hi link CocWarningSign yellow
+	" hi link CocInfoSign green
+	" hi link CocHintSign blue
 endif
 
 if !HasPlug("vim-airline")

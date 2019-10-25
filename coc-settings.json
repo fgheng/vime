@@ -80,19 +80,20 @@
     "explorer.icon.enableNerdfont": true,
     //git
     //"git.enableGutters": false,
-    //"git.addGlameToBufferVar": true,
-    //"git.addGlameToVirtualText": true,
-    //"git.virtualTextPrefix": "  ··· ",
-    "git.addedSign.hlGroup": "GitGutterAdd",
-    "git.changedSign.hlGroup": "GitGutterChange",
-    "git.removedSign.hlGroup": "GitGutterDelete",
-    "git.topRemovedSign.hlGroup": "GitGutterDelete",
-    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-    "git.addedSign.text": "▎",
-    "git.changedSign.text": "▎",
-    "git.removedSign.text": "▏",
-    "git.topRemovedSign.text": "▔",
-    "git.changeRemovedSign.text": "▋",
+    "git.addGlameToBufferVar": true,
+    "git.addGlameToVirtualText": true,
+    "git.virtualTextPrefix": "  ··· ",
+
+    //"git.addedSign.hlGroup": "GitGutterAdd",
+    //"git.changedSign.hlGroup": "GitGutterChange",
+    //"git.removedSign.hlGroup": "GitGutterDelete",
+    //"git.topRemovedSign.hlGroup": "GitGutterDelete",
+    //"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    //"git.addedSign.text": "▎",
+    //"git.changedSign.text": "▎",
+    //"git.removedSign.text": "▏",
+    //"git.topRemovedSign.text": "▔",
+    //"git.changeRemovedSign.text": "▋",
     // emmet
     "emmet.includeLanguages": {
         "vue-html": "html"
