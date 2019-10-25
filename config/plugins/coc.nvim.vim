@@ -159,7 +159,8 @@ if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	nnoremap <silent> <M-f> :CocList files<CR>
 	nnoremap <silent> <M-b> :CocList buffers<CR>
 	nnoremap <silent> <M-t> :CocList tags<cr>
-	nnoremap <silent> <M-s> :CocList words<cr>
+	"nnoremap <silent> <M-s> :CocList words<cr>
+	nnoremap <silent> <M-s> :CocList lines<cr>
 	nnoremap <silent> <M-S> :CocList grep<cr>
 	nnoremap <silent> <M-r> :CocList mru -A<CR>
 	nnoremap <silent> <M-m> :CocList marks<CR>

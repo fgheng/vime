@@ -1,5 +1,6 @@
 {
     // preferences
+	//"coc.preferences.hoverTarget": "preview", // 使用k进行dohover提示
     "coc.preferences.colorSupport": true,
     "coc.preferences.rootPatterns": [
         ".git",
@@ -15,12 +16,13 @@
         "python",
         "java",
         "rust",
-		"c",
-		"cpp"
+		//"c",
+		//"cpp"
     ],
-    "coc.preferences.formatOnType": true, // 回车格式化
+    //"coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily",
     // suggest
+	"suggest.floatEnable": true, // 关闭悬浮窗口?
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 5000, // 超过500ms就停止
@@ -30,6 +32,7 @@
     "suggest.detailField": "abbr", // abbr menu preview
     "suggest.triggerCompletionWait": 50, // default 50
     // diagnostic
+	// "diagnostic.messageTarget": "echo", // 不是用悬浮进行错误等提示，而是使用echo提示,不好用，使用悬浮比较好
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
     "diagnostic.signOffset": 9999,
     "diagnostic.errorSign": "●",
@@ -38,6 +41,8 @@
     "diagnostic.hintSign": ">>",
     "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10,
+	// signature
+	"signature.target": "echo", // 不使用悬浮进行参数提示而是使用echo提示
     // refactor
     //"refactor.openCommand": "vsplit",
     //"refactor.afterContext": 3,
@@ -65,18 +70,12 @@
     },
     "list.maxHeight": 10,
     "list.maxPreviewHeight": 6,
-    //"list.autoResize": false,
-    //"list.source.grep.command": "rg",
-    "list.source.grep.args": ["-i"],
-	//"list.source.grep.useLiteral": false, // 不要逐字匹配
-    //"list.source.files.args": ['--hidden', '--files'], // 允许搜索隐藏文件
-    //"list.previewSplitRight": true,
-    //"list.previewSplitRight": true,
+	"list.source.grep.defaultArgs": ["-S", "-e"],
+	"list.source.lines.defaultArgs": ["-e"],
+	"list.source.words.defaultArgs": ["-e"],
     //snippet
     "snippets.ultisnips.enable": false,
     "snippets.shortcut": "  Ⓢ",
-    //post
-    //"post.root": "~/.cache/coc/coc-post",
 	//explorer
 	"explorer.icon.enableNerdfont": true,
     //git
@@ -111,9 +110,8 @@
     "session.saveOnVimLeave": true,
     // lsp
     "languageserver": {
-        //  安装ccls
         "clang": {
-            "command": "clangd",
+            "command": "ccls",
             "trace.server": "verbose",
             "filetypes": ["c", "cpp", "cu", "cuda", "objc", "objcpp"],
             "rootPatterns": [
