@@ -1,6 +1,6 @@
 {
     // preferences
-	//"coc.preferences.hoverTarget": "preview", // 使用k进行dohover提示
+    //"coc.preferences.hoverTarget": "preview", // 使用k进行dohover提示
     "coc.preferences.colorSupport": true,
     "coc.preferences.rootPatterns": [
         ".git",
@@ -15,14 +15,14 @@
         "javascript",
         "python",
         "java",
-        "rust",
-		//"c",
-		//"cpp"
+        "rust"
+        //"c",
+        //"cpp"
     ],
     //"coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily",
     // suggest
-	"suggest.floatEnable": true, // 关闭悬浮窗口?
+    "suggest.floatEnable": true, // 关闭悬浮窗口?
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 5000, // 超过500ms就停止
@@ -32,7 +32,7 @@
     "suggest.detailField": "abbr", // abbr menu preview
     "suggest.triggerCompletionWait": 50, // default 50
     // diagnostic
-	// "diagnostic.messageTarget": "echo", // 不是用悬浮进行错误等提示，而是使用echo提示,不好用，使用悬浮比较好
+    // "diagnostic.messageTarget": "echo", // 不是用悬浮进行错误等提示，而是使用echo提示,不好用，使用悬浮比较好
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
     "diagnostic.signOffset": 9999,
     "diagnostic.errorSign": "●",
@@ -41,8 +41,8 @@
     "diagnostic.hintSign": ">>",
     "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10,
-	// signature
-	"signature.target": "echo", // 不使用悬浮进行参数提示而是使用echo提示
+    // signature
+    "signature.target": "echo", // 不使用悬浮进行参数提示而是使用echo提示
     // refactor
     //"refactor.openCommand": "vsplit",
     //"refactor.afterContext": 3,
@@ -70,29 +70,29 @@
     },
     "list.maxHeight": 10,
     "list.maxPreviewHeight": 6,
-	"list.source.grep.defaultArgs": ["-S", "-e"],
-	"list.source.lines.defaultArgs": ["-e"],
-	"list.source.words.defaultArgs": ["-e"],
+    "list.source.grep.defaultArgs": ["-S", "-e"],
+    "list.source.lines.defaultArgs": ["-e"],
+    "list.source.words.defaultArgs": ["-e"],
     //snippet
     "snippets.ultisnips.enable": false,
     "snippets.shortcut": "  Ⓢ",
-	//explorer
-	"explorer.icon.enableNerdfont": true,
+    //explorer
+    "explorer.icon.enableNerdfont": true,
     //git
     //"git.enableGutters": false,
     //"git.addGlameToBufferVar": true,
     //"git.addGlameToVirtualText": true,
     //"git.virtualTextPrefix": "  ··· ",
-    //"git.addedSign.hlGroup": "GitGutterAdd",
-    //"git.changedSign.hlGroup": "GitGutterChange",
-    //"git.removedSign.hlGroup": "GitGutterDelete",
-    //"git.topRemovedSign.hlGroup": "GitGutterDelete",
-    //"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-    //"git.addedSign.text": "▎",
-    //"git.changedSign.text": "▎",
-    //"git.removedSign.text": "▏",
-    //"git.topRemovedSign.text": "▔",
-    //"git.changeRemovedSign.text": "▋",
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    "git.addedSign.text": "▎",
+    "git.changedSign.text": "▎",
+    "git.removedSign.text": "▏",
+    "git.topRemovedSign.text": "▔",
+    "git.changeRemovedSign.text": "▋",
     // emmet
     "emmet.includeLanguages": {
         "vue-html": "html"

@@ -82,7 +82,7 @@ au FileType c,cpp,java set mps+==:;
 "set tw=80 " 文本宽度
 
 if has('nvim')
-    " set signcolumn=auto:3 " neovim的新特性，标识列自动变化
+    "set signcolumn=auto:2 " neovim的新特性，标识列自动变化
     set signcolumn=yes
 else
     set scl=yes
