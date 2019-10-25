@@ -36,6 +36,10 @@ if HasPlug('coc.nvim')
 
     " coc yank背景颜色
     hi HighlightedyankRegion cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffff00
+	" hi link CocErrorSign GruvboxRed
+	" hi link CocWarningSign
+	" hi link CocInfoSign
+	" hi link CocHintSign
 endif
 
 if !HasPlug("vim-airline")
