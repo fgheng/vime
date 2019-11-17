@@ -9,6 +9,7 @@ let g:coc_global_extensions =
 			\ 'coc-rls',
 			\ 'coc-html',
 			\ 'coc-css',
+			\ 'coc-vetur',
 			\ 'coc-emmet',
 			\ 'coc-tailwindcss',
 			\ 'coc-prettier',
@@ -32,7 +33,7 @@ let g:coc_global_extensions =
 			\ 'coc-todolist',
 			\ 'coc-translator',
 			\ ]
-			" \ 'coc-vetur',
+			" \ 'coc-rust-analyzer'
 			" \ 'coc-phpls',
 			" \ 'coc-emoji',
 			" \ 'coc-post',
@@ -144,8 +145,8 @@ endif
 " 切换cwd
 nnoremap <silent> <space>`  :<C-u>CocList folders<cr>
 " diagnostic 跳转
-nmap <silent> <space>k <Plug>(coc-diagnostic-prev)
-nmap <silent> <space>j <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 " Fix autofix problem of current line
 nmap <space>f  <Plug>(coc-fix-current)
 " 重命名

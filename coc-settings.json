@@ -15,7 +15,7 @@
         "javascript",
         "python",
         "java",
-        "rust"
+        "rust",
         //"c",
         //"cpp"
     ],
@@ -42,7 +42,7 @@
     "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10,
     // signature
-    "signature.target": "echo", // 不使用悬浮进行参数提示而是使用echo提示
+    "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
     // refactor
     //"refactor.openCommand": "vsplit",
     //"refactor.afterContext": 3,
@@ -80,8 +80,8 @@
     "explorer.icon.enableNerdfont": true,
     //git
     //"git.enableGutters": false,
-    "git.addGlameToBufferVar": true,
-    "git.addGlameToVirtualText": true,
+    //"git.addGlameToBufferVar": true,
+    //"git.addGlameToVirtualText": true,
     "git.virtualTextPrefix": "  ··· ",
 
     //"git.addedSign.hlGroup": "GitGutterAdd",
@@ -111,8 +111,9 @@
     "session.saveOnVimLeave": true,
     // lsp
     "languageserver": {
-        "clang": {
-            "command": "ccls",
+        "clangd": {
+            "command": "clangd",
+			"args": ["--background-index"],
             "trace.server": "verbose",
             "filetypes": ["c", "cpp", "cu", "cuda", "objc", "objcpp"],
             "rootPatterns": [
@@ -125,11 +126,11 @@
                 "compile_commands.json",
                 "compile_flags.txt"
             ],
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/clangd-cache"
-                }
-            }
+            //"initializationOptions": {
+                //"cache": {
+                    //"directory": "/tmp/clangd-cache"
+                //}
+            //}
         }
     }
 }
