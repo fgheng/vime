@@ -1,4 +1,4 @@
-let g:airline_theme='shades_of_purple'
+" let g:airline_theme='shades_of_purple'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0    " 打开buffer
 let g:airline#extensions#tabline#formatter = 'unique_tail'

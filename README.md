@@ -1,8 +1,8 @@
 # vime
 
-![1566882030806](assets/1570370459767.jpg)
+![image-20191121110604472](assets/README/image-20191121110604472.png)
 
-![1566881943719](assets/1570370510920.jpg)
+![image-20191121110720326](assets/README/image-20191121110720326.png)
 
 ### 整体结构
 
@@ -31,7 +31,7 @@ config目录下：
 ### 简单了解
 
 1. 补全使用的是[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)，不过您可以在`plug.vim`文件中注释掉`coc`然后打开`ycm`的注释来使用`ycm`补全
-2. 文件管理使用的是[Shougo/*defx*.nvim](https://github.com/Shougo/defx.nvim)
+2. 文件管理使用的是[weirongxu/*coc*-explorer](https://github.com/weirongxu/coc-explorer)
 3. 函数浏览器使用的是[liuchengxu/*vista*.*vim*](https://github.com/liuchengxu/vista.vim)
 
 ### 快捷键

@@ -40,9 +40,13 @@ Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
 Plug 'rhysd/clever-f.vim'
+" 对齐线
+Plug 'Yggdroot/indentLine'
 " 多光标
 Plug 'mg979/vim-visual-multi'
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
+" 标签
+Plug 'MattesGroeger/vim-bookmarks'
 " 编译运行
 Plug 'thinca/vim-quickrun'
 "
