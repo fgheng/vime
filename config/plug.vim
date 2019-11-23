@@ -2,54 +2,68 @@ call plug#begin('~/.cache/plugins')
 
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'branch': 'release' }
 Plug 'alvan/vim-closetag'
-Plug 'valloric/MatchTagAlways'
+" 总是匹配tag
+"Plug 'valloric/MatchTagAlways'
+" latex插件
 Plug 'lervag/vimtex' " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
-Plug 'wannesm/wmgraphviz.vim'
-Plug 'scrooloose/nerdcommenter' " 注释
+" 绘制dot图的插件
+"Plug 'wannesm/wmgraphviz.vim'
+" 快速注释插件
+Plug 'scrooloose/nerdcommenter'
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 " 主题
 Plug 'flazz/vim-colorschemes'
-Plug 'Rigellute/shades-of-purple.vim'
-Plug 'haishanh/night-owl.vim'
-Plug 'tomasiser/vim-code-dark'
-Plug 'dunstontc/vim-vscode-theme'
+"Plug 'Rigellute/shades-of-purple.vim'
+"Plug 'haishanh/night-owl.vim'
+"Plug 'tomasiser/vim-code-dark'
+"Plug 'dunstontc/vim-vscode-theme'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'mhinz/vim-startify', {'on': 'Startify'}
+"Plug 'mhinz/vim-startify', {'on': 'Startify'}
+" 底栏
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " 关灯读小说
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
-
+"Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+"Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+" 彩虹括号
 Plug 'luochen1990/rainbow'
+" 函数列表
 Plug 'liuchengxu/vista.vim'
+" 自动补全括号
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
+" 快速包围
+"Plug 'tpope/vim-surround'
+" 重复上次的动作
+"Plug 'tpope/vim-repeat'
 " 撤回
-Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
+"Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
 " 删除buffer
-Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
+"Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " 尾部空格
 Plug 'ntpeters/vim-better-whitespace'
 " 代码段
 Plug 'honza/vim-snippets'
 "Plug 'SirVer/ultisnips'
+" 快速跳转窗口
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
+" 二进制
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
+" 快速移动
 Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
+" 快速搜索
 Plug 'rhysd/clever-f.vim'
 " 对齐线
 Plug 'Yggdroot/indentLine'
 " 多光标
 Plug 'mg979/vim-visual-multi'
+" 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " 标签
 Plug 'MattesGroeger/vim-bookmarks'
 " 编译运行
 Plug 'thinca/vim-quickrun'
-"
+" 在tmux和vim窗口间进行跳转
 Plug 'christoomey/vim-tmux-navigator'
 " -------- 其他
 " 需要按照python-pysdl2 sdl2_mixer

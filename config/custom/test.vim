@@ -1,7 +1,7 @@
 " 自动保存session
-fu! SaveSess()
-    execute 'mksession! ~/.cache/coc/sessions/default.vim'
-endfunction
+" fu! SaveSess()
+"     execute 'mksession! ~/.cache/coc/sessions/default.vim'
+" endfunction
 
 " fu! RestoreSess()
 "     if filereadable('~/.cache/coc/sessions/default.vim')
@@ -16,8 +16,8 @@ endfunction
 "     endif
 " endfunction
 
-augroup session
-    autocmd!
-    autocmd VimLeavePre * call SaveSess()
-    "autocmd VimEnter * call RestoreSess()
-augroup END
+" augroup session
+"     autocmd!
+"     autocmd VimLeavePre * call SaveSess()
+"     "autocmd VimEnter * call RestoreSess()
+" augroup END
