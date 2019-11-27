@@ -3,6 +3,7 @@ let g:quickrun_no_default_key_mappings = 1
 " vmap <F4> :QuickRun<cr>
 nmap <leader>r <Plug>(quickrun)
 vmap <leader>r <Plug>(quickrun)
+noremap <F5> <Plug>(quickrun)
 
 let g:quickrun_config = {
 	\   '_': {

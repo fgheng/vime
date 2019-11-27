@@ -136,11 +136,6 @@ if HasPlug('vim-autoformat')
     nnoremap <M-i> :Autoformat<cr>
 endif
 
-"------------------------------------------- mundo
-if HasPlug('vim-mundo')
-    map <F4> <esc>:MundoToggle<cr>
-endif
-
 "------------------------------------------- Startify
 if HasPlug('vim-startify')
     noremap <leader>s <esc>:Startify<cr>

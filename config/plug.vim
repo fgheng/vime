@@ -1,13 +1,21 @@
 call plug#begin('~/.cache/plugins')
 
 Plug 'neoclide/coc.nvim', { 'tag': '*', 'branch': 'release' }
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+" Plug 'gregsexton/gitv'
+" 闭合标签
 Plug 'alvan/vim-closetag'
 " 总是匹配tag
 "Plug 'valloric/MatchTagAlways'
 " latex插件
 Plug 'lervag/vimtex' " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
+" markdown 插件
+Plug 'plasticboy/vim-markdown'
 " 绘制dot图的插件
-"Plug 'wannesm/wmgraphviz.vim'
+Plug 'wannesm/wmgraphviz.vim'
+"Plug 'liuchengxu/graphviz.vim'
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
 " vim中文文档
@@ -33,11 +41,12 @@ Plug 'liuchengxu/vista.vim'
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
 " 快速包围
-"Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " 重复上次的动作
-"Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 " 撤回
-"Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
+" Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
+Plug 'mbbill/undotree'
 " 删除buffer
 "Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " 尾部空格
@@ -69,7 +78,10 @@ Plug 'christoomey/vim-tmux-navigator'
 " 需要按照python-pysdl2 sdl2_mixer
 " TODO 需要将依赖进行集成
 "Plug 'skywind3001/vim-keysound'
-
+" 快速替换多个文件的内容
+Plug 'brooth/far.vim'
+" table模式
+Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
 
