@@ -14,7 +14,7 @@ Plug 'lervag/vimtex' " pip install remote-neovim  zathura-pdf-mupdf xdotool texl
 " markdown 插件
 Plug 'plasticboy/vim-markdown'
 " 绘制dot图的插件
-Plug 'wannesm/wmgraphviz.vim'
+" Plug 'wannesm/wmgraphviz.vim'
 "Plug 'liuchengxu/graphviz.vim'
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
@@ -26,14 +26,14 @@ Plug 'flazz/vim-colorschemes'
 "Plug 'haishanh/night-owl.vim'
 "Plug 'tomasiser/vim-code-dark'
 "Plug 'dunstontc/vim-vscode-theme'
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 "Plug 'mhinz/vim-startify', {'on': 'Startify'}
 " 底栏
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " 关灯读小说
-"Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-"Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 函数列表
@@ -46,7 +46,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 " 撤回
 " Plug 'simnalamburt/vim-mundo', {'on': 'MundoToggle'}
-Plug 'mbbill/undotree'
+" Plug 'mbbill/undotree'
 " 删除buffer
 "Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " 尾部空格
