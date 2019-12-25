@@ -11,17 +11,19 @@
     ],
     "coc.preferences.formatOnSaveFiletypes": [
         "css",
-    //    "html",
+        //    "html",
         "javascript",
         "python",
         "java",
         "rust",
-		"json",
+        "json"
         //"c",
         //"cpp"
     ],
     //"coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily",
+	// " 高亮时间
+	"coc.preferences.highlightTimeout": 1000,
     // suggest
     "suggest.floatEnable": true, // 关闭悬浮窗口?
     "suggest.triggerAfterInsertEnter": true,
@@ -85,16 +87,17 @@
     //"git.addGlameToVirtualText": true,
     "git.virtualTextPrefix": "  ··· ",
 
-    //"git.addedSign.hlGroup": "GitGutterAdd",
-    //"git.changedSign.hlGroup": "GitGutterChange",
-    //"git.removedSign.hlGroup": "GitGutterDelete",
-    //"git.topRemovedSign.hlGroup": "GitGutterDelete",
-    //"git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-    //"git.addedSign.text": "▎",
-    //"git.changedSign.text": "▎",
-    //"git.removedSign.text": "▏",
-    //"git.topRemovedSign.text": "▔",
-    //"git.changeRemovedSign.text": "▋",
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    "git.addedSign.text": "▎",
+    "git.changedSign.text": "▎",
+    "git.removedSign.text": "▏",
+    "git.topRemovedSign.text": "▔",
+    "git.changeRemovedSign.text": "▋",
+
     // emmet
     "emmet.includeLanguages": {
         "vue-html": "html"
@@ -114,7 +117,7 @@
     "languageserver": {
         "clangd": {
             "command": "clangd",
-			"args": ["--background-index"],
+            "args": ["--background-index"],
             "trace.server": "verbose",
             "filetypes": ["c", "cpp", "cu", "cuda", "objc", "objcpp"],
             "rootPatterns": [
@@ -126,11 +129,11 @@
                 ".clang_complete",
                 "compile_commands.json",
                 "compile_flags.txt"
-            ],
+            ]
             //"initializationOptions": {
-                //"cache": {
-                    //"directory": "/tmp/clangd-cache"
-                //}
+            //"cache": {
+            //"directory": "/tmp/clangd-cache"
+            //}
             //}
         }
     }

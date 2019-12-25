@@ -1,6 +1,6 @@
 call plug#begin('~/.cache/plugins')
 
-Plug 'neoclide/coc.nvim', { 'tag': '*', 'branch': 'release' }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
@@ -59,7 +59,7 @@ Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 二进制
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 " 快速移动
-Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
+" Plug 'easymotion/vim-easymotion', {'on': ['<Plug>(easymotion-overwin-f)', '<Plug>(easymotion-overwin-line)']}
 " 快速搜索
 Plug 'rhysd/clever-f.vim'
 " 对齐线
@@ -82,6 +82,16 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'brooth/far.vim'
 " table模式
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'vim/killersheep'
+" csv
+Plug 'chrisbra/csv.vim'
+
+if !has('nvim')
+	Plug 'vim-utils/vim-alt-mappings'
+endif
+
+" pysdl2
+" Plug 'skywind3000/vim-keysound'
 
 call plug#end()
 
