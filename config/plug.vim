@@ -1,4 +1,7 @@
-call plug#begin('~/.cache/plugins')
+let s:plugin_path = '~/.cache/plugins'
+
+
+call plug#begin(s:plugin_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " git
@@ -94,6 +97,15 @@ endif
 " Plug 'skywind3000/vim-keysound'
 
 call plug#end()
+
+" 判断该插件是否已经安装
+fun! HasInstall(plugin_name) abort
+	if !empty(glob(s:plugin_path . "/" . a:plugin_name))
+		return 1
+	else
+		return 0
+	endif
+endfunction
 
 " 判断是否有这个插件
 function! HasPlug(plugName)
