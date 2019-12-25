@@ -82,9 +82,9 @@
     //explorer
     "explorer.icon.enableNerdfont": true,
     //git
-    //"git.enableGutters": false,
-    //"git.addGlameToBufferVar": true,
-    //"git.addGlameToVirtualText": true,
+	"git.enableGutters": false,
+	"git.addGBlameToBufferVar": true,
+	"git.addGBlameToVirtualText": true,
     "git.virtualTextPrefix": "  ··· ",
 
     "git.addedSign.hlGroup": "GitGutterAdd",

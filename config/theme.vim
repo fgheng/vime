@@ -9,6 +9,8 @@ endfunction
 
 autocmd! colorscheme space-vim-dark call s:patch_lucius_colors()
 colorscheme space-vim-dark
+" autocmd! colorscheme gruvbox call s:patch_lucius_colors()
+" colorscheme gruvbox
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色
