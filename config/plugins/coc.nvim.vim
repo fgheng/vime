@@ -20,11 +20,11 @@ let g:coc_global_extensions =
 			\ 'coc-imselect',
 			\ 'coc-tabnine',
 			\ 'coc-ecdict',
-			\ 'coc-svg',
 			\ 'coc-sh',
 			\ 'coc-translator',
 			\ ]
 			" \ 'coc-import-cost',
+			" \ 'coc-svg',
 			" \ 'coc-todolist',
 			" \ 'coc-html',
 			" \ 'coc-css',

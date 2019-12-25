@@ -2,17 +2,17 @@ call plug#begin('~/.cache/plugins')
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " git
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/gv.vim'
+" Plug 'tpope/vim-fugitive'
+" Plug 'junegunn/gv.vim'
 " Plug 'gregsexton/gitv'
 " 闭合标签
 Plug 'alvan/vim-closetag'
 " 总是匹配tag
-"Plug 'valloric/MatchTagAlways'
+Plug 'valloric/MatchTagAlways'
 " latex插件
 Plug 'lervag/vimtex' " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " markdown 插件
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
 " 绘制dot图的插件
 " Plug 'wannesm/wmgraphviz.vim'
 "Plug 'liuchengxu/graphviz.vim'
@@ -79,10 +79,10 @@ Plug 'christoomey/vim-tmux-navigator'
 " TODO 需要将依赖进行集成
 "Plug 'skywind3001/vim-keysound'
 " 快速替换多个文件的内容
-Plug 'brooth/far.vim'
+" Plug 'brooth/far.vim'
 " table模式
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'vim/killersheep'
+" Plug 'vim/killersheep'
 " csv
 Plug 'chrisbra/csv.vim'
 
