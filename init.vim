@@ -22,6 +22,8 @@ LoadScript plug.vim
 " 加载按键映射配置
 LoadScript keymap.vim
 
+" 插件目录存在才根据是否安装插件来载入配置
+"if !empty(glob(g:plugin_path))
 " 根据载入的插件来载入对应的插件配置
 for plugin_name in g:plugs_order
 	if HasInstall(plugin_name)
@@ -32,6 +34,7 @@ for plugin_name in g:plugs_order
 		endif
 	endif
 endfor
+"endif
 
 " 加载自定义配置
 " for config in s:custom_file_list

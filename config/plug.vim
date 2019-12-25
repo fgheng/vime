@@ -108,7 +108,7 @@ fun! HasInstall(plugin_name) abort
 endfunction
 
 " 判断是否有这个插件
-function! HasPlug(plugName)
+fun! HasPlug(plugName)
     if index(g:plugs_order, a:plugName) > -1
         return 1
     else

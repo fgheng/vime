@@ -7,10 +7,13 @@ function! s:patch_lucius_colors()
 	hi signcolumn ctermbg=NONE guibg=NONE
 endfunction
 
-autocmd! colorscheme space-vim-dark call s:patch_lucius_colors()
-colorscheme space-vim-dark
-" autocmd! colorscheme gruvbox call s:patch_lucius_colors()
-" colorscheme gruvbox
+" 判断主题是否安装
+if HasInstall('vim-colorschemes')
+	autocmd! colorscheme space-vim-dark call s:patch_lucius_colors()
+	colorscheme space-vim-dark
+	" autocmd! colorscheme gruvbox call s:patch_lucius_colors()
+	" colorscheme gruvbox
+endif
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色
