@@ -5,23 +5,16 @@
     "coc.preferences.rootPatterns": [
         ".git",
         ".vim",
-        ".hg",
         ".projections.json",
         ".project"
     ],
     "coc.preferences.formatOnSaveFiletypes": [
-        "css",
-        //    "html",
         "javascript",
         "python",
         "java",
-        "rust",
-        "json"
-        //"c",
-        //"cpp"
     ],
     //"coc.preferences.formatOnType": true, // 回车格式化
-    "coc.preferences.extensionUpdateCheck": "daily",
+    "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
 	// " 高亮时间
 	"coc.preferences.highlightTimeout": 1000,
     // suggest
@@ -46,21 +39,14 @@
     "diagnostic.maxWindowHeight": 10,
     // signature
     "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
-    // refactor
-    //"refactor.openCommand": "vsplit",
-    //"refactor.afterContext": 3,
-    //"refactor.beforeContext": 3,
     "cursors.cancelKey": "<BackSpace>", // 多光标取消选择快捷键
     // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
     "python.jediEnabled": false, // 需要安装jdei
     "python.analysis.openFilesOnly": true, // 只显示当前文件的error和war
-    // java
-    "java.trace.server": "verbose",
+	// java
     //"java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
-    // vimlsp
-    "vimlsp.trace.server": "verbose",
     // highlight
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
@@ -86,7 +72,6 @@
 	"git.addGBlameToBufferVar": true,
 	"git.addGBlameToVirtualText": true,
     "git.virtualTextPrefix": "  ··· ",
-
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
     "git.removedSign.hlGroup": "GitGutterDelete",
@@ -98,15 +83,10 @@
     "git.topRemovedSign.text": "▔",
     "git.changeRemovedSign.text": "▋",
 
-    // emmet
-    "emmet.includeLanguages": {
-        "vue-html": "html"
-        //"javascript": "javascriptreact"
-    },
     //prettier
     "prettier.tabWidth": 4,
     // xml
-    //"xml.java.home": "/usr/bin/java",
+    "xml.java.home": "/usr/bin/java",
     // yank
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
