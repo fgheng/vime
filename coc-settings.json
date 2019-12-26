@@ -114,11 +114,6 @@
                 "compile_commands.json",
                 "compile_flags.txt"
             ]
-            //"initializationOptions": {
-            //"cache": {
-            //"directory": "/tmp/clangd-cache"
-            //}
-            //}
         }
     }
 }
