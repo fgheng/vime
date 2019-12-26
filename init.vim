@@ -28,9 +28,9 @@ LoadScript keymap.vim
 for plugin_name in g:plugs_order
 	if HasInstall(plugin_name)
 		" 如果已经安装了插件，那么载入插件配置
-		let s:plugin_config_path = join([s:plugin_config_path, plugin_name], "/").".vim"
-		if filereadable(s:plugin_config_path)
-			exec 'source' fnameescape(s:plugin_config_path)
+		let config_path = join([s:plugin_config_path, plugin_name], "/").".vim"
+		if filereadable(config_path)
+			exec 'source' fnameescape(config_path)
 		endif
 	endif
 endfor

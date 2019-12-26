@@ -1,7 +1,7 @@
-let s:plugin_path = '~/.cache/plugins'
+let s:plugins_path = '~/.cache/plugins'
 
 
-call plug#begin(s:plugin_path)
+call plug#begin(s:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " git
@@ -100,7 +100,9 @@ call plug#end()
 
 " 判断该插件是否已经安装
 fun! HasInstall(plugin_name) abort
-	if !empty(glob(s:plugin_path . "/" . a:plugin_name))
+	let s:plugin_path = s:plugins_path . "/" . a:plugin_name
+
+	if !empty(glob(s:plugin_path))
 		return 1
 	else
 		return 0
