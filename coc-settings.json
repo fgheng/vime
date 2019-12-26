@@ -12,11 +12,15 @@
         "javascript",
         "python",
         "java",
+        "json",
+        "c",
+        "cu",
+        "cpp",
     ],
     //"coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
-	// " 高亮时间
-	"coc.preferences.highlightTimeout": 1000,
+    // " 高亮时间
+    "coc.preferences.highlightTimeout": 1000,
     // suggest
     "suggest.floatEnable": true, // 关闭悬浮窗口?
     "suggest.triggerAfterInsertEnter": true,
@@ -45,7 +49,7 @@
     "python.trace.server": "verbose",
     "python.jediEnabled": false, // 需要安装jdei
     "python.analysis.openFilesOnly": true, // 只显示当前文件的error和war
-	// java
+    // java
     //"java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
     // highlight
     "highlight.colors.enable": true,
@@ -68,9 +72,9 @@
     //explorer
     "explorer.icon.enableNerdfont": true,
     //git
-	"git.enableGutters": false,
-	"git.addGBlameToBufferVar": true,
-	"git.addGBlameToVirtualText": true,
+    "git.enableGutters": false,
+    "git.addGBlameToBufferVar": true,
+    "git.addGBlameToVirtualText": true,
     "git.virtualTextPrefix": "  ··· ",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
