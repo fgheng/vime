@@ -16,12 +16,12 @@ let g:coc_global_extensions =
 			\ 'coc-xml',
 			\ 'coc-yank',
 			\ 'coc-lists',
-			\ 'coc-imselect',
 			\ 'coc-tabnine',
 			\ 'coc-ecdict',
 			\ 'coc-sh',
 			\ 'coc-translator',
 			\ ]
+			" \ 'coc-imselect',
 			" \ 'coc-yaml',
 			" \ 'coc-import-cost',
 			" \ 'coc-svg',
