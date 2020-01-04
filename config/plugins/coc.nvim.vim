@@ -16,11 +16,12 @@ let g:coc_global_extensions =
 			\ 'coc-xml',
 			\ 'coc-yank',
 			\ 'coc-lists',
-			\ 'coc-tabnine',
-			\ 'coc-ecdict',
 			\ 'coc-sh',
 			\ 'coc-translator',
+			\ 'coc-bookmark',
 			\ ]
+			" \ 'coc-ecdict',
+			" \ 'coc-tabnine',
 			" \ 'coc-imselect',
 			" \ 'coc-yaml',
 			" \ 'coc-import-cost',
@@ -231,3 +232,7 @@ nmap <F2> :CocCommand explorer<cr>
 " -------------------- coc translator
 nmap  <M-e> <Plug>(coc-translator-e)
 nmap  <M-d> <Plug>(coc-translator-p)
+
+" -------------------- coc bookmark
+nmap <silent> mm <Plug>(coc-bookmark-toogle)
+nmap <silent> <space>m :CocList bookmark<cr>

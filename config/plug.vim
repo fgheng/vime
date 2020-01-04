@@ -72,7 +72,7 @@ Plug 'mg979/vim-visual-multi'
 " 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " 标签
-Plug 'MattesGroeger/vim-bookmarks'
+" Plug 'MattesGroeger/vim-bookmarks'
 " 编译运行
 Plug 'thinca/vim-quickrun'
 " 在tmux和vim窗口间进行跳转
