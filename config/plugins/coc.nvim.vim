@@ -18,7 +18,6 @@ let g:coc_global_extensions =
 			\ 'coc-lists',
 			\ 'coc-sh',
 			\ 'coc-translator',
-			\ 'coc-bookmark',
 			\ ]
 			" \ 'coc-ecdict',
 			" \ 'coc-tabnine',
@@ -38,10 +37,6 @@ let g:coc_global_extensions =
 			" \ 'coc-phpls',
 			" \ 'coc-emoji',
 			" \ 'coc-post',
-" web
-" coc-tsserver coc-html coc-css coc-tailwindcss coc-prettier coc-eslint
-" eslint 代码规范检查
-" prettier 前端代码格式化
 
 "---------------------------------------------- 补全提示框相关
 " 检查当前光标前面是不是空白字符
@@ -234,5 +229,5 @@ nmap  <M-e> <Plug>(coc-translator-e)
 nmap  <M-d> <Plug>(coc-translator-p)
 
 " -------------------- coc bookmark
-nmap <silent> mm <Plug>(coc-bookmark-toogle)
-nmap <silent> <space>m :CocList bookmark<cr>
+" nmap <silent> bm <Plug>(coc-bookmark-toggle)
+" nmap <silent> <space>m :CocList bookmark<cr>
