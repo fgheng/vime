@@ -44,5 +44,5 @@ if HasPlug('coc.nvim')
 endif
 
 if !HasPlug("vim-airline")
-	set statusline=%F%m%r%h%w%=\ [ft=%Y]\ %{\"[fenc=\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\"+\":\"\").\"]\"}\ [ff=%{&ff}]\ [asc=%03.3b]\ [hex=%02.2B]\ [pos=%04l,%04v][%p%%]\ [len=%L]
+	" set statusline=%F%m%r%h%w%=\ [asc=%03.3b]\ [hex=%02.2B]\ [pos=%03l,%02v][%p%%]
 endif

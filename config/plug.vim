@@ -15,7 +15,7 @@ Plug 'valloric/MatchTagAlways'
 " latex插件
 Plug 'lervag/vimtex' " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " markdown 插件
-" Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 " 绘制dot图的插件
 " Plug 'wannesm/wmgraphviz.vim'
 "Plug 'liuchengxu/graphviz.vim'
@@ -32,8 +32,8 @@ Plug 'flazz/vim-colorschemes'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 "Plug 'mhinz/vim-startify', {'on': 'Startify'}
 " 底栏
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
