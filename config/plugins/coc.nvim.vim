@@ -222,7 +222,12 @@ call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
 " nmap <F8> <plug>(coc-terminal-toggle)
 
 " -------------------- coc explorer
-nmap <F2> :CocCommand explorer<cr>
+nmap <F2> :CocCommand explorer
+			\ --toggle
+			\ --width=30
+			\ --position=left
+			\ --sources=buffer+,file+
+			\ <cr>
 
 " -------------------- coc translator
 nmap  <M-e> <Plug>(coc-translator-e)

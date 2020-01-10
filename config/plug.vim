@@ -32,7 +32,7 @@ Plug 'flazz/vim-colorschemes'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 "Plug 'mhinz/vim-startify', {'on': 'Startify'}
 " 底栏
-" Plug 'vim-airline/vim-airline'
+ " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -93,8 +93,9 @@ if !has('nvim')
 	Plug 'vim-utils/vim-alt-mappings'
 endif
 
-" pysdl2
-" Plug 'skywind3000/vim-keysound'
+" 需要安装pysdl2, sdl2_mixer
+Plug 'skywind3000/vim-keysound'
+" Plug 'mcchrish/nnn.vim'
 
 call plug#end()
 
