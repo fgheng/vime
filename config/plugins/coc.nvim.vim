@@ -8,7 +8,6 @@ let g:coc_global_extensions =
 			\ 'coc-prettier',
 			\ 'coc-snippets',
 			\ 'coc-highlight',
-			\ 'coc-json',
 			\ 'coc-calc',
 			\ 'coc-git',
 			\ 'coc-vimlsp',
@@ -18,7 +17,10 @@ let g:coc_global_extensions =
 			\ 'coc-lists',
 			\ 'coc-sh',
 			\ 'coc-translator',
+			\ 'coc-rls',
+			\ 'coc-go'
 			\ ]
+			" \ 'coc-json',
 			" \ 'coc-ecdict',
 			" \ 'coc-tabnine',
 			" \ 'coc-imselect',
@@ -32,7 +34,6 @@ let g:coc_global_extensions =
 			" \ 'coc-emmet',
 			" \ 'coc-tailwindcss',
 			" \ 'coc-rust-analyzer'
-			" \ 'coc-rls',
 			" \ 'coc-java',
 			" \ 'coc-phpls',
 			" \ 'coc-emoji',
@@ -222,7 +223,7 @@ call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
 " nmap <F8> <plug>(coc-terminal-toggle)
 
 " -------------------- coc explorer
-nmap <F2> :CocCommand explorer
+nmap <silent> <F2> :CocCommand explorer
 			\ --toggle
 			\ --width=30
 			\ --position=left

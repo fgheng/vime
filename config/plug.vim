@@ -1,9 +1,14 @@
 let s:plugins_path = '~/.cache/plugins'
 
+" 依赖的软件
+" nodejs, npm, ripgrep, clang, ctags, zathura-pdf-mupdf, texlive-most,
+" texlive-lang, remote-neovim, pysdl2, sdl2_mixer
 
 call plug#begin(s:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'rust-lang/rust.vim'
 " git
 " Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/gv.vim'
@@ -32,11 +37,16 @@ Plug 'flazz/vim-colorschemes'
 " Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 "Plug 'mhinz/vim-startify', {'on': 'Startify'}
 " 底栏
- " Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+" Plug 'vim-airline/vim-airline'
+" theme
 " Plug 'vim-airline/vim-airline-themes'
+" Plug 'jacoborus/tender.vim'
+
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+" Plug 'amix/vim-zenroom2'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 函数列表
@@ -56,7 +66,7 @@ Plug 'tpope/vim-repeat'
 Plug 'ntpeters/vim-better-whitespace'
 " 代码段
 Plug 'honza/vim-snippets'
-"Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips' " 快捷键跳转到下一处要填写的地方,使用coc代替
 " 快速跳转窗口
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 二进制
@@ -96,6 +106,8 @@ endif
 " 需要安装pysdl2, sdl2_mixer
 Plug 'skywind3000/vim-keysound'
 " Plug 'mcchrish/nnn.vim'
+" 快速打开终端, neovim需要pip install neovim-remote
+Plug 'skywind3000/vim-terminal-help'
 
 call plug#end()
 

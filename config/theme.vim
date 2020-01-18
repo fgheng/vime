@@ -44,5 +44,18 @@ if HasPlug('coc.nvim')
 endif
 
 if !HasPlug("vim-airline")
-	" set statusline=%F%m%r%h%w%=\ [asc=%03.3b]\ [hex=%02.2B]\ [pos=%03l,%02v][%p%%]
+	" function! StatusDiagnostic() abort
+	"     let info = get(b:, 'coc_diagnostic_info', {})
+	"     if empty(info) | return '' | endif
+	"     let msgs = []
+	"     if get(info, 'error', 0)
+	"         call add(msgs, 'E' . info['error'])
+	"     endif
+	"     if get(info, 'warning', 0)
+	"         call add(msgs, 'W' . info['warning'])
+	"     endif
+	"     return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
+	" endfunction
+	" " set statusline=%F%m%r%h%w%=\ %{StatusDiagnostic()}\ [asc=%03.3b]\ [hex=%02.2B]\ [pos=%03l,%02v][%p%%]
+	" set statusline+=%{StatusDiagnostic()}
 endif

@@ -16,7 +16,7 @@
         "c",
         "cc",
         "cu",
-        "cpp",
+        "cpp"
     ],
     //"coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
@@ -59,7 +59,7 @@
     "list.insertMappings": {
         "<C-t>": "action:tabe",
         "<c-v>": "action:vsplit",
-       "<c-s>": "action:split",
+        "<c-s>": "action:split",
         "<C-w>": "command:wincmd k"
     },
     "list.maxHeight": 10,
@@ -68,14 +68,19 @@
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
     //snippet
-    "snippets.ultisnips.enable": false,
+    "snippets.ultisnips.enable": true, // ultisnips 快速跳转
+	"snippets.extends": {
+		"cpp":["c"],
+		"typescript": ["javascript"]
+	},
     "snippets.shortcut": "  Ⓢ",
     //explorer
     "explorer.icon.enableNerdfont": true,
     //git
-    "git.enableGutters": false,
+    "git.enableGutters": true,
     "git.addGBlameToBufferVar": true,
     "git.addGBlameToVirtualText": true,
+
     "git.virtualTextPrefix": "  ··· ",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
