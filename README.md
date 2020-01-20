@@ -34,6 +34,23 @@ config目录下：
 2. 文件管理使用的是[weirongxu/*coc*-explorer](https://github.com/weirongxu/coc-explorer)
 3. 函数浏览器使用的是[liuchengxu/*vista*.*vim*](https://github.com/liuchengxu/vista.vim)
 
+### 依赖
+
+需要安装如下软件：
+
+1. nodejs，npm：必装
+2. neovim-remote:：可选，vim-terminal-help和vimtex会用到，但是也可以不用，安装体验更好，pip install neovim-remote
+3. clangd：可选，用于c系补全
+4. go-langserver：可选，用于go补全
+
+### 安装
+
+```bash
+git clone https://github.com/fgheng/vime -C .config/nvim
+```
+
+然后打开neovim，执行`:PlugInstall`等待插件安装完毕即可！
+
 ### 快捷键
 
 不管您选择了哪种补全插件，哪种检索插件，我们的快捷键配置都会尽可能保持一致，无须更改您的使用习惯，改变的只是`neo/vim`表现形式。
