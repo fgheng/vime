@@ -23,7 +23,7 @@ set shiftwidth=4
 set smarttab
 set smartindent
 set shiftround
-set list
+set list " 只有setlist后面的才会起作用
 set listchars=tab:→·,nbsp:⣿,extends:»,precedes:«
 set listchars+=eol:¬
 set listchars+=trail:· " 尾部空白

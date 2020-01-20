@@ -15,11 +15,12 @@ let g:coc_global_extensions =
 			\ 'coc-xml',
 			\ 'coc-yank',
 			\ 'coc-lists',
+			\ 'coc-json',
 			\ 'coc-sh',
 			\ 'coc-translator',
 			\ 'coc-rls',
-			\ 'coc-go'
 			\ ]
+			" \ 'coc-go' 直接使用go-languageserver
 			" \ 'coc-json',
 			" \ 'coc-ecdict',
 			" \ 'coc-tabnine',
@@ -85,9 +86,10 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=0 Run :call CocAction('codeAction')
 
-" Highlight symbol under cursor on CursorHold
+" 高亮当前光标下的所有单词, 使用插件vim-cursorword代替
 au CursorHold * silent call CocActionAsync('highlight')
-au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+
+" au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 " 定义, 引用等的跳转
 nmap <silent> gd <Plug>(coc-definition)

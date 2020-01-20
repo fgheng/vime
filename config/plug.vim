@@ -30,6 +30,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'yianwillis/vimcdoc'
 " 主题
 Plug 'flazz/vim-colorschemes'
+Plug 'rakr/vim-one'
 "Plug 'Rigellute/shades-of-purple.vim'
 "Plug 'haishanh/night-owl.vim'
 "Plug 'tomasiser/vim-code-dark'

@@ -1,49 +1,46 @@
 "------------------------------------------- base key map
-inoremap jk <esc>
-nnoremap q <esc>:close<cr>
+inoremap jk <esc> " jk执行esc
+nnoremap q <esc>:close<cr> " 关闭窗口
 vnoremap q <esc>:close<cr>
-nnoremap <BackSpace> :nohl<cr>
-
-" 使用autopair, c-h表示向前删除
-inoremap <c-l> <esc><right>xi
-
-
-" 窗口
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-" 更改窗口大小
-nnoremap <C-w>[ :vertical resize -3<CR>
-nnoremap <C-w>] :vertical resize +3<CR>
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-" 分割窗口
-nnoremap <c-w>s <esc><c-w>s<esc><c-w>j
-nnoremap <c-w>v <esc><c-w>v<esc><c-w>l
-nnoremap <c-w>k :abo split <cr>
-nnoremap <c-w>h :abo vsplit <cr>
-nnoremap <c-w>j :rightbelow split <cr>
-nnoremap <c-w>l :rightbelow vsplit <cr>
-
-" nnoremap <F5> :copen<cr>
-
-" 插入模式下的一些快捷键
-inoremap <C-s> <esc>:w<cr>
-inoremap <C-a> <esc>ggVG
-inoremap <M-o> <esc>o
-inoremap <M-O> <esc>O
-inoremap <M-h> <esc>I
-inoremap <M-l> <esc>A
-
-" buffer 操作
+nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
+" 删除buffer
 if HasPlug('bclose.vim')
     nnoremap <C-x>  :Bclose<CR>
 else
     nnoremap <c-x> :bd<cr>
 endif
 
-noremap <space><space> <esc>:w<cr>
+" 窗口
+noremap <c-h> <C-w>h
+noremap <c-j> <C-w>j
+noremap <c-k> <C-w>k
+noremap <c-l> <C-w>l
+" 更改窗口大小
+nnoremap <M-{> :vertical resize -5<CR> " 更改窗口宽度
+nnoremap <M-}> :vertical resize +5<CR>
+" nnoremap <M-_>= :exe "resize " . (winheight(0) * 3/2)<CR> " 更改窗口高度
+" nnoremap <M-+>- :exe "resize " . (winheight(0) * 2/3)<CR>
+" 分割窗口
+" nnoremap <c-w>s <esc><c-w>s<esc><c-w>j
+" nnoremap <c-w>v <esc><c-w>v<esc><c-w>l
+nnoremap <c-w>k :abo split <cr>
+nnoremap <c-w>h :abo vsplit <cr>
+nnoremap <c-w>j :rightbelow split <cr>
+nnoremap <c-w>l :rightbelow vsplit <cr>
+" nnoremap <M-W>k :abo split <cr>
+" nnoremap <M-W>h :abo vsplit <cr>
+" nnoremap <M-W>j :rightbelow split <cr>
+" nnoremap <M-W>l :rightbelow vsplit <cr>
+
+" 插入模式下的一些快捷键
+" inoremap <C-s> <esc>:w<cr>
+" inoremap <C-a> <esc>ggVG
+inoremap <M-o> <esc>o " 下一行
+inoremap <M-O> <esc>O " 上一行
+inoremap <M-h> <esc>I " 行头
+inoremap <M-l> <esc>A " 行尾
+
+noremap <space><space> <esc>:w<cr> " 两个space保存所有文件
 
 nnoremap j gj
 nnoremap k gk
@@ -56,9 +53,7 @@ nnoremap <leader>te :tabedit
 nnoremap <leader>tc :tabclose<cr>
 nnoremap <leader>tm :tabmove
 
-
-"yank to end
-nnoremap Y y$
+nnoremap Y y$ " 复制到末尾
 
 " terminal
 tnoremap <Esc> <C-\><C-n>
@@ -77,12 +72,14 @@ endif
 
 "------------------------------------------- ale
 if HasPlug('ale')
+	" 过时了，现在主要用coc
     nmap <silent> <space>{ <Plug>(ale_previous_wrap)
     nmap <silent> <space>} <Plug>(ale_next_wrap)
 endif
 
 "------------------------------------------- leaderf
 if HasPlug('LeaderF')
+	" 过时了，现在主要用coc
     nnoremap <M-f> :LeaderfFile<CR>
     "nnoremap <M-t> :LeaderfBufTag<CR>
     "nnoremap <M-T> :LeaderfBufTagAll<CR>
@@ -95,6 +92,7 @@ endif
 
 "------------------------------------------- fzf
 if HasPlug('fzf')
+	" 过时了，现在主要用coc
     nnoremap <M-f> :Files<CR>
     nnoremap <M-t> :BTags<CR>
     nnoremap <M-T> :Tags<CR>
@@ -112,6 +110,7 @@ endif
 
 "------------------------------------------- easymotion
 if HasPlug('vim-easymotion')
+	" 过时了，现在主要用cleverf
     nmap gk <Plug>(easymotion-overwin-f)
     nmap gl <Plug>(easymotion-overwin-line)
     "imap <M-k> <esc><Plug>(easymotion-overwin-f)
@@ -133,11 +132,13 @@ endif
 
 "------------------------------------------- Autoformat
 if HasPlug('vim-autoformat')
+	" 过时了，现在主要用coc
     nnoremap <M-i> :Autoformat<cr>
 endif
 
 "------------------------------------------- Startify
 if HasPlug('vim-startify')
+	" 不花里胡少的了
     noremap <leader>s <esc>:Startify<cr>
     "au FileType startify noremap q :q<cr>
 endif

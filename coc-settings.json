@@ -55,6 +55,7 @@
     // highlight
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
+
     // list
     "list.insertMappings": {
         "<C-t>": "action:tabe",
@@ -69,10 +70,10 @@
     "list.source.words.defaultArgs": ["-e"],
     //snippet
     "snippets.ultisnips.enable": true, // ultisnips 快速跳转
-	"snippets.extends": {
-		"cpp":["c"],
-		"typescript": ["javascript"]
-	},
+    "snippets.extends": {
+        "cpp": ["c"],
+        "typescript": ["javascript"]
+    },
     "snippets.shortcut": "  Ⓢ",
     //explorer
     "explorer.icon.enableNerdfont": true,
@@ -120,6 +121,15 @@
                 "compile_commands.json",
                 "compile_flags.txt"
             ]
+        },
+        "golang": {
+            "command": "go-langserver",
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "gocodeCompletionEnabled": true,
+                "diagnosticsEnabled": true,
+                "lintTool": "golint"
+            }
         }
     }
 }
