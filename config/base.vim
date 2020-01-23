@@ -48,38 +48,6 @@ set mouse=a " 允许使用鼠标
 set cmdheight=1
 
 au FileType c,cpp,java set mps+==:;
-"-----------------------------
-"set backspace=2
-"set backspace=indent,eol,start
-"set shortmess=aFc
-"set signcolumn=yes
-"set completefunc=emoji#complete
-"set completeopt =longest,menu
-"set completeopt-=preview
-"-----------------------------
-"language messages zh_CN.utf-8 " 中文提示
-"set grepprg=rg\ --vimgrep\ $*
-"set encoding=utf8
-"set helplang=cn
-""set softtabstop=4
-"set shiftwidth=4
-"set shiftround "缩进取整到 'shiftwidth' 的倍数
-"set expandtab
-"set showmatch
-"set foldenable
-"set wildmenu
-"set smartcase " 智能大小写, 只有在小写时忽略大小写
-""set noea " 窗口分割的时候不平均分割
-"set ead=ver
-"set noshowmode " 不显示模式
-"set cmdheight=1
-""set autochdir   " 将文件所在路径设置为vim的当前路径
-"set autowrite " 在切换文件的时候自动存盘
-"let autosave=10
-"set backup " 在当前文件下生成备份文件
-""set conceallevel=0  " json正常显示文本, conceal是隐藏
-"set switchbuf=useopen,usetab,newtab "这样quickfix里面的跳转会先复用已有文件的窗口，再复用已有标签，最后没有的话新建标签
-"set tw=80 " 文本宽度
 
 if has('nvim')
     "set signcolumn=auto:2 " neovim的新特性，标识列自动变化
@@ -95,3 +63,7 @@ endif
 
 " tex文件
 " let g:tex_flavor='latex'
+
+" 加快启动速度, 跳过python检查
+" let g:python_host_skip_check=1
+" let g:python3_host_skip_check=1

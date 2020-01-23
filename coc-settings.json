@@ -110,7 +110,7 @@
             "command": "clangd",
             "args": ["--background-index"],
             "trace.server": "verbose",
-            "filetypes": ["c", "cpp", "cu", "cuda", "objc", "objcpp"],
+            "filetypes": ["c", "cc","cpp", "cu", "cuda", "objc", "objcpp"],
             "rootPatterns": [
                 ".clang",
                 ".ccls",

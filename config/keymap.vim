@@ -35,10 +35,10 @@ nnoremap <c-w>l :rightbelow vsplit <cr>
 " 插入模式下的一些快捷键
 " inoremap <C-s> <esc>:w<cr>
 " inoremap <C-a> <esc>ggVG
-inoremap <M-o> <esc>o " 下一行
-inoremap <M-O> <esc>O " 上一行
-inoremap <M-h> <esc>I " 行头
-inoremap <M-l> <esc>A " 行尾
+inoremap <M-o> <esc>o
+inoremap <M-O> <esc>O
+inoremap <M-h> <esc>I
+inoremap <M-l> <esc>A
 
 noremap <space><space> <esc>:w<cr> " 两个space保存所有文件
 
