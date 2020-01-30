@@ -65,7 +65,6 @@ if !has('nvim')
 endif
 
 " 需要安装pysdl2, sdl2_mixer
-Plug 'skywind3000/vim-keysound'
 " 快速打开终端, neovim需要pip install neovim-remote
 Plug 'skywind3000/vim-terminal-help'
 call plug#end()

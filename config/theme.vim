@@ -7,12 +7,9 @@ function! s:patch_lucius_colors()
 	" hi signcolumn ctermbg=NONE guibg=NONE
 endfunction
 
-" 判断主题是否安装
-if HasInstall('vim-colorschemes')
-	autocmd! colorscheme one call s:patch_lucius_colors()
-	colorscheme one
-	set background=light
-endif
+autocmd! colorscheme one call s:patch_lucius_colors()
+colorscheme one
+set background=light
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色

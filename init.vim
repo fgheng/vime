@@ -1,17 +1,19 @@
-" 获得当前文件所在目录
-let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-" 获取配置文件所在目录
-let s:home = s:home.'/config'
-" 插件配置文件所在路径
-let s:plugin_config_path = s:home.'/plugins'
-" 自定义配置路径
-" let s:custom_config_path = s:home.'/custom'
-" 获取当前目录下的所有.vim文件
-"let file_list = split(globpath(plugin_config_path,'*.vim'),'\n')
-" let s:custom_file_list = split(globpath(s:custom_config_path,'*.vim'),'\n')
-
 " 定义加载配置的命令
+
+ " 获得当前文件所在目录
+ let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+ " 获取配置文件所在目录
+ let s:home = s:home.'/config'
+ " 插件配置文件所在路径
+ let s:plugin_config_path = s:home.'/plugins'
+ " 自定义配置路径
+ " let s:custom_config_path = s:home.'/custom'
+ " 获取当前目录下的所有.vim文件
+ "let file_list = split(globpath(plugin_config_path,'*.vim'),'\n')
+ " let s:custom_file_list = split(globpath(s:custom_config_path,'*.vim'),'\n')
+
 command! -nargs=1 LoadScript exec 'source '.s:home.'/'.'<args>'
+" LoadScript ../all_config_in_one_file.vim
 
 " 加载基础配置
 LoadScript base.vim

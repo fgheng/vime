@@ -40,7 +40,7 @@ inoremap <M-O> <esc>O
 inoremap <M-h> <esc>I
 inoremap <M-l> <esc>A
 
-noremap <space><space> <esc>:w<cr> " 两个space保存所有文件
+noremap <space><space> <esc>:w<cr><left> " 两个space保存所有文件
 
 nnoremap j gj
 nnoremap k gk

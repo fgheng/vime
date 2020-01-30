@@ -51,7 +51,7 @@
     "python.jediEnabled": false, // 需要安装jdei
     "python.analysis.openFilesOnly": true, // 只显示当前文件的error和war
     // java
-    //"java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
+    "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
     // highlight
     "highlight.colors.enable": true,
     "highlight.document.enable": true,

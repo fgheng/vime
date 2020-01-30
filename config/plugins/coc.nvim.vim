@@ -19,6 +19,7 @@ let g:coc_global_extensions =
 			\ 'coc-sh',
 			\ 'coc-translator',
 			\ 'coc-rls',
+			\ 'coc-java'
 			\ ]
 			" \ 'coc-go' 直接使用go-languageserver
 			" \ 'coc-json',
