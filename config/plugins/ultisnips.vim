@@ -1,7 +1,7 @@
 let g:UltiSnipsSnippetsDir = '~/.cache/plugins/vim-snippets/'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 "let g:UltiSnipsEditSplit="heroize"
-let g:UltiSnipsExpandTrigger       = '<cr>'
+" let g:UltiSnipsExpandTrigger       = '<cr>'
 let g:UltiSnipsJumpForwardTrigger  = '<m-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<m-k>'
 

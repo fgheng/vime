@@ -1,6 +1,5 @@
 " 插件存储路径
-let s:plugins_path = '~/.cache/plugins'
-
+let s:plugins_path = '~/.cache/vim/plugins'
 " 依赖的软件
 " nodejs, npm, ripgrep, clang, ctags, zathura-pdf-mupdf, texlive-most,
 " texlive-lang, remote-neovim, pysdl2, sdl2_mixer
@@ -20,6 +19,8 @@ Plug 'Rigellute/shades-of-purple.vim'
 Plug 'haishanh/night-owl.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'dunstontc/vim-vscode-theme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'KeitaNakamura/neodark.vim'
 " 底栏
 Plug 'itchyny/lightline.vim'
 " 关灯读小说
@@ -28,7 +29,7 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 函数列表
-Plug 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim', {'on': 'Vista'}
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
 " 快速包围
@@ -45,6 +46,7 @@ Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 " 快速移动
 Plug 'rhysd/clever-f.vim'
+" , {'on': '<Plug>(clever-f-f)'}
 " 对齐线
 Plug 'Yggdroot/indentLine'
 " 多光标
@@ -53,20 +55,18 @@ Plug 'mg979/vim-visual-multi'
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " 标签
 Plug 'MattesGroeger/vim-bookmarks'
+" , {'on':['<Plug>BookmarkToogle', '<Plug>BookmarkShowAll', '<Plug>BookmarkClear']}
 " 编译运行
 Plug 'thinca/vim-quickrun', {'on': '<Plug>(quickrun)'}
 " table模式
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode', {'on':'TableModeToggle'}
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
-
-if !has('nvim')
-	Plug 'vim-utils/vim-alt-mappings'
-endif
 
 " 需要安装pysdl2, sdl2_mixer
 " 快速打开终端, neovim需要pip install neovim-remote
 Plug 'skywind3000/vim-terminal-help'
+
 call plug#end()
 
 " 判断该插件是否已经安装

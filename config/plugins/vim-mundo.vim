@@ -1,6 +1,6 @@
 " 设置永久目录, 那么无论什么时候打开都能退回到最最最开始
 set undofile
-set undodir=~/.cache/undo
+set undodir=~/.cache/vim/undo
 let g:mundo_width = 60
 let g:mundo_preview_height = 15
 let g:mundo_right = 1

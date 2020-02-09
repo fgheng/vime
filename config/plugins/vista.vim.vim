@@ -24,6 +24,7 @@ let g:vista#renderer#enable_icon = 1
 
 " 获取进入vista之前的buf, window编号
 let s:beforewinnr = -1
+
 function! VistaToggle() abort
 	let s:bufnr = bufnr('__vista__')
 	let s:bufwinnr = bufwinnr(s:bufnr)
@@ -58,4 +59,5 @@ function! VistaToggle() abort
 	endif
 endfunction
 
-nnoremap <F3> :call VistaToggle()<CR>
+" nnoremap <F3> :call VistaToggle()<CR>
+nnoremap <F3> :Vista<CR>

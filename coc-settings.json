@@ -16,7 +16,8 @@
         "c",
         "cc",
         "cu",
-        "cpp"
+        "cpp",
+        "go"
     ],
     //"coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
@@ -42,16 +43,20 @@
     "diagnostic.hintSign": ">>",
     "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10,
+
     // signature
     "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
     "cursors.cancelKey": "<BackSpace>", // 多光标取消选择快捷键
+
     // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
-    "python.jediEnabled": false, // 需要安装jdei
+    "python.jediEnabled": true, // 需要安装jdei
     "python.analysis.openFilesOnly": true, // 只显示当前文件的error和war
+
     // java
     "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
+
     // highlight
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
@@ -68,6 +73,7 @@
     "list.source.grep.defaultArgs": ["-S", "-e"],
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
+
     //snippet
     "snippets.ultisnips.enable": true, // ultisnips 快速跳转
     "snippets.extends": {
@@ -75,8 +81,10 @@
         "typescript": ["javascript"]
     },
     "snippets.shortcut": "  Ⓢ",
+
     //explorer
     "explorer.icon.enableNerdfont": true,
+
     //git
     "git.enableGutters": true,
     "git.addGBlameToBufferVar": true,
@@ -96,21 +104,25 @@
 
     //prettier
     "prettier.tabWidth": 4,
+
     // xml
     "xml.java.home": "/usr/bin/java",
+
     // yank
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
+
     // session
-    "session.directory": "~/.cache/coc/sessions",
+    "session.directory": "~/.cache/vim/coc/sessions",
     "session.saveOnVimLeave": true,
+
     // lsp
     "languageserver": {
         "clangd": {
             "command": "clangd",
             "args": ["--background-index"],
             "trace.server": "verbose",
-            "filetypes": ["c", "cc","cpp", "cu", "cuda", "objc", "objcpp"],
+            "filetypes": ["c", "cc", "cpp", "cu", "cuda", "objc", "objcpp"],
             "rootPatterns": [
                 ".clang",
                 ".ccls",
@@ -121,15 +133,6 @@
                 "compile_commands.json",
                 "compile_flags.txt"
             ]
-        },
-        "golang": {
-            "command": "go-langserver",
-            "filetypes": ["go"],
-            "initializationOptions": {
-                "gocodeCompletionEnabled": true,
-                "diagnosticsEnabled": true,
-                "lintTool": "golint"
-            }
         }
     }
 }

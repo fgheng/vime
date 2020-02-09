@@ -2,8 +2,8 @@ if &laststatus < 2
 	set laststatus=2
 endif
 
-	" \ 'colorscheme': 'one',
 let g:lightline = {
+	\ 'colorscheme': 'one',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
 	\             [ 'readonly', 'filename', 'modified'],

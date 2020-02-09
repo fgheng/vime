@@ -1,15 +1,19 @@
-function! s:patch_lucius_colors()
-	if has('termguicolors')
-		set termguicolors
-	endif
+if has('termguicolors')
+	set termguicolors
+endif
+
+" function! s:patch_lucius_colors()
+	" if has('termguicolors')
+	"     set termguicolors
+	" endif
 	" hi normal     ctermbg=NONE guibg=NONE
 	" hi linenr     ctermbg=NONE guibg=NONE
 	" hi signcolumn ctermbg=NONE guibg=NONE
-endfunction
+" endfunction
 
-autocmd! colorscheme one call s:patch_lucius_colors()
+" autocmd! colorscheme one call s:patch_lucius_colors()
 colorscheme one
-set background=light
+" set background=dark
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色
@@ -32,8 +36,9 @@ if HasPlug('coc.nvim')
     endif
 
 	" coc 高亮单词
-	" au VimEnter * hi CocHighlightText guibg=#87CEFA
-	au VimEnter * hi CocHighlightText guibg=#ffb6c1
+	" au VimEnter * hi CocHighlightText guifg=#000000 guibg=#87CEFA
+	au VimEnter * hi CocHighlightText guifg=#000000 guibg=#99ccff
+	" au VimEnter * hi CocHighlightText guibg=#ffb6c1
 	" au VimEnter * hi CocHighlightText guibg=#ff69b4
 	" au VimEnter * hi CocHighlightText guifg=#996699 guibg=#ffcccc
 
