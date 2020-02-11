@@ -13,14 +13,14 @@ Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mu
 Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
-" 主题
+" theme
 Plug 'rakr/vim-one'
-Plug 'Rigellute/shades-of-purple.vim'
-Plug 'haishanh/night-owl.vim'
-Plug 'tomasiser/vim-code-dark'
-Plug 'dunstontc/vim-vscode-theme'
-Plug 'altercation/vim-colors-solarized'
 Plug 'KeitaNakamura/neodark.vim'
+" Plug 'Rigellute/shades-of-purple.vim'
+" Plug 'haishanh/night-owl.vim'
+" Plug 'tomasiser/vim-code-dark'
+" Plug 'dunstontc/vim-vscode-theme'
+" Plug 'altercation/vim-colors-solarized'
 " 底栏
 Plug 'itchyny/lightline.vim'
 " 关灯读小说

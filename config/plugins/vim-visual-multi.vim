@@ -9,12 +9,17 @@
 " 7. 多光标选中之后使用s可以进行扩展选择，比如siw，si'等
 "
 "
-"let g:VM_theme = "pray"
-" let g:VM_leader = "'"
-" " 取消默认按键映射
-"let g:VM_default_mappings = 0
-" 开启鼠标选择
-" let g:VM_mouse_mappings = 0
+let g:VM_theme='ocean'
+let g:VM_show_warnings = 0 " 取消警告
+
+let g:VM_default_mappings = 0
+let g:VM_maps = {}
+let g:VM_maps['Find Under'] = '<c-n>' " 用ctrl-d代替ctrl-n
+let g:VM_maps['Find Subword Under'] = '<c-n>'
+let g:VM_maps['Select All'] = '<c-a>' " 全选
+let g:VM_maps["Add Cursor At Pos"] = '<c-c>'
+" let g:VM_maps['Erase Regions'] = '<BackSpace>'
+
 " let g:VM_maps = {}
 " let g:VM_maps["Add Cursor At Pos"]            = '<c-Right>'
 " let g:VM_maps["Add Cursor At Pos"]            = '<c-Right>'
@@ -51,14 +56,3 @@
 "let g:VM_maps["Visual Regex"]                = '\\/'
 "let g:VM_maps["Visual All"]                  = '\\A'
 "let g:VM_maps["Visual Add"]                  = '\\a'
-
-
-
-
-
-
-
-
-
-
-

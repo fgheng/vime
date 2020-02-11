@@ -21,8 +21,8 @@
     ],
     //"coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
-    // " 高亮时间
-    "coc.preferences.highlightTimeout": 1000,
+    "coc.preferences.highlightTimeout": 1000, // highlighttime
+
     // suggest
     "suggest.floatEnable": true, // 关闭悬浮窗口?
     "suggest.triggerAfterInsertEnter": true,
@@ -33,6 +33,7 @@
     "suggest.noselect": true, // 不选中第一个
     "suggest.detailField": "abbr", // abbr menu preview
     "suggest.triggerCompletionWait": 50, // default 50
+
     // diagnostic
     // "diagnostic.messageTarget": "echo", // 不是用悬浮进行错误等提示，而是使用echo提示,不好用，使用悬浮比较好
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
@@ -43,6 +44,23 @@
     "diagnostic.hintSign": ">>",
     "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10,
+
+    // list
+    "session.saveOnVimLeave": true,
+    "session.directory": "~/.cache/vim/coc/sessions",
+    "list.insertMappings": {
+        "<C-t>": "action:tabe",
+        "<c-v>": "action:vsplit",
+        "<c-s>": "action:split",
+        "<C-w>": "command:wincmd k"
+    },
+    "list.maxHeight": 10,
+    "list.maxPreviewHeight": 6,
+    //"list.source.grep.defaultArgs": ["-S", "-e"],
+	"list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
+    "list.source.lines.defaultArgs": ["-e"],
+    "list.source.words.defaultArgs": ["-e"],
+	// "list.source.files.command": "find",
 
     // signature
     "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
@@ -61,18 +79,6 @@
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
 
-    // list
-    "list.insertMappings": {
-        "<C-t>": "action:tabe",
-        "<c-v>": "action:vsplit",
-        "<c-s>": "action:split",
-        "<C-w>": "command:wincmd k"
-    },
-    "list.maxHeight": 10,
-    "list.maxPreviewHeight": 6,
-    "list.source.grep.defaultArgs": ["-S", "-e"],
-    "list.source.lines.defaultArgs": ["-e"],
-    "list.source.words.defaultArgs": ["-e"],
 
     //snippet
     "snippets.ultisnips.enable": true, // ultisnips 快速跳转
@@ -112,9 +118,6 @@
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
 
-    // session
-    "session.directory": "~/.cache/vim/coc/sessions",
-    "session.saveOnVimLeave": true,
 
     // lsp
     "languageserver": {

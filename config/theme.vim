@@ -12,8 +12,14 @@ endif
 " endfunction
 
 " autocmd! colorscheme one call s:patch_lucius_colors()
-colorscheme one
+" hi normal     ctermbg=NONE guibg=NONE
+" hi linenr     ctermbg=NONE guibg=NONE
+" hi signcolumn ctermbg=NONE guibg=NONE
 " set background=dark
+" set background=light
+let g:one_allow_italics = 1 " support italics
+colorscheme neodark
+" call one#highlight('vimLineComment', 'cccccc', '', 'underline')
 
 "------------------------------------------------------"
 " 设置vim搜索匹配项的颜色
@@ -25,8 +31,8 @@ endif
 
 if HasPlug('vim-visual-multi')
     " ???
-    " highlight multiple_cursors_cursor ctermfg=15 ctermbg=1 guifg=white guibg=red
-    " highlight link multiple_cursors_cursor Error
+	" highlight multiple_cursors_cursor ctermfg=15 ctermbg=1 guifg=#444444 guibg=#ffff00
+	" highlight link multiple_cursors_cursor Error
 endif
 
 if HasPlug('coc.nvim')
@@ -37,7 +43,7 @@ if HasPlug('coc.nvim')
 
 	" coc 高亮单词
 	" au VimEnter * hi CocHighlightText guifg=#000000 guibg=#87CEFA
-	au VimEnter * hi CocHighlightText guifg=#000000 guibg=#99ccff
+	au VimEnter * hi CocHighlightText guifg=#ffb6c1
 	" au VimEnter * hi CocHighlightText guibg=#ffb6c1
 	" au VimEnter * hi CocHighlightText guibg=#ff69b4
 	" au VimEnter * hi CocHighlightText guifg=#996699 guibg=#ffcccc

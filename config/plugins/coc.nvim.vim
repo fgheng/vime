@@ -49,13 +49,12 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-"""
-" 优先级要高
+" 优先级要高, alt j跳转到下一处
 let g:coc_snippet_next = '<m-j>'
 let g:coc_snippet_prev = '<m-k>'
 
 inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
+	\ pumvisible() ? "\<c-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
 	\ coc#refresh()
 
@@ -63,16 +62,20 @@ inoremap <silent><expr> <S-TAB>
 	\ pumvisible() ? "\<C-p>" :
 	\ "\<C-h>"
 
-"inoremap <silent><expr> <c-j>
-"    \ pumvisible() ? "\<C-n>" : return
+" ctrl j 向下选择
+inoremap <silent><expr> <c-j>
+   \ pumvisible() ? "\<C-n>" : return
 
-"inoremap <silent><expr> <c-k>
-"    \ pumvisible() ? "\<C-p>" : return
+" ctrl k 向上选择
+inoremap <silent><expr> <c-k>
+   \ pumvisible() ? "\<C-p>" : return
 
 " 回车补全选中的内容
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" 使用ctrl space强制触发补全
-inoremap <expr><c-space> pumvisible() ? "\<C-e>" : coc#refresh()
+
+" 使用ctrl space强制触发补全, tab也可以强制触发补全
+" inoremap <expr><c-space> pumvisible() ? "\<C-e>" : coc#refresh()
+
 " 使用 :Format 进行代码格式化
 "function FormatCode()
 "    if mode() == 'v' || mode() == 'V'
@@ -85,13 +88,13 @@ command! -nargs=0 Format :call CocAction('format')
 " 使用 :Fold 对代码进行折叠
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " 使用 :Or 组织import
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-command! -nargs=0 Run :call CocAction('codeAction')
+" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+" command! -nargs=0 Run :call CocAction('codeAction')
 
 " 高亮当前光标下的所有单词, 使用插件vim-cursorword代替
 au CursorHold * silent call CocActionAsync('highlight')
-
-" au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+" 不明白这是做什么的
+au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 " 定义, 引用等的跳转
 nmap <silent> gd <Plug>(coc-definition)
@@ -107,8 +110,9 @@ function! s:show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
+nnoremap <silent> <space>k :call <SID>show_documentation()<CR>
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
 
 augroup mygroup
 	autocmd!
@@ -118,19 +122,20 @@ augroup mygroup
 	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-" Remap for do codeAction of current line
-nmap <leader>al  <Plug>(coc-codeaction)
+" " Remap for do codeAction of current line
+" nmap <leader>ac  <Plug>(coc-codeaction)
+" " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
+" " Remap for do codeAction of current line
+" nmap <leader>al  <Plug>(coc-codeaction)
 
 " Using CocList
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e  :<C-u>CocList services<cr>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 vnoremap <silent> <space>c  :<C-u>CocList commands<cr>
@@ -140,6 +145,9 @@ nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " show coclist
 nnoremap <silent> <space>l  :<C-u>CocList<CR>
+" 重构refactor,需要lsp支持
+nmap <silent> <space>rf <Plug>(coc-refactor)
+" nnoremap <silent> <space>L  :<C-u>CocList location<CR>
 if !HasPlug('fzf')
 	nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 endif
@@ -158,7 +166,11 @@ nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
 "---------------------------------------------- coc list
 if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
-	nnoremap <silent> <M-f> :CocList files<CR>
+	" 搜索当前工作目录下的文件
+	nnoremap <silent> <M-F> :CocList files <CR>
+	" 只搜索当前文件夹下的文件
+	nnoremap <silent> <M-f> :exec 'CocList files ./'<CR>
+
 	nnoremap <silent> <M-b> :CocList buffers<CR>
 	nnoremap <silent> <M-t> :CocList tags<cr>
 	"nnoremap <silent> <M-s> :CocList words<cr>
@@ -168,6 +180,13 @@ if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	nnoremap <silent> <M-m> :CocList marks<CR>
 	nnoremap <silent> <M-w> :CocList windows<CR>
 	nnoremap <silent> <M-o> :CocList outline<CR>
+
+	" command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
+	" function! s:GrepArgs(...)
+	" let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
+	"         \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
+	"     return join(list, "\n")
+	" endfunction
 	nnoremap <silent> <M-c> :exe 'CocList -I --input='.expand('<cword>').' words'<cr>
 endif
 
@@ -183,23 +202,33 @@ if !HasPlug("vim-visual-multi")
 	" ctrl n下一个，ctrl p上一个
 	" ctrl c 添加一个光标再按一次取消，
 	nmap <silent> <C-c> <Plug>(coc-cursors-position)
+	" nmap <silent> <c-down> <Plug>(coc-cursors-position) | <down>
+
+	" function! s:select_down()
+	"     <c-c>
+	" endfunc
+	" function! s:select_up() abort
+
+	" endfunc
+	" nmap <silent> <c-up> <SID>selcct_up()
 	"nmap <silent> <C-d> <Plug>(coc-cursors-word)
 	"xmap <silent> <C-d> <Plug>(coc-cursors-range)
 	"ctrl d 选取所有v模式选择的内容
 	"nmap <silent> <C-d> <Plug>(coc-cursors-word)*
-	nmap <expr> <silent> <C-d> <SID>select_current_word()
+	nmap <expr> <silent> <C-n> <SID>select_current_word()
+	" xmap <silent> <C-s> <Plug>(coc-cursors-range)
 	function! s:select_current_word()
 		if !get(g:, 'coc_cursors_activated', 0)
 			return "\<Plug>(coc-cursors-word)"
 		endif
 		return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 	endfunc
-	xmap <silent> <C-d> y/\V<C-r>=escape(@",'/\')<CR><CR>gN<Plug>(coc-cursors-range)gn
+
+	xmap <silent> <C-n> y/\V<C-r>=escape(@",'/\')<CR><CR>gN<Plug>(coc-cursors-range)gn
 	nmap <silent> <C-a> :CocCommand document.renameCurrentWord<cr>
-	" use normal command like `<leader>xi(`
+
+	" " use normal command like `<leader>xi(`
 	nmap <leader>x  <Plug>(coc-cursors-operator)
-	" 重构refactor,需要lsp支持
-	nmap <silent> <space>rf <Plug>(coc-refactor)
 endif
 
 " ----------------------- coc自定义命令
