@@ -60,4 +60,4 @@ function! VistaToggle() abort
 endfunction
 
 " nnoremap <F3> :call VistaToggle()<CR>
-nnoremap <F3> :Vista<CR>
+nnoremap <F3> :Vista!!<CR>

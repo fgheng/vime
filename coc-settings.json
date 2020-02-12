@@ -57,10 +57,10 @@
     "list.maxHeight": 10,
     "list.maxPreviewHeight": 6,
     //"list.source.grep.defaultArgs": ["-S", "-e"],
-	"list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
+    "list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
-	// "list.source.files.command": "find",
+    //"list.source.files.command": "rg",
 
     // signature
     "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
@@ -79,7 +79,6 @@
     "highlight.colors.enable": true,
     "highlight.document.enable": true,
 
-
     //snippet
     "snippets.ultisnips.enable": true, // ultisnips 快速跳转
     "snippets.extends": {
@@ -90,6 +89,101 @@
 
     //explorer
     "explorer.icon.enableNerdfont": true,
+    "explorer.width": 35,
+    "explorer.position": "left",
+    "explorer.sources": [
+        {
+            "name": "buffer",
+            "expand": true
+        },
+        {
+            "name": "file",
+            "expand": true
+        }
+    ],
+    "explorer.previewAction.onHover": true,
+    "explorer.buffer.columns": [
+        "selection",
+        "bufnr",
+        "name",
+        "fullpath",
+        ["bufname"],
+        ["fullpath"],
+        ["modified"],
+        ["readonly"]
+    ],
+    "explorer.file.columns": [
+        "git",
+        "selection",
+        "clip",
+        "diagnosticError",
+        "indent",
+        "icon",
+        "filename",
+        ["filename"],
+        ["fullpath"],
+        ["accessed"],
+        ["modified"],
+        ["created"],
+        ["readonly"],
+        ["size"]
+    ],
+    "explorer.keyMappings": {
+		// base
+        "k": "nodePrev",
+        "j": "nodeNext",
+        "h": "collapse",
+        "l": "expand",
+        "L": "expandRecursive",
+        "H": "collapseRecursive",
+
+        "v": ["toggleSelection", "normal:j"],
+        "V": ["toggleSelection", "normal:k"],
+        "*": "toggleSelection",
+
+
+		// file
+        "o": "expandOrCollapse",
+        "<cr>": "open",
+        "ev": "openInVsplit",
+        "eh": "openInHsplit",
+        "et": "openInTab",
+        "<bs>": "gotoParent",
+
+        "dd": "cutFile",
+        "Y": "copyFile",
+        "D": "delete",
+        "P": "pasteFile",
+        "R": "rename",
+        "A": "addFile",
+        "yy": "copyFilepath",
+        "y": "copyFilename",
+
+        ".": "toggleHidden",
+        "r": "refresh",
+        "<tab>": "actionMenu",
+
+        "?": "help",
+        "q": "quit",
+        "x": "systemExecute",
+
+        "f": "search",
+        "F": "searchRecursive",
+
+        "gf": "gotoSource:file",
+        "gb": "gotoSource:buffer",
+
+        "[[": "sourcePrev",
+        "]]": "sourceNext",
+
+        "[d": "diagnosticPrev",
+        "]d": "diagnosticNext",
+
+        "[c": "gitPrev",
+        "]c": "gitNext",
+        "<<": "gitStage",
+        ">>": "gitUnstage"
+    },
 
     //git
     "git.enableGutters": true,
@@ -117,7 +211,6 @@
     // yank
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
-
 
     // lsp
     "languageserver": {

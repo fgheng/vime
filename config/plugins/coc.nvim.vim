@@ -169,7 +169,7 @@ if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	" 搜索当前工作目录下的文件
 	nnoremap <silent> <M-F> :CocList files <CR>
 	" 只搜索当前文件夹下的文件
-	nnoremap <silent> <M-f> :exec 'CocList files ./'<CR>
+	nnoremap <silent> <M-f> :exec 'CocList files '.expand('%:h')<CR>
 
 	nnoremap <silent> <M-b> :CocList buffers<CR>
 	nnoremap <silent> <M-t> :CocList tags<cr>
@@ -256,12 +256,12 @@ call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
 " nmap <F8> <plug>(coc-terminal-toggle)
 
 " -------------------- coc explorer
-nmap <silent> <F2> :CocCommand explorer
-			\ --toggle
-			\ --width=30
-			\ --position=left
-			\ --sources=buffer+,file+
-			\ <cr>
+nmap <silent> <F2> :CocCommand explorer <cr>
+			" \ --toggle
+			" \ --width=30
+			" \ --position=left
+			" \ --sources=buffer+,file+
+			" \ --file-columns=git:selection:clip:indent:diagnosticError:diagnosticWarning:icon:filename;filename;fullpath;size;modified;readonly;created;modified;accessed
 
 " -------------------- coc translator
 nmap  <M-e> <Plug>(coc-translator-e)

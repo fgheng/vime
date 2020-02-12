@@ -12,13 +12,13 @@ endif
 " endfunction
 
 " autocmd! colorscheme one call s:patch_lucius_colors()
-" hi normal     ctermbg=NONE guibg=NONE
-" hi linenr     ctermbg=NONE guibg=NONE
-" hi signcolumn ctermbg=NONE guibg=NONE
 " set background=dark
 " set background=light
 let g:one_allow_italics = 1 " support italics
-colorscheme neodark
+colorscheme one
+hi normal     ctermbg=NONE guibg=NONE
+hi linenr     ctermbg=NONE guibg=NONE
+hi signcolumn ctermbg=NONE guibg=NONE
 " call one#highlight('vimLineComment', 'cccccc', '', 'underline')
 
 "------------------------------------------------------"

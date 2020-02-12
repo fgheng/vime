@@ -1,6 +1,7 @@
 set number
 set relativenumber " 设置相对行号
 set cursorline "高亮当前行
+" hi CursorLine term=bold cterm=bold ctermbg=Red
 set incsearch " 搜索时即高亮
 set hlsearch " 高亮匹配内容
 set wrap
