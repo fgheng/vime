@@ -21,8 +21,7 @@
     ],
     //"coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
-    "coc.preferences.highlightTimeout": 1000, // highlighttime
-
+    //"coc.preferences.highlightTimeout": 1000, // highlighttime
     // suggest
     "suggest.floatEnable": true, // 关闭悬浮窗口?
     "suggest.triggerAfterInsertEnter": true,
@@ -43,7 +42,8 @@
     "diagnostic.infoSign": ">>",
     "diagnostic.hintSign": ">>",
     "diagnostic.displayByAle": false,
-    "diagnostic.maxWindowHeight": 10,
+    "diagnostic.maxWindowHeight": 10, // 窗口最大高度
+	// "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
 
     // list
     "session.saveOnVimLeave": true,

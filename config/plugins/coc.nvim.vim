@@ -101,6 +101,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" diagnostic 跳转
+nmap <silent> gk <Plug>(coc-diagnostic-prev)
+nmap <silent> gj <Plug>(coc-diagnostic-next)
 
 " 使用K悬浮显示定义
 function! s:show_documentation()
@@ -110,9 +113,9 @@ function! s:show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
-nnoremap <silent> <space>k :call <SID>show_documentation()<CR>
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-" nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
+" nnoremap <silent> <space>k :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
 
 augroup mygroup
 	autocmd!
@@ -153,9 +156,6 @@ if !HasPlug('fzf')
 endif
 " 切换cwd
 nnoremap <silent> <space>`  :<C-u>CocList folders<cr>
-" diagnostic 跳转
-nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 " Fix autofix problem of current line
 nmap <space>f  <Plug>(coc-fix-current)
 " 重命名
@@ -167,9 +167,9 @@ nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 "---------------------------------------------- coc list
 if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	" 搜索当前工作目录下的文件
-	nnoremap <silent> <M-F> :CocList files <CR>
+	nnoremap <silent> <M-f> :CocList files <CR>
 	" 只搜索当前文件夹下的文件
-	nnoremap <silent> <M-f> :exec 'CocList files '.expand('%:h')<CR>
+	" nnoremap <silent> <M-f> :exec 'CocList files '.expand('%:h')<CR>
 
 	nnoremap <silent> <M-b> :CocList buffers<CR>
 	nnoremap <silent> <M-t> :CocList tags<cr>

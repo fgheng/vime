@@ -47,12 +47,6 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-"tabl operation
-nnoremap <leader>tn :tabnew<cr>
-nnoremap <leader>te :tabedit
-nnoremap <leader>tc :tabclose<cr>
-nnoremap <leader>tm :tabmove
-
 nnoremap Y y$ " 复制到末尾
 
 " terminal
@@ -61,6 +55,15 @@ tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 tnoremap <c-l> <c-\><c-n><c-w>l
 tnoremap <c-h> <c-\><c-n><c-w>h
+
+"tabl operation
+nnoremap <leader>tn :tabnew<cr>
+" nnoremap <leader>te :tabedit
+nnoremap <leader>tc :tabclose<cr>
+nnoremap <leader>tm :+tabmove
+nnoremap <leader>tM :-tabmove
+" nnoremap <leader>th :-tabmove<cr>
+" nnoremap <leader>tl :+tabmove<cr>
 
 "------------------------------------------- vim-airline
 if !HasPlug('vim-airline')
