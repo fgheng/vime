@@ -60,7 +60,7 @@
     "list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
-    //"list.source.files.command": "rg",
+	"list.source.files.command": "fd",
 
     // signature
     "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示

@@ -1,4 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =2
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/forever/.local/share/applications'
 let g:netrw_dirhist_2='/home/forever/Documents/课程/研究生/数据挖掘/大作业/code/Data Pretreatment'
 let g:netrw_dirhist_1='/home/forever/Documents/课程/研究生/数据挖掘/大作业/code/Data Crawling'

@@ -12,6 +12,7 @@ set noswapfile " 禁止生成swap文件
 set colorcolumn=80 " 高亮第80行
 set hidden " 终端隐藏后不结束
 set ignorecase " 忽略大小写
+" set smartcase
 set infercase       " Adjust case in insert completion mode
 set history=500 " 历史命令
 set splitbelow " 在下方分割
