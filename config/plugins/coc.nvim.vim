@@ -184,7 +184,8 @@ if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	nnoremap <silent> <M-S> :CocList grep<cr>
 	nnoremap <silent> <M-r> :CocList mru -A<CR>
 	nnoremap <silent> <M-m> :CocList marks<CR>
-	nnoremap <silent> <M-w> :CocList windows<CR>
+	" 选择窗口, 不在使用而是使用插件
+	" nnoremap <silent> <M-w> :CocList windows<CR>
 
 	" command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
 	" function! s:GrepArgs(...)
@@ -192,7 +193,7 @@ if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	"         \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
 	"     return join(list, "\n")
 	" endfunction
-	nnoremap <silent> <M-c> :exe 'CocList -I --input='.expand('<cword>').' words'<cr>
+	nnoremap <silent> <M-w> :exe 'CocList -I --input='.expand('<cword>').' words'<cr>
 endif
 
 "---------------------------------------------- folders
