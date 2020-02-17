@@ -12,10 +12,10 @@ endif
 " endfunction
 
 " autocmd! colorscheme one call s:patch_lucius_colors()
-" set background=dark
-" set background=light
 let g:one_allow_italics = 1 " support italics
 colorscheme one
+" set background=dark
+" set background=light
 hi normal     ctermbg=NONE guibg=NONE
 hi linenr     ctermbg=NONE guibg=NONE
 hi signcolumn ctermbg=NONE guibg=NONE

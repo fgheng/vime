@@ -48,12 +48,12 @@
     // list
     "session.saveOnVimLeave": true,
     "session.directory": "~/.cache/vim/coc/sessions",
-    "list.insertMappings": {
-        "<C-t>": "action:tabe",
-        "<c-v>": "action:vsplit",
-        "<c-s>": "action:split",
-        "<C-w>": "command:wincmd k"
-    },
+    //"list.insertMappings": {
+    //    "<C-t>": "action:tabe",
+    //    "<c-v>": "action:vsplit",
+    //    "<c-s>": "action:split",
+    //    "<C-w>": "command:wincmd k"
+    //},
     "list.maxHeight": 10,
     "list.maxPreviewHeight": 6,
     //"list.source.grep.defaultArgs": ["-S", "-e"],
@@ -61,6 +61,8 @@
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
 	"list.source.files.command": "fd",
+	//"list.source.files.args": ['--hidden', '--files'], // 允许搜索隐藏文件
+	"list.source.files.excludePatterns": [".git"], // 忽略搜索的文件列表
 
     // signature
     "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示

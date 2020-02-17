@@ -172,10 +172,11 @@ if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	" nnoremap <silent> <M-f> :exec 'CocList files '.expand('%:h')<CR>
 
 	nnoremap <silent> <M-b> :CocList buffers<CR>
-	nnoremap <silent> <M-t> :CocList tags<cr>
-	"nnoremap <silent> <M-s> :CocList words<cr>
-	nnoremap <silent> <M-s> :CocList lines<cr>
-	nnoremap <silent> <M-S> :CocList grep<cr>
+	" nnoremap <silent> <M-t> :CocList tags<cr>
+	" nnoremap <silent> <M-s> :CocList words<cr>
+	nnoremap <silent> <M-s> :CocList symbols<cr>
+	nnoremap <silent> <M-g> :CocList lines<cr>
+	nnoremap <silent> <M-G> :CocList grep<cr>
 	nnoremap <silent> <M-r> :CocList mru -A<CR>
 	nnoremap <silent> <M-m> :CocList marks<CR>
 	nnoremap <silent> <M-w> :CocList windows<CR>
