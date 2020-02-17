@@ -46,8 +46,6 @@
 	// "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
 
     // list
-    "session.saveOnVimLeave": true,
-    "session.directory": "~/.cache/vim/coc/sessions",
     //"list.insertMappings": {
     //    "<C-t>": "action:tabe",
     //    "<c-v>": "action:vsplit",
@@ -60,13 +58,17 @@
     "list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
-	"list.source.files.command": "fd",
-	//"list.source.files.args": ['--hidden', '--files'], // 允许搜索隐藏文件
+	"list.source.files.command": "fd", //文件搜索命令，默认使用find，改成fd，需要安装fd
+	//"list.source.files.args": ["-j 4"], // 开启4个线程搜索
 	"list.source.files.excludePatterns": [".git"], // 忽略搜索的文件列表
 
     // signature
     "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
     "cursors.cancelKey": "<BackSpace>", // 多光标取消选择快捷键
+
+	// session
+    "session.saveOnVimLeave": true,
+    "session.directory": "~/.cache/vim/coc/sessions",
 
     // python
     "python.autoComplete.addBrackets": true,

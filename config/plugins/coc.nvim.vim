@@ -1,4 +1,5 @@
-" let g:coc_data_home = "~/.cache/vim/coc"
+" 设置coc的根目录
+let g:coc_data_home = $HOME."/.cache/vim/coc"
 " coc插件
 let g:coc_global_extensions =
 			\ [
@@ -184,7 +185,8 @@ if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	nnoremap <silent> <M-s> :CocList lines<cr>
 	nnoremap <silent> <M-S> :CocList grep<cr>
 	nnoremap <silent> <M-r> :CocList mru -A<CR>
-	nnoremap <silent> <M-m> :CocList marks<CR>
+	" marks 改用coc-bookmark
+	" nnoremap <silent> <M-m> :CocList marks<CR>
 	" 选择窗口, 不在使用而是使用插件
 	" nnoremap <silent> <M-w> :CocList windows<CR>
 
