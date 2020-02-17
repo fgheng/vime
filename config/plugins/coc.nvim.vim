@@ -1,4 +1,4 @@
-" let g:coc_extension_root = "~/.cache/coc/extensions"
+" let g:coc_data_home = "~/.cache/vim/coc"
 " coc插件
 let g:coc_global_extensions =
 			\ [
@@ -20,7 +20,8 @@ let g:coc_global_extensions =
 			\ 'coc-translator',
 			\ 'coc-rls',
 			\ 'coc-java',
-			\ 'coc-go'
+			\ 'coc-go',
+			\ 'coc-bookmark'
 			\ ]
 			" \ 'coc-go' 直接使用go-languageserver
 			" \ 'coc-json',
@@ -200,8 +201,6 @@ endif
 " 根据具体文件设定cwd
 "当前的 workspaceFolders，用于 session 使用。 需添加 `set sessionoptions+=globals` 让 session 支持 globals 变量。
 set sessionoptions+=globals
-"autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
-"autocmd FileType c,cpp let b:coc_root_patterns = ['.git', '.ccls', 'compile_flags.txt']
 
 "---------------------------------------------- 多光标
 if !HasPlug("vim-visual-multi")
@@ -243,36 +242,14 @@ call coc#add_command('Goyo', 'Goyo', '阅读模式')
 call coc#add_command('Defx', 'Defx', '文件管理')
 call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
 
-" ---------------------- coc smartf
-"  不好用
-" 这个只能搜索单词开头, 不过可以在配置中进行配置
-" press <esc> to cancel.
-" nmap f <Plug>(coc-smartf-forward)
-" nmap F <Plug>(coc-smartf-backward)
-" nmap ; <Plug>(coc-smartf-repeat)
-" nmap , <Plug>(coc-smartf-repeat-opposite)
-
-" augroup Smartf
-"   autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
-"   autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
-" augroup end
-
-" --------------------- coc terminal
-" 也是不好用
-" nmap <F8> <plug>(coc-terminal-toggle)
-
 " -------------------- coc explorer
 nmap <silent> <F2> :CocCommand explorer <cr>
-			" \ --toggle
-			" \ --width=30
-			" \ --position=left
-			" \ --sources=buffer+,file+
-			" \ --file-columns=git:selection:clip:indent:diagnosticError:diagnosticWarning:icon:filename;filename;fullpath;size;modified;readonly;created;modified;accessed
 
 " -------------------- coc translator
 nmap  <M-e> <Plug>(coc-translator-e)
 nmap  <M-d> <Plug>(coc-translator-p)
 
 " -------------------- coc bookmark
-" nmap <silent> bm <Plug>(coc-bookmark-toggle)
-" nmap <silent> <space>m :CocList bookmark<cr>
+nmap <silent> ma <Plug>(coc-bookmark-annotate)
+nmap <silent> mm <Plug>(coc-bookmark-toggle)
+nmap <silent> ml :CocList bookmark<cr>

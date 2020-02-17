@@ -214,6 +214,8 @@
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
 
+	// bookmark
+
     // lsp
     "languageserver": {
         "clangd": {

@@ -46,16 +46,12 @@ Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 " 快速移动
 Plug 'rhysd/clever-f.vim'
-" , {'on': '<Plug>(clever-f-f)'}
 " 对齐线
 Plug 'Yggdroot/indentLine'
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
-" 标签
-Plug 'MattesGroeger/vim-bookmarks'
-" , {'on':['<Plug>BookmarkToogle', '<Plug>BookmarkShowAll', '<Plug>BookmarkClear']}
 " 编译运行
 Plug 'thinca/vim-quickrun', {'on': '<Plug>(quickrun)'}
 " table模式
