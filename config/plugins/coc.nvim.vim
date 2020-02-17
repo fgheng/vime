@@ -166,21 +166,25 @@ nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
 "---------------------------------------------- coc list
 if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
-	" 搜索当前工作目录下的文件
+	" 搜索当前工作目录下的所有文件
 	nnoremap <silent> <M-f> :CocList files <CR>
 	" 只搜索当前文件夹下的文件
 	" nnoremap <silent> <M-f> :exec 'CocList files '.expand('%:h')<CR>
 
+	" 显示buffers
 	nnoremap <silent> <M-b> :CocList buffers<CR>
+	" tags, 需要先generate tags
 	" nnoremap <silent> <M-t> :CocList tags<cr>
 	" nnoremap <silent> <M-s> :CocList words<cr>
-	nnoremap <silent> <M-s> :CocList symbols<cr>
-	nnoremap <silent> <M-g> :CocList lines<cr>
-	nnoremap <silent> <M-G> :CocList grep<cr>
+	" symbols，不用outline了
+	nnoremap <silent> <M-o> :CocList symbols<cr>
+	" outline
+	nnoremap <silent> <M-O> :CocList outline<cr>
+	nnoremap <silent> <M-s> :CocList lines<cr>
+	nnoremap <silent> <M-S> :CocList grep<cr>
 	nnoremap <silent> <M-r> :CocList mru -A<CR>
 	nnoremap <silent> <M-m> :CocList marks<CR>
 	nnoremap <silent> <M-w> :CocList windows<CR>
-	nnoremap <silent> <M-o> :CocList outline<CR>
 
 	" command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
 	" function! s:GrepArgs(...)
