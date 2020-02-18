@@ -75,7 +75,7 @@
 
     // session
     "session.saveOnVimLeave": true,
-    "session.directory": "~/.cache/vim/coc/sessions",
+	"session.directory": "~/.cache/vim/coc/sessions/",
 
     // python
     "python.autoComplete.addBrackets": true,
