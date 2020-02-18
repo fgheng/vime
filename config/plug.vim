@@ -58,8 +58,9 @@ Plug 'thinca/vim-quickrun', {'on': '<Plug>(quickrun)'}
 Plug 'dhruvasagar/vim-table-mode', {'on':'TableModeToggle'}
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
+" debug
+Plug 'puremourning/vimspector'
 
-" 需要安装pysdl2, sdl2_mixer
 " 快速打开终端, neovim需要pip install neovim-remote
 Plug 'skywind3000/vim-terminal-help'
 
