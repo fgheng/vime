@@ -168,7 +168,7 @@ nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
 "---------------------------------------------- coc list
 if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
-	" 搜索当前工作目录下的所有文件
+	" 搜索当前工作目录下的所有文件, -W workspace中搜索
 	nnoremap <silent> <M-f> :CocList files <CR>
 	" 只搜索当前文件夹下的文件
 	" nnoremap <silent> <M-f> :exec 'CocList files '.expand('%:h')<CR>

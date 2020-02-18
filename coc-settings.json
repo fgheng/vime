@@ -43,9 +43,16 @@
     "diagnostic.hintSign": ">>",
     "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10, // 窗口最大高度
-	// "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
+    // "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
 
     // list
+	// normal 模式下的快捷键
+    //"list.normalMappings": {
+    //    "t": "action:tabe",
+    //    "v": "action:vsplit",
+    //    "s": "action:split",
+    //    "d": "expr:GetDeleteAction"
+    //},
     //"list.insertMappings": {
     //    "<C-t>": "action:tabe",
     //    "<c-v>": "action:vsplit",
@@ -53,20 +60,20 @@
     //    "<C-w>": "command:wincmd k"
     //},
     "list.maxHeight": 10,
-    "list.maxPreviewHeight": 6,
+    "list.maxPreviewHeight": 10,
     //"list.source.grep.defaultArgs": ["-S", "-e"],
     "list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
-	"list.source.files.command": "fd", //文件搜索命令，默认使用find，改成fd，需要安装fd
-	//"list.source.files.args": ["-j 4"], // 开启4个线程搜索
-	"list.source.files.excludePatterns": [".git"], // 忽略搜索的文件列表
+    "list.source.files.command": "fd", //文件搜索命令，默认使用find，改成fd，需要安装fd
+    "list.source.files.args": ["-j 4"], // 开启4个线程搜索
+    "list.source.files.excludePatterns": [".git"], // 忽略搜索的文件列表
 
     // signature
     "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
     "cursors.cancelKey": "<BackSpace>", // 多光标取消选择快捷键
 
-	// session
+    // session
     "session.saveOnVimLeave": true,
     "session.directory": "~/.cache/vim/coc/sessions",
 
@@ -133,7 +140,7 @@
         ["size"]
     ],
     "explorer.keyMappings": {
-		// base
+        // base
         "k": "nodePrev",
         "j": "nodeNext",
         "h": "collapse",
@@ -145,8 +152,7 @@
         "V": ["toggleSelection", "normal:k"],
         "*": "toggleSelection",
 
-
-		// file
+        // file
         "o": "expandOrCollapse",
         "<cr>": "open",
         "ev": "openInVsplit",
@@ -216,7 +222,7 @@
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
 
-	// bookmark
+    // bookmark
 
     // lsp
     "languageserver": {
