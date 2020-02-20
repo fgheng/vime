@@ -1,7 +1,7 @@
 "------------------------------------------- base key map
 inoremap jk <esc> " jk执行esc
-" nnoremap q <esc>:close<cr> " 关闭窗口
-" vnoremap q <esc>:close<cr>
+nnoremap <M-c> <esc>:close<cr> " 关闭窗口
+vnoremap <M-c> <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
 " 删除buffer
 if HasPlug('bclose.vim')

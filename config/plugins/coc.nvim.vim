@@ -22,10 +22,10 @@ let g:coc_global_extensions =
 			\ 'coc-rls',
 			\ 'coc-java',
 			\ 'coc-go',
-			\ 'coc-bookmark'
+			\ 'coc-bookmark',
+			\ 'coc-json',
 			\ ]
 			" \ 'coc-go' 直接使用go-languageserver
-			" \ 'coc-json',
 			" \ 'coc-ecdict',
 			" \ 'coc-tabnine',
 			" \ 'coc-imselect',
@@ -65,11 +65,11 @@ inoremap <silent><expr> <S-TAB>
 	\ "\<C-h>"
 
 " ctrl j 向下选择
-inoremap <silent><expr> <c-j>
+inoremap <silent><expr> <M-j>
    \ pumvisible() ? "\<C-n>" : return
 
 " ctrl k 向上选择
-inoremap <silent><expr> <c-k>
+inoremap <silent><expr> <M-k>
    \ pumvisible() ? "\<C-p>" : return
 
 " 回车补全选中的内容
@@ -115,8 +115,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 " diagnostic 跳转
-nmap <silent> gk <Plug>(coc-diagnostic-prev)
-nmap <silent> gj <Plug>(coc-diagnostic-next)
+nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
+nmap <silent> <M-j> <Plug>(coc-diagnostic-next)
 
 " 使用K悬浮显示定义
 function! s:show_documentation()

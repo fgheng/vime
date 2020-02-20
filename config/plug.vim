@@ -10,7 +10,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " markdown 插件
-Plug 'plasticboy/vim-markdown', {'for': ['md', 'markdown']}
+Plug 'plasticboy/vim-markdown'
+", {'for': ['md', 'markdown']}
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
 " theme
@@ -53,7 +54,9 @@ Plug 'mg979/vim-visual-multi'
 " 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " 编译运行
-Plug 'thinca/vim-quickrun', {'on': '<Plug>(quickrun)'}
+" Plug 'thinca/vim-quickrun', {'on': '<Plug>(quickrun)'}
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
 " table模式
 Plug 'dhruvasagar/vim-table-mode', {'on':'TableModeToggle'}
 " csv
