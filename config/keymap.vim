@@ -11,10 +11,14 @@ else
 endif
 
 " 窗口
-noremap <c-h> <C-w>h
-noremap <c-j> <C-w>j
-noremap <c-k> <C-w>k
-noremap <c-l> <C-w>l
+" noremap <c-h> <C-w>h
+" noremap <c-j> <C-w>j
+" noremap <c-k> <C-w>k
+" noremap <c-l> <C-w>l
+noremap <M-H> <C-w>h
+noremap <M-J> <C-w>j
+noremap <M-K> <C-w>k
+noremap <M-L> <C-w>l
 " 更改窗口大小
 nnoremap <M-{> :vertical resize -5<CR> " 更改窗口宽度
 nnoremap <M-}> :vertical resize +5<CR>
