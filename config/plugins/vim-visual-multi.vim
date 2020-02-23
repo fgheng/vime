@@ -10,13 +10,31 @@
 "
 "
 let g:VM_theme='ocean'
-let g:VM_show_warnings = 0 " 取消警告
+let g:VM_show_warnings = 0
 let g:VM_maps = {}
-let g:VM_maps["Add Cursor At Pos"] = '<c-c>' " 增加一个光标
-let g:VM_maps['Select All'] = '<c-a>' " 全选
+
+let g:VM_maps["Switch Mode"]                 = '<Tab>'
+let g:VM_maps["Add Cursor At Pos"]           = '<C-c>'
+let g:VM_maps['Visual Add']				     = '<C-c>'
+let g:VM_maps['Find Under']                  = '<C-n>'
+let g:VM_maps['Find Subword Under']          = '<C-n>'
+let g:VM_maps["Select All"]                  = '<c-m>'
+let g:VM_maps["Visual All"]                  = '<c-m>'
 let g:VM_maps["Start Regex Search"]          = '\\/'
 let g:VM_maps["Visual Regex"]                = '\\/'
-let g:VM_maps["Visual All"]                  = '\\A'
-let g:VM_maps["Visual Add"]                  = '\\a'
-let g:VM_maps["Visual Find"]                 = '\\f'
-let g:VM_maps["Visual Cursors"]              = '\\c'
+
+" let g:VM_maps["Alt Skip"]                    = 'Q'
+let g:VM_maps["Remove Region"]               = 'q'
+" let g:VM_maps["Skip Region"]                 = 'q'
+let g:VM_maps["Invert Direction"]            = 'o'
+let g:VM_maps["Find Operator"]               = "m"
+let g:VM_maps["Surround"]                    = 'S'
+
+let g:VM_maps["Find Next"]                   = '}'
+let g:VM_maps["Find Prev"]                   = '{'
+let g:VM_maps["Goto Next"]                   = ']'
+let g:VM_maps["Goto Prev"]                   = '['
+
+" let g:VM_maps["Visual Regex"]                = '\\/'
+" let g:VM_maps["Visual All"]                  = '\\A'
+" let g:VM_maps["Visual Add"]                  = '\\a'

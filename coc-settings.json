@@ -46,7 +46,7 @@
     // "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
 
     // list
-	// normal 模式下的快捷键
+    // normal 模式下的快捷键
     //"list.normalMappings": {
     //    "t": "action:tabe",
     //    "v": "action:vsplit",
@@ -60,9 +60,11 @@
     //    "<C-w>": "command:wincmd k"
     //},
     "list.maxHeight": 10,
-    "list.maxPreviewHeight": 10,
+    "list.maxPreviewHeight": 8,
+    "list.autoResize": false,
+	"list.source.grep.command":"rg",
     //"list.source.grep.defaultArgs": ["-S", "-e"],
-    "list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
+    //"list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
     "list.source.files.command": "fd", //文件搜索命令，默认使用find，改成fd，需要安装fd
@@ -71,11 +73,13 @@
 
     // signature
     "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
+
+    // cursors
     "cursors.cancelKey": "<BackSpace>", // 多光标取消选择快捷键
 
     // session
     "session.saveOnVimLeave": true,
-	"session.directory": "~/.cache/vim/sessions/",
+    "session.directory": "~/.cache/vim/sessions/",
 
     // python
     "python.autoComplete.addBrackets": true,
@@ -100,7 +104,7 @@
 
     //explorer
     "explorer.icon.enableNerdfont": true,
-    "explorer.width": 35,
+    "explorer.width": 40,
     "explorer.position": "left",
     "explorer.sources": [
         {
@@ -113,32 +117,13 @@
         }
     ],
     "explorer.previewAction.onHover": true,
-    "explorer.buffer.columns": [
-        "selection",
-        "bufnr",
-        "name",
-        "fullpath",
-        ["bufname"],
-        ["fullpath"],
-        ["modified"],
-        ["readonly"]
-    ],
-    "explorer.file.columns": [
-        "git",
-        "selection",
-        "clip",
-        "diagnosticError",
-        "indent",
-        "icon",
-        "filename",
-        ["filename"],
-        ["fullpath"],
-        ["accessed"],
-        ["modified"],
-        ["created"],
-        ["readonly"],
-        ["size"]
-    ],
+    "explorer.buffer.root.template": "[icon] [title]",
+    "explorer.buffer.child.template": "[selection | 1] [bufnr] [name][modified][readonly] [fullpath]",
+    "explorer.buffer.child.labelingTemplate": "[name][bufname][fullpath][modified][readonly]",
+
+    "explorer.file.root.template": "[icon] [title] [root] [fullpath]",
+    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
+    "explorer.file.child.labelingTemplate": "[fullpath][link][diagnosticWarning][diagnosticError][size][accessed][modified][created][readonly]",
     "explorer.keyMappings": {
         // base
         "k": "nodePrev",

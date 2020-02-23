@@ -9,9 +9,6 @@ call plug#begin(s:plugins_path)
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
-" markdown 插件
-Plug 'plasticboy/vim-markdown'
-", {'for': ['md', 'markdown']}
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
 " theme
@@ -53,19 +50,19 @@ Plug 'Yggdroot/indentLine'
 Plug 'mg979/vim-visual-multi'
 " 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
-" 编译运行
-" Plug 'thinca/vim-quickrun', {'on': '<Plug>(quickrun)'}
-Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.vim'
 " table模式
 Plug 'dhruvasagar/vim-table-mode', {'on':'TableModeToggle'}
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
+" 编译运行
+" Plug 'thinca/vim-quickrun', {'on': '<Plug>(quickrun)'}
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
 " debug
 Plug 'puremourning/vimspector'
-
 " 快速打开终端, neovim需要pip install neovim-remote
 Plug 'skywind3000/vim-terminal-help'
+Plug 'vimwiki/vimwiki'
 
 call plug#end()
 

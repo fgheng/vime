@@ -23,7 +23,6 @@ let g:coc_global_extensions =
 			\ 'coc-java',
 			\ 'coc-go',
 			\ 'coc-bookmark',
-			\ 'coc-json',
 			\ ]
 			" \ 'coc-go' 直接使用go-languageserver
 			" \ 'coc-ecdict',
@@ -156,7 +155,7 @@ nnoremap <silent> <space>e  :<C-u>CocList services<cr>
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 vnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " show coclist
@@ -180,34 +179,18 @@ nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 "---------------------------------------------- coc list
 if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
 	" 搜索当前工作目录下的所有文件, -W workspace中搜索
-	nnoremap <silent> <M-f> :CocList files <CR>
-	" 只搜索当前文件夹下的文件
-	" nnoremap <silent> <M-f> :exec 'CocList files '.expand('%:h')<CR>
-
-	" 显示buffers
+	nnoremap <silent> <M-f> :CocList --no-sort files <CR>
 	nnoremap <silent> <M-b> :CocList buffers<CR>
 	" tags, 需要先generate tags
 	" nnoremap <silent> <M-t> :CocList tags<cr>
 	" nnoremap <silent> <M-s> :CocList words<cr>
-	" symbols，不用outline了
-	nnoremap <silent> <M-o> :CocList symbols<cr>
-	" outline
-	nnoremap <silent> <M-O> :CocList outline<cr>
-	nnoremap <silent> <M-s> :CocList lines<cr>
-	nnoremap <silent> <M-S> :CocList grep<cr>
+	nnoremap <silent> <M-O> :CocList --auto-preview --interactive symbols<cr>
+	nnoremap <silent> <M-o> :CocList --auto-preview outline<cr>
+	nnoremap <silent> <M-s> :CocList --auto-preview --interactive lines<cr>
+	nnoremap <silent> <M-S> :CocList --interactive grep<cr>
 	nnoremap <silent> <M-r> :CocList mru -A<CR>
-	" marks 改用coc-bookmark
-	" nnoremap <silent> <M-m> :CocList marks<CR>
-	" 选择窗口, 不在使用而是使用插件
-	" nnoremap <silent> <M-w> :CocList windows<CR>
-
-	" command! -nargs=+ -complete=custom,s:GrepArgs Rg exe 'CocList grep '.<q-args>
-	" function! s:GrepArgs(...)
-	" let list = ['-S', '-smartcase', '-i', '-ignorecase', '-w', '-word',
-	"         \ '-e', '-regex', '-u', '-skip-vcs-ignores', '-t', '-extension']
-	"     return join(list, "\n")
-	" endfunction
-	nnoremap <silent> <M-w> :exe 'CocList -I --input='.expand('<cword>').' words'<cr>
+	" nnoremap <silent> <M-w> :CocList --auto-preview --interactive words<CR>
+	nnoremap <silent> <M-w> :exe 'CocList --normal --auto-preview --input='.expand('<cword>').' words'<cr>
 endif
 
 "---------------------------------------------- folders
@@ -257,6 +240,27 @@ call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
 
 " -------------------- coc explorer
 nmap <silent> <F2> :CocCommand explorer <cr>
+" nmap <silent> <F2> :CocCommand explorer --preset floating<cr>
+" let g:coc_explorer_global_presets = {
+" \   '.vim': {
+" \      'root-uri': '~/.dotfiles/nvim',
+" \   },
+" \   'floating': {
+" \      'position': "floating",
+" \   },
+" \   'floatingLeftside': {
+" \      'floating-position': 'left-center',
+" \      'floating-width': 50,
+" \   },
+" \   'floatingRightside': {
+" \      'floating-position': 'left-center',
+" \      'floating-width': 50,
+" \   },
+" \   'simplify': {
+" \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+" \   }
+" \ }
+
 
 " -------------------- coc translator
 nmap  <M-e> <Plug>(coc-translator-e)

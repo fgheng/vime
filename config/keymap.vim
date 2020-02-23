@@ -1,20 +1,14 @@
 "------------------------------------------- base key map
 inoremap jk <esc> " jk执行esc
-nnoremap <M-c> <esc>:close<cr> " 关闭窗口
-vnoremap <M-c> <esc>:close<cr>
+nnoremap <M-q> <esc>:close<cr> " 关闭窗口
+vnoremap <M-q> <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
-" 删除buffer
-if HasPlug('bclose.vim')
-    nnoremap <C-x>  :Bclose<CR>
-else
-    nnoremap <c-x> :bd<cr>
-endif
 
 " 窗口
-" noremap <c-h> <C-w>h
-" noremap <c-j> <C-w>j
-" noremap <c-k> <C-w>k
-" noremap <c-l> <C-w>l
+noremap <c-h> <C-w>h
+noremap <c-j> <C-w>j
+noremap <c-k> <C-w>k
+noremap <c-l> <C-w>l
 noremap <M-H> <C-w>h
 noremap <M-J> <C-w>j
 noremap <M-K> <C-w>k
@@ -61,13 +55,14 @@ tnoremap <c-l> <c-\><c-n><c-w>l
 tnoremap <c-h> <c-\><c-n><c-w>h
 
 "tabl operation
-nnoremap <leader>tn :tabnew<cr>
-" nnoremap <leader>te :tabedit
-nnoremap <leader>tc :tabclose<cr>
-nnoremap <leader>tm :+tabmove
-nnoremap <leader>tM :-tabmove
-" nnoremap <leader>th :-tabmove<cr>
-" nnoremap <leader>tl :+tabmove<cr>
+function s:new_tab_before() abort
+	exec "tabnew | -tabmove"
+endfunction
+nnoremap <silent> <leader>tN :call <SID>new_tab_before()<cr> " 在前么新建一个tab
+nnoremap <silent> <leader>tn :tabnew<cr>
+nnoremap <silent> <leader>tc :tabclose<cr>
+nnoremap <silent> <leader>tm :+tabmove<cr>
+nnoremap <silent> <leader>tM :-tabmove<cr>
 
 "------------------------------------------- vim-airline
 if !HasPlug('vim-airline')
