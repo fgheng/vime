@@ -63,6 +63,8 @@ Plug 'puremourning/vimspector'
 " 快速打开终端, neovim需要pip install neovim-remote
 Plug 'skywind3000/vim-terminal-help'
 Plug 'vimwiki/vimwiki'
+" 日期插件
+Plug 'itchyny/calendar.vim'
 
 call plug#end()
 

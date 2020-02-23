@@ -235,7 +235,6 @@ endif
 " ----------------------- coc自定义命令
 call coc#add_command('mundoToggle', 'MundoToggle', '显示撤回列表')
 call coc#add_command('Goyo', 'Goyo', '阅读模式')
-call coc#add_command('Defx', 'Defx', '文件管理')
 call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
 
 " -------------------- coc explorer

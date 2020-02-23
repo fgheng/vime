@@ -62,7 +62,7 @@
     "list.maxHeight": 10,
     "list.maxPreviewHeight": 8,
     "list.autoResize": false,
-	"list.source.grep.command":"rg",
+    "list.source.grep.command": "rg",
     //"list.source.grep.defaultArgs": ["-S", "-e"],
     //"list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
     "list.source.lines.defaultArgs": ["-e"],
@@ -116,15 +116,18 @@
             "expand": true
         }
     ],
+    //"explorer.file.autoReveal": true, // 自动扩展到当期buffer
     "explorer.previewAction.onHover": true,
     "explorer.buffer.root.template": "[icon] [title]",
     "explorer.buffer.child.template": "[selection | 1] [bufnr] [name][modified][readonly] [fullpath]",
     "explorer.buffer.child.labelingTemplate": "[name][bufname][fullpath][modified][readonly]",
 
     "explorer.file.root.template": "[icon] [title] [root] [fullpath]",
-    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
+    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent] [icon | 1] [diagnosticError & 1] [filename omitCenter 1][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
     "explorer.file.child.labelingTemplate": "[fullpath][link][diagnosticWarning][diagnosticError][size][accessed][modified][created][readonly]",
+    "explorer.keyMappingMode": "none", // 取消所有默认的映射，使用自己的
     "explorer.keyMappings": {
+        "a": "unmap", // 取消按键映射a
         // base
         "k": "nodePrev",
         "j": "nodeNext",
