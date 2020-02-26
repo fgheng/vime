@@ -1,7 +1,7 @@
 "------------------------------------------- base key map
-inoremap jk <esc> " jk执行esc
-nnoremap <M-q> <esc>:close<cr> " 关闭窗口
-vnoremap <M-q> <esc>:close<cr>
+inoremap jk <esc>
+" nnoremap <M-q> <esc>:close<cr>
+" vnoremap <M-q> <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
 
 " 窗口
@@ -48,7 +48,8 @@ vnoremap k gk
 nnoremap Y y$ " 复制到末尾
 
 " terminal
-tnoremap <Esc> <C-\><C-n>
+" tnoremap <Esc> <C-\><C-n>
+au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 tnoremap <c-l> <c-\><c-n><c-w>l
@@ -66,10 +67,10 @@ nnoremap <silent> <leader>tM :-tabmove<cr>
 
 "------------------------------------------- vim-airline
 if !HasPlug('vim-airline')
-    nnoremap  <M-l> :tabnext<cr>
-    nnoremap  <M-h> :tabprevious<CR>
-    tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
-    tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
+    nnoremap  <silent>> <M-l> :tabnext<cr>
+    nnoremap  <silent>> <M-h> :tabprevious<CR>
+    tnoremap  <silent>> <M-l> <c-\><c-n>:tabnext<cr>
+    tnoremap  <silent>> <M-h> <c-\><c-n>:tabprevious<CR>
 endif
 
 "------------------------------------------- ale
@@ -79,35 +80,9 @@ if HasPlug('ale')
     nmap <silent> <space>} <Plug>(ale_next_wrap)
 endif
 
-"------------------------------------------- leaderf
-if HasPlug('LeaderF')
-	" 过时了，现在主要用coc
-    nnoremap <M-f> :LeaderfFile<CR>
-    "nnoremap <M-t> :LeaderfBufTag<CR>
-    "nnoremap <M-T> :LeaderfBufTagAll<CR>
-    nnoremap <M-o> :LeaderfBufferAll<CR>
-    "nnoremap <M-b> :LeaderfTabBufferAll<CR><TAB>
-    nnoremap <M-s> :LeaderfLine<CR>
-    nnoremap <M-S> :<C-hhhU><C-R>=printf("Leaderf rg -S --fullPath %s", getcwd())<cr><cr>
-    nnoremap <M-r> :LeaderfMru<CR>
-endif
-
 "------------------------------------------- fzf
 if HasPlug('fzf')
 	" 过时了，现在主要用coc
-    nnoremap <M-f> :Files<CR>
-    nnoremap <M-t> :BTags<CR>
-    nnoremap <M-T> :Tags<CR>
-    nnoremap <M-o> :Buffers<CR>
-    " nnoremap / :BLines<CR>
-    " nnoremap ? :Rg<CR>
-    nnoremap <M-s> :BLines<CR>
-    nnoremap <M-S> :Rg<CR>
-    nnoremap <M-r> :History<CR>
-    nnoremap <M-g> :GFiles?<CR>
-    nnoremap <M-G> :GFiles<CR>
-    nnoremap <M-m> :Marks<CR>
-    nnoremap <M-w> :Windows<CR>
 endif
 
 "------------------------------------------- easymotion

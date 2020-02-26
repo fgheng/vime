@@ -22,8 +22,8 @@ let g:coc_global_extensions =
 			\ 'coc-rls',
 			\ 'coc-java',
 			\ 'coc-go',
-			\ 'coc-bookmark',
 			\ ]
+			"\ 'coc-bookmark',
 			" \ 'coc-go' 直接使用go-languageserver
 			" \ 'coc-ecdict',
 			" \ 'coc-tabnine',
@@ -145,29 +145,26 @@ augroup end
 " " Remap for do codeAction of current line
 " nmap <leader>al  <Plug>(coc-codeaction)
 
+if !HasPlug('coc-fzf')
 " Using CocList
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
 " Manage extensions
-" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>e  :<C-u>CocList services<cr>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>s  :<C-u>CocList services<cr>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-vnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Search workspace symbols
-" nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " show coclist
+endif
 nnoremap <silent> <space>l  :<C-u>CocList<CR>
+
 " 重构refactor,需要lsp支持
 nmap <silent> <space>rf <Plug>(coc-refactor)
 " nnoremap <silent> <space>L  :<C-u>CocList location<CR>
-if !HasPlug('fzf')
-	nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-endif
 " 切换cwd
-nnoremap <silent> <space>`  :<C-u>CocList folders<cr>
+" nnoremap <silent> <space>`  :<C-u>CocList folders<cr>
 " Fix autofix problem of current line
 nmap <space>f  <Plug>(coc-fix-current)
 " 重命名
@@ -177,17 +174,20 @@ nmap <space>rn <Plug>(coc-rename)
 nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
 "---------------------------------------------- coc list
-if !HasPlug('LeaderF') && !HasPlug('fzf.vim')
+if !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
 	" 搜索当前工作目录下的所有文件, -W workspace中搜索
 	nnoremap <silent> <M-f> :CocList --no-sort files <CR>
 	nnoremap <silent> <M-b> :CocList buffers<CR>
+	nnoremap <silent> <M-m> :CocList marks<CR>
 	" tags, 需要先generate tags
 	" nnoremap <silent> <M-t> :CocList tags<cr>
 	" nnoremap <silent> <M-s> :CocList words<cr>
 	nnoremap <silent> <M-O> :CocList --auto-preview --interactive symbols<cr>
 	nnoremap <silent> <M-o> :CocList --auto-preview outline<cr>
-	nnoremap <silent> <M-s> :CocList --auto-preview --interactive lines<cr>
-	nnoremap <silent> <M-S> :CocList --interactive grep<cr>
+	nnoremap <silent> ? :CocList --auto-preview --interactive lines<cr>
+	nnoremap <silent> <M-s> :CocList --interactive grep<cr>
+	" nnoremap <silent> <M-s> :CocList --auto-preview --interactive lines<cr>
+	" nnoremap <silent> <M-S> :CocList --interactive grep<cr>
 	nnoremap <silent> <M-r> :CocList mru -A<CR>
 	" nnoremap <silent> <M-w> :CocList --auto-preview --interactive words<CR>
 	nnoremap <silent> <M-w> :exe 'CocList --normal --auto-preview --input='.expand('<cword>').' words'<cr>
@@ -266,6 +266,6 @@ nmap  <M-e> <Plug>(coc-translator-e)
 nmap  <M-d> <Plug>(coc-translator-p)
 
 " -------------------- coc bookmark
-nmap <silent> ma <Plug>(coc-bookmark-annotate)
-nmap <silent> mm <Plug>(coc-bookmark-toggle)
-nmap <silent> ml :CocList bookmark<cr>
+" nmap <silent> ma <Plug>(coc-bookmark-annotate)
+" nmap <silent> mm <Plug>(coc-bookmark-toggle)
+" nmap <silent> ml :CocList bookmark<cr>

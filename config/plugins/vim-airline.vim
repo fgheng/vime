@@ -33,4 +33,9 @@ endif
 if  g:airline#extensions#tabline#enabled == 1
 	nmap <M-h> <Plug>AirlineSelectPrevTab
 	nmap <M-l> <Plug>AirlineSelectNextTab
+else
+    nnoremap  <M-l> :tabnext<cr>
+    nnoremap  <M-h> :tabprevious<CR>
+    tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
+    tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
 endif

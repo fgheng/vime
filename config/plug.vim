@@ -7,27 +7,30 @@ let s:plugins_path = '~/.cache/vim/plugins'
 call plug#begin(s:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" 这下面可以算是一组插件
+Plug 'antoinemadec/coc-fzf'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
+" 生成注释文档
+Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate', 'DogeCreateDocStandard']}
 " theme
 Plug 'rakr/vim-one'
 Plug 'KeitaNakamura/neodark.vim'
-" Plug 'Rigellute/shades-of-purple.vim'
-" Plug 'haishanh/night-owl.vim'
-" Plug 'tomasiser/vim-code-dark'
-" Plug 'dunstontc/vim-vscode-theme'
-" Plug 'altercation/vim-colors-solarized'
+" 函数列表
+Plug 'liuchengxu/vista.vim', {'on': 'Vista!!'}
 " 底栏
+" Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " 彩虹括号
 Plug 'luochen1990/rainbow'
-" 函数列表
-Plug 'liuchengxu/vista.vim', {'on': 'Vista'}
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
 " 快速包围
@@ -51,7 +54,7 @@ Plug 'mg979/vim-visual-multi'
 " 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " table模式
-Plug 'dhruvasagar/vim-table-mode', {'on':'TableModeToggle'}
+Plug 'dhruvasagar/vim-table-mode'
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 编译运行
@@ -62,9 +65,9 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'puremourning/vimspector'
 " 快速打开终端, neovim需要pip install neovim-remote
 Plug 'skywind3000/vim-terminal-help'
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki', {'on':['VimwikiIndex', 'VimwikiDiaryIndex', 'VimwikiMakeDiaryNote', 'VimwikiMakeTomorrowDiaryNote', 'VimwikiMakeYesterdayDiaryNote', 'VimwikiTabIndex', 'VimwikiTabMakeDiaryNote']}
 " 日期插件
-Plug 'itchyny/calendar.vim'
+Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
 
 call plug#end()
 
