@@ -174,13 +174,13 @@ nmap <space>rn <Plug>(coc-rename)
 nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
 "---------------------------------------------- coc list
-if !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
+if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
 	" 搜索当前工作目录下的所有文件, -W workspace中搜索
 	nnoremap <silent> <M-f> :CocList --no-sort files <CR>
 	nnoremap <silent> <M-b> :CocList buffers<CR>
 	nnoremap <silent> <M-m> :CocList marks<CR>
 	" tags, 需要先generate tags
-	" nnoremap <silent> <M-t> :CocList tags<cr>
+	nnoremap <silent> <M-t> :CocList tags<cr>
 	" nnoremap <silent> <M-s> :CocList words<cr>
 	nnoremap <silent> <M-O> :CocList --auto-preview --interactive symbols<cr>
 	nnoremap <silent> <M-o> :CocList --auto-preview outline<cr>

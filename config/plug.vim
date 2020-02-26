@@ -8,10 +8,10 @@ call plug#begin(s:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 这下面可以算是一组插件
-Plug 'antoinemadec/coc-fzf'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'antoinemadec/coc-fzf'
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " 快速注释插件
@@ -22,10 +22,11 @@ Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate', 'DogeCreateDocStandard']}
 Plug 'rakr/vim-one'
 Plug 'KeitaNakamura/neodark.vim'
 " 函数列表
-Plug 'liuchengxu/vista.vim', {'on': 'Vista!!'}
+Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
 " Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
+" Plug 'liuchengxu/eleline.vim'
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }

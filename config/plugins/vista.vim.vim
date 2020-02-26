@@ -19,4 +19,11 @@ let g:vista#renderer#icons = {
 \  }
 
 
+" if HasPlug('coc.nvim')
+"     echom "asdfa"
+"     nnoremap <M-t> :Vista finder coc<CR>
+" else
+"     nnoremap <M-t> :Vista finder<CR>
+" endif
+
 nnoremap <F3> :Vista!!<CR>

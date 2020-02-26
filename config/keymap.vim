@@ -48,8 +48,11 @@ vnoremap k gk
 nnoremap Y y$ " 复制到末尾
 
 " terminal
-" tnoremap <Esc> <C-\><C-n>
-au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+if has('nvim')
+	au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+else
+	tnoremap <Esc> <C-\><C-n>
+endif
 tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 tnoremap <c-l> <c-\><c-n><c-w>l
