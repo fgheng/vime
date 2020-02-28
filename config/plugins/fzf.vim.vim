@@ -20,7 +20,7 @@ if has('nvim')
 	nnoremap <M-f> :Files<CR>
 	nnoremap <M-F> :Files $HOME<CR>
 	nnoremap <M-b> :Buffers<CR>
-	nnoremap ;; :Commands<CR>
+	nnoremap : :Commands<CR>
 	nnoremap <M-t> :BTags<CR>
 	nnoremap <M-T> :Tags<CR>
 	nnoremap <M-b> :Buffers<CR>
