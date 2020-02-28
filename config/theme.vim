@@ -13,12 +13,13 @@ endif
 
 " autocmd! colorscheme one call s:patch_lucius_colors()
 let g:one_allow_italics = 1 " support italics
-colorscheme one
+colorscheme gruvbox
 " set background=dark
 " set background=light
 hi normal     ctermbg=NONE guibg=NONE
-hi linenr     ctermbg=NONE guibg=NONE
-hi signcolumn ctermbg=NONE guibg=NONE
+" hi linenr     ctermbg=NONE guibg=NONE
+" hi signcolumn ctermbg=NONE guibg=NONE
+
 " call one#highlight('vimLineComment', 'cccccc', '', 'underline')
 
 "------------------------------------------------------"
@@ -58,4 +59,3 @@ if HasPlug('coc.nvim')
 	hi link CocInfoSign green
 	hi link CocHintSign blue
 endif
-

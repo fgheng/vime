@@ -43,6 +43,15 @@ let g:coc_global_extensions =
 			" \ 'coc-emoji',
 			" \ 'coc-post',
 
+" 判断是否安装了这个插件
+fun! HasCocPlug(cocPlugName)
+	if index(g:coc_global_extensions, a:cocPlugName) > -1
+		return v:true
+	else
+		return v:false
+	endif
+endfunc
+
 "---------------------------------------------- 补全提示框相关
 " 检查当前光标前面是不是空白字符
 function! s:check_back_space() abort
@@ -74,17 +83,6 @@ inoremap <silent><expr> <M-k>
 " 回车补全选中的内容
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" 使用ctrl space强制触发补全, tab也可以强制触发补全
-" inoremap <expr><c-space> pumvisible() ? "\<C-e>" : coc#refresh()
-
-" 使用 :Format 进行代码格式化
-"function FormatCode()
-"    if mode() == 'v' || mode() == 'V'
-"        call <Plug>(coc-format-selected)
-"    else
-"        call CocAction('format')
-"    endif
-"endfunction
 command! -nargs=0 Format :call CocAction('format')
 " 使用 :Fold 对代码进行折叠
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -146,18 +144,18 @@ augroup end
 " nmap <leader>al  <Plug>(coc-codeaction)
 
 if !HasPlug('coc-fzf')
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent> <space>s  :<C-u>CocList services<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-" show coclist
+	" Using CocList
+	" Show all diagnostics
+	nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
+	" Manage extensions
+	nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+	nnoremap <silent> <space>s  :<C-u>CocList services<cr>
+	" Show commands
+	nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+	" Resume latest coc list
+	nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 endif
+" show coclist 早晚要放进去的
 nnoremap <silent> <space>l  :<C-u>CocList<CR>
 
 " 重构refactor,需要lsp支持
@@ -169,9 +167,6 @@ nmap <silent> <space>rf <Plug>(coc-refactor)
 nmap <space>f  <Plug>(coc-fix-current)
 " 重命名
 nmap <space>rn <Plug>(coc-rename)
-
-"---------------------------------------------- coc yank
-nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
 "---------------------------------------------- coc list
 if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
@@ -203,21 +198,7 @@ if !HasPlug("vim-visual-multi")
 	" ctrl n下一个，ctrl p上一个
 	" ctrl c 添加一个光标再按一次取消，
 	nmap <silent> <C-c> <Plug>(coc-cursors-position)
-	" nmap <silent> <c-down> <Plug>(coc-cursors-position) | <down>
-
-	" function! s:select_down()
-	"     <c-c>
-	" endfunc
-	" function! s:select_up() abort
-
-	" endfunc
-	" nmap <silent> <c-up> <SID>selcct_up()
-	"nmap <silent> <C-d> <Plug>(coc-cursors-word)
-	"xmap <silent> <C-d> <Plug>(coc-cursors-range)
-	"ctrl d 选取所有v模式选择的内容
-	"nmap <silent> <C-d> <Plug>(coc-cursors-word)*
 	nmap <expr> <silent> <C-n> <SID>select_current_word()
-	" xmap <silent> <C-s> <Plug>(coc-cursors-range)
 	function! s:select_current_word()
 		if !get(g:, 'coc_cursors_activated', 0)
 			return "\<Plug>(coc-cursors-word)"
@@ -232,40 +213,30 @@ if !HasPlug("vim-visual-multi")
 	nmap <leader>x  <Plug>(coc-cursors-operator)
 endif
 
+
+if HasCocPlug('coc-yank')
+	nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
+endif
+
+if HasCocPlug('coc-explorer')
+	nmap <silent> <F2> :CocCommand explorer <cr>
+endif
+
+if HasCocPlug('coc-translator')
+	nmap  <M-e> <Plug>(coc-translator-e)
+	nmap  <M-d> <Plug>(coc-translator-p)
+endif
+
+if HasCocPlug('coc-bookmark')
+	if !HasPlug('vim-bookmarks')
+		nmap <silent> ma <Plug>(coc-bookmark-annotate)
+		nmap <silent> mm <Plug>(coc-bookmark-toggle)
+		nmap <silent> ml :CocList bookmark<cr>
+	endif
+endif
+
 " ----------------------- coc自定义命令
 call coc#add_command('mundoToggle', 'MundoToggle', '显示撤回列表')
 call coc#add_command('Goyo', 'Goyo', '阅读模式')
 call coc#add_command('Zoomwintab', 'ZoomWinTabToggle', '最大化当前窗口')
-
-" -------------------- coc explorer
-nmap <silent> <F2> :CocCommand explorer <cr>
-" nmap <silent> <F2> :CocCommand explorer --preset floating<cr>
-" let g:coc_explorer_global_presets = {
-" \   '.vim': {
-" \      'root-uri': '~/.dotfiles/nvim',
-" \   },
-" \   'floating': {
-" \      'position': "floating",
-" \   },
-" \   'floatingLeftside': {
-" \      'floating-position': 'left-center',
-" \      'floating-width': 50,
-" \   },
-" \   'floatingRightside': {
-" \      'floating-position': 'left-center',
-" \      'floating-width': 50,
-" \   },
-" \   'simplify': {
-" \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-" \   }
-" \ }
-
-
-" -------------------- coc translator
-nmap  <M-e> <Plug>(coc-translator-e)
-nmap  <M-d> <Plug>(coc-translator-p)
-
-" -------------------- coc bookmark
-" nmap <silent> ma <Plug>(coc-bookmark-annotate)
-" nmap <silent> mm <Plug>(coc-bookmark-toggle)
-" nmap <silent> ml :CocList bookmark<cr>
+" call coc#add_command('Tableize', 'Tableize', '格式化表格')

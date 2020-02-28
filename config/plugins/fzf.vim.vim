@@ -20,16 +20,18 @@ if has('nvim')
 	nnoremap <M-f> :Files<CR>
 	nnoremap <M-F> :Files $HOME<CR>
 	nnoremap <M-b> :Buffers<CR>
-	nnoremap <M-c> :Commands<CR>
+	nnoremap ;; :Commands<CR>
 	nnoremap <M-t> :BTags<CR>
 	nnoremap <M-T> :Tags<CR>
 	nnoremap <M-b> :Buffers<CR>
 	nnoremap ? :BLines<CR>
-	nnoremap <M-s> :Rg<CR>
+	nnoremap <M-s> :Lines<CR>
+	nnoremap <M-S> :Rg<CR>
 	nnoremap <M-r> :History<CR>
 	nnoremap <M-g> :GFiles?<CR>
 	nnoremap <M-G> :GFiles<CR>
 	nnoremap <M-m> :Marks<CR>
+	nnoremap <M-M> :Maps<CR>
 
 	au FileType fzf tnoremap <buffer> <C-j> <Down>
 	au FileType fzf tnoremap <buffer> <C-k> <Up>

@@ -17,10 +17,12 @@ Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mu
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
-Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate', 'DogeCreateDocStandard']}
-" theme
+Plug 'kkoomen/vim-doge'
+" 主题
 Plug 'rakr/vim-one'
 Plug 'KeitaNakamura/neodark.vim'
+Plug 'arzg/vim-colors-xcode'
+Plug 'morhetz/gruvbox'
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
@@ -34,6 +36,7 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'luochen1990/rainbow'
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
+" Plug 'Krasjet/auto.pairs'
 " 快速包围
 Plug 'tpope/vim-surround'
 " 重复上次的动作
@@ -66,9 +69,15 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'puremourning/vimspector'
 " 快速打开终端, neovim需要pip install neovim-remote
 Plug 'skywind3000/vim-terminal-help'
-Plug 'vimwiki/vimwiki', {'on':['VimwikiIndex', 'VimwikiDiaryIndex', 'VimwikiMakeDiaryNote', 'VimwikiMakeTomorrowDiaryNote', 'VimwikiMakeYesterdayDiaryNote', 'VimwikiTabIndex', 'VimwikiTabMakeDiaryNote']}
+Plug 'vimwiki/vimwiki'
+", {'on':['VimwikiIndex', 'VimwikiDiaryIndex', 'VimwikiMakeDiaryNote', 'VimwikiMakeTomorrowDiaryNote', 'VimwikiMakeYesterdayDiaryNote', 'VimwikiTabIndex', 'VimwikiTabMakeDiaryNote']}
+" 数据库
+Plug 'tpope/vim-dadbod', {'on': 'DB'}
 " 日期插件
-Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
+" Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
+" Plug 'MattesGroeger/vim-bookmarks'
+" Plug 'camspiers/animate.vim'
+" Plug 'camspiers/lens.vim'
 
 call plug#end()
 
@@ -77,17 +86,17 @@ fun! HasInstall(plugin_name) abort
 	let s:plugin_path = s:plugins_path . "/" . a:plugin_name
 
 	if !empty(glob(s:plugin_path))
-		return 1
+		return v:true
 	else
-		return 0
+		return v:false
 	endif
 endfunction
 
 " 判断是否有这个插件
 fun! HasPlug(plugName)
     if index(g:plugs_order, a:plugName) > -1
-        return 1
+        return v:true
     else
-        return 0
+        return v:false
     endif
 endfunction

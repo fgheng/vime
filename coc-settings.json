@@ -84,7 +84,7 @@
     // python
     "python.autoComplete.addBrackets": true,
     "python.trace.server": "verbose",
-    "python.jediEnabled": false, // 需要安装jdei
+    "python.jediEnabled": true, // 需要安装jdei
     "python.analysis.openFilesOnly": true, // 只显示当前文件的error和war
 
     // java
@@ -92,7 +92,8 @@
 
     // highlight
     "highlight.colors.enable": true,
-    "highlight.document.enable": true,
+    "highlight.document.enable": false,
+	"highlight.disableLanguages": ["csv"],
 
     //snippet
     "snippets.ultisnips.enable": true, // ultisnips 快速跳转

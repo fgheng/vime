@@ -70,10 +70,10 @@ nnoremap <silent> <leader>tM :-tabmove<cr>
 
 "------------------------------------------- vim-airline
 if !HasPlug('vim-airline')
-    nnoremap  <silent>> <M-l> :tabnext<cr>
-    nnoremap  <silent>> <M-h> :tabprevious<CR>
-    tnoremap  <silent>> <M-l> <c-\><c-n>:tabnext<cr>
-    tnoremap  <silent>> <M-h> <c-\><c-n>:tabprevious<CR>
+    nnoremap  <silent> <M-l> :tabnext<cr>
+    nnoremap  <silent> <M-h> :tabprevious<CR>
+    tnoremap  <silent> <M-l> <c-\><c-n>:tabnext<cr>
+    tnoremap  <silent> <M-h> <c-\><c-n>:tabprevious<CR>
 endif
 
 "------------------------------------------- ale
