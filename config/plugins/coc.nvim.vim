@@ -168,26 +168,6 @@ nmap <space>f  <Plug>(coc-fix-current)
 " 重命名
 nmap <space>rn <Plug>(coc-rename)
 
-"---------------------------------------------- coc list
-if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
-	" 搜索当前工作目录下的所有文件, -W workspace中搜索
-	nnoremap <silent> <M-f> :CocList --no-sort files <CR>
-	nnoremap <silent> <M-b> :CocList buffers<CR>
-	nnoremap <silent> <M-m> :CocList marks<CR>
-	" tags, 需要先generate tags
-	nnoremap <silent> <M-t> :CocList tags<cr>
-	" nnoremap <silent> <M-s> :CocList words<cr>
-	nnoremap <silent> <M-O> :CocList --auto-preview --interactive symbols<cr>
-	nnoremap <silent> <M-o> :CocList --auto-preview outline<cr>
-	nnoremap <silent> ? :CocList --auto-preview --interactive lines<cr>
-	nnoremap <silent> <M-s> :CocList --interactive grep<cr>
-	" nnoremap <silent> <M-s> :CocList --auto-preview --interactive lines<cr>
-	" nnoremap <silent> <M-S> :CocList --interactive grep<cr>
-	nnoremap <silent> <M-r> :CocList mru -A<CR>
-	" nnoremap <silent> <M-w> :CocList --auto-preview --interactive words<CR>
-	nnoremap <silent> <M-w> :exe 'CocList --normal --auto-preview --input='.expand('<cword>').' words'<cr>
-endif
-
 "---------------------------------------------- folders
 " 根据具体文件设定cwd
 "当前的 workspaceFolders，用于 session 使用。 需添加 `set sessionoptions+=globals` 让 session 支持 globals 变量。
@@ -213,6 +193,30 @@ if !HasPlug("vim-visual-multi")
 	nmap <leader>x  <Plug>(coc-cursors-operator)
 endif
 
+
+
+if HasCocPlug('coc-lists')
+	if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
+		" 搜索当前工作目录下的所有文件, -W workspace中搜索
+		nnoremap <silent> <M-f> :CocList --no-sort files <CR>
+		nnoremap <silent> <M-b> :CocList buffers<CR>
+		nnoremap <silent> <M-m> :CocList marks<CR>
+		" tags, 需要先generate tags
+		nnoremap <silent> <M-t> :CocList tags<cr>
+		" nnoremap <silent> <M-s> :CocList words<cr>
+		nnoremap <silent> ? :CocList --auto-preview --interactive lines<cr>
+		nnoremap <silent> <M-s> :CocList --interactive grep<cr>
+		" nnoremap <silent> <M-s> :CocList --auto-preview --interactive lines<cr>
+		" nnoremap <silent> <M-S> :CocList --interactive grep<cr>
+		nnoremap <silent> <M-r> :CocList mru -A<CR>
+		" nnoremap <silent> <M-w> :CocList --auto-preview --interactive words<CR>
+		nnoremap <silent> <M-w> :exe 'CocList --normal --auto-preview --input='.expand('<cword>').' words'<cr>
+	endif
+	if !HasPlug('coc-fzf')
+		nnoremap <silent> <M-O> :CocList --auto-preview --interactive symbols<cr>
+		nnoremap <silent> <M-o> :CocList --auto-preview outline<cr>
+	endif
+endif
 
 if HasCocPlug('coc-yank')
 	nnoremap <silent> <space>y  :<C-u>CocList yank<cr>

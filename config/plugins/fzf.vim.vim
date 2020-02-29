@@ -20,13 +20,16 @@ if has('nvim')
 	nnoremap <M-f> :Files<CR>
 	nnoremap <M-F> :Files $HOME<CR>
 	nnoremap <M-b> :Buffers<CR>
-	nnoremap : :Commands<CR>
+	nnoremap <M-c> :Commands<CR>
 	nnoremap <M-t> :BTags<CR>
 	nnoremap <M-T> :Tags<CR>
 	nnoremap <M-b> :Buffers<CR>
-	nnoremap ? :BLines<CR>
-	nnoremap <M-s> :Lines<CR>
-	nnoremap <M-S> :Rg<CR>
+	" 模糊搜索当前buffer
+	nnoremap <M-s> :BLines<CR>
+	" 模糊搜索所有的buffer
+	nnoremap <M-S> :Lines<CR>
+	" 使用rg搜索工作目录
+	nnoremap ? :Rg<CR>
 	nnoremap <M-r> :History<CR>
 	nnoremap <M-g> :GFiles?<CR>
 	nnoremap <M-G> :GFiles<CR>

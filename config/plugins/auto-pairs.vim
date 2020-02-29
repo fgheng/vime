@@ -1,5 +1,5 @@
-"let g:AutoPairsShortcutJump = '<M-n>'
-"let g:AutoPairsShortcutBackInsert = '<M-N>'
+" let g:AutoPairsShortcutJump = '<M-n>'
+" let g:AutoPairsShortcutBackInsert = '<M-N>'
 
 "Default: '<M-e>'
 "Fast wrap the word. all pairs will be consider as a block (include <>).
@@ -11,4 +11,3 @@ au FileType rust let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>'})
 " add <!-- --> pair and remove '{' for html file
 au FileType html let b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['{'])
 au FileType md   let b:AutoPairs = AutoPairsDefine({'```:```'})
-

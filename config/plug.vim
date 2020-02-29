@@ -8,10 +8,10 @@ call plug#begin(s:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 这下面可以算是一组插件
-Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'antoinemadec/coc-fzf'
+Plug 'tpope/vim-fugitive'
+" Plug 'antoinemadec/coc-fzf' " coc与fzf的结合
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " 快速注释插件
