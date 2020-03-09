@@ -1,3 +1,4 @@
+
 let g:vimwiki_list = [
 			\ {
 			\ 'path': '$HOME/Documents/wiki',
@@ -7,3 +8,6 @@ let g:vimwiki_list = [
 			\ 'ext':'.md'
 			\ }
 			\ ]
+
+" noremap <leader>ww :VimwikiIndex<cr>
+" noremap <leader>w<leader>w :VimwikiDiaryIndex<cr>

@@ -62,11 +62,12 @@ tnoremap <c-h> <c-\><c-n><c-w>h
 function s:new_tab_before() abort
 	exec "tabnew | -tabmove"
 endfunction
-nnoremap <silent> <leader>tN :call <SID>new_tab_before()<cr> " 在前么新建一个tab
+"在前么新建一个tab
+nnoremap <silent> <leader>tN :call <SID>new_tab_before()<cr>
 nnoremap <silent> <leader>tn :tabnew<cr>
 nnoremap <silent> <leader>tc :tabclose<cr>
-nnoremap <silent> <leader>tm :+tabmove<cr>
-nnoremap <silent> <leader>tM :-tabmove<cr>
+" nnoremap  <leader>tm :tabmove 1<cr>
+" nnoremap  <leader>tM :tabmove -1<cr>
 
 "------------------------------------------- vim-airline
 if !HasPlug('vim-airline')

@@ -8,27 +8,23 @@ call plug#begin(s:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 这下面可以算是一组插件
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plug 'tpope/vim-fugitive'
 " Plug 'antoinemadec/coc-fzf' " coc与fzf的结合
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
+Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
-" 生成注释文档
-Plug 'kkoomen/vim-doge'
+" 生成注释文档, 不适用默认的映射，这样启动更快
+Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate']}
 " 主题
 Plug 'rakr/vim-one'
-Plug 'KeitaNakamura/neodark.vim'
-Plug 'arzg/vim-colors-xcode'
 Plug 'morhetz/gruvbox'
-" 函数列表
+" " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
-" Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
-" Plug 'liuchengxu/eleline.vim'
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
@@ -52,32 +48,42 @@ Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 " 快速移动
 Plug 'rhysd/clever-f.vim'
 " 对齐线
-Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine', {'on': 'IndentLinesToggle'}
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
-" table模式
-Plug 'dhruvasagar/vim-table-mode'
+" table模式，其实vimwiki的table挺好用，用的不多
+Plug 'dhruvasagar/vim-table-mode', {'on': ['TableModeEnable', 'TableModeToggle']}
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 编译运行
 " Plug 'thinca/vim-quickrun', {'on': '<Plug>(quickrun)'}
-Plug 'skywind3000/asynctasks.vim'
-Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asynctasks.vim', {'on': ['AsyncTask','AsyncTaskEdit','AsyncTaskList','AsyncTaskMarco', 'AsyncTaskProfile']}
+Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun', 'AsyncStop']}
 " debug
 Plug 'puremourning/vimspector'
 " 快速打开终端, neovim需要pip install neovim-remote
 Plug 'skywind3000/vim-terminal-help'
 Plug 'vimwiki/vimwiki'
-", {'on':['VimwikiIndex', 'VimwikiDiaryIndex', 'VimwikiMakeDiaryNote', 'VimwikiMakeTomorrowDiaryNote', 'VimwikiMakeYesterdayDiaryNote', 'VimwikiTabIndex', 'VimwikiTabMakeDiaryNote']}
+" markdown内运行代码
+Plug 'gpanders/vim-medieval', {'for': 'md'}
+"{'on': ['Eval', 'Eval!', 'EvalBlock', 'EvalBlock']}
 " 数据库
 Plug 'tpope/vim-dadbod', {'on': 'DB'}
 " 日期插件
 " Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
 " Plug 'MattesGroeger/vim-bookmarks'
-" Plug 'camspiers/animate.vim'
-" Plug 'camspiers/lens.vim'
+" vim中文文档
+Plug 'yianwillis/vimcdoc'
+" 功能很强的折叠插件
+Plug 'pseewald/vim-anyfold'
+" 画图，使用leaderds结束
+Plug 'davinche/DrawIt', {'on': 'DrawIt'}
+" 高亮
+Plug 'sheerun/vim-polyglot'
+" python高亮，异步
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 call plug#end()
 
@@ -100,3 +106,4 @@ fun! HasPlug(plugName)
         return v:false
     endif
 endfunction
+

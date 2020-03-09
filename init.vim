@@ -43,5 +43,9 @@ endfor
 "     exec 'source' fnameescape(config)
 " endfor
 
+" 懒加载
+LoadScript lazy.vim
+
 " 加载主题配置
 LoadScript theme.vim
+

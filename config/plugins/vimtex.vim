@@ -5,8 +5,6 @@ if has("nvim")
 	let g:vimtex_compiler_progname = 'nvr'
 endif
 let g:vimtex_quickfix_mode=0
-" 最后两行开启自动隐藏功能,开启了这个功能，除了你光标所在的那一行之外，文本里夹杂的LaTeX代码就都会隐藏或者替换成其他符号
-set conceallevel=1
 let g:tex_conceal='abdmg'
 " let g:latex_view_general_viewer = 'zathura'
 " " let g:latex_view_general_options = shellescape('--synctex-forward "' . exepath(v:progpath) . ' --servername ' . v:servername . ' +{%lline} {%ffile}"')

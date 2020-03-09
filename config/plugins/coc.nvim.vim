@@ -10,10 +10,10 @@ let g:coc_global_extensions =
 			\ 'coc-snippets',
 			\ 'coc-highlight',
 			\ 'coc-calc',
-			\ 'coc-git',
 			\ 'coc-vimlsp',
 			\ 'coc-marketplace',
 			\ 'coc-xml',
+			\ 'coc-html',
 			\ 'coc-yank',
 			\ 'coc-lists',
 			\ 'coc-json',
@@ -22,7 +22,11 @@ let g:coc_global_extensions =
 			\ 'coc-rls',
 			\ 'coc-java',
 			\ 'coc-go',
+			\ 'coc-git',
+			\ 'coc-word',
+			\ 'coc-todolist',
 			\ ]
+			" \ 'coc-git',
 			"\ 'coc-bookmark',
 			" \ 'coc-go' 直接使用go-languageserver
 			" \ 'coc-ecdict',
@@ -90,8 +94,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 " command! -nargs=0 Run :call CocAction('codeAction')
 
-" 高亮当前光标下的所有单词, 使用插件vim-cursorword代替
-au CursorHold * silent call CocActionAsync('highlight')
+
 " 不明白这是做什么的
 au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
@@ -193,7 +196,10 @@ if !HasPlug("vim-visual-multi")
 	nmap <leader>x  <Plug>(coc-cursors-operator)
 endif
 
-
+if HasCocPlug('coc-highlight')
+	" 高亮当前光标下的所有单词
+	au CursorHold * silent call CocActionAsync('highlight')
+endif
 
 if HasCocPlug('coc-lists')
 	if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
@@ -239,6 +245,10 @@ if HasCocPlug('coc-bookmark')
 	endif
 endif
 
+if HasCocPlug('coc-todolist')
+	nmap <silent> <space>tl :<C-u>CocList todolist<cr>
+	nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
+endif
 " ----------------------- coc自定义命令
 call coc#add_command('mundoToggle', 'MundoToggle', '显示撤回列表')
 call coc#add_command('Goyo', 'Goyo', '阅读模式')

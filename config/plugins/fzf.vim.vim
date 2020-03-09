@@ -2,7 +2,7 @@ if has('nvim')
 	let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
 	let g:fzf_action = {
 	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-x': 'split',
+	\ 'ctrl-s': 'split',
 	\ 'ctrl-v': 'vsplit' }
 
 	" [Buffers] Jump to the existing window if possible
@@ -15,7 +15,6 @@ if has('nvim')
 
 	command! -bang -nargs=? -complete=dir Files
 		\ call fzf#vim#files(<q-args>, {'options': ['--info=inline', '--preview', 'cat {}']}, <bang>0)
-		" \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
 	nnoremap <M-f> :Files<CR>
 	nnoremap <M-F> :Files $HOME<CR>

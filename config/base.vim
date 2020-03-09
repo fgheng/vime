@@ -1,6 +1,7 @@
 set number
 set relativenumber " 设置相对行号
 set cursorline "高亮当前行
+set cursorcolumn " 高亮当前列
 " hi CursorLine term=bold cterm=bold ctermbg=Red
 set incsearch " 搜索时即高亮
 set hlsearch " 高亮匹配内容
@@ -9,7 +10,7 @@ set smartindent " 智能缩进
 set autoindent " 自动换行缩进
 set linebreak "软折行
 set noswapfile " 禁止生成swap文件
-" autocmd FileType md set colorcolumn=0
+" autocmd FileType !.md set colorcolumn=0
 set colorcolumn=80 " 高亮第80行
 set hidden " 终端隐藏后不结束
 set ignorecase " 忽略大小写
@@ -49,7 +50,16 @@ set shortmess+=c
 
 set mouse=a " 允许使用鼠标
 set cmdheight=1
+set conceallevel=0 " json文件不显示引号
 
+"???
+set re=1
+
+set nocompatible "vimwiki需要
+filetype plugin on "vimwiki 和 anyfold需要
+syntax on "vimwiki 和 anyfold需要 pyplot也要
+
+" 按下%可以在=和;直接跳转
 au FileType c,cpp,java set mps+==:;
 
 if has('nvim')
@@ -63,10 +73,3 @@ endif
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-
-" tex文件
-" let g:tex_flavor='latex'
-
-" 加快启动速度, 跳过python检查
-" let g:python_host_skip_check=1
-" let g:python3_host_skip_check=1

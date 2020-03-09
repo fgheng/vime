@@ -19,9 +19,9 @@
         "cpp",
         "go"
     ],
-    //"coc.preferences.formatOnType": true, // 回车格式化
     "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
-    //"coc.preferences.highlightTimeout": 1000, // highlighttime
+    //"coc.preferences.highlightTimeout": 200, // highlighttime
+
     // suggest
     "suggest.floatEnable": true, // 关闭悬浮窗口?
     "suggest.triggerAfterInsertEnter": true,
@@ -39,11 +39,16 @@
     "diagnostic.signOffset": 9999,
     "diagnostic.errorSign": "●",
     "diagnostic.warningSign": "●",
-    "diagnostic.infoSign": ">>",
-    "diagnostic.hintSign": ">>",
+    "diagnostic.infoSign": "●", // ">>",
+    "diagnostic.hintSign": "●", // ">>",
     "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10, // 窗口最大高度
     // "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
+
+
+	// source
+	"coc.source.word.filetypes": ["md", "tex"],
+	"coc.source.word.priority": 100,
 
     // list
     // normal 模式下的快捷键
@@ -83,9 +88,7 @@
 
     // python
     "python.autoComplete.addBrackets": true,
-    "python.trace.server": "verbose",
     "python.jediEnabled": true, // 需要安装jdei
-    "python.analysis.openFilesOnly": true, // 只显示当前文件的error和war
 
     // java
     "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
@@ -93,7 +96,7 @@
     // highlight
     "highlight.colors.enable": true,
     "highlight.document.enable": false,
-	"highlight.disableLanguages": ["csv"],
+    "highlight.disableLanguages": ["csv"],
 
     //snippet
     "snippets.ultisnips.enable": true, // ultisnips 快速跳转
@@ -205,13 +208,16 @@
     "prettier.tabWidth": 4,
 
     // xml
-    "xml.java.home": "/usr/bin/java",
+    "xml.java.home": "/usr/lib/jvm/default/",
+
+	// html
+
 
     // yank
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
 
-    // bookmark
+	// word
 
     // lsp
     "languageserver": {
