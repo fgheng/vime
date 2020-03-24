@@ -23,9 +23,9 @@ let g:coc_global_extensions =
 			\ 'coc-go',
 			\ 'coc-git',
 			\ 'coc-word',
-			\ 'coc-todolist',
 			\ 'coc-highlight',
 			\ ]
+			" \ 'coc-todolist',
 			" \ 'coc-git',
 			"\ 'coc-bookmark',
 			" \ 'coc-go' 直接使用go-languageserver
@@ -229,7 +229,16 @@ if HasCocPlug('coc-yank')
 endif
 
 if HasCocPlug('coc-explorer')
-	nmap <silent> <F2> :CocCommand explorer <cr>
+	let g:coc_explorer_global_presets = {
+	\   'floating': {
+	\      'position': 'floating',
+	\      'floating-width': 150,
+	\      'floating-height': 30,
+	\   }
+	\ }
+
+	" nmap <silent> <F2> :CocCommand explorer --preset floating<cr>
+	nmap <silent> <F2> :CocCommand explorer<cr>
 endif
 
 if HasCocPlug('coc-translator')

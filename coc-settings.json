@@ -10,7 +10,6 @@
     ],
     "coc.preferences.formatOnSaveFiletypes": [
         "javascript",
-        "python",
         "java",
         "json",
         "c",
@@ -108,8 +107,8 @@
 
     //explorer
     "explorer.icon.enableNerdfont": true,
-    "explorer.width": 40,
-    "explorer.position": "left",
+    //"explorer.width": 40,
+    //"explorer.position": "left",
     "explorer.sources": [
         {
             "name": "buffer",
@@ -120,6 +119,7 @@
             "expand": true
         }
     ],
+	"explorer.previewAction.strategy": "sourceWindow",
     //"explorer.file.autoReveal": true, // 自动扩展到当期buffer
     "explorer.previewAction.onHover": true,
     "explorer.buffer.root.template": "[icon] [title]",
