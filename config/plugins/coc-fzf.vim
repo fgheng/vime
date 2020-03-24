@@ -7,4 +7,3 @@ nnoremap <silent> <M-o>  :<C-u>CocFzfListOutline<CR>
 nnoremap <silent> <M-O>  :<C-u>CocFzfListSymbols<CR>
 nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
 nnoremap <silent> <space>s  :<C-u>CocFzfListServices<CR>
-

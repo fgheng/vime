@@ -1,11 +1,14 @@
 " https://zhuanlan.zhihu.com/p/61036165
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
+
 if has("nvim")
 	let g:vimtex_compiler_progname = 'nvr'
 endif
+
 let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdmg'
+
 " let g:latex_view_general_viewer = 'zathura'
 " " let g:latex_view_general_options = shellescape('--synctex-forward "' . exepath(v:progpath) . ' --servername ' . v:servername . ' +{%lline} {%ffile}"')
 " let g:latex_view_general_options = shellescape('--synctex-forward "' . v:progname . ' --servername ' . v:servername . ' +{%line} {%file}"')

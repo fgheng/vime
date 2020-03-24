@@ -1,8 +1,8 @@
 # vime
 
-![image-20191121110604472](assets/README/image-20191121110604472.png)
+![image-20191121110604472](assets/2020-03-24_11-57.png)
 
-![image-20191121110720326](assets/README/image-20191121110720326.png)
+![image-20191121110720326](assets/image-20200120222145725.png)
 
 
 
@@ -43,7 +43,6 @@ config目录下：
 1. nodejs，npm：必装
 2. neovim-remote:：可选，vim-terminal-help和vimtex会用到，但是也可以不用，安装体验更好，pip install neovim-remote
 3. clangd：可选，用于c系补全
-4. go-langserver：可选，用于go补全
 
 ### 安装
 

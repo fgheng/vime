@@ -12,15 +12,18 @@ Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plu
 " Plug 'antoinemadec/coc-fzf' " coc与fzf的结合
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
-Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex'}
+" Plug 'donRaphaco/neotex'
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
+" Plug 'tpope/vim-commentary'
 " 生成注释文档, 不适用默认的映射，这样启动更快
 Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate']}
 " 主题
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
-" " 函数列表
+Plug 'sainnhe/gruvbox-material'
+Plug 'NLKNguyen/papercolor-theme'
+" 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
 "Plug 'vim-airline/vim-airline'
@@ -48,7 +51,8 @@ Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 " 快速移动
 Plug 'rhysd/clever-f.vim'
 " 对齐线
-Plug 'Yggdroot/indentLine', {'on': 'IndentLinesToggle'}
+Plug 'Yggdroot/indentLine'
+", {'on': 'IndentLinesToggle'}
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " 放大窗口
@@ -64,7 +68,8 @@ Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun', 'AsyncStop']}
 " debug
 Plug 'puremourning/vimspector'
 " 快速打开终端, neovim需要pip install neovim-remote
-Plug 'skywind3000/vim-terminal-help'
+" Plug 'skywind3000/vim-terminal-help'
+Plug 'voldikss/vim-floaterm'
 Plug 'vimwiki/vimwiki'
 " markdown内运行代码
 Plug 'gpanders/vim-medieval', {'for': 'md'}
@@ -73,10 +78,10 @@ Plug 'gpanders/vim-medieval', {'for': 'md'}
 Plug 'tpope/vim-dadbod', {'on': 'DB'}
 " 日期插件
 " Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
-" Plug 'MattesGroeger/vim-bookmarks'
+Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
-" 功能很强的折叠插件
+" 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
 " 画图，使用leaderds结束
 Plug 'davinche/DrawIt', {'on': 'DrawIt'}
@@ -84,6 +89,8 @@ Plug 'davinche/DrawIt', {'on': 'DrawIt'}
 Plug 'sheerun/vim-polyglot'
 " python高亮，异步
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'voldikss/vim-floaterm'
+" Plug 'francoiscabrol/ranger.vim'  | Plug 'rbgrouleff/bclose.vim'
 
 call plug#end()
 

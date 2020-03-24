@@ -8,7 +8,6 @@ let g:coc_global_extensions =
 			\ 'coc-tsserver',
 			\ 'coc-prettier',
 			\ 'coc-snippets',
-			\ 'coc-highlight',
 			\ 'coc-calc',
 			\ 'coc-vimlsp',
 			\ 'coc-marketplace',
@@ -25,6 +24,7 @@ let g:coc_global_extensions =
 			\ 'coc-git',
 			\ 'coc-word',
 			\ 'coc-todolist',
+			\ 'coc-highlight',
 			\ ]
 			" \ 'coc-git',
 			"\ 'coc-bookmark',
