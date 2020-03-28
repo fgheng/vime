@@ -50,12 +50,12 @@
 	"list.source.grep.defaultArgs": ["--column", "--line-number", "--no-heading", "--color=always", "--smart-case"],
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
-    "list.source.files.command": "fd", //文件搜索命令，默认使用find，改成fd，需要安装fd
-    "list.source.files.args": ["-j 4"], // 开启4个线程搜索
+    "list.source.files.command": "rg", //文件搜索命令，默认使用find，改成fd，需要安装fd
+    "list.source.files.args": ["--files"], // 开启4个线程搜索
     "list.source.files.excludePatterns": [".git"], // 忽略搜索的文件列表
 
     // signature
-    "signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
+    //"signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
 
     // cursors
     "cursors.cancelKey": "<BackSpace>", // 多光标取消选择快捷键
