@@ -33,7 +33,11 @@ set listchars+=trail:· " 尾部空白
 set listchars+=space:· " 空白
 set pumheight=20 " 设置弹出框大小, 0 则有多少显示多少
 
-set nobackup
+set nobackup " coc
+set nowritebackup " coc
+set shortmess+=c " coc
+set signcolumn=yes " coc
+set sessionoptions+=globals " coc
 set noswapfile
 set autoread " 文件在外部被修改过，重新读入
 set autowrite " 自动写回

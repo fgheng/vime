@@ -9,20 +9,29 @@ if has('nvim')
 	let g:fzf_buffers_jump = 1
 
 	" Always enable preview window on the right with 60% width
-	" let g:fzf_preview_window = 'right:60%'
+	let g:fzf_preview_window = 'right:60%'
 
-	function! RipgrepFzf(query, fullscreen)
-		let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s || true'
-		let initial_command = printf(command_fmt, shellescape(a:query))
-		let reload_command = printf(command_fmt, '{q}')
+	function! RipgrepFzfWithWiki(query, fullscreen)
+		let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
+		if &ft == 'vimwiki'
+			let initial_command = printf(command_fmt, shellescape(a:query), g:vimwiki_path)
+			let reload_command = printf(command_fmt, '{q}', g:vimwiki_list[0].path)
+		else
+			let initial_command = printf(command_fmt, shellescape(a:query), '')
+			let reload_command = printf(command_fmt, '{q}', '')
+		endif
 		let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
 		call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 	endfunction
-
-	command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+	command! -nargs=* -bang RGWithWiki call RipgrepFzfWithWiki(<q-args>, <bang>0)
 
 	command! -bang -nargs=? -complete=dir Files
 	\ call fzf#vim#files(<q-args>, {'options': ['--info=inline', '--preview', 'cat {}']}, <bang>0)
+
+	command! -bang -nargs=* GGrep
+	\ call fzf#vim#grep(
+	\   'git grep --line-number '.shellescape(<q-args>), 0,
+	\   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
 	nnoremap <M-f> :Files<CR>
 	nnoremap <M-F> :Files $HOME<CR>
@@ -34,7 +43,7 @@ if has('nvim')
 	" 模糊搜索当前的buffer
 	" nnoremap <M-s> :BLines<CR>
 	" 使用rg搜索工作目录
-	nnoremap <M-s> :RG<CR>
+	nnoremap <M-s> :RGWithWiki<CR>
 	" 模糊搜索所有buffer
 	nnoremap ? :Lines<CR>
 	nnoremap <M-r> :History<CR>

@@ -1,6 +1,5 @@
 {
     // preferences
-    //"coc.preferences.hoverTarget": "preview", // 使用k进行dohover提示
     "coc.preferences.colorSupport": true,
     "coc.preferences.rootPatterns": [
         ".git",
@@ -12,30 +11,28 @@
         "javascript",
         "java",
         "json",
-        //"c",
+        "c",
         "cc",
         "cu",
         "cpp",
         "go"
     ],
     "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
-    //"coc.preferences.highlightTimeout": 200, // highlighttime
 
     // suggest
-    "suggest.floatEnable": true, // 关闭悬浮窗口?
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 5000, // 超过500ms就停止
-    "suggest.minTriggerInputLength": 1, // 触发补全的字符长度
-    "suggest.numberSelect": false, // 使用数字进行选择
+    //"suggest.minTriggerInputLength": 1, // 触发补全的字符长度
+    //"suggest.numberSelect": false, // 使用数字进行选择
     "suggest.noselect": true, // 不选中第一个
     "suggest.detailField": "abbr", // abbr menu preview
-    "suggest.triggerCompletionWait": 50, // default 50
+    //"suggest.triggerCompletionWait": 50, // default 60
 
     // diagnostic
     // "diagnostic.messageTarget": "echo", // 不是用悬浮进行错误等提示，而是使用echo提示,不好用，使用悬浮比较好
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
-    "diagnostic.signOffset": 9999,
+    //"diagnostic.signOffset": 9999,
     "diagnostic.errorSign": "●",
     "diagnostic.warningSign": "●",
     "diagnostic.infoSign": "●", // ">>",
@@ -44,31 +41,16 @@
     "diagnostic.maxWindowHeight": 10, // 窗口最大高度
     // "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
 
-
 	// source
 	"coc.source.word.filetypes": ["md", "tex"],
 	"coc.source.word.priority": 100,
 
     // list
-    // normal 模式下的快捷键
-    //"list.normalMappings": {
-    //    "t": "action:tabe",
-    //    "v": "action:vsplit",
-    //    "s": "action:split",
-    //    "d": "expr:GetDeleteAction"
-    //},
-    //"list.insertMappings": {
-    //    "<C-t>": "action:tabe",
-    //    "<c-v>": "action:vsplit",
-    //    "<c-s>": "action:split",
-    //    "<C-w>": "command:wincmd k"
-    //},
     "list.maxHeight": 10,
     "list.maxPreviewHeight": 8,
     "list.autoResize": false,
     "list.source.grep.command": "rg",
-    //"list.source.grep.defaultArgs": ["-S", "-e"],
-    //"list.source.grep.useLiteral": false, // 除非指定正则表达式选项，否则使用文字匹配
+	"list.source.grep.defaultArgs": ["--column", "--line-number", "--no-heading", "--color=always", "--smart-case"],
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
     "list.source.files.command": "fd", //文件搜索命令，默认使用find，改成fd，需要安装fd
@@ -93,8 +75,6 @@
     "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
 
     // highlight
-    // "highlight.colors.enable": true,
-    // "highlight.document.enable": false,
     "highlight.disableLanguages": ["csv"],
 
     //snippet
@@ -107,8 +87,6 @@
 
     //explorer
     "explorer.icon.enableNerdfont": true,
-    //"explorer.width": 40,
-    //"explorer.position": "left",
     "explorer.sources": [
         {
             "name": "buffer",
@@ -119,38 +97,35 @@
             "expand": true
         }
     ],
-	"explorer.previewAction.strategy": "sourceWindow",
-    //"explorer.file.autoReveal": true, // 自动扩展到当期buffer
-    "explorer.previewAction.onHover": true,
-    "explorer.buffer.root.template": "[icon] [title]",
-    "explorer.buffer.child.template": "[selection | 1] [bufnr] [name][modified][readonly] [fullpath]",
-    "explorer.buffer.child.labelingTemplate": "[name][bufname][fullpath][modified][readonly]",
-
-    "explorer.file.root.template": "[icon] [title] [root] [fullpath]",
-    "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent] [icon | 1] [diagnosticError & 1] [filename omitCenter 1][readonly] [linkIcon & 1][link growRight 1 omitCenter 5][size]",
-    "explorer.file.child.labelingTemplate": "[fullpath][link][diagnosticWarning][diagnosticError][size][accessed][modified][created][readonly]",
+    "explorer.file.autoReveal": true, // 自动扩展到当期buffer
+	"explorer.width": 40,
+	// 悬浮
+	//"explorer.position": "floating",
+	//"explorer.floating.height": 30,
+	//"explorer.floating.width": 150,
+    //"explorer.previewAction.onHover": true,
     "explorer.keyMappingMode": "none", // 取消所有默认的映射，使用自己的
     "explorer.keyMappings": {
         "a": "unmap", // 取消按键映射a
-        // base
+
         "k": "nodePrev",
         "j": "nodeNext",
         "h": "collapse",
         "l": ["expandable?", "expand", "open"],
         "L": "expandRecursive",
-        "H": "collapseRecursive",
+        //"H": "collapseRecursive",
 
         "v": ["toggleSelection", "normal:j"],
         "V": ["toggleSelection", "normal:k"],
         "*": "toggleSelection",
 
-        // file
         "o": "expandOrCollapse",
         "<cr>": "open",
         "ev": "openInVsplit",
         "eh": "openInHsplit",
         "et": "openInTab",
-        "<bs>": "gotoParent",
+        //"<bs>": "gotoParent",
+        "H": "gotoParent",
 
         "dd": "cutFile",
         "Y": "copyFile",
@@ -210,14 +185,9 @@
     // xml
     "xml.java.home": "/usr/lib/jvm/default/",
 
-	// html
-
-
     // yank
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
-
-	// word
 
     // lsp
     "languageserver": {

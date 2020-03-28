@@ -15,6 +15,9 @@
 command! -nargs=1 LoadScript exec 'source '.s:home.'/'.'<args>'
 " LoadScript ../all_config_in_one_file.vim
 
+" 加载配置
+LoadScript config.vim
+
 " 加载基础配置
 LoadScript base.vim
 
