@@ -13,14 +13,17 @@ if has('nvim')
 
 	function! RipgrepFzfWithWiki(query, fullscreen)
 		let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
+
 		if &ft == 'vimwiki'
-			let initial_command = printf(command_fmt, shellescape(a:query), g:vimwiki_path)
-			let reload_command = printf(command_fmt, '{q}', g:vimwiki_list[0].path)
+			let wiki_path = g:vimwiki_path
 		else
-			let initial_command = printf(command_fmt, shellescape(a:query), '')
-			let reload_command = printf(command_fmt, '{q}', '')
+			let wiki_path = ""
 		endif
+
+		let initial_command = printf(command_fmt, shellescape(a:query), wiki_path)
+		let reload_command = printf(command_fmt, '{q}', wiki_path)
 		let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+
 		call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 	endfunction
 	command! -nargs=* -bang RGWithWiki call RipgrepFzfWithWiki(<q-args>, <bang>0)

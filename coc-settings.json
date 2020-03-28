@@ -97,14 +97,14 @@
             "expand": true
         }
     ],
-    "explorer.file.autoReveal": true, // 自动扩展到当期buffer
+    "explorer.file.autoReveal": true, // 自动扩展到当前buffer
 	"explorer.width": 40,
 	// 悬浮
 	//"explorer.position": "floating",
 	//"explorer.floating.height": 30,
 	//"explorer.floating.width": 150,
     //"explorer.previewAction.onHover": true,
-    "explorer.keyMappingMode": "none", // 取消所有默认的映射，使用自己的
+    "explorer.keyMappingMode": "none", // 取消所有默认的映射
     "explorer.keyMappings": {
         "a": "unmap", // 取消按键映射a
 
@@ -113,7 +113,7 @@
         "h": "collapse",
         "l": ["expandable?", "expand", "open"],
         "L": "expandRecursive",
-        //"H": "collapseRecursive",
+        "H": "collapseRecursive",
 
         "v": ["toggleSelection", "normal:j"],
         "V": ["toggleSelection", "normal:k"],
@@ -124,8 +124,8 @@
         "ev": "openInVsplit",
         "eh": "openInHsplit",
         "et": "openInTab",
-        //"<bs>": "gotoParent",
-        "H": "gotoParent",
+        "<bs>": "gotoParent",
+        //"H": "gotoParent",
 
         "dd": "cutFile",
         "Y": "copyFile",
