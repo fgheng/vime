@@ -123,7 +123,7 @@
         "*": "toggleSelection", // 选中
 
 		// open
-        "sh": "open:split", // 水平
+        "ss": "open:split", // 水平
         "sv": "open:vsplit", // 垂直
         "st": "open:tab", // tab
 

@@ -246,13 +246,15 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | gqq 或 gww         | normal  | 格式化表格                 |
 |                    |         |                            |
 
+#### Git
+
 #### 数据库
 
 #### 绘图
 
 绘图使用[vim-scripts/*DrawIt*](https://github.com/vim-scripts/DrawIt)，命令行输入`DrawIt`进入绘图模式。
 
-#### latex
+#### Latex
 
 #### Debug
 
