@@ -30,8 +30,8 @@ let g:VM_maps["Invert Direction"]            = 'o'
 let g:VM_maps["Find Operator"]               = "m"
 let g:VM_maps["Surround"]                    = 'S'
 
-let g:VM_maps["Find Next"]                   = '}'
-let g:VM_maps["Find Prev"]                   = '{'
+" let g:VM_maps["Find Next"]                   = '}'
+" let g:VM_maps["Find Prev"]                   = '{'
 let g:VM_maps["Goto Next"]                   = ']'
 let g:VM_maps["Goto Prev"]                   = '['
 

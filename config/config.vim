@@ -14,3 +14,6 @@ let g:bookmark_auto_save_file = $HOME.'/.cache/vim/vim-bookmarks'
 
 " undotree插件需要undodir
 set undodir=$HOME.'/.cache/vim/undo'
+
+" vimtex默认的pdf浏览器
+let g:vimtex_view_method='zathura'
