@@ -14,6 +14,7 @@
    ├── base.vim
    ├── keymap.vim
    ├── plugins/
+   ├── config.vim
    ├── plug.vim
    └── theme.vim
 ├── init.vim
@@ -29,6 +30,7 @@ config目录下：
 3. `keymap.vim`用于按键映射
 4. `theme.vim`用于主题配置
 5. `plugins`目录下是所有插件的配置文件，一个插件一个配置文件，只会加载`plug.vim`中安装的插件的配置。
+6. `config.vim`用于一些个人配置，比如插件的缓存目录，笔记的根目录等
 
 ### 简单了解
 

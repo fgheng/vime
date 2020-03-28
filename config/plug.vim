@@ -1,10 +1,8 @@
-" 插件存储路径
-let s:plugins_path = '~/.cache/vim/plugins'
 " 依赖的软件
 " nodejs, npm, ripgrep, clang, ctags, zathura-pdf-mupdf, texlive-most,
 " texlive-lang, remote-neovim, pysdl2, sdl2_mixer
 
-call plug#begin(s:plugins_path)
+call plug#begin(g:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 这下面可以算是一组插件
@@ -86,7 +84,7 @@ call plug#end()
 
 " 判断该插件是否已经安装
 fun! HasInstall(plugin_name) abort
-	let s:plugin_path = s:plugins_path . "/" . a:plugin_name
+	let s:plugin_path = g:plugins_path . "/" . a:plugin_name
 
 	if !empty(glob(s:plugin_path))
 		return v:true

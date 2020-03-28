@@ -8,10 +8,10 @@
 
 command! -nargs=1 LoadScript exec 'source '.s:home.'/'.'<args>'
 
-" 加载插件列表
-LoadScript plug.vim
 " 加载配置
 LoadScript config.vim
+" 加载插件列表
+LoadScript plug.vim
 " 加载基础配置
 LoadScript base.vim
 " 加载按键映射配置
