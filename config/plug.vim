@@ -12,10 +12,8 @@ Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plu
 " Plug 'antoinemadec/coc-fzf' " coc与fzf的结合
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
-" Plug 'donRaphaco/neotex'
 " 快速注释插件
 Plug 'scrooloose/nerdcommenter'
-" Plug 'tpope/vim-commentary'
 " 生成注释文档, 不适用默认的映射，这样启动更快
 Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate']}
 " 主题
@@ -26,7 +24,6 @@ Plug 'NLKNguyen/papercolor-theme'
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
-"Plug 'vim-airline/vim-airline'
 Plug 'itchyny/lightline.vim'
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
@@ -35,7 +32,6 @@ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'luochen1990/rainbow'
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
-" Plug 'Krasjet/auto.pairs'
 " 快速包围
 Plug 'tpope/vim-surround'
 " 重复上次的动作
@@ -52,23 +48,19 @@ Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 Plug 'rhysd/clever-f.vim'
 " 对齐线
 Plug 'Yggdroot/indentLine'
-", {'on': 'IndentLinesToggle'}
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " table模式，其实vimwiki的table挺好用，用的不多
-Plug 'dhruvasagar/vim-table-mode', {'on': ['TableModeEnable', 'TableModeToggle']}
+" Plug 'dhruvasagar/vim-table-mode', {'on': ['TableModeEnable', 'TableModeToggle']}
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 编译运行
-" Plug 'thinca/vim-quickrun', {'on': '<Plug>(quickrun)'}
 Plug 'skywind3000/asynctasks.vim', {'on': ['AsyncTask','AsyncTaskEdit','AsyncTaskList','AsyncTaskMarco', 'AsyncTaskProfile']}
 Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun', 'AsyncStop']}
 " debug
 Plug 'puremourning/vimspector'
-" 快速打开终端, neovim需要pip install neovim-remote
-" Plug 'skywind3000/vim-terminal-help'
 Plug 'voldikss/vim-floaterm'
 Plug 'vimwiki/vimwiki'
 " markdown内运行代码
@@ -79,8 +71,6 @@ Plug 'tpope/vim-dadbod', {'on': 'DB'}
 " 日期插件
 " Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
 " Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
-" vim中文文档
-Plug 'yianwillis/vimcdoc'
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
 " 画图，使用leaderds结束
@@ -89,7 +79,8 @@ Plug 'davinche/DrawIt', {'on': 'DrawIt'}
 Plug 'sheerun/vim-polyglot'
 " python高亮，异步
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-Plug 'voldikss/vim-floaterm'
+" vim中文文档
+Plug 'yianwillis/vimcdoc'
 
 call plug#end()
 
