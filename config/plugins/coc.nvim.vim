@@ -31,7 +31,6 @@ let g:coc_global_extensions =
 			" \ 'coc-tabnine',
 			" \ 'coc-post',
 
-
 " 判断是否安装了coc插件
 fun! HasCocPlug(cocPlugName)
 	if index(g:coc_global_extensions, a:cocPlugName) > -1
