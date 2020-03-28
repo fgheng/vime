@@ -1,6 +1,7 @@
 " 各种自定义参数在这里
 
 if HasPlug('vimwiki')
+	" vimwiki的路径
 	let g:vimwiki_path = $HOME."/Documents/wiki"
 endif
 
