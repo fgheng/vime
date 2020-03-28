@@ -76,27 +76,21 @@ inoremap <silent><expr> <S-TAB>
 	\ pumvisible() ? "\<C-p>" :
 	\ "\<C-h>"
 
-" ctrl j 向下选择
+" alt j 向下选择
 inoremap <silent><expr> <M-j>
    \ pumvisible() ? "\<C-n>" : return
 
-" ctrl k 向上选择
+" alt k 向上选择
 inoremap <silent><expr> <M-k>
    \ pumvisible() ? "\<C-p>" : return
 
 " 回车补全选中的内容
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-command! -nargs=0 Format :call CocAction('format')
-" 使用 :Fold 对代码进行折叠
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-" 使用 :Or 组织import
-" command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-" command! -nargs=0 Run :call CocAction('codeAction')
+" diagnostic 跳转
+nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
+nmap <silent> <M-j> <Plug>(coc-diagnostic-next)
 
-
-" 不明白这是做什么的
-au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 " 定义, 引用等的跳转
 function! s:GoToDefinition() abort
@@ -109,14 +103,10 @@ function! s:GoToDefinition() abort
     call searchdecl(expand('<cword>'))
   endif
 endfunction
-" nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-" diagnostic 跳转
-nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
-nmap <silent> <M-j> <Plug>(coc-diagnostic-next)
 
 " 使用K悬浮显示定义
 function! s:show_documentation()
@@ -138,13 +128,8 @@ augroup mygroup
 	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" " Remap for do codeAction of current line
-" nmap <leader>ac  <Plug>(coc-codeaction)
-" " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
-" " Remap for do codeAction of current line
-" nmap <leader>al  <Plug>(coc-codeaction)
+command! -nargs=0 Format :call CocAction('format')
+au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 if !HasPlug('coc-fzf')
 	" Using CocList
@@ -152,20 +137,19 @@ if !HasPlug('coc-fzf')
 	nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
 	" Manage extensions
 	nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-	nnoremap <silent> <space>s  :<C-u>CocList services<cr>
+	nnoremap <silent> <space>o  :<C-u>CocList --auto-preview outline<cr>
+	nnoremap <silent> <space>O  :<C-u>CocList --auto-preview --interactive symbols<cr>
 	" Show commands
 	nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 	" Resume latest coc list
 	nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+	nnoremap <silent> <space>s  :<C-u>CocList services<CR>
+	" show coclist 早晚要放进去的
+	nnoremap <silent> <space>l  :<C-u>CocList<CR>
 endif
-" show coclist 早晚要放进去的
-nnoremap <silent> <space>l  :<C-u>CocList<CR>
 
 " 重构refactor,需要lsp支持
-nmap <silent> <space>rf <Plug>(coc-refactor)
-" nnoremap <silent> <space>L  :<C-u>CocList location<CR>
-" 切换cwd
-" nnoremap <silent> <space>`  :<C-u>CocList folders<cr>
+nmap <space>rf <Plug>(coc-refactor)
 " Fix autofix problem of current line
 nmap <space>f  <Plug>(coc-fix-current)
 " 重命名
@@ -209,18 +193,10 @@ if HasCocPlug('coc-lists')
 		nnoremap <silent> <M-m> :CocList marks<CR>
 		" tags, 需要先generate tags
 		nnoremap <silent> <M-t> :CocList tags<cr>
-		" nnoremap <silent> <M-s> :CocList words<cr>
 		nnoremap <silent> ? :CocList --auto-preview --interactive lines<cr>
 		nnoremap <silent> <M-s> :CocList --interactive grep<cr>
-		" nnoremap <silent> <M-s> :CocList --auto-preview --interactive lines<cr>
-		" nnoremap <silent> <M-S> :CocList --interactive grep<cr>
 		nnoremap <silent> <M-r> :CocList mru -A<CR>
-		" nnoremap <silent> <M-w> :CocList --auto-preview --interactive words<CR>
 		nnoremap <silent> <M-w> :exe 'CocList --normal --auto-preview --input='.expand('<cword>').' words'<cr>
-	endif
-	if !HasPlug('coc-fzf')
-		nnoremap <silent> <M-O> :CocList --auto-preview --interactive symbols<cr>
-		nnoremap <silent> <M-o> :CocList --auto-preview outline<cr>
 	endif
 endif
 
@@ -258,6 +234,7 @@ if HasCocPlug('coc-todolist')
 	nmap <silent> <space>tl :<C-u>CocList todolist<cr>
 	nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
 endif
+
 " ----------------------- coc自定义命令
 call coc#add_command('mundoToggle', 'MundoToggle', '显示撤回列表')
 call coc#add_command('Goyo', 'Goyo', '阅读模式')

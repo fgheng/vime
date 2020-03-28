@@ -4,6 +4,7 @@ let g:bookmark_highlight_lines = 1
 
 noremap ma :BookmarkAnnotate<cr>
 noremap ml :BookmarkShowAll<cr>
+noremap mm :BookmarkToggle<cr>
 
 " |-----------------------------------------------|--------------|-------------------------------|
 " | Action                                        | Shortcut     | Command                       |

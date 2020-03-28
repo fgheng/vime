@@ -78,7 +78,7 @@ Plug 'gpanders/vim-medieval', {'for': 'md'}
 Plug 'tpope/vim-dadbod', {'on': 'DB'}
 " 日期插件
 " Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
-Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
+" Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 " 功能很强的折叠插件, zc zo
@@ -90,7 +90,6 @@ Plug 'sheerun/vim-polyglot'
 " python高亮，异步
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 Plug 'voldikss/vim-floaterm'
-" Plug 'francoiscabrol/ranger.vim'  | Plug 'rbgrouleff/bclose.vim'
 
 call plug#end()
 
@@ -105,7 +104,7 @@ fun! HasInstall(plugin_name) abort
 	endif
 endfunction
 
-" 判断是否有这个插件
+" 判断插件列表是否有这个插件
 fun! HasPlug(plugName)
     if index(g:plugs_order, a:plugName) > -1
         return v:true
