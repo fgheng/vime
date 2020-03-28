@@ -1,5 +1,3 @@
-" 设置coc的根目录
-let g:coc_data_home = $HOME."/.cache/vim/coc"
 " coc插件列表
 let g:coc_global_extensions =
 			\ [
