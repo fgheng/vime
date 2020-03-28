@@ -1,5 +1,6 @@
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 1
+let g:bookmark_auto_save_file = g:bookmark_file
 
 noremap ma :BookmarkAnnotate<cr>
 noremap ml :BookmarkShowAll<cr>

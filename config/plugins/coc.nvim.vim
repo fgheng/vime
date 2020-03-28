@@ -1,3 +1,5 @@
+" 设置coc插件目录
+let g:coc_data_home = g:coc_data_path
 " coc插件列表
 let g:coc_global_extensions =
 			\ [

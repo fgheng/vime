@@ -5,6 +5,8 @@ if has("nvim")
 	let g:vimtex_compiler_progname = 'nvr'
 endif
 
+" vimtex默认的pdf浏览器
+let g:vimtex_view_method=g:latex_viewer
 let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdmg'
 
