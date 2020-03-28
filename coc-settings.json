@@ -23,20 +23,17 @@
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 5000, // 超过500ms就停止
-    //"suggest.minTriggerInputLength": 1, // 触发补全的字符长度
-    //"suggest.numberSelect": false, // 使用数字进行选择
     "suggest.noselect": true, // 不选中第一个
     "suggest.detailField": "abbr", // abbr menu preview
     //"suggest.triggerCompletionWait": 50, // default 60
 
     // diagnostic
-    // "diagnostic.messageTarget": "echo", // 不是用悬浮进行错误等提示，而是使用echo提示,不好用，使用悬浮比较好
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
     //"diagnostic.signOffset": 9999,
     "diagnostic.errorSign": "●",
     "diagnostic.warningSign": "●",
-    "diagnostic.infoSign": "●", // ">>",
-    "diagnostic.hintSign": "●", // ">>",
+    "diagnostic.infoSign": "⦁", // ">>",
+    "diagnostic.hintSign": "⦁", // ">>",
     "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10, // 窗口最大高度
     // "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
@@ -103,30 +100,34 @@
 	//"explorer.position": "floating",
 	//"explorer.floating.height": 30,
 	//"explorer.floating.width": 150,
-    //"explorer.previewAction.onHover": true,
+	//"explorer.previewAction.onHover": false,
     "explorer.keyMappingMode": "none", // 取消所有默认的映射
     "explorer.keyMappings": {
         "a": "unmap", // 取消按键映射a
 
+		// 目录
         "k": "nodePrev",
         "j": "nodeNext",
         "h": "collapse",
         "l": ["expandable?", "expand", "open"],
-        "L": "expandRecursive",
-        "H": "collapseRecursive",
+        "L": "expandRecursive", // 递归打开
+        "H": "collapseRecursive", // 递归关闭
+		"K": "expandablePrev", // 跳到上一个可打开处
+		"J": "expandableNext", //
+		"<cr>": ["expandable?", "cd", "open"], // 打开并进入目录同时更改cwd
+        "<bs>": "gotoParent", // 回到上一级目录并更改cwd
+        "r": "refresh", // 刷新
 
-        "v": ["toggleSelection", "normal:j"],
+        "v": ["toggleSelection", "normal:j"], // 选中并下移
         "V": ["toggleSelection", "normal:k"],
-        "*": "toggleSelection",
+        "*": "toggleSelection", // 选中
 
-        "o": "expandOrCollapse",
-        "<cr>": "open",
-        "ev": "openInVsplit",
-        "eh": "openInHsplit",
-        "et": "openInTab",
-        "<bs>": "gotoParent",
-        //"H": "gotoParent",
+		// open
+        "sh": "open:split", // 水平
+        "sv": "open:vsplit", // 垂直
+        "st": "open:tab", // tab
 
+		// 文件操作
         "dd": "cutFile",
         "Y": "copyFile",
         "D": "delete",
@@ -136,16 +137,17 @@
         "yy": "copyFilepath",
         "y": "copyFilename",
 
-        ".": "toggleHidden",
-        "r": "refresh",
-        "<tab>": "actionMenu",
+		// other
+		"gp": "preview:labeling", // 预览详细信息
+        "x": "systemExecute", // 执行
+        "f": "search", // 搜索
+        "F": "searchRecursive",
 
+        ".": "toggleHidden",
+        "<tab>": "actionMenu",
         "?": "help",
         "q": "quit",
-        "x": "systemExecute",
-
-        "f": "search",
-        "F": "searchRecursive",
+		"<esc>": "esc",
 
         "gf": "gotoSource:file",
         "gb": "gotoSource:buffer",
