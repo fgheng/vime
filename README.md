@@ -209,7 +209,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 同时可以使用[junegunn/*fzf.vim*](https://github.com/junegunn/fzf.vim)进行笔记内容搜索。
 
-[[![GE03VS.md.gif](https://s1.ax1x.com/2020/03/29/GE03VS.md.gif)](https://imgchr.com/i/GE03VS)](https://imgchr.com/i/GE03VS)
+![biji](https://s1.ax1x.com/2020/03/29/GE03VS.gif)
 
 | 按键               | 模式    | 描述                       |
 | ------------------ | ------- | -------------------------- |
