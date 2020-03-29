@@ -79,6 +79,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
+" 代码转为图片，需要安装cargo和silicon
+" Plug 'segeljakt/vim-silicon'
 
 call plug#end()
 

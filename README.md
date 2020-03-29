@@ -209,6 +209,8 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 同时可以使用[junegunn/*fzf.vim*](https://github.com/junegunn/fzf.vim)进行笔记内容搜索。
 
+[![GE03VS.gif](GE03VS.gif)](https://imgchr.com/i/GE03VS)
+
 | 按键               | 模式    | 描述                       |
 | ------------------ | ------- | -------------------------- |
 | alt s              | normal  | 搜索vimwiki中的内容        |
