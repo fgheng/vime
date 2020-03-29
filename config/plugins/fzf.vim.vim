@@ -30,14 +30,10 @@ if has('nvim')
 	command! -nargs=* -bang RGWithWiki call RipgrepFzfWithWiki(<q-args>, <bang>0)
 
 	function! FilesWithWiki(query, fullscreen)
-		if a:query != ''
-			call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
+		if empty(a:query) && &ft ==? 'vimwiki'
+			call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
 		else
-			if &ft ==? 'vimwiki'
-				call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
-			else
-				call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
-			endif
+			call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
 		endif
 	endfunction
 	command! -bang -nargs=? -complete=dir FWW call FilesWithWiki(<q-args>, <bang>0)
