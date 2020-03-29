@@ -78,13 +78,13 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | alt-k     | 同alt-j行为相反                                              |
 | K         | 查看当前光标下的函数的帮助                                   |
 
-| 按键     | 描述                    |
-| -------- | ----------------------- |
-| <space>l | 打开coclist             |
-| <space>a | 打开coclist dialogistic |
-| <space>c | 打开coclist command     |
-| <space>o | 打开coclist outline     |
-| <space>O | 打开coclist symbols     |
+| 按键      | 描述                    |
+| --------  | ----------------------- |
+| \<space>l | 打开coclist             |
+| \<space>a | 打开coclist dialogistic |
+| \<space>c | 打开coclist command     |
+| \<space>o | 打开coclist outline     |
+| \<space>O | 打开coclist symbols     |
 
 #### 窗口与tab操作
 

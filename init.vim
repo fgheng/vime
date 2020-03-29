@@ -28,11 +28,6 @@ for plugin_name in g:plugs_order
 	endif
 endfor
 
-" 加载自定义配置
-" for config in s:custom_file_list
-"     exec 'source' fnameescape(config)
-" endfor
-
 " 加载主题配置
 LoadScript theme.vim
 

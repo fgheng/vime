@@ -9,7 +9,6 @@ set smartindent " 智能缩进
 set autoindent " 自动换行缩进
 set linebreak "软折行
 set noswapfile " 禁止生成swap文件
-" autocmd FileType !.md set colorcolumn=0
 set colorcolumn=80 " 高亮第80行
 set hidden " 终端隐藏后不结束
 set ignorecase " 忽略大小写
