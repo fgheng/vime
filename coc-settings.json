@@ -51,7 +51,7 @@
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
     "list.source.files.command": "rg", //文件搜索命令，默认使用find，改成fd，需要安装fd
-    "list.source.files.args": ["--files"], // 开启4个线程搜索
+    "list.source.files.args": ["--files"],
     "list.source.files.excludePatterns": [".git"], // 忽略搜索的文件列表
 
     // signature
