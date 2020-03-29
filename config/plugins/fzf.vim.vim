@@ -15,7 +15,7 @@ if has('nvim')
 	function! RipgrepFzfWithWiki(query, fullscreen)
 		let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
 
-		if &ft == 'vimwiki'
+		if &ft ==? 'vimwiki'
 			let wiki_path = g:vimwiki_path
 		else
 			let wiki_path = ""
@@ -29,6 +29,19 @@ if has('nvim')
 	endfunction
 	command! -nargs=* -bang RGWithWiki call RipgrepFzfWithWiki(<q-args>, <bang>0)
 
+	function! FilesWithWiki(query, fullscreen)
+		if a:query != ''
+			call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
+		else
+			if &ft ==? 'vimwiki'
+				call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
+			else
+				call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
+			endif
+		endif
+	endfunction
+	command! -bang -nargs=? -complete=dir FWW call FilesWithWiki(<q-args>, <bang>0)
+
 	command! -bang -nargs=? -complete=dir Files
 	\ call fzf#vim#files(<q-args>, {'options': ['--info=inline', '--preview', 'cat {}']}, <bang>0)
 
@@ -37,8 +50,8 @@ if has('nvim')
 	\   'git grep --line-number '.shellescape(<q-args>), 0,
 	\   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
-	nnoremap <M-f> :Files<CR>
-	nnoremap <M-F> :Files $HOME<CR>
+	nnoremap <M-f> :FWW<CR>
+	nnoremap <M-F> :FWW $HOME<CR>
 	nnoremap <M-b> :Buffers<CR>
 	nnoremap <M-c> :Commands<CR>
 	nnoremap <M-t> :BTags<CR>
