@@ -101,7 +101,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 文件管理使用的插件是[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)、[Shougo/*defx*.nvim](https://github.com/Shougo/defx.nvim)，两者之一，需要在`plug.vim`中选择，快捷键行为基本一致。支持浮动窗口。
 
-同时可以使用<leader>f打开ranger。
+同时可以使用\<leader>f打开ranger。
 
 | 按键  | 描述                                          |
 | ----- | --------------------------------------------- |
