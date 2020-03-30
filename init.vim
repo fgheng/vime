@@ -30,5 +30,3 @@ endfor
 
 " 加载主题配置
 LoadScript theme.vim
-
-

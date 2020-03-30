@@ -33,3 +33,4 @@ if HasPlug('coc.nvim')
 	hi link CocInfoSign green
 	hi link CocHintSign blue
 endif
+
