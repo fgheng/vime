@@ -6,7 +6,8 @@ call plug#begin(g:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Git
-Plug 'tpope/vim-fugitive' | Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 " 这下面可以算是一组插件
 Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plug 'tpope/vim-fugitive'
 " Plug 'antoinemadec/coc-fzf' " coc与fzf的结合

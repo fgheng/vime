@@ -249,7 +249,17 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 #### Git
 
+git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblade/vim-gitgutter)、[tpope/vim-*fugitive*](https://github.com/tpope/vim-fugitive)、[neoclide/*coc-git*](https://github.com/neoclide/coc-git)
+
+| 命令          | 描述                                          |
+| ------------- | --------------------------------------------- |
+| gitgutter     |                                               |
+| GitGutterFold | 折叠所有未改变的行（仅显示更改的行）/展开折叠 |
+|               |                                               |
+
 #### 数据库
+
+数据库可以选择使用[tpope/vim-*dadbod*](https://github.com/tpope/vim-dadbod)
 
 #### 绘图
 
@@ -257,7 +267,11 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 #### Latex
 
+latex可以选择使用[lervag/*vimtex*](https://github.com/lervag/vimtex)
+
 #### Debug
+
+debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourning/vimspector)
 
 #### Run
 
