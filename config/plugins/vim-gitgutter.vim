@@ -1,6 +1,10 @@
-" let g:gitgutter_override_sign_column_highlight = 0
-" highlight SignColumn ctermbg=whatever    " terminal Vim
-" highlight SignColumn guibg=whatever      " gVim/MacVim
-" highlight GitGutterAdd    guifg=#009900 guibg=<X> ctermfg=2
-" highlight GitGutterChange guifg=#bbbb00 guibg=<X> ctermfg=3
-" highlight GitGutterDelete guifg=#ff2222 guibg=<X> ctermfg=1
+" 高亮行
+let g:gitgutter_highlight_liners = 1
+let g:gitgutter_signs = 0
+" 文件更改数量超过500将会压缩显示
+let g:gitgutter_max_signs = 500
+
+highlight link GitGutterAddLineNr SignifySignAdd
+highlight link GitGutterChangeLineNr SignifySignChange
+highlight link GitGutterDeleteLineNr SignifySignDelete
+highlight link GitGutterChangeDeleteLineNr SignifySignDelete

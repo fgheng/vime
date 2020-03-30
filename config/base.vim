@@ -47,7 +47,7 @@ set noshowmode
 set timeout ttimeout
 set timeoutlen=500
 set ttimeoutlen=10
-set updatetime=100
+set updatetime=100 " 更新时间100ms 默认4000ms 写入swap的时间
 set shortmess+=c
 
 set mouse=a " 允许使用鼠标
