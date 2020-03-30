@@ -112,7 +112,9 @@ function! s:show_documentation()
 		call CocAction('doHover')
 	endif
 endfunction
+" 函数文档
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+" 函数参数的文档
 nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
 
 augroup mygroup
@@ -225,3 +227,7 @@ if HasCocPlug('coc-todolist')
 	nmap <silent> <space>tl :<C-u>CocList todolist<cr>
 	nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
 endif
+
+"--------------------------------- 配置json文件
+" session 保存目录
+call coc#config('session.directory', g:coc_session_directory)

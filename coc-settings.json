@@ -62,14 +62,14 @@
 
     // session
     "session.saveOnVimLeave": true,
-    "session.directory": "~/.cache/vim/sessions/",
+    //"session.directory": "~/.cache/vim/sessions/",
 
     // python
     "python.autoComplete.addBrackets": true,
     "python.jediEnabled": false, // 需要安装jdei
 
     // java
-    "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
+    // "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
 
     // highlight
     "highlight.disableLanguages": ["csv"],
