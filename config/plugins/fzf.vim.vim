@@ -15,6 +15,7 @@ if has('nvim')
 	function! RipgrepFzfWithWiki(query, fullscreen)
 		let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
 
+		" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
 		if &ft ==? 'vimwiki'
 			let wiki_path = g:vimwiki_path
 		else
@@ -30,6 +31,7 @@ if has('nvim')
 	command! -nargs=* -bang RGWithWiki call RipgrepFzfWithWiki(<q-args>, <bang>0)
 
 	function! FilesWithWiki(query, fullscreen)
+		" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
 		if empty(a:query) && &ft ==? 'vimwiki'
 			call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
 		else
