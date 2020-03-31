@@ -28,7 +28,10 @@ function! GlogToggle()
 	endif
 endfunction
 
+
 nmap gs <esc>:Gdiffsplit<cr>
 nmap gb <esc>:call GitBlameToggle()<cr>
 nmap gl <esc>:call GlogToggle()<cr>
 nmap gL <esc>:Gclog<cr>
+
+
