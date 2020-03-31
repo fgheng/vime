@@ -1,53 +1,53 @@
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
+
+let g:fzf_action = {
+\ 'ctrl-t': 'tab split',
+\ 'ctrl-s': 'split',
+\ 'ctrl-v': 'vsplit' }
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" Always enable preview window on the right with 60% width
+let g:fzf_preview_window = 'right:50%'
+
+function! RipgrepFzfWithWiki(query, fullscreen)
+	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
+
+	" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
+	if &ft ==? 'vimwiki'
+		let wiki_path = g:vimwiki_path
+	else
+		let wiki_path = ""
+	endif
+
+	let initial_command = printf(command_fmt, shellescape(a:query), wiki_path)
+	let reload_command = printf(command_fmt, '{q}', wiki_path)
+	let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+
+	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+command! -nargs=* -bang RGWithWiki call RipgrepFzfWithWiki(<q-args>, <bang>0)
+
+function! FilesWithWiki(query, fullscreen)
+	" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
+	if empty(a:query) && &ft ==? 'vimwiki'
+		call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
+	else
+		call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
+	endif
+endfunction
+command! -bang -nargs=? -complete=dir FWW call FilesWithWiki(<q-args>, <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+\ call fzf#vim#files(<q-args>, {'options': ['--info=inline', '--preview', 'cat {}']}, <bang>0)
+
+command! -bang -nargs=* GGrep
+\ call fzf#vim#grep(
+\   'git grep --line-number '.shellescape(<q-args>), 0,
+\   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
 if has('nvim')
-	let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
-
-	let g:fzf_action = {
-	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-s': 'split',
-	\ 'ctrl-v': 'vsplit' }
-
-	" [Buffers] Jump to the existing window if possible
-	let g:fzf_buffers_jump = 1
-
-	" Always enable preview window on the right with 60% width
-	let g:fzf_preview_window = 'right:50%'
-
-	function! RipgrepFzfWithWiki(query, fullscreen)
-		let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
-
-		" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
-		if &ft ==? 'vimwiki'
-			let wiki_path = g:vimwiki_path
-		else
-			let wiki_path = ""
-		endif
-
-		let initial_command = printf(command_fmt, shellescape(a:query), wiki_path)
-		let reload_command = printf(command_fmt, '{q}', wiki_path)
-		let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-
-		call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-	endfunction
-	command! -nargs=* -bang RGWithWiki call RipgrepFzfWithWiki(<q-args>, <bang>0)
-
-	function! FilesWithWiki(query, fullscreen)
-		" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
-		if empty(a:query) && &ft ==? 'vimwiki'
-			call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
-		else
-			call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
-		endif
-	endfunction
-	command! -bang -nargs=? -complete=dir FWW call FilesWithWiki(<q-args>, <bang>0)
-
-	command! -bang -nargs=? -complete=dir Files
-	\ call fzf#vim#files(<q-args>, {'options': ['--info=inline', '--preview', 'cat {}']}, <bang>0)
-
-	command! -bang -nargs=* GGrep
-	\ call fzf#vim#grep(
-	\   'git grep --line-number '.shellescape(<q-args>), 0,
-	\   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-
 	nnoremap <M-f> :FWW<CR>
 	nnoremap <M-F> :FWW $HOME<CR>
 	nnoremap <M-b> :Buffers<CR>
