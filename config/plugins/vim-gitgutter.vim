@@ -1,7 +1,7 @@
 " 开启gitgutter
 let g:gigutter_enable = 0
 " 关闭符号
-let g:gitgutter_signs = 0
+let g:gitgutter_signs = 1
 " 开启行高亮
 let g:gitgutter_highlight_lines = 0
 " 开启行号高亮

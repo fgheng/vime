@@ -7,7 +7,7 @@ call plug#begin(g:plugins_path)
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Git
 Plug 'tpope/vim-fugitive'
-"Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 " 这下面可以算是一组插件
 Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plug 'tpope/vim-fugitive'
 " Plug 'antoinemadec/coc-fzf' " coc与fzf的结合
@@ -69,8 +69,6 @@ Plug 'gpanders/vim-medieval', {'for': 'md'}
 "{'on': ['Eval', 'Eval!', 'EvalBlock', 'EvalBlock']}
 " 数据库
 Plug 'tpope/vim-dadbod', {'on': 'DB'}
-" 日期插件
-" Plug 'itchyny/calendar.vim', {'on': 'Calendar'}
 " Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'

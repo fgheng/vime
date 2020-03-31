@@ -262,7 +262,8 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 | gs | normal | git different split | fugitive |
 | gl | normal | 打开/关闭当前文件的log | fugitive |
 | gL | normal | 查看历史log | fugitive |
-|      |        |                                |           |
+| gc   | normal | commit                         | fugitive  |
+| gw | normal | 写入，相当于git add | fugitive |
 
 | 按键            | 模式    | 描述                       | 提供者|
 | ------------------ | ------- | -------------------------- |--------|
