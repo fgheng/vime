@@ -29,7 +29,7 @@
 
     // diagnostic
     "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
-    //"diagnostic.signOffset": 9999,
+    "diagnostic.signOffset": 9999, // 越大等级越高
     "diagnostic.errorSign": "●",
     "diagnostic.warningSign": "●",
     "diagnostic.infoSign": "⦁", // ">>",
@@ -164,8 +164,8 @@
         ">>": "gitUnstage"
     },
 
-    //git
-    "git.enableGutters": true,
+    // git
+    // "git.enableGutters": true,
     "git.addGBlameToBufferVar": true,
     "git.addGBlameToVirtualText": true,
 
@@ -175,9 +175,10 @@
     "git.removedSign.hlGroup": "GitGutterDelete",
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
     "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-    "git.addedSign.text": "▎",
+    "git.addedSign.text":   "▎",
     "git.changedSign.text": "▎",
-    "git.removedSign.text": "▏",
+    "git.removedSign.text": "▎",
+    //"git.removedSign.text": "▏",
     "git.topRemovedSign.text": "▔",
     "git.changeRemovedSign.text": "▋",
 
@@ -209,5 +210,6 @@
                 "compile_flags.txt"
             ]
         }
-    }
+    },
+    "git.enableGutters": true
 }

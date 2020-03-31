@@ -251,11 +251,23 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblade/vim-gitgutter)、[tpope/vim-*fugitive*](https://github.com/tpope/vim-fugitive)、[neoclide/*coc-git*](https://github.com/neoclide/coc-git)
 
-| 命令          | 描述                                          |
-| ------------- | --------------------------------------------- |
-| gitgutter     |                                               |
-| GitGutterFold | 折叠所有未改变的行（仅显示更改的行）/展开折叠 |
-|               |                                               |
+| 按键            | 模式    | 描述                       | 提供者|
+| ------------------ | ------- | -------------------------- |--------|
+| gf             | normal | 折叠/打开未改变的行 | gitgutter |
+| gk | normal | 跳转到上一个修改地方 | coc-git |
+| gj | normal | 跳转到下一个修改地方 | coc-git |
+| gp | normal | 浮动预览光标处的修改 | coc-git |
+| gu | normal | 撤销光标处相对于上次提交的修改 | coc-git |
+| gb | normal | 打开/关闭 blame | fugitive |
+| gs | normal | git different split | fugitive |
+| gl | normal | 打开/关闭当前文件的log | fugitive |
+| gL | normal | 查看历史log | fugitive |
+|      |        |                                |           |
+
+| 按键            | 模式    | 描述                       | 提供者|
+| ------------------ | ------- | -------------------------- |--------|
+|      |      |      |        |
+
 
 #### 数据库
 

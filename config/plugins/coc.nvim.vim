@@ -14,6 +14,7 @@ let g:coc_global_extensions =
 			\ 'coc-xml',
 			\ 'coc-html',
 			\ 'coc-css',
+			\ 'coc-git',
 			\ 'coc-tailwindcss',
 			\ 'coc-yank',
 			\ 'coc-lists',
@@ -23,7 +24,6 @@ let g:coc_global_extensions =
 			\ 'coc-rls',
 			\ 'coc-java',
 			\ 'coc-go',
-			\ 'coc-git',
 			\ 'coc-word',
 			\ 'coc-highlight',
 			\ 'coc-yaml',
@@ -234,6 +234,7 @@ if HasCocPlug('coc-git')
 	nmap gj <Plug>(coc-git-nextchunk)
 	" 显示光标处的修改信息
 	nmap gp <Plug>(coc-git-chunkinfo)
+	nmap gu <esc>:CocCommand git.chunkUndo<cr>
 endif
 
 "--------------------------------- 配置json文件

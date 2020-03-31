@@ -10,7 +10,7 @@ if has('nvim')
 	let g:fzf_buffers_jump = 1
 
 	" Always enable preview window on the right with 60% width
-	let g:fzf_preview_window = 'right:60%'
+	let g:fzf_preview_window = 'right:50%'
 
 	function! RipgrepFzfWithWiki(query, fullscreen)
 		let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'

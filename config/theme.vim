@@ -10,11 +10,11 @@ if has('nvim')
 endif
 
 " 搜索高亮
-hi Search ctermfg=17 ctermbg=190 guifg=#ff0033 guibg=None
+hi Search ctermfg=17 ctermbg=190 guifg=#ff0033 guibg=NONE
 
 if HasPlug('vim-floaterm')
-	hi FloatermNF guibg=None
-	hi FloatermBorderNF guibg=None
+	hi FloatermNF guibg=NONE
+	hi FloatermBorderNF guibg=NONE
 endif
 
 if HasPlug('coc.nvim')
