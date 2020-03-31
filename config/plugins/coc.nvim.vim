@@ -228,6 +228,14 @@ if HasCocPlug('coc-todolist')
 	nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
 endif
 
+if HasCocPlug('coc-git')
+	" 导航到修改块
+	nmap gk <Plug>(coc-git-prevchunk)
+	nmap gj <Plug>(coc-git-nextchunk)
+	" 显示光标处的修改信息
+	nmap gp <Plug>(coc-git-chunkinfo)
+endif
+
 "--------------------------------- 配置json文件
 " session 保存目录
 call coc#config('session.directory', g:coc_session_directory)
