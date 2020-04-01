@@ -61,42 +61,45 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 不管您选择了哪种补全插件，哪种检索插件，我们的快捷键配置都会尽可能保持一致，无须更改您的使用习惯，改变的只是`neo/vim`表现形式。
 
-#### coc与补全行为
+#### 补全行为
 
-补全使用的[neoclide/*coc.nvim*](https://github.com/neoclide/coc.nvim)插件
+补全使用的[neoclide/*coc.nvim*](https://github.com/neoclide/coc.nvim)插件，该项目中也有[ycm-core/*YouCompleteMe*](https://github.com/ycm-core/YouCompleteMe)的配置，但最近主要使用coc，故ycm的配置已经很久不更新了。
 
-| 按键      | 描述                                                         |
-| --------- | ------------------------------------------------------------ |
-| tab       | 1. 如果存在下拉框，那么选择下一个<br>2. 如果不存在下拉框，那么强制显示下拉框，前提是有内容显示，否则输入tab |
-| shift-tab | 如果存在下拉框的话，选择下拉框的上一个                       |
-| enter     | 选中下拉框中的该条目，如果条目可以扩展，那么将会扩展         |
-| gd        | 跳转到定义                                                   |
-| gr        | 跳转到引用                                                   |
-| gi        | 跳转到实现                                                   |
-| gy        | 跳转到类型定义                                               |
-| alt-j     | 1. 正常模式下，跳转到下一处错误<br>2. 存在下拉框，选择下一个条目<br>3. 存在snippet，跳转到下一处补全处 |
-| alt-k     | 同alt-j行为相反                                              |
-| K         | 查看当前光标下函数的帮助                                     |
-| \<space>k | 查看当前光标下函数的参数帮助                                 |
+| 按键      | 描述                                                         | 提供者 |
+| --------- | ------------------------------------------------------------ | ------ |
+| tab       | 1. 如果存在下拉框，那么选择下一个<br>2. 如果不存在下拉框，那么强制显示下拉框，前提是有内容显示，否则输入tab | coc    |
+| shift-tab | 如果存在下拉框的话，选择下拉框的上一个                       | coc    |
+| enter     | 选中下拉框中的该条目，如果条目可以扩展，那么将会扩展         | coc    |
+| gd        | 跳转到定义                                                   | coc    |
+| gr        | 跳转到引用                                                   | coc    |
+| gi        | 跳转到实现                                                   | coc    |
+| gy        | 跳转到类型定义                                               | coc    |
+| alt-j     | 1. 正常模式下，跳转到下一处错误<br>2. 存在下拉框，选择下一个条目<br>3. 存在snippet，跳转到下一处补全处 | coc    |
+| alt-k     | 同alt-j行为相反                                              | coc    |
+| K         | 查看当前光标下函数的帮助                                     | coc    |
+| \<space>k | 查看当前光标下函数的参数帮助                                 | coc    |
 
-| 按键      | 描述                    |
-| --------  | ----------------------- |
-| \<space>l | 打开coclist             |
-| \<space>a | 打开coclist dialogistic |
-| \<space>c | 打开coclist command     |
-| \<space>o | 打开coclist outline     |
-| \<space>O | 打开coclist symbols     |
+| 按键      | 描述                    | 提供者 |
+| --------- | ----------------------- | ------ |
+| \<space>l | 打开coclist             | coc    |
+| \<space>a | 打开coclist dialogistic | coc    |
+| \<space>c | 打开coclist command     | coc    |
+| \<space>o | 打开coclist outline     | coc    |
+| \<space>O | 打开coclist symbols     | coc    |
 
-#### 窗口与tab操作
+#### 窗口与tab
 
-| 按键           | 描述                                                         |
-| -------------- | ------------------------------------------------------------ |
-| ctrl-w-h/j/k/l | 分别在当前窗口的左/下/上/右侧打开一个新的窗口，并将光标移动到新的窗口 |
-| ctrl-h/j/k/l   | 分别移动光标到当前窗口的左/下/上/右侧窗口                    |
-| alt-H/J/K/L    | 分别移动光标到当前窗口的左/下/上/右侧窗口                    |
-| ctrl-w-o       | 最大化当前窗口，再按一次恢复；前提是在`plug.vim`中没有注释掉`zoomwintab.vim`插件， |
-| -              | 选择窗口，选择窗口模式下，按s可以交换窗口                    |
-| alt-h/l        | 上/下一个tab                                                 |
+| 按键           | 描述                                                         | 提供者         |
+| -------------- | ------------------------------------------------------------ | -------------- |
+| ctrl-w-h/j/k/l | 分别在当前窗口的左/下/上/右侧打开一个新的窗口，并将光标移动到新的窗口 |                |
+| ctrl-h/j/k/l   | 分别移动光标到当前窗口的左/下/上/右侧窗口                    |                |
+| alt-H/J/K/L    | 分别移动光标到当前窗口的左/下/上/右侧窗口                    |                |
+| ctrl-w-o       | 最大化当前窗口，再按一次恢复                                 | zoomwintab.vim |
+| -              | 选择窗口<br>交换窗口                                         | vim-choosewin  |
+| alt-h/l        | 上/下一个tab                                                 |                |
+| alt-q          | 关闭窗口                                                     |                |
+| alt-{          | 更改窗口宽度                                                 |                |
+| alt-}          | 更改窗口宽度                                                 |                |
 
 #### 文件管理
 
@@ -143,18 +146,18 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 该操作主要由[junegunn/*fzf*.vim](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)、[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)三者中的一个完成，快捷键基本一致，主要看`plug.vim`中选择的是哪一个插件，其中[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)优先级最低，有其他两者，那么就会覆盖掉coc的操作。
 
-| 按键  | 描述                                                         |
-| ----- | ------------------------------------------------------------ |
-| alt-r | 最近打开的文件                                               |
-| alt-b | 显示当前打开的所有buffer                                     |
-| alt-f | 搜索工程目录下的文件                                         |
-| alt-F | 搜索HOME下的所有文件                                         |
-| alt-w | 显示打开的窗口                                               |
-| alt-m | 显示所有的标记                                               |
-| alt-M | 显示所有映射                                                 |
-| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 使用rg搜索笔记目录下的内容，如果当前正在编辑笔记的话 |
-| alt-c | 显示所有命令                                                 |
-| ？    | 模糊搜索所有打开的buffer的内容                               |
+| 按键  | 描述                                                         | 提供者          |
+| ----- | ------------------------------------------------------------ | --------------- |
+| alt-r | 最近打开的文件                                               | fzf/leaderf/coc |
+| alt-b | 显示当前打开的所有buffer                                     | fzf/leaderf/coc |
+| alt-f | 1. 搜索工程目录下的文件<br>2. 搜索wiki笔记目录下的文件       | fzf/leaderf/coc |
+| alt-F | 搜索HOME下的所有文件                                         | fzf/leaderf/coc |
+| alt-w | 显示打开的窗口                                               | fzf/leaderf/coc |
+| alt-m | 显示所有的标记                                               | fzf/coc         |
+| alt-M | 显示所有映射                                                 | fzf/coc         |
+| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 使用rg搜索笔记目录下的内容，如果当前正在编辑笔记的话 | fzf/leaderf/coc |
+| alt-c | 显示所有命令                                                 | fzf/leaderf/coc |
+| ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/coc |
 
 
 #### 多光标

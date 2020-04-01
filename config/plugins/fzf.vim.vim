@@ -54,7 +54,6 @@ if has('nvim')
 	nnoremap <M-c> :Commands<CR>
 	nnoremap <M-t> :BTags<CR>
 	nnoremap <M-T> :Tags<CR>
-	nnoremap <M-b> :Buffers<CR>
 	" 模糊搜索当前的buffer
 	" nnoremap <M-s> :BLines<CR>
 	" 使用rg搜索工作目录
@@ -62,11 +61,11 @@ if has('nvim')
 	" 模糊搜索所有buffer
 	nnoremap ? :Lines<CR>
 	nnoremap <M-r> :History<CR>
-	nnoremap <M-g> :GFiles?<CR>
-	nnoremap <M-G> :GFiles<CR>
 	nnoremap <M-m> :Marks<CR>
 	nnoremap <M-M> :Maps<CR>
 	nnoremap <M-w> :Windows<CR>
+	nnoremap <M-g> :GFiles?<CR>
+	nnoremap <M-G> :GFiles<CR>
 
 	au FileType fzf tnoremap <buffer> <C-j> <Down>
 	au FileType fzf tnoremap <buffer> <C-k> <Up>

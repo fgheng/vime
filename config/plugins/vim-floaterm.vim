@@ -12,4 +12,4 @@ tnoremap <M-h> <c-\><c-n>:FloatermPrev<CR>
 tnoremap <M-l> <c-\><c-n>:FloatermNext<CR>
 
 nmap <leader>f :FloatermNew ranger<cr>
-" nmap <leader>g :FloatermNew lazygit<cr>
+nmap <leader>g :FloatermNew lazygit<cr>

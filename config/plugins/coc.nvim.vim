@@ -177,19 +177,28 @@ if HasCocPlug('coc-highlight')
 	au CursorHold * silent call CocActionAsync('highlight')
 endif
 
+function! CocListFilesWithWiki(query)
+	if empty(a:query) && &ft ==? 'vimwiki'
+		exec "CocList --no-sort files " . g:vimwiki_path
+	else
+		exec "CocList --no-sort files " . a:query
+	endif
+endfunction
 if HasCocPlug('coc-lists')
 	if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
 		" 搜索当前工作目录下的所有文件, -W workspace中搜索
-		nnoremap <silent> <M-f> :CocList --no-sort files <CR>
+		nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
+		nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
 		nnoremap <silent> <M-b> :CocList buffers<CR>
-		nnoremap <silent> <M-m> :CocList marks<CR>
-		nnoremap <silent> <M-M> :CocList maps<CR>
+		nnoremap <silent> <M-c> :CocList vimcommands<CR>
 		" tags, 需要先generate tags
 		nnoremap <silent> <M-t> :CocList tags<cr>
-		nnoremap <silent> ? :CocList --auto-preview --interactive lines<cr>
 		nnoremap <silent> <M-s> :CocList --auto-preview --interactive grep<cr>
+		nnoremap <silent> ? :CocList --auto-preview --interactive lines<cr>
 		nnoremap <silent> <M-r> :CocList mru -A<CR>
-		"nnoremap <silent> <M-w> :exe 'CocList --normal --auto-preview --input='.expand('<cword>').' words'<cr>
+		nnoremap <silent> <M-m> :CocList marks<CR>
+		nnoremap <silent> <M-M> :CocList maps<CR>
+		nnoremap <silent> <M-w> :CocList windows<CR>
 	endif
 endif
 

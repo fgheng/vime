@@ -9,17 +9,14 @@ let AutoPairsShortcutToggle = "<M-p>"
 let AutoPairsMapCR =  1 
 let AutoPairsMapCh =  1 
 let NERDCommentEmptyLines = "0"
-let AutoPairsSmartQuotes =  1 
 let VM_default_mappings =  1 
 let VM_persistent_registers =  0 
 let AutoPairsShortcutFastWrap = "<M-e>"
 let NERDMenuMode = "3"
 let NERDDefaultNesting = "1"
 let VM_highlight_matches = "underline"
-let AutoPairsCenterLine =  1 
 let NERDUsePlaceHolders = "1"
 let NERDToggleCheckAllLines =  1 
-let NERDRemoveAltComs = "1"
 let NERDSpaceDelims =  1 
 let NERDLPlace = "[>"
 let NERDDefaultAlign = "none"
@@ -31,13 +28,16 @@ let NERDRPlace = "<]"
 let AutoPairsShortcutJump = "<M-n>"
 let AutoPairsMapSpace =  1 
 let NERDRemoveExtraSpaces = "0"
+let NERDRemoveAltComs = "1"
 let AutoPairsFlyMode =  0 
 let NERDTrimTrailingWhitespace = "0"
 let NERDBlockComIgnoreEmpty = "0"
+let AutoPairsCenterLine =  1 
 let NERDDisableTabsInBlockComm = "0"
 let VM_check_mappings =  1 
 let NERDCompactSexyComs = "0"
 let NERDAllowAnyVisualDelims = "1"
+let AutoPairsSmartQuotes =  1 
 let VM_theme = "ocean"
 let AutoPairsMoveCharacter = "()[]{}\"'"
 let AutoPairsWildClosedPair = ""
@@ -47,12 +47,14 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +20 config/plugins/coc.nvim.vim
+badd +3 ./init.vim
+badd +196 config/plugins/coc.nvim.vim
 badd +169 coc-settings.json
-badd +0 config/plugins/fzf.vim.vim
+badd +1 config/plugins/LeaderF.vim
 argglobal
 %argdel
-edit config/plugins/fzf.vim.vim
+$argadd ./init.vim
+edit config/plugins/LeaderF.vim
 set splitbelow splitright
 set nosplitright
 wincmd t
@@ -69,14 +71,14 @@ setlocal fdl=99
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-1
+26
 normal! zo
-let s:l = 65 - ((52 * winheight(0) + 27) / 54)
+let s:l = 28 - ((27 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-65
-normal! 05|
+28
+normal! 034|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
