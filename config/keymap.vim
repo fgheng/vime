@@ -31,7 +31,7 @@ inoremap <M-O> <esc>O
 inoremap <M-h> <esc>I
 inoremap <M-l> <esc>A
 
-noremap <space><space> <esc>:w<cr><left>
+noremap <space><space> <esc>:w<cr>
 
 nnoremap j gj
 nnoremap k gk
@@ -47,84 +47,19 @@ if has('nvim')
 else
 	tnoremap <Esc> <C-\><C-n>
 endif
+
 tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 tnoremap <c-l> <c-\><c-n><c-w>l
 tnoremap <c-h> <c-\><c-n><c-w>h
 
-"tabl operation
 function s:new_tab_before() abort
 	exec "tabnew | -tabmove"
 endfunction
-"在前么新建一个tab
+" 在前面新建一个tab
 nnoremap <silent> <leader>tN :call <SID>new_tab_before()<cr>
+" 在后面新建一个tab
 nnoremap <silent> <leader>tn :tabnew<cr>
 nnoremap <silent> <leader>tc :tabclose<cr>
 " nnoremap  <leader>tm :tabmove 1<cr>
 " nnoremap  <leader>tM :tabmove -1<cr>
-
-"------------------------------------------- vim-airline
-if !HasPlug('vim-airline')
-    nnoremap  <silent> <M-l> :tabnext<cr>
-    nnoremap  <silent> <M-h> :tabprevious<CR>
-    tnoremap  <silent> <M-l> <c-\><c-n>:tabnext<cr>
-    tnoremap  <silent> <M-h> <c-\><c-n>:tabprevious<CR>
-endif
-
-"------------------------------------------- ale
-if HasPlug('ale')
-	" 过时了，现在主要用coc
-    nmap <silent> <space>{ <Plug>(ale_previous_wrap)
-    nmap <silent> <space>} <Plug>(ale_next_wrap)
-endif
-
-"------------------------------------------- fzf
-if HasPlug('fzf')
-	" 过时了，现在主要用coc
-endif
-
-"------------------------------------------- easymotion
-if HasPlug('vim-easymotion')
-	" 过时了，现在主要用cleverf
-    nmap gk <Plug>(easymotion-overwin-f)
-    nmap gl <Plug>(easymotion-overwin-line)
-    "imap <M-k> <esc><Plug>(easymotion-overwin-f)
-    "imap <M-j> <esc><Plug>(easymotion-overwin-line)
-    " nmap <Leader>w <Plug>(easymotion-overwin-w)
-endif
-
-"------------------------------------------- goyo
-if HasPlug('goyo.vim')
-    nnoremap <F7> <esc>:Goyo<cr>
-    "setlocal nonumber
-    "setlocal norelativenumber
-endif
-
-"------------------------------------------- ChooseWin
-if HasPlug('vim-choosewin')
-    nnoremap <silent> - :ChooseWin<CR>
-endif
-
-"------------------------------------------- Autoformat
-if HasPlug('vim-autoformat')
-	" 过时了，现在主要用coc
-    nnoremap <M-i> :Autoformat<cr>
-endif
-
-"------------------------------------------- Startify
-if HasPlug('vim-startify')
-	" 不花里胡少的了
-    noremap <leader>s <esc>:Startify<cr>
-    "au FileType startify noremap q :q<cr>
-endif
-
-"-------------------------------------------- zoomwintab
-if HasPlug('zoomwintab.vim')
-    nnoremap  <c-w>o :ZoomWinTabToggle<cr>
-endif
-
-"-------------------------------------------- tagbar
-if HasPlug('tagbar')
-    nnoremap <F3> :TagbarToggle<cr>
-    "inoremap <F3> <esc>:TagbarToggle<cr>
-endif
