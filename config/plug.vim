@@ -1,7 +1,6 @@
 " 依赖的软件
 " nodejs, npm, ripgrep, clang, ctags, zathura-pdf-mupdf, texlive-most,
-" texlive-lang, remote-neovim, pysdl2, sdl2_mixer
-
+" texlive-lang, remote-neovim
 call plug#begin(g:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -53,8 +52,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'mg979/vim-visual-multi'
 " 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
-" table模式，其实vimwiki的table挺好用，用的不多
-" Plug 'dhruvasagar/vim-table-mode', {'on': ['TableModeEnable', 'TableModeToggle']}
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 编译运行
@@ -80,8 +77,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
-" 代码转为图片，需要安装cargo和silicon
-" Plug 'segeljakt/vim-silicon'
 
 call plug#end()
 
