@@ -145,7 +145,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | F     | 递归搜索文件                                  |
 |       |                                               |
 
-#### buffer与文件检索操作等
+#### buffer与文件检索等
 
 该操作主要由[junegunn/*fzf*.vim](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)、[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)三者中的一个完成，快捷键基本一致，主要看`plug.vim`中选择的是哪一个插件，其中[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)优先级最低，有其他两者，那么就会覆盖掉coc的操作。
 
@@ -158,7 +158,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | alt-w | 显示打开的窗口                                               | fzf/leaderf/coc |
 | alt-m | 显示所有的标记                                               | fzf/coc         |
 | alt-M | 显示所有映射                                                 | fzf/coc         |
-| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 使用rg搜索笔记目录下的内容，如果当前正在编辑笔记的话 | fzf/leaderf/coc |
+| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 使用rg搜索wiki笔记目录下的内容 | fzf/leaderf/coc |
 | alt-c | 显示所有命令                                                 | fzf/leaderf/coc |
 | ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/coc |
 
@@ -178,6 +178,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | ]/[          | visual-multi-mode | 在多个选中的光标之间进行跳转                                 |
 | n            | visual-multi-mode | 跳到下一个匹配的模式，不选中                                 |
 | S            | visual-multi-mode | 在多光标模式下，将多个选中的内容进行包围                     |
+| o            | visual-multi-mode | 交换光标位置                                                 |
 
 #### 注释
 
@@ -267,9 +268,9 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 | gu | normal | 撤销光标处相对于上次提交的修改 | coc-git |
 | gb | normal | 打开/关闭 blame | fugitive |
 | gs | normal | git different split | fugitive |
-| gl | normal | 打开/关闭当前文件的log | fugitive |
-| gL | normal | 查看历史log | fugitive |
-| gc   | normal | commit                         | fugitive  |
+| gm   | normal | 查看当前文件的commits          | fzf/coc-git |
+| gM   | normal | 查看所有的commits              | fzf/coc-git |
+| gc   | normal | git commit                     | fugitive  |
 | gw | normal | 写入，相当于git add | fugitive |
 
 | 按键            | 模式    | 描述                       | 提供者|

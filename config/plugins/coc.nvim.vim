@@ -186,7 +186,6 @@ function! CocListFilesWithWiki(query)
 endfunction
 if HasCocPlug('coc-lists')
 	if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
-		" 搜索当前工作目录下的所有文件, -W workspace中搜索
 		nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
 		nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
 		nnoremap <silent> <M-b> :CocList buffers<CR>
@@ -199,6 +198,11 @@ if HasCocPlug('coc-lists')
 		nnoremap <silent> <M-m> :CocList marks<CR>
 		nnoremap <silent> <M-M> :CocList maps<CR>
 		nnoremap <silent> <M-w> :CocList windows<CR>
+
+		if HasCocPlug('coc-git')
+			nnoremap <silent> gm :CocList bcommits<CR>
+			nnoremap <silent> gM :CocList commits<CR>
+		endif
 	endif
 endif
 

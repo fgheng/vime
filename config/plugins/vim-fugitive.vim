@@ -89,8 +89,7 @@ endfunction
 
 nmap gs <esc>:call GitVDiffToggle()<cr>
 nmap gb <esc>:call GitBlameToggle()<cr>
-nmap gl <esc>:call GlogToggle()<cr>
-nmap gL <esc>:call GclogToogle()<cr>
 nmap gc <esc>:Gcommit<cr>
 nmap gw <esc>:Gw<cr>
+" nmap gl <esc>:call GlogToggle()<cr>
 " nmap gt <esc>:call GstatusToggle()<cr>

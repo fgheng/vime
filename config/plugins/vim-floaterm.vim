@@ -13,12 +13,3 @@ tnoremap <M-l> <c-\><c-n>:FloatermNext<CR>
 
 nmap <leader>f :FloatermNew ranger<cr>
 nmap <leader>g :FloatermNew lazygit<cr>
-
-" au FileType floaterm nunmap <c-h>
-" au FileType floaterm nunmap <c-j>
-" au FileType floaterm nunmap <c-k>
-" au FileType floaterm nunmap <c-l>
-" au FileType floaterm nunmap <M-H>
-" au FileType floaterm nunmap <M-J>
-" au FileType floaterm nunmap <M-K>
-" au FileType floaterm nunmap <M-L>

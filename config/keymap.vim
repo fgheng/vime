@@ -1,8 +1,3 @@
-inoremap jk <esc>
-nnoremap <M-q> <esc>:close<cr>
-vnoremap <M-q> <esc>:close<cr>
-nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
-
 " 窗口
 noremap <c-h> <C-w>h
 noremap <c-j> <C-w>j
@@ -13,11 +8,21 @@ noremap <M-J> <C-w>j
 noremap <M-K> <C-w>k
 noremap <M-L> <C-w>l
 
+inoremap jk <esc>
+nnoremap <M-q> <esc>:close<cr>
+vnoremap <M-q> <esc>:close<cr>
+nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
+
+" terminal
+if has('nvim')
+	au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+else
+	tnoremap <Esc> <C-\><C-n>
+endif
+
 " 更改窗口大小
 nnoremap <M-{> :vertical resize -5<CR> " 更改窗口宽度
 nnoremap <M-}> :vertical resize +5<CR>
-" nnoremap <M-_>= :exe "resize " . (winheight(0) * 3/2)<CR> " 更改窗口高度
-" nnoremap <M-+>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " 分割窗口
 nnoremap <c-w>k :abo split <cr>
@@ -40,18 +45,6 @@ vnoremap k gk
 
 " 复制到末尾
 nnoremap Y y$
-
-" terminal
-if has('nvim')
-	au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
-else
-	tnoremap <Esc> <C-\><C-n>
-endif
-
-tnoremap <c-j> <c-\><c-n><c-w>j
-tnoremap <c-k> <c-\><c-n><c-w>k
-tnoremap <c-l> <c-\><c-n><c-w>l
-tnoremap <c-h> <c-\><c-n><c-w>h
 
 function s:new_tab_before() abort
 	exec "tabnew | -tabmove"

@@ -1,6 +1,17 @@
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
+if has('nvim')
+	let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
+endif
 
+" 总是开启预览
+let g:fzf_preview_window = 'right:50%'
 
+" 跳转到buffer所在的窗口
+let g:fzf_buffers_jump = 1
+
+" fzf history 文件
+let g:fzf_history_dir = g:fzf_dir . "/fzf-history"
+
+" ref https://github.com/junegunn/fzf.vim/issues/379
 function! s:SystemExecute(lines)
 	for line in a:lines
 		exec "!xdg-open " . line . " > /dev/null"
@@ -14,31 +25,23 @@ let g:fzf_action = {
 	\ 'ctrl-x': function('s:SystemExecute'),
 \ }
 
-" fzf history 文件
-let g:fzf_history_dir = g:fzf_dir . "/fzf-history"
 
 " 颜色
-let g:fzf_colors = {
-	\ 'fg':      ['fg', 'Normal'],
-	\ 'bg':      ['bg', 'Normal'],
-	\ 'hl':      ['fg', 'Comment'],
-	\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-	\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-	\ 'hl+':     ['fg', 'Statement'],
-	\ 'info':    ['fg', 'PreProc'],
-	\ 'border':  ['fg', 'Ignore'],
-	\ 'prompt':  ['fg', 'Conditional'],
-	\ 'pointer': ['fg', 'Exception'],
-	\ 'marker':  ['fg', 'Keyword'],
-	\ 'spinner': ['fg', 'Label'],
-	\ 'header':  ['fg', 'Comment']
-\}
-
-" [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
-
-" Always enable preview window on the right with 60% width
-let g:fzf_preview_window = 'right:50%'
+" let g:fzf_colors = {
+"     \ 'fg':      ['fg', 'Normal'],
+"     \ 'bg':      ['bg', 'Normal'],
+"     \ 'hl':      ['fg', 'Comment'],
+"     \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"     \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"     \ 'hl+':     ['fg', 'Statement'],
+"     \ 'info':    ['fg', 'PreProc'],
+"     \ 'border':  ['fg', 'Ignore'],
+"     \ 'prompt':  ['fg', 'Conditional'],
+"     \ 'pointer': ['fg', 'Exception'],
+"     \ 'marker':  ['fg', 'Keyword'],
+"     \ 'spinner': ['fg', 'Label'],
+"     \ 'header':  ['fg', 'Comment']
+" \}
 
 function! s:RipgrepFzfWithWiki(query, fullscreen)
 	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
@@ -76,7 +79,7 @@ command! -bang -nargs=* GGrep
 \   'git grep --line-number '.shellescape(<q-args>), 0,
 \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
-if has('nvim')
+"if has('nvim')
 	nnoremap <M-f> :FWW<CR>
 	nnoremap <M-F> :FWW $HOME<CR>
 	nnoremap <M-b> :Buffers<CR>
@@ -94,7 +97,10 @@ if has('nvim')
 	nnoremap <M-g> :GFiles?<CR>
 	nnoremap <M-G> :GFiles<CR>
 
+	nnoremap gm :BCommits<cr>
+	nnoremap gM :Commits<cr>
+
 	au FileType fzf tnoremap <buffer> <C-j> <Down>
 	au FileType fzf tnoremap <buffer> <C-k> <Up>
 	au FileType fzf tunmap <buffer> <Esc>
-endif
+"endif
