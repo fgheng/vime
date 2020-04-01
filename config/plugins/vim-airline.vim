@@ -1,4 +1,3 @@
-" let g:airline_theme='shades_of_purple'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0    " 打开buffer
 let g:airline#extensions#tabline#formatter = 'unique_tail'
@@ -21,13 +20,10 @@ endfunction
 call airline#add_statusline_func('WindowNumber')
 call airline#add_inactive_statusline_func('WindowNumber')
 
-" coc
 " 关闭airline的coc集成
 let g:airline#extensions#coc#enabled = 0
 if HasPlug('coc.nvim')
 	let g:airline_section_x = '%{coc#status()}'
-	"let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-	"let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 endif
 
 if  g:airline#extensions#tabline#enabled == 1

@@ -9,9 +9,9 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " 这下面可以算是一组插件
-" Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plug 'tpope/vim-fugitive'
 " Plug 'antoinemadec/coc-fzf' " coc与fzf的结合
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " 快速注释插件
@@ -28,8 +28,7 @@ Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
 Plug 'itchyny/lightline.vim'
 " 关灯读小说
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } | Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 自动补全括号

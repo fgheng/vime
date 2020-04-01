@@ -1,9 +1,38 @@
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
 
+
+function! s:SystemExecute(lines)
+	for line in a:lines
+		exec "!xdg-open " . line . " > /dev/null"
+	endfor
+endfunction
+
 let g:fzf_action = {
-\ 'ctrl-t': 'tab split',
-\ 'ctrl-s': 'split',
-\ 'ctrl-v': 'vsplit' }
+	\ 'ctrl-t': 'tab split',
+	\ 'ctrl-s': 'split',
+	\ 'ctrl-v': 'vsplit',
+	\ 'ctrl-x': function('s:SystemExecute'),
+\ }
+
+" fzf history 文件
+let g:fzf_history_dir = g:fzf_dir . "/fzf-history"
+
+" 颜色
+let g:fzf_colors = {
+	\ 'fg':      ['fg', 'Normal'],
+	\ 'bg':      ['bg', 'Normal'],
+	\ 'hl':      ['fg', 'Comment'],
+	\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+	\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+	\ 'hl+':     ['fg', 'Statement'],
+	\ 'info':    ['fg', 'PreProc'],
+	\ 'border':  ['fg', 'Ignore'],
+	\ 'prompt':  ['fg', 'Conditional'],
+	\ 'pointer': ['fg', 'Exception'],
+	\ 'marker':  ['fg', 'Keyword'],
+	\ 'spinner': ['fg', 'Label'],
+	\ 'header':  ['fg', 'Comment']
+\}
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
@@ -11,7 +40,7 @@ let g:fzf_buffers_jump = 1
 " Always enable preview window on the right with 60% width
 let g:fzf_preview_window = 'right:50%'
 
-function! RipgrepFzfWithWiki(query, fullscreen)
+function! s:RipgrepFzfWithWiki(query, fullscreen)
 	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
 
 	" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
@@ -27,9 +56,9 @@ function! RipgrepFzfWithWiki(query, fullscreen)
 
 	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
-command! -nargs=* -bang RGWithWiki call RipgrepFzfWithWiki(<q-args>, <bang>0)
+command! -nargs=* -bang RGWithWiki call s:RipgrepFzfWithWiki(<q-args>, <bang>0)
 
-function! FilesWithWiki(query, fullscreen)
+function! s:FilesWithWiki(query, fullscreen)
 	" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
 	if empty(a:query) && &ft ==? 'vimwiki'
 		call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
@@ -37,7 +66,7 @@ function! FilesWithWiki(query, fullscreen)
 		call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
 	endif
 endfunction
-command! -bang -nargs=? -complete=dir FWW call FilesWithWiki(<q-args>, <bang>0)
+command! -bang -nargs=? -complete=dir FWW call s:FilesWithWiki(<q-args>, <bang>0)
 
 command! -bang -nargs=? -complete=dir Files
 \ call fzf#vim#files(<q-args>, {'options': ['--info=inline', '--preview', 'cat {}']}, <bang>0)
@@ -54,8 +83,6 @@ if has('nvim')
 	nnoremap <M-c> :Commands<CR>
 	nnoremap <M-t> :BTags<CR>
 	nnoremap <M-T> :Tags<CR>
-	" 模糊搜索当前的buffer
-	" nnoremap <M-s> :BLines<CR>
 	" 使用rg搜索工作目录
 	nnoremap <M-s> :RGWithWiki<CR>
 	" 模糊搜索所有buffer

@@ -165,7 +165,6 @@
     },
 
     // git
-    // "git.enableGutters": true,
     "git.addGBlameToBufferVar": true,
     "git.addGBlameToVirtualText": true,
 
@@ -178,7 +177,6 @@
     "git.addedSign.text":   "▎",
     "git.changedSign.text": "▎",
     "git.removedSign.text": "▎",
-    //"git.removedSign.text": "▏",
     "git.topRemovedSign.text": "▔",
     "git.changeRemovedSign.text": "▋",
 
@@ -211,5 +209,4 @@
             ]
         }
     },
-    "git.enableGutters": true
 }
