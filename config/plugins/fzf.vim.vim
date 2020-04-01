@@ -79,28 +79,26 @@ command! -bang -nargs=* GGrep
 \   'git grep --line-number '.shellescape(<q-args>), 0,
 \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
-"if has('nvim')
-	nnoremap <M-f> :FWW<CR>
-	nnoremap <M-F> :FWW $HOME<CR>
-	nnoremap <M-b> :Buffers<CR>
-	nnoremap <M-c> :Commands<CR>
-	nnoremap <M-t> :BTags<CR>
-	nnoremap <M-T> :Tags<CR>
-	" 使用rg搜索工作目录
-	nnoremap <M-s> :RGWithWiki<CR>
-	" 模糊搜索所有buffer
-	nnoremap ? :Lines<CR>
-	nnoremap <M-r> :History<CR>
-	nnoremap <M-m> :Marks<CR>
-	nnoremap <M-M> :Maps<CR>
-	nnoremap <M-w> :Windows<CR>
-	nnoremap <M-g> :GFiles?<CR>
-	nnoremap <M-G> :GFiles<CR>
+nnoremap <M-f> :FWW<CR>
+nnoremap <M-F> :FWW $HOME<CR>
+nnoremap <M-b> :Buffers<CR>
+nnoremap <M-c> :Commands<CR>
+nnoremap <M-t> :BTags<CR>
+nnoremap <M-T> :Tags<CR>
+" 使用rg搜索工作目录
+nnoremap <M-s> :RGWithWiki<CR>
+" 模糊搜索所有buffer
+nnoremap ? :Lines<CR>
+nnoremap <M-r> :History<CR>
+nnoremap <M-m> :Marks<CR>
+nnoremap <M-M> :Maps<CR>
+nnoremap <M-w> :Windows<CR>
+nnoremap <M-g> :GFiles?<CR>
+nnoremap <M-G> :GFiles<CR>
 
-	nnoremap gm :BCommits<cr>
-	nnoremap gM :Commits<cr>
+nnoremap gm :BCommits<cr>
+nnoremap gM :Commits<cr>
 
-	au FileType fzf tnoremap <buffer> <C-j> <Down>
-	au FileType fzf tnoremap <buffer> <C-k> <Up>
-	au FileType fzf tunmap <buffer> <Esc>
-"endif
+au FileType fzf tnoremap <buffer> <C-j> <Down>
+au FileType fzf tnoremap <buffer> <C-k> <Up>
+au FileType fzf tunmap <buffer> <Esc>
