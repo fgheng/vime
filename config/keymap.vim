@@ -1,7 +1,6 @@
-"------------------------------------------- base key map
 inoremap jk <esc>
-" nnoremap <M-q> <esc>:close<cr>
-" vnoremap <M-q> <esc>:close<cr>
+nnoremap <M-q> <esc>:close<cr>
+vnoremap <M-q> <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
 
 " 窗口
@@ -13,39 +12,34 @@ noremap <M-H> <C-w>h
 noremap <M-J> <C-w>j
 noremap <M-K> <C-w>k
 noremap <M-L> <C-w>l
+
 " 更改窗口大小
 nnoremap <M-{> :vertical resize -5<CR> " 更改窗口宽度
 nnoremap <M-}> :vertical resize +5<CR>
 " nnoremap <M-_>= :exe "resize " . (winheight(0) * 3/2)<CR> " 更改窗口高度
 " nnoremap <M-+>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
 " 分割窗口
-" nnoremap <c-w>s <esc><c-w>s<esc><c-w>j
-" nnoremap <c-w>v <esc><c-w>v<esc><c-w>l
 nnoremap <c-w>k :abo split <cr>
 nnoremap <c-w>h :abo vsplit <cr>
 nnoremap <c-w>j :rightbelow split <cr>
 nnoremap <c-w>l :rightbelow vsplit <cr>
-" nnoremap <M-W>k :abo split <cr>
-" nnoremap <M-W>h :abo vsplit <cr>
-" nnoremap <M-W>j :rightbelow split <cr>
-" nnoremap <M-W>l :rightbelow vsplit <cr>
 
 " 插入模式下的一些快捷键
-" inoremap <C-s> <esc>:w<cr>
-" inoremap <C-a> <esc>ggVG
 inoremap <M-o> <esc>o
 inoremap <M-O> <esc>O
 inoremap <M-h> <esc>I
 inoremap <M-l> <esc>A
 
-noremap <space><space> <esc>:w<cr><left> " 两个space保存所有文件
+noremap <space><space> <esc>:w<cr><left>
 
 nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-nnoremap Y y$ " 复制到末尾
+" 复制到末尾
+nnoremap Y y$
 
 " terminal
 if has('nvim')

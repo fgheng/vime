@@ -4,6 +4,8 @@ highlight Lf_hl_match gui=bold guifg=Red cterm=bold ctermfg=21
 highlight Lf_hl_matchRefine  gui=bold guifg=Magenta cterm=bold ctermfg=201
 
 let g:Lf_HideHelp = 1
+" 使用leaderf file path的时候不更改目录到path
+let g:Lf_NoChdir = 1
 let g:Lf_UseCache = 0
 let g:Lf_UseVersionControlTool = 0
 let g:Lf_IgnoreCurrentBufferName = 1
