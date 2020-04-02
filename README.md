@@ -86,6 +86,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | \<space>c | 打开coclist command     | coc    |
 | \<space>o | 打开coclist outline     | coc    |
 | \<space>O | 打开coclist symbols     | coc    |
+| \<space>y | 打开coclist yanks       | coc    |
 
 #### 窗口与tab
 
@@ -147,20 +148,23 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 #### buffer与文件检索等
 
-该操作主要由[junegunn/*fzf*.vim](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)、[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)三者中的一个完成，快捷键基本一致，主要看`plug.vim`中选择的是哪一个插件，其中[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)优先级最低，有其他两者，那么就会覆盖掉coc的操作。
+该操作主要由[junegunn/*fzf*.vim](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)、[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)、[liuchengxu/*vim*-*clap*](https://github.com/liuchengxu/vim-clap)中的一个完成，快捷键基本一致，主要看`plug.vim`中选择的是哪一个插件，其中[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)优先级最低，有其他插件，那么就会覆盖掉coc的操作。
 
-| 按键  | 描述                                                         | 提供者          |
-| ----- | ------------------------------------------------------------ | --------------- |
-| alt-r | 最近打开的文件                                               | fzf/leaderf/coc |
-| alt-b | 显示当前打开的所有buffer                                     | fzf/leaderf/coc |
-| alt-f | 1. 搜索工程目录下的文件<br>2. 搜索wiki笔记目录下的文件       | fzf/leaderf/coc |
-| alt-F | 搜索HOME下的所有文件                                         | fzf/leaderf/coc |
-| alt-w | 显示打开的窗口                                               | fzf/leaderf/coc |
-| alt-m | 显示所有的标记                                               | fzf/coc         |
-| alt-M | 显示所有映射                                                 | fzf/coc         |
-| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 使用rg搜索wiki笔记目录下的内容 | fzf/leaderf/coc |
-| alt-c | 显示所有命令                                                 | fzf/leaderf/coc |
-| ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/coc |
+| 按键  | 描述                                                         | 提供者               |
+| ----- | ------------------------------------------------------------ | -------------------- |
+| alt-r | 最近打开的文件                                               | fzf/leaderf/clap/coc |
+| alt-b | 显示当前打开的所有buffer                                     | fzf/leaderf/clap/coc |
+| alt-f | 1. 搜索工程目录下的文件<br>2. 搜索wiki笔记目录下的文件       | fzf/leaderf/clap/coc |
+| alt-F | 搜索HOME下的所有文件                                         | fzf/leaderf/clap/coc |
+| alt-w | 显示打开的窗口                                               | fzf/leaderf/clap/coc |
+| alt-m | 显示所有的标记                                               | fzf/clap/coc         |
+| alt-M | 显示所有映射                                                 | fzf/clap/coc         |
+| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 使用rg搜索wiki笔记目录下的内容 | fzf/leaderf/clap/coc |
+| alt-c | 显示所有命令                                                 | fzf/leaderf/clap/coc |
+| ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/clap/coc |
+| alt-y | 显示复制内容                                                 | clap/coc             |
+| alt-g | 显示未提交的file列表                                         | fzf/clap             |
+| alt-G | 显示所有提交的file列表                                       | fzf/clap/coc         |
 
 
 #### 多光标

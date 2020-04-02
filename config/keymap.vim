@@ -46,6 +46,13 @@ vnoremap k gk
 " 复制到末尾
 nnoremap Y y$
 
+if !HasPlug('vim-airline')
+	nnoremap  <M-l> :tabnext<cr>
+	nnoremap  <M-h> :tabprevious<CR>
+	tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
+	tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
+endif
+
 function s:new_tab_before() abort
 	exec "tabnew | -tabmove"
 endfunction

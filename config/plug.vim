@@ -11,6 +11,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plug 'tpope/vim-fugitive'
 " Plug 'antoinemadec/coc-fzf' " coc与fzf的结合
 " Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary'}
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " 快速注释插件

@@ -185,7 +185,8 @@ function! CocListFilesWithWiki(query)
 	endif
 endfunction
 if HasCocPlug('coc-lists')
-	if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
+	" TODO 需要思考一下这里的逻辑
+	if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') || !HasPlug('vim-clap') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
 		nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
 		nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
 		nnoremap <silent> <M-b> :CocList buffers<CR>
@@ -207,7 +208,10 @@ if HasCocPlug('coc-lists')
 endif
 
 if HasCocPlug('coc-yank')
-	nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
+	" nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
+	if !HasPlug('vim-clap')
+		nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
+	endif
 endif
 
 if HasCocPlug('coc-explorer')
@@ -248,6 +252,8 @@ if HasCocPlug('coc-git')
 	" 显示光标处的修改信息
 	nmap gp <Plug>(coc-git-chunkinfo)
 	nmap gu <esc>:CocCommand git.chunkUndo<cr>
+
+	nmap <m-G> :CocList gfiles<cr>
 endif
 
 "--------------------------------- 配置json文件
