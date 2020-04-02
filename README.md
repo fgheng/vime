@@ -184,21 +184,21 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 注释插件使用[nerdcomment](https://github.com/preservim/nerdcommenter)。
 
-| 按键             | 模式          | 描述                                       |
-| ---------------- | ------------- | ------------------------------------------ |
-| <leader>cs       | normal/visual | 用一种比较好看的方式注释当前行或选中的内容 |
-| <leader>ci       | normal/visual | 注释/取消注释                              |
-| <leader>cm       | normal/visual | 用一种最简单的方式注释当前行或选中的内容   |
-| <leader>cl       | normal/visual | 按行的方式注释选中的内容                   |
-| <leader>cb       | normal/visual | 注释选中的内容                             |
-| <leader>cu       | normal/visual | 取消注释选中的内容                         |
-| <leader>ca       | normal        | 切换到另一种注释符号                       |
-|                  |               |                                            |
-| <leader>cA       | normal        | 在当前行最后增加注释符号并进入插入模式     |
-| <leader>c$       | normal        | 从当前光标处注释到当前行的最后             |
-| <leader>c<space> |               |                                            |
-| <leader>cc       |               |                                            |
-| <leader>cn       |               |                                            |
+| 按键               | 模式          | 描述                                       |
+| ------------------ | ------------- | ------------------------------------------ |
+| \<leader>cs        | normal/visual | 用一种比较好看的方式注释当前行或选中的内容 |
+| \<leader>ci        | normal/visual | 注释/取消注释                              |
+| \<leader>cm        | normal/visual | 用一种最简单的方式注释当前行或选中的内容   |
+| \<leader>cl        | normal/visual | 按行的方式注释选中的内容                   |
+| \<leader>cb        | normal/visual | 注释选中的内容                             |
+| \<leader>cu        | normal/visual | 取消注释选中的内容                         |
+| \<leader>ca        | normal        | 切换到另一种注释符号                       |
+|                    |               |                                            |
+| \<leader>cA        | normal        | 在当前行最后增加注释符号并进入插入模式     |
+| \<leader>c$        | normal        | 从当前光标处注释到当前行的最后             |
+| \<leader>c\<space> |               |                                            |
+| \<leader>cc        |               |                                            |
+| \<leader>cn        |               |                                            |
 
 #### 终端
 
@@ -219,41 +219,41 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 ![biji](https://s1.ax1x.com/2020/03/29/GE03VS.gif)
 
-| 按键               | 模式    | 描述                       |
-| ------------------ | ------- | -------------------------- |
-| 笔记               |         |                            |
-| alt s              | normal  | 搜索vimwiki中的内容        |
-| <leader>ww         | normal  | 打开vimwiki                |
-| <leader>wt         | normal  | 在新的tab打开vimwiki       |
-| <leader>wd         | normal  | 删除当前page               |
-| <leader>wr         | normal  | 重命名当前的page           |
-| 日记               |         |                            |
-| <leader>wi         |         | 打开日记列表               |
-| <leader>w<leader>i |         | 更新当前的日记列表         |
-| <leader>w<leader>w |         | 打开今天的日记             |
-| <leader>w<leader>t |         | 在新的tab中打开今天的日记  |
-| ctrl up/down       |         | 打开昨天/明天的日记        |
-| 导航               |         |                            |
-| enter              |         | 创建链接                   |
-| ctrl shift enter   |         |                            |
-| back               |         | 回到上一级目录             |
-| tab                |         | 跳转到下一处链接           |
-| shift tab          |         | 跳转到上一处链接           |
-| 编辑快捷键         |         |                            |
-| =                  |         | 增加标题                   |
-| -                  |         | 减少标题                   |
-| +                  |         | 创建链接                   |
-| glm                |         | 增加list item的缩进        |
-| gll                |         | 减少list item的缩进        |
-| gl* 或 gl8         |         | 将该行变为*条目            |
-| gl# 或 gl3         |         | 将该行变为#                |
-| gl-                |         | 将该行变为-                |
-| gl1                |         | 将改行变为1.               |
-| 表格模式           |         |                            |
-| cr                 | insert  | 插入模式                   |
-| tab                | instert | 插入模式，跳到下一个输入框 |
-| gqq 或 gww         | normal  | 格式化表格                 |
-|                    |         |                            |
+| 按键                 | 模式    | 描述                       |
+| -------------------- | ------- | -------------------------- |
+| 笔记                 |         |                            |
+| alt s                | normal  | 搜索vimwiki中的内容        |
+| \<leader>ww          | normal  | 打开vimwiki                |
+| \<leader>wt          | normal  | 在新的tab打开vimwiki       |
+| \<leader>wd          | normal  | 删除当前page               |
+| \<leader>wr          | normal  | 重命名当前的page           |
+| 日记                 |         |                            |
+| \<leader>wi          |         | 打开日记列表               |
+| \<leader>w\<leader>i |         | 更新当前的日记列表         |
+| \<leader>w\<leader>w |         | 打开今天的日记             |
+| \<leader>w\<leader>t |         | 在新的tab中打开今天的日记  |
+| ctrl up/down         |         | 打开昨天/明天的日记        |
+| 导航                 |         |                            |
+| enter                |         | 创建链接                   |
+| ctrl shift enter     |         |                            |
+| back                 |         | 回到上一级目录             |
+| tab                  |         | 跳转到下一处链接           |
+| shift tab            |         | 跳转到上一处链接           |
+| 编辑快捷键           |         |                            |
+| =                    |         | 增加标题                   |
+| -                    |         | 减少标题                   |
+| +                    |         | 创建链接                   |
+| glm                  |         | 增加list item的缩进        |
+| gll                  |         | 减少list item的缩进        |
+| gl* 或 gl8           |         | 将该行变为*条目            |
+| gl# 或 gl3           |         | 将该行变为#                |
+| gl-                  |         | 将该行变为-                |
+| gl1                  |         | 将改行变为1.               |
+| 表格模式             |         |                            |
+| cr                   | insert  | 插入模式                   |
+| tab                  | instert | 插入模式，跳到下一个输入框 |
+| gqq 或 gww           | normal  | 格式化表格                 |
+|                      |         |                            |
 
 #### Git
 
@@ -272,6 +272,8 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 | gM   | normal | 查看所有的commits              | fzf/coc-git |
 | gc   | normal | git commit                     | fugitive  |
 | gw | normal | 写入，相当于git add | fugitive |
+
+
 
 | 按键            | 模式    | 描述                       | 提供者|
 | ------------------ | ------- | -------------------------- |--------|
@@ -297,3 +299,4 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 #### Run
 
 #### 翻译
+
