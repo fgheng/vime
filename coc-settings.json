@@ -66,7 +66,7 @@
 
     // python
     "python.autoComplete.addBrackets": true,
-    "python.jediEnabled": false, // 需要安装jdei
+    "python.jediEnabled": true, // 需要安装jdei
 
     // java
     // "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
