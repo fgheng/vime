@@ -219,7 +219,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 笔记使用的是插件[vimwiki/*vimwiki*](https://github.com/vimwiki/vimwiki)，可以记笔记可以写日记，支持markdown。
 
-同时可以使用[junegunn/*fzf.vim*](https://github.com/junegunn/fzf.vim)进行笔记内容搜索。
+可以使用[junegunn/*fzf.vim*](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)进行笔记文件和笔记内容的搜索。
 
 ![biji](https://s1.ax1x.com/2020/03/29/GE03VS.gif)
 
@@ -276,12 +276,6 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 | gM   | normal | 查看所有的commits              | fzf/coc-git |
 | gc   | normal | git commit                     | fugitive  |
 | gw | normal | 写入，相当于git add | fugitive |
-
-
-
-| 按键            | 模式    | 描述                       | 提供者|
-| ------------------ | ------- | -------------------------- |--------|
-|      |      |      |        |
 
 
 #### 数据库
