@@ -86,7 +86,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | \<space>c | 打开coclist command     | coc    |
 | \<space>o | 打开coclist outline     | coc    |
 | \<space>O | 打开coclist symbols     | coc    |
-| \<space>y | 打开coclist yanks       | coc    |
+|           |                         |        |
 
 #### 窗口与tab
 
