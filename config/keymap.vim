@@ -63,3 +63,10 @@ nnoremap <silent> <leader>tn :tabnew<cr>
 nnoremap <silent> <leader>tc :tabclose<cr>
 " nnoremap  <leader>tm :tabmove 1<cr>
 " nnoremap  <leader>tM :tabmove -1<cr>
+
+function! SystemExecuteCurrentFile(f)
+	exec 'silent !xdg-open ' . a:f . ' > /dev/null'
+endfunction
+
+" 使用系统应用打开文件
+noremap <silent> <c-x> :call SystemExecuteCurrentFile(expand('%:p'))<cr>

@@ -11,3 +11,4 @@ let g:vimwiki_list = [
 			\ 'ext':'.md'
 			\ }
 			\ ]
+

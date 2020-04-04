@@ -14,7 +14,7 @@ let g:fzf_history_dir = g:fzf_dir . "/fzf-history"
 " ref https://github.com/junegunn/fzf.vim/issues/379
 function! s:SystemExecute(lines)
 	for line in a:lines
-		exec "silent !xdg-open " . line . " > /dev/null"
+		exec 'silent !xdg-open ' . line . ' > /dev/null'
 	endfor
 endfunction
 

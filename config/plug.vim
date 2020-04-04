@@ -63,8 +63,8 @@ Plug 'puremourning/vimspector'
 Plug 'voldikss/vim-floaterm'
 Plug 'vimwiki/vimwiki'
 " markdown内运行代码
-Plug 'gpanders/vim-medieval', {'for': 'md'}
-"{'on': ['Eval', 'Eval!', 'EvalBlock', 'EvalBlock']}
+Plug 'gpanders/vim-medieval'
+"{'on': ['Eval', 'Eval!', 'EvalBlock!', 'EvalBlock']}
 " 数据库
 Plug 'tpope/vim-dadbod', {'on': 'DB'}
 " Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
