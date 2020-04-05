@@ -215,6 +215,23 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | alt h | tnormal        | 切换到上一个终端  |
 | alt l | tnormal        | 切换到下一个终端  |
 
+#### 代码折叠
+
+代码折叠使用的插件是[pseewald/vim-*anyfold*](https://github.com/pseewald/vim-anyfold)
+
+| 按键 | 模式   | 描述                 |
+| ---- | ------ | -------------------- |
+| zc   | normal | 折叠                 |
+| zC   | normal | 循环折叠             |
+| zo   | normal | 打开折叠             |
+| zO   | normal | 循环打开折叠         |
+| zc   | normal | 打开折叠或者关闭折叠 |
+| zA   | normal | za的循环             |
+| zm   | normal | 折起更多             |
+| zM   | normal | 折起所有             |
+| zr   | normal | 减少折叠             |
+|      | normal | 打开所有折叠         |
+
 #### 笔记
 
 笔记使用的是插件[vimwiki/*vimwiki*](https://github.com/vimwiki/vimwiki)，可以记笔记可以写日记，支持markdown。
@@ -258,6 +275,21 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | tab                  | instert | 插入模式，跳到下一个输入框 |
 | gqq 或 gww           | normal  | 格式化表格                 |
 |                      |         |                            |
+
+#### Surround
+
+Surround是使用快捷键来给指定的字符串添加包围，比如引号等。使用的插件是[tpope/*vim*-*surround*](https://github.com/tpope/vim-surround)
+
+| 按键      | 模式   | 描述                                             |
+| --------- | ------ | ------------------------------------------------ |
+| cs"''     | normal | changed surround "' 将双引号改为单引号           |
+| cs'\<q>   | normal | 将单引号改变为\<q>包围                           |
+| cst"      | normal | 将tag改变为双引号，比如\<q>hello\</q>变为"hello" |
+| ds"       | normal | 删除双引号                                       |
+| ysiw]     | normal | iw是选择一个单词，在选中的单词处增加中括号       |
+| ysiw[     | normal | 同上，不过两侧会增加空格                         |
+| yss)      | normal | 整行增加括号                                     |
+| ysiw\<em> | normal | 在一个单词处增加\<em>\</em>包围                  |
 
 #### Git
 
