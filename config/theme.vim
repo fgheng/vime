@@ -2,7 +2,7 @@ if has('termguicolors')
 	set termguicolors
 endif
 
-colorscheme one
+colorscheme gruvbox-material
 if has('nvim')
 	hi normal     ctermbg=NONE guibg=NONE
 	hi linenr     ctermbg=NONE guibg=NONE
@@ -33,4 +33,3 @@ if HasPlug('coc.nvim')
 	hi link CocInfoSign green
 	hi link CocHintSign blue
 endif
-

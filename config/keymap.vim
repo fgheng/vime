@@ -69,4 +69,4 @@ function! SystemExecuteCurrentFile(f)
 endfunction
 
 " 使用系统应用打开文件
-noremap <silent> <c-x> :call SystemExecuteCurrentFile(expand('%:p'))<cr>
+noremap <silent> <F6> :call SystemExecuteCurrentFile(expand('%:p'))<cr>

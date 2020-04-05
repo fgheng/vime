@@ -29,7 +29,7 @@ set list " 只有setlist后面的才会起作用
 set listchars=tab:→·,nbsp:⣿,extends:»,precedes:«
 set listchars+=eol:¬
 set listchars+=trail:· " 尾部空白
-set listchars+=space:· " 空白
+"set listchars+=space:· " 空白
 set pumheight=20 " 设置弹出框大小, 0 则有多少显示多少
 
 set nobackup " coc
@@ -54,7 +54,6 @@ set mouse=a " 允许使用鼠标
 set cmdheight=1
 set conceallevel=0 " json文件不显示引号
 
-"???
 set re=1
 
 set nocompatible "vimwiki需要
