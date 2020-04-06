@@ -10,4 +10,4 @@ let g:indentLine_char = '┊'
 let g:indentLine_concealcursor = 'niv'
 let g:indentLine_conceallevel = 0
 let g:indentLine_setConceal = 0
-let g:indentLine_fileTypeExclude = ['defx', 'startify', 'terminal', 'coc-explorer', 'json', 'jsonc', 'vista']
+let g:indentLine_fileTypeExclude = ['defx', 'startify', 'terminal', 'coc-explorer', 'json', 'jsonc', 'vista', 'help', 'nerdtree', 'tagbar', 'vimfiler', 'markdown', minimap]
