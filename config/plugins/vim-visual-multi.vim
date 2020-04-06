@@ -15,7 +15,7 @@ let g:VM_maps = {}
 
 let g:VM_maps["Switch Mode"]                 = '<Tab>'
 let g:VM_maps["Add Cursor At Pos"]           = '<C-c>'
-let g:VM_maps['Visual Add']				     = '<C-c>'
+let g:VM_maps['Visual Add']                  = '<C-c>'
 let g:VM_maps['Find Under']                  = '<C-n>'
 let g:VM_maps['Find Subword Under']          = '<C-n>'
 let g:VM_maps["Select All"]                  = '<c-s>'
@@ -23,9 +23,9 @@ let g:VM_maps["Visual All"]                  = '<c-s>'
 let g:VM_maps["Start Regex Search"]          = '\\/'
 let g:VM_maps["Visual Regex"]                = '\\/'
 
-" let g:VM_maps["Alt Skip"]                    = 'Q'
-let g:VM_maps["Remove Region"]               = 'q'
-" let g:VM_maps["Skip Region"]                 = 'q'
+"let g:VM_maps["Alt Skip"]                    = 'Q'
+let g:VM_maps["Remove Region"]               = 'Q'
+let g:VM_maps["Skip Region"]                 = 'q' " 取消当前位置并跳到下一处
 let g:VM_maps["Invert Direction"]            = 'o'
 let g:VM_maps["Find Operator"]               = "m"
 let g:VM_maps["Surround"]                    = 'S'

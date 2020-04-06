@@ -177,12 +177,14 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | ctrl-c       | normal            | 在当前位置插入一个光标                                       |
 | ctrl-down/up | normal            | 在当前位置下方/上方插入光标                                  |
 | ctrl-s       | normal/visual     | 1. 选中当前光标下的所有单词<br>2. visual模式下选中所有的当前选中的内容 |
-| ctrl-n       | normal            | 在visual模式下选中内容之后，按下ctrl-n会在下一处与当前选中内一样的地方插入光标。非visual模式下，与ctrl-a表现差不多，不过是依次选择当前光标下的单词。 |
-| q            | visual-multi-mode | 取消当前位置插入的光标                                       |
+| ctrl-n       | normal            | 在visual模式下选中内容之后，按下ctrl-n会在下一处与当前选中内一样的地方插入光标。非visual模式下，与ctrl-s表现差不多，不过是依次选择当前光标下的单词。 |
+| q            | visual-multi-mode | 取消当前位置插入的光标，并跳到下一个匹配位置                 |
+|              | visual-multi-mode | 取消当前选中的区域                                           |
 | ]/[          | visual-multi-mode | 在多个选中的光标之间进行跳转                                 |
 | n            | visual-multi-mode | 跳到下一个匹配的模式，不选中                                 |
-| S            | visual-multi-mode | 在多光标模式下，将多个选中的内容进行包围                     |
+| S            | visual-multi-mode | 在多光标模式下，将多个选中的内容以某种符号进行进行包围       |
 | o            | visual-multi-mode | 交换光标位置                                                 |
+| m            |                   |                                                              |
 
 #### 注释
 

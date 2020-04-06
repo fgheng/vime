@@ -94,7 +94,7 @@ nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
 "     call searchdecl(expand('<cword>'))
 "   endif
 " endfunction
-" 跳转到定义
+" " 跳转到定义
 " nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gd <Plug>(coc-definition)
 " 跳转到类型定义
