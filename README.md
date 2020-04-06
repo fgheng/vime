@@ -211,12 +211,12 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 终端使用的是[voldikss/vim-*floaterm*](https://github.com/voldikss/vim-floaterm)
 
-| 按键  | 模式           | 描述              |
-| ----- | -------------- | ----------------- |
-| alt = | normal         | 打开/关闭当前终端 |
-| alt + | normal/tnormal | 新建一个终端      |
-| alt h | tnormal        | 切换到上一个终端  |
-| alt l | tnormal        | 切换到下一个终端  |
+| 按键  | 模式           | 描述                         |
+| ----- | -------------- | ---------------------------- |
+| alt = | normal         | 打开/关闭当前终端            |
+| alt + | normal/tnormal | 新建一个终端                 |
+| alt h | tnormal        | 打开终端后，切换到上一个终端 |
+| alt l | tnormal        | 打开终端后，切换到下一个终端 |
 
 #### 代码折叠
 
