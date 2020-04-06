@@ -173,19 +173,22 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 | 按键         | 模式              | 描述                                                         |
 | ------------ | ----------------- | ------------------------------------------------------------ |
-| tab          | visual-multi-mode | 在多光标模式下，使用tab可以更改光标模式                      |
+| tab          | visual-multi-mode | 光标和扩展模式直接切换                                       |
+| shift-方向键 | normal            | 选中区域并进入visual-multi-mode                              |
 | ctrl-c       | normal            | 在当前位置插入一个光标                                       |
-| ctrl-down/up | normal            | 在当前位置下方/上方插入光标                                  |
+| ctrl-down/up | normal            | 垂直方向插入多光标                                           |
 | ctrl-s       | normal/visual     | 1. 选中当前光标下的所有单词<br>2. visual模式下选中所有的当前选中的内容 |
 | ctrl-n       | normal            | 在visual模式下选中内容之后，按下ctrl-n会在下一处与当前选中内一样的地方插入光标。非visual模式下，与ctrl-s表现差不多，不过是依次选择当前光标下的单词。 |
 | q            | visual-multi-mode | 取消当前位置插入的光标，并跳到下一个匹配位置                 |
-|              | visual-multi-mode | 取消当前选中的区域                                           |
+| Q            | visual-multi-mode | 取消当前的光标或者选中的区域                                 |
 | ]/[          | visual-multi-mode | 在多个选中的光标之间进行跳转                                 |
-| n            | visual-multi-mode | 跳到下一个匹配的模式，不选中                                 |
+| n/N          | visual-multi-mode | 跳到下一个/上一个o匹配的模式                                 |
 | S            | visual-multi-mode | 在多光标模式下，将多个选中的内容以某种符号进行进行包围       |
 | o            | visual-multi-mode | 交换光标位置                                                 |
 | m            |                   |                                                              |
 | \\\/         | normal            | 以正则匹配的方式设置多光标                                   |
+|              |                   |                                                              |
+
 
 #### 注释
 
@@ -324,6 +327,20 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 #### Latex
 
 latex可以选择使用[lervag/*vimtex*](https://github.com/lervag/vimtex)
+
+vimtex的快捷键都是以\<leader>l作为开头的。
+
+| 按键        | 模式 | 描述         |
+| ----------- | ---- | ------------ |
+| \<leader>ll |      | 准备编译文档 |
+| \<leader>lv           |      | 在pdf文档中定位到当前位置 |
+| \<leader>ll or lk    |      | 停止编译 |
+| \<leader>le          |      | 删除log，errors以及warnings |
+| \<leader>lc           |      | 删除多余的文档 |
+| %                 |      | 在定界符之间跳转            |
+|                   |      |                             |
+|                   |      |                             |
+|                   |      |              |
 
 #### Debug
 

@@ -78,6 +78,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
+Plug 'mhinz/vim-startify'
 
 call plug#end()
 
