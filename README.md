@@ -245,25 +245,25 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 | 按键                 | 模式    | 描述                       |
 | -------------------- | ------- | -------------------------- |
-| 笔记                 |         |                            |
+| ===>笔记<===         |         |                            |
 | alt s                | normal  | 搜索vimwiki中的内容        |
 | \<leader>ww          | normal  | 打开vimwiki                |
 | \<leader>wt          | normal  | 在新的tab打开vimwiki       |
 | \<leader>wd          | normal  | 删除当前page               |
 | \<leader>wr          | normal  | 重命名当前的page           |
-| 日记                 |         |                            |
+| ===>日记<===         |         |                            |
 | \<leader>wi          |         | 打开日记列表               |
 | \<leader>w\<leader>i |         | 更新当前的日记列表         |
 | \<leader>w\<leader>w |         | 打开今天的日记             |
 | \<leader>w\<leader>t |         | 在新的tab中打开今天的日记  |
 | ctrl up/down         |         | 打开昨天/明天的日记        |
-| 导航                 |         |                            |
+| ===>导航<===         |         |                            |
 | enter                |         | 创建链接                   |
 | ctrl shift enter     |         |                            |
 | back                 |         | 回到上一级目录             |
 | tab                  |         | 跳转到下一处链接           |
 | shift tab            |         | 跳转到上一处链接           |
-| 编辑快捷键           |         |                            |
+| ===>编辑快捷键<===   |         |                            |
 | =                    |         | 增加标题                   |
 | -                    |         | 减少标题                   |
 | +                    |         | 创建链接                   |
@@ -273,7 +273,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | gl# 或 gl3           |         | 将该行变为#                |
 | gl-                  |         | 将该行变为-                |
 | gl1                  |         | 将改行变为1.               |
-| 表格模式             |         |                            |
+| ===>表格模式<===     |         |                            |
 | cr                   | insert  | 插入模式                   |
 | tab                  | instert | 插入模式，跳到下一个输入框 |
 | gqq 或 gww           | normal  | 格式化表格                 |
