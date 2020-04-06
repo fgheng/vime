@@ -185,6 +185,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | S            | visual-multi-mode | 在多光标模式下，将多个选中的内容以某种符号进行进行包围       |
 | o            | visual-multi-mode | 交换光标位置                                                 |
 | m            |                   |                                                              |
+| \\\/         | normal            | 以正则匹配的方式设置多光标                                   |
 
 #### 注释
 
