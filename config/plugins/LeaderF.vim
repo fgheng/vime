@@ -18,7 +18,7 @@ let g:Lf_GtagsAutoGenerate = 0
 let g:Lf_Gtagslabel = 'native-pygments'
 
 function! LeaderfFileWithWiki(query) abort
-	if empty(a:query) && &ft ==? 'vimwiki'
+	if empty(a:query) && &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
 		exec "LeaderfFile " . g:vimwiki_path
 	else
 		exec "LeaderfFile " . a:query
@@ -26,7 +26,7 @@ function! LeaderfFileWithWiki(query) abort
 endfunction
 
 function! LeaderfRgWithWiki(query) abort
-	if &ft ==? 'vimwiki'
+	if &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
 		exec 'Leaderf rg -F -e "" ' . g:vimwiki_path
 	else
 		exec 'Leaderf rg -F -e ' . leaderf#Rg#visual()
