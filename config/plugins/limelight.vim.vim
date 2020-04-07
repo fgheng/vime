@@ -5,7 +5,7 @@ let g:limelight_conceal_guifg = '#777777'
 let g:limelight_default_coefficient = 0.7
 
 " 上下多少行
-let g:limelight_paragraph_span = 5
+let g:limelight_paragraph_span = 1
 
 " Beginning/end of paragraph
 "   When there's no empty line between the paragraphs
