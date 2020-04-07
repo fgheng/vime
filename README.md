@@ -1,6 +1,6 @@
 # vime
 
-## About
+## 1. About
 
 该项目使用分离配置文件的方式，一个插件对应一个配置文件，方便插件的增删，同时也方便插件配置文件的移植。
 
@@ -8,7 +8,7 @@
 
 ![vime](./assets/readme1.png)
 
-### 整体结构
+### 2. 整体结构
 
 ```bash
 ├── coc-settings.json
@@ -34,13 +34,13 @@
 5. `plugins`目录下是所有插件的配置文件，一个插件一个配置文件，只会加载`plug.vim`中安装的插件的配置。
 6. `config.vim`用于一些个人配置或全局配置，比如插件的缓存目录，笔记的根目录等
 
-### 简单了解
+### 3. 简单了解
 
 1. 补全使用的是[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)
 2. 文件管理使用的是[weirongxu/*coc*-explorer](https://github.com/weirongxu/coc-explorer)
 3. 函数浏览器使用的是[liuchengxu/*vista*.*vim*](https://github.com/liuchengxu/vista.vim)
 
-### 依赖
+### 4. 依赖
 
 需要安装如下软件：
 
@@ -49,7 +49,7 @@
 3. neovim-remote:：可选，vimtex会用到，但是也可以不用，安装体验更好，`pip install neovim-remote`
 4. clangd：可选，用于c系补全
 
-### 安装
+### 5. 安装
 
 ```bash
 git clone https://github.com/fgheng/vime -C .config/nvim
@@ -57,11 +57,11 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 然后打开neovim，执行`:PlugInstall`等待插件安装完毕即可！
 
-### 快捷键
+### 6. 快捷键
 
 不管您选择了哪种补全插件，哪种检索插件，我们的快捷键配置都会尽可能保持一致，无须更改您的使用习惯，改变的只是`neo/vim`表现形式。
 
-#### 补全行为
+#### 6.1 补全行为
 
 补全使用的[neoclide/*coc.nvim*](https://github.com/neoclide/coc.nvim)插件，该项目中也有[ycm-core/*YouCompleteMe*](https://github.com/ycm-core/YouCompleteMe)的配置，但最近主要使用coc，故ycm的配置已经很久不更新了。
 
@@ -88,7 +88,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | \<space>O | 打开coclist symbols     | coc    |
 |           |                         |        |
 
-#### 窗口与tab
+#### 6.2 窗口与tab
 
 | 按键           | 描述                                                         | 提供者         |
 | -------------- | ------------------------------------------------------------ | -------------- |
@@ -105,7 +105,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | \<leader>tc    | 关闭一个tab                                                  |                |
 | alt-h/l        | 切换到上一个/下一个tab                                       |                |
 
-#### 文件管理
+#### 6.3 文件管理
 
 文件管理使用的插件是[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)、[Shougo/*defx*.nvim](https://github.com/Shougo/defx.nvim)，两者之一，需要在`plug.vim`中选择，快捷键行为基本一致。支持浮动窗口。
 
@@ -146,7 +146,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | F     | 递归搜索文件                                  |
 |       |                                               |
 
-#### buffer与文件检索等
+#### 6.4 buffer与文件检索等
 
 该操作主要由[junegunn/*fzf*.vim](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)、[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)、[liuchengxu/*vim*-*clap*](https://github.com/liuchengxu/vim-clap)中的一个完成，快捷键基本一致，主要看`plug.vim`中选择的是哪一个插件，其中[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)优先级最低，有其他插件，那么就会覆盖掉coc的操作。
 
@@ -167,7 +167,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | alt-G | 显示所有提交的file列表                                       | fzf/clap/coc         |
 
 
-#### 多光标
+#### 6.5 多光标
 
 多光标使用的是插件[vim-visual-multi](https://github.com/mg979/vim-visual-multi)以及coc自带的多光标，如果`plug.vim`中没有[vim-visual-multi](https://github.com/mg979/vim-visual-multi)那么会使用coc自带的插件，coc行为与前者类似，但是功能不如前者多。
 
@@ -190,7 +190,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 |              |                   |                                                              |
 
 
-#### 注释
+#### 6.6 注释
 
 注释插件使用[nerdcomment](https://github.com/preservim/nerdcommenter)。
 
@@ -210,7 +210,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | \<leader>cc        |               |                                            |
 | \<leader>cn        |               |                                            |
 
-#### 终端
+#### 6.7 终端
 
 终端使用的是[voldikss/vim-*floaterm*](https://github.com/voldikss/vim-floaterm)
 
@@ -221,7 +221,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | alt h | tnormal        | 打开终端后，切换到上一个终端 |
 | alt l | tnormal        | 打开终端后，切换到下一个终端 |
 
-#### 代码折叠
+#### 6.8 代码折叠
 
 代码折叠使用的插件是[pseewald/vim-*anyfold*](https://github.com/pseewald/vim-anyfold)
 
@@ -238,7 +238,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | zr   | normal | 减少折叠             |
 |      | normal | 打开所有折叠         |
 
-#### 笔记
+#### 6.9 笔记
 
 笔记使用的是插件[vimwiki/*vimwiki*](https://github.com/vimwiki/vimwiki)，可以记笔记可以写日记，支持markdown。
 
@@ -282,7 +282,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | gqq 或 gww           | normal  | 格式化表格                 |
 |                      |         |                            |
 
-#### Surround
+#### 6.9 Surround
 
 Surround是使用快捷键来给指定的字符串添加包围，比如引号等。使用的插件是[tpope/*vim*-*surround*](https://github.com/tpope/vim-surround)
 
@@ -297,7 +297,7 @@ Surround是使用快捷键来给指定的字符串添加包围，比如引号等
 | yss)      | normal | 整行增加括号                                     |
 | ysiw\<em> | normal | 在一个单词处增加\<em>\</em>包围                  |
 
-#### Git
+#### 6.10 Git
 
 git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblade/vim-gitgutter)、[tpope/vim-*fugitive*](https://github.com/tpope/vim-fugitive)、[neoclide/*coc-git*](https://github.com/neoclide/coc-git)
 
@@ -316,15 +316,15 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 | gw | normal | 写入，相当于git add | fugitive |
 
 
-#### 数据库
+#### 6.11 数据库
 
 数据库可以选择使用[tpope/vim-*dadbod*](https://github.com/tpope/vim-dadbod)
 
-#### 绘图
+#### 6.12 绘图
 
 绘图使用[vim-scripts/*DrawIt*](https://github.com/vim-scripts/DrawIt)，命令行输入`DrawIt`进入绘图模式。
 
-#### Latex
+#### 6.13 Latex
 
 latex可以选择使用[lervag/*vimtex*](https://github.com/lervag/vimtex)
 
@@ -342,11 +342,11 @@ vimtex的快捷键都是以\<leader>l作为开头的。
 |                   |      |                             |
 |                   |      |              |
 
-#### Debug
+#### 6.14 Debug
 
 debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourning/vimspector)
 
-#### Run
+#### 6.15 Run
 
-#### 翻译
+#### 6.16 翻译
 
