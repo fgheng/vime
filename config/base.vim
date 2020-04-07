@@ -18,7 +18,7 @@ set history=500 " 历史命令
 set splitbelow " 在下方分割
 "" tab
 set autoindent " 使用空格进行缩进
-" set expandtab " tab扩展为空格
+set expandtab " tab扩展为空格
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4

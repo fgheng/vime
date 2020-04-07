@@ -8,8 +8,8 @@ nmap <M-+> :FloatermNew<cr>
 nmap <M-=> :FloatermToggle<cr>
 tnoremap <M-+> <c-\><c-n>:FloatermNew<cr>
 tnoremap <M-=> <c-\><c-n>:FloatermToggle<cr>
-tnoremap <M-h> <c-\><c-n>:FloatermPrev<CR>
-tnoremap <M-l> <c-\><c-n>:FloatermNext<CR>
+au FileType floaterm tnoremap <M-h> <c-\><c-n>:FloatermPrev<CR>
+au FIleType floaterm tnoremap <M-l> <c-\><c-n>:FloatermNext<CR>
 
 nmap <leader>f :FloatermNew ranger<cr>
 nmap <leader>g :FloatermNew lazygit<cr>
