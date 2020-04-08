@@ -9,8 +9,10 @@ noremap <M-K> <C-w>k
 noremap <M-L> <C-w>l
 
 inoremap jk <esc>
-nnoremap <M-q> <esc>:close<cr>
-vnoremap <M-q> <esc>:close<cr>
+nnoremap q <esc>:close<cr>
+vnoremap q <esc>:close<cr>
+" alt q执行宏录制功能
+nnoremap <M-q> q
 nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
 
 " terminal
