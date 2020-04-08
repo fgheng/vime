@@ -5,8 +5,8 @@ endif
 " 总是开启预览
 let g:fzf_preview_window = 'right:50%'
 
-" 跳转到buffer所在的窗口
-let g:fzf_buffers_jump = 1
+" 进肯跳转到buffer所在的窗口
+" let g:fzf_buffers_jump = 1
 
 " fzf history 文件
 let g:fzf_history_dir = g:fzf_dir . "/fzf-history"
