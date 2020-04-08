@@ -9,10 +9,10 @@ noremap <M-K> <C-w>k
 noremap <M-L> <C-w>l
 
 inoremap jk <esc>
-nnoremap q <esc>:close<cr>
-vnoremap q <esc>:close<cr>
+nnoremap <m-q> <esc>:close<cr>
+vnoremap <m-q> <esc>:close<cr>
 " alt q执行宏录制功能
-nnoremap <M-q> q
+" nnoremap <M-q> q
 nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
 
 " terminal
@@ -23,7 +23,7 @@ else
 endif
 
 " 更改窗口大小
-nnoremap <M-{> :vertical resize -5<CR> " 更改窗口宽度
+nnoremap <M-{> :vertical resize -5<CR>
 nnoremap <M-}> :vertical resize +5<CR>
 
 " 分割窗口
