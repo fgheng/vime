@@ -8,6 +8,17 @@ nmap <M-+> :FloatermNew<cr>
 nmap <M-=> :FloatermToggle<cr>
 tnoremap <M-+> <c-\><c-n>:FloatermNew<cr>
 tnoremap <M-=> <c-\><c-n>:FloatermToggle<cr>
+
+function s:changeFlt(direction)
+    if &ft == "floaterm"
+        exec "normal <c-\><c-n>"
+        if a:direction ==? "left"
+            exec "FloatermPrev"
+        elseif a:direction ==? "right"
+            exec "FloatermNext"
+        endif
+    endif
+endfunction
 au FileType floaterm tnoremap <M-h> <c-\><c-n>:FloatermPrev<CR>
 au FIleType floaterm tnoremap <M-l> <c-\><c-n>:FloatermNext<CR>
 
