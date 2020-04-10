@@ -8,7 +8,7 @@
 " 不使用默认映射，vim-plug根据命令启动，启动速度更快
 let g:doge_enable_mappings=0
 " let g:doge_mapping='<leader>d'
-nmap <leader>d :DogeGenerate<cr>
+nmap <leader><leader>d :DogeGenerate<cr>
 
 " 跳转
 let g:doge_mapping_comment_jump_forward='<M-j>'
