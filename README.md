@@ -341,8 +341,7 @@ vimtex的快捷键都是以\<leader>l作为开头的。
 | \<leader>lc           |      | 删除多余的文档 |
 | %                 |      | 在定界符之间跳转            |
 |                   |      |                             |
-|                   |      |                             |
-|                   |      |              |
+
 
 #### 6.14 Debug
 
@@ -352,3 +351,9 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 
 #### 6.16 翻译
 
+翻译之前使用[voldikss/*coc-translator*](https://github.com/voldikss/coc-translator)，接下来又换成了[voldikss/*vim*-*translator*](https://github.com/voldikss/vim-translator)然后感觉都稍微有些许问题，最后选择了[iamcco/*dict*.*vim*](https://github.com/iamcco/dict.vim)，但是该插件不支持悬浮窗口，我需要对其更改下支持悬浮窗口。
+
+| 按键          | 模式                       | 描述 |
+| ------------- | -------------------------- | ---- |
+| alt-d | normal/visual | 翻译当前光标下的内容/选中的内容 |
+| \<leader>r | normal/visual | 用翻译内容替换当前光标或选中的内容 |

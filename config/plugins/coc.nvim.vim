@@ -20,7 +20,6 @@ let g:coc_global_extensions =
 			\ 'coc-lists',
 			\ 'coc-json',
 			\ 'coc-sh',
-			\ 'coc-translator',
 			\ 'coc-rls',
 			\ 'coc-java',
 			\ 'coc-go',
@@ -29,6 +28,7 @@ let g:coc_global_extensions =
 			\ 'coc-yaml',
 			\ 'coc-import-cost',
 			\ ]
+			" \ 'coc-translator',
 			" \ 'coc-ecdict',
 			" \ 'coc-tabnine',
 			" \ 'coc-post',
