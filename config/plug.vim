@@ -79,6 +79,9 @@ Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 Plug 'mhinz/vim-startify'
+" 翻译
+" Plug 'voldikss/vim-translator'
+Plug 'iamcco/dict.vim'
 
 call plug#end()
 
