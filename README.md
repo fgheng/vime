@@ -192,9 +192,28 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 |              |                   |                                                              |
 
 
-#### 6.6 注释
+#### 6.6 注释与文档
 
-注释插件使用[nerdcomment](https://github.com/preservim/nerdcommenter)。
+注释插件使用~~[nerdcomment](https://github.com/preservim/nerdcommenter)~~  [*tyru*/*caw*.*vim*](https://github.com/tyru/caw.vim)，文档生成器使用[kkoomen/*vim*-*doge*](https://github.com/kkoomen/vim-doge)
+
+| 按键       | 模式   | 描述         |
+| ---------- | ------ | ------------ |
+| \<leader>d | normal | 生成函数文档 |
+
+caw快捷键，功能没有nerdcomment多，但是简洁够用
+
+| 按键        | 模式         | 描述                     |
+| ----------- | ------------ | ------------------------ |
+| \<leader>cc | nomal/visual | 注释/取消注释            |
+| \<leader>ci | nomal/visual | 在当前光标处加入注释     |
+| \<leader>cI | nomal/visual | 在当前行的最开始加入注释 |
+| \<leader>ca | nomal/visual | 在当前行最后加入注释     |
+| \<leader>cw | nomal        | 给单词加注释             |
+| \<leader>cb | nomal/visual | 给选中的区域弄一个块注释 |
+| \<leader>co | nomal        | 在下一行加入注释         |
+| \<leader>cO | nomal        | 在上一行加入注释         |
+
+下面的是nerdcomment的快捷键
 
 | 按键               | 模式          | 描述                                       |
 | ------------------ | ------------- | ------------------------------------------ |
@@ -211,6 +230,8 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | \<leader>c\<space> |               |                                            |
 | \<leader>cc        |               |                                            |
 | \<leader>cn        |               |                                            |
+
+
 
 #### 6.7 终端
 
@@ -305,7 +326,7 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 
 | 按键            | 模式    | 描述                       | 提供者|
 | ------------------ | ------- | -------------------------- |--------|
-| gf             | normal | 折叠/打开未改变的行 | gitgutter |
+| gf   | normal | 折叠/打开未改变的行 | gitgutter |
 | gk | normal | 跳转到上一个修改地方 | coc-git |
 | gj | normal | 跳转到下一个修改地方 | coc-git |
 | gp | normal | 浮动预览光标处的修改 | coc-git |
@@ -356,4 +377,5 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 | 按键          | 模式                       | 描述 |
 | ------------- | -------------------------- | ---- |
 | alt-d | normal/visual | 翻译当前光标下的内容/选中的内容 |
+| alt-e | normal/visual | 在命令栏输出 |
 | \<leader>r | normal/visual | 用翻译内容替换当前光标或选中的内容 |

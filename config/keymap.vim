@@ -48,6 +48,27 @@ vnoremap k gk
 " 复制到末尾
 nnoremap Y y$
 
+" termina 使用alt h l
+" function s:changeFlt(direction)
+"     if HasPlug('vim-floaterm')
+"         if &ft ==? "floaterm"
+"             exec "normal <c-\><c-n>"
+"             if a:direction ==? "left"
+"                 exec "FloatermPrev"
+"             elseif a:direction ==? "right"
+"                 exec "FloatermNext"
+"             endif
+"         endif
+"     else
+"         if a:direction ==? "left"
+"             if &bt ==? 'terminal'
+"                 exec "normal <c-\><c-n>:tabnext<cr>"
+"             else
+"             endif
+"         elseif a:direction ==? 'right'
+"         endif
+"     endif
+" endfunction
 if !HasPlug('vim-airline')
 	nnoremap  <M-l> :tabnext<cr>
 	nnoremap  <M-h> :tabprevious<CR>
@@ -67,7 +88,7 @@ nnoremap <silent> <leader>tc :tabclose<cr>
 " nnoremap  <leader>tM :tabmove -1<cr>
 
 function! SystemExecuteCurrentFile(f)
-	exec 'silent !xdg-open ' . a:f . ' > /dev/null'
+	exec 'silent !xdg-open ' . fnameescape(a:f) . ' > /dev/null'
 endfunction
 
 " 使用系统应用打开文件

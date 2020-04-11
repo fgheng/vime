@@ -1,5 +1,5 @@
-nmap <silent> <Leader>d <Plug>DictSearch
-vmap <silent> <leader>d <Plug>DictVSearch
+nmap <silent> <M-e> <Plug>DictSearch
+vmap <silent> <M-e> <Plug>DictVSearch
 
 nmap <silent> <M-d> <Plug>DictWSearch
 vmap <silent> <M-d> <Plug>DictWVSearch
