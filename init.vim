@@ -1,4 +1,3 @@
-
 " 获得当前文件所在目录
 let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 " 获取配置文件所在目录
@@ -8,7 +7,7 @@ let s:plugin_config_path = s:home . '/plugins'
 " 自定义配置路径
 let s:custom_plugin_config_path = s:home . '/custom'
 
-command! -nargs=1 LoadScript exec 'source '.s:home.'/'.'<args>'
+command! -nargs=1 LoadScript exec 'source ' . s:home. '/' . '<args>'
 
 " 加载配置
 LoadScript config.vim
@@ -21,13 +20,13 @@ LoadScript keymap.vim
 
 " 插件目录存在才根据是否安装插件来载入配置
 for plugin_name in g:plugs_order
-	if HasInstall(plugin_name)
-		" 如果已经安装了插件，那么载入插件配置
-		let config_path = join([s:plugin_config_path, plugin_name], "/") . ".vim"
-		if filereadable(config_path)
-			exec 'source' fnameescape(config_path)
-		endif
-	endif
+    if HasInstall(plugin_name)
+        " 如果已经安装了插件，那么载入插件配置
+        let config_path = join([s:plugin_config_path, plugin_name], "/") . ".vim"
+        if filereadable(config_path)
+            exec 'source' fnameescape(config_path)
+        endif
+    endif
 endfor
 
 " 加载主题配置

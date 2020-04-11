@@ -217,6 +217,7 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 
 | 按键               | 模式          | 描述                                       |
 | ------------------ | ------------- | ------------------------------------------ |
+| \<leader>cc        | normal/visual | 注释                                       |
 | \<leader>cs        | normal/visual | 用一种比较好看的方式注释当前行或选中的内容 |
 | \<leader>ci        | normal/visual | 注释/取消注释                              |
 | \<leader>cm        | normal/visual | 用一种最简单的方式注释当前行或选中的内容   |
@@ -228,7 +229,7 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 | \<leader>cA        | normal        | 在当前行最后增加注释符号并进入插入模式     |
 | \<leader>c$        | normal        | 从当前光标处注释到当前行的最后             |
 | \<leader>c\<space> |               |                                            |
-| \<leader>cc        |               |                                            |
+|                    |               |                                            |
 | \<leader>cn        |               |                                            |
 
 
