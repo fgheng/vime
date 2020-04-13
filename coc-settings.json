@@ -39,16 +39,22 @@
     "diagnostic.maxWindowHeight": 10, // 窗口最大高度
     // "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
 
-	// source
-	"coc.source.word.filetypes": ["md", "tex"],
-	"coc.source.word.priority": 100,
+    // source
+    "coc.source.word.filetypes": ["md", "tex"],
+    "coc.source.word.priority": 100,
 
     // list
     "list.maxHeight": 10,
     "list.maxPreviewHeight": 8,
     "list.autoResize": false,
     "list.source.grep.command": "rg",
-	"list.source.grep.defaultArgs": ["--column", "--line-number", "--no-heading", "--color=always", "--smart-case"],
+    "list.source.grep.defaultArgs": [
+        "--column",
+        "--line-number",
+        "--no-heading",
+        "--color=always",
+        "--smart-case"
+    ],
     "list.source.lines.defaultArgs": ["-e"],
     "list.source.words.defaultArgs": ["-e"],
     "list.source.files.command": "rg", //文件搜索命令，默认使用find，改成fd，需要安装fd
@@ -66,8 +72,11 @@
     //"session.directory": "~/.cache/vim/sessions/",
 
     // python
-    "python.autoComplete.addBrackets": true,
-    "python.jediEnabled": false, // 需要安装jdei
+    // 这是coc-python
+    //"python.autoComplete.addBrackets": true,
+    //"python.jediEnabled": true, // 需要安装jdei
+    // 这是coc-pyright
+    "python.pythonPath": "python",
 
     // java
     // "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
@@ -96,26 +105,26 @@
         }
     ],
     "explorer.file.autoReveal": true, // 自动扩展到当前buffer
-	"explorer.width": 40,
-	// 悬浮
-	//"explorer.position": "floating",
-	//"explorer.floating.height": 30,
-	//"explorer.floating.width": 150,
-	//"explorer.previewAction.onHover": false,
+    "explorer.width": 40,
+    // 悬浮
+    //"explorer.position": "floating",
+    //"explorer.floating.height": 30,
+    //"explorer.floating.width": 150,
+    //"explorer.previewAction.onHover": false,
     "explorer.keyMappingMode": "none", // 取消所有默认的映射
     "explorer.keyMappings": {
         "a": "unmap", // 取消按键映射a
 
-		// 目录
+        // 目录
         "k": "nodePrev",
         "j": "nodeNext",
         "h": "collapse",
         "l": ["expandable?", "expand", "open"],
         "L": "expandRecursive", // 递归打开
         "H": "collapseRecursive", // 递归关闭
-		"K": "expandablePrev", // 跳到上一个可打开处
-		"J": "expandableNext", //
-		"<cr>": ["expandable?", "cd", "open"], // 打开并进入目录同时更改cwd
+        "K": "expandablePrev", // 跳到上一个可打开处
+        "J": "expandableNext", //
+        "<cr>": ["expandable?", "cd", "open"], // 打开并进入目录同时更改cwd
         "<bs>": "gotoParent", // 回到上一级目录并更改cwd
         "r": "refresh", // 刷新
 
@@ -123,12 +132,12 @@
         "V": ["toggleSelection", "normal:k"],
         "*": "toggleSelection", // 选中
 
-		// open
+        // open
         "ss": "open:split", // 水平
         "sv": "open:vsplit", // 垂直
         "st": "open:tab", // tab
 
-		// 文件操作
+        // 文件操作
         "dd": "cutFile",
         "Y": "copyFile",
         "D": "delete",
@@ -138,8 +147,8 @@
         "yy": "copyFilepath",
         "y": "copyFilename",
 
-		// other
-		"gp": "preview:labeling", // 预览详细信息
+        // other
+        "gp": "preview:labeling", // 预览详细信息
         "x": "systemExecute", // 执行
         "f": "search", // 搜索
         "F": "searchRecursive",
@@ -148,7 +157,7 @@
         "<tab>": "actionMenu",
         "?": "help",
         "q": "quit",
-		"<esc>": "esc",
+        "<esc>": "esc",
 
         "gf": "gotoSource:file",
         "gb": "gotoSource:buffer",
@@ -175,7 +184,7 @@
     "git.removedSign.hlGroup": "GitGutterDelete",
     "git.topRemovedSign.hlGroup": "GitGutterDelete",
     "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
-    "git.addedSign.text":   "▎",
+    "git.addedSign.text": "▎",
     "git.changedSign.text": "▎",
     "git.removedSign.text": "▎",
     "git.topRemovedSign.text": "▔",
@@ -209,5 +218,5 @@
                 "compile_flags.txt"
             ]
         }
-    },
+    }
 }

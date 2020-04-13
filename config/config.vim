@@ -4,9 +4,42 @@
 let g:plugins_path = $HOME.'/.cache/vim/plugins'
 
 " 设置coc插件目录
-let g:coc_data_path = $HOME.'/.cache/vim/coc'
+let g:coc_data_home = $HOME.'/.cache/vim/coc'
 " 设置cocsession目录
 let g:coc_session_directory = $HOME.'/.cache/vim/sessions/'
+" coc插件列表
+let g:coc_global_extensions =
+    \ [
+    \ 'coc-explorer',
+    \ 'coc-tsserver',
+    \ 'coc-prettier',
+    \ 'coc-snippets',
+    \ 'coc-calc',
+    \ 'coc-vimlsp',
+    \ 'coc-marketplace',
+    \ 'coc-xml',
+    \ 'coc-html',
+    \ 'coc-css',
+    \ 'coc-git',
+    \ 'coc-tailwindcss',
+    \ 'coc-yank',
+    \ 'coc-lists',
+    \ 'coc-json',
+    \ 'coc-sh',
+    \ 'coc-rls',
+    \ 'coc-java',
+    \ 'coc-go',
+    \ 'coc-word',
+    \ 'coc-highlight',
+    \ 'coc-yaml',
+    \ 'coc-import-cost',
+    \ 'coc-pyright',
+    \ ]
+    "\ 'coc-python',
+    " \ 'coc-translator',
+    " \ 'coc-ecdict',
+    " \ 'coc-tabnine',
+    " \ 'coc-post',
 
 " vimwiki的路径
 let g:wiki_path = $HOME.'/Documents/wiki'

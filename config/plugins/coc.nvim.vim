@@ -1,37 +1,3 @@
-" 设置coc插件目录
-let g:coc_data_home = g:coc_data_path
-" coc插件列表
-let g:coc_global_extensions =
-			\ [
-			\ 'coc-explorer',
-			\ 'coc-python',
-			\ 'coc-tsserver',
-			\ 'coc-prettier',
-			\ 'coc-snippets',
-			\ 'coc-calc',
-			\ 'coc-vimlsp',
-			\ 'coc-marketplace',
-			\ 'coc-xml',
-			\ 'coc-html',
-			\ 'coc-css',
-			\ 'coc-git',
-			\ 'coc-tailwindcss',
-			\ 'coc-yank',
-			\ 'coc-lists',
-			\ 'coc-json',
-			\ 'coc-sh',
-			\ 'coc-rls',
-			\ 'coc-java',
-			\ 'coc-go',
-			\ 'coc-word',
-			\ 'coc-highlight',
-			\ 'coc-yaml',
-			\ 'coc-import-cost',
-			\ ]
-			" \ 'coc-translator',
-			" \ 'coc-ecdict',
-			" \ 'coc-tabnine',
-			" \ 'coc-post',
 
 " 判断是否安装了coc插件
 fun! HasCocPlug(cocPlugName)

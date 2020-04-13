@@ -7,6 +7,10 @@ noremap <M-H> <C-w>h
 noremap <M-J> <C-w>j
 noremap <M-K> <C-w>k
 noremap <M-L> <C-w>l
+tnoremap  <c-h> <c-\><c-n><c-w>h
+tnoremap  <c-j> <c-\><c-n><c-w>j
+tnoremap  <c-k> <c-\><c-n><c-w>k
+tnoremap  <c-l> <c-\><c-n><c-w>l
 
 inoremap jk <esc>
 nnoremap q <esc>:close<cr>
