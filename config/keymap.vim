@@ -17,7 +17,7 @@ nnoremap q <esc>:close<cr>
 vnoremap q <esc>:close<cr>
 " alt q执行宏录制功能
 nnoremap <M-q> q
-nnoremap <BackSpace> :nohl<cr> " 取消搜索高亮
+nnoremap <BackSpace> :nohl<cr>
 
 " terminal
 if has('nvim')
