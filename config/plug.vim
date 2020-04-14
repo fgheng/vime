@@ -24,6 +24,8 @@ Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'tyrannicaltoucan/vim-quantum'
+Plug 'ayu-theme/ayu-vim'
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
