@@ -18,18 +18,24 @@ function! s:SystemExecute(lines)
 	endfor
 endfunction
 
+function! s:DeleteBuffer(lines)
+    for line in a:lines
+        exec 'bd ' . line
+    endfor
+endfunction
+
 let g:fzf_action = {
 	\ 'ctrl-t': 'tab split',
 	\ 'ctrl-s': 'split',
 	\ 'ctrl-v': 'vsplit',
 	\ 'ctrl-x': function('s:SystemExecute'),
 \ }
+"\ 'ctrl-w': function('s:DeleteBuffer'),
 
 function! s:RipgrepFzfWithWiki(query, fullscreen)
 	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
 
-	" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
-	if &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
+	if &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
 		let wiki_path = g:vimwiki_path
 	else
 		let wiki_path = ""
@@ -44,8 +50,7 @@ endfunction
 command! -nargs=* -bang RGWithWiki call s:RipgrepFzfWithWiki(<q-args>, <bang>0)
 
 function! s:FilesWithWiki(query, fullscreen)
-	" TODO 通过路径是否在wiki下进行判断而不是通过文件类型vimwiki
-	if empty(a:query) && &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
+	if empty(a:query) && &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
 		call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
 	else
 		call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
