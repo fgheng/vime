@@ -2,7 +2,8 @@ if has('termguicolors')
 	set termguicolors
 endif
 
-colorscheme gruvbox-material
+colorscheme quantum
+" colorscheme gruvbox-material
 if has('nvim')
 	hi normal     ctermbg=NONE guibg=NONE
 	hi linenr     ctermbg=NONE guibg=NONE

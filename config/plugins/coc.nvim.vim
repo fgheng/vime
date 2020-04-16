@@ -62,7 +62,8 @@ nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
 " endfunction
 " " 跳转到定义
 " nmap <silent> gd :call <SID>GoToDefinition()<CR>
-nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd :<C-u>call CocActionAsync('jumpDefinition')<CR>
 " 跳转到类型定义
 nmap <silent> gy <Plug>(coc-type-definition)
 " 跳转到实现
