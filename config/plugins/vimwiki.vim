@@ -1,6 +1,3 @@
-" vimwiki的路径
-let g:vimwiki_path = g:wiki_path
-
 " TODO 判断vimwiki_path是否存在
 let g:vimwiki_list = [
 			\ {
