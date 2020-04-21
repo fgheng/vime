@@ -7,17 +7,21 @@ noremap <M-H> <C-w>h
 noremap <M-J> <C-w>j
 noremap <M-K> <C-w>k
 noremap <M-L> <C-w>l
-tnoremap  <c-h> <c-\><c-n><c-w>h
-tnoremap  <c-j> <c-\><c-n><c-w>j
-tnoremap  <c-k> <c-\><c-n><c-w>k
-tnoremap  <c-l> <c-\><c-n><c-w>l
+tnoremap <c-h> <c-\><c-n><c-w>h
+tnoremap <c-j> <c-\><c-n><c-w>j
+tnoremap <c-k> <c-\><c-n><c-w>k
+tnoremap <c-l> <c-\><c-n><c-w>l
+tnoremap <M-H> <c-\><c-n><C-w>h
+tnoremap <M-J> <c-\><c-n><C-w>j
+tnoremap <M-K> <c-\><c-n><C-w>k
+tnoremap <M-L> <c-\><c-n><C-w>l
 
 inoremap jk <esc>
 nnoremap q <esc>:close<cr>
 vnoremap q <esc>:close<cr>
+nnoremap <BackSpace> :nohl<cr>
 " alt q执行宏录制功能
 nnoremap <M-q> q
-nnoremap <BackSpace> :nohl<cr>
 
 " terminal
 if has('nvim')
@@ -88,8 +92,8 @@ nnoremap <silent> <leader>tN :call <SID>new_tab_before()<cr>
 " 在后面新建一个tab
 nnoremap <silent> <leader>tn :tabnew<cr>
 nnoremap <silent> <leader>tc :tabclose<cr>
-" nnoremap  <leader>tm :tabmove 1<cr>
-" nnoremap  <leader>tM :tabmove -1<cr>
+nnoremap  <leader>tm :tabmove 1<cr>
+nnoremap  <leader>tM :tabmove -1<cr>
 
 function! SystemExecuteCurrentFile(f)
 	exec 'silent !xdg-open ' . fnameescape(a:f) . ' > /dev/null'

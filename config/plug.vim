@@ -50,6 +50,7 @@ Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 " 快速移动
 Plug 'rhysd/clever-f.vim'
+" Plug 'justinmk/vim-sneak'
 " 对齐线
 Plug 'Yggdroot/indentLine'
 " 多光标
@@ -66,8 +67,9 @@ Plug 'puremourning/vimspector'
 Plug 'voldikss/vim-floaterm'
 Plug 'vimwiki/vimwiki'
 " markdown内运行代码
-Plug 'gpanders/vim-medieval'
+" Plug 'gpanders/vim-medieval'
 "{'on': ['Eval', 'Eval!', 'EvalBlock!', 'EvalBlock']}
+Plug 'dbridges/vim-markdown-runner'
 " 数据库
 Plug 'tpope/vim-dadbod', {'on': 'DB'}
 " Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
@@ -84,7 +86,9 @@ Plug 'yianwillis/vimcdoc'
 Plug 'mhinz/vim-startify'
 " 翻译
 " Plug 'voldikss/vim-translator'
-Plug 'iamcco/dict.vim'
+Plug 'iamcco/dict.vim', {'on': ['<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch', '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch']}
+Plug 'dstein64/vim-startuptime'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 

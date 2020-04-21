@@ -20,7 +20,6 @@ let g:coc_global_extensions =
     \ 'coc-xml',
     \ 'coc-html',
     \ 'coc-css',
-    \ 'coc-git',
     \ 'coc-tailwindcss',
     \ 'coc-yank',
     \ 'coc-lists',
@@ -34,6 +33,7 @@ let g:coc_global_extensions =
     \ 'coc-yaml',
     \ 'coc-import-cost',
     \ 'coc-pyright',
+    \ 'coc-git',
     \ ]
     "\ 'coc-python',
     " \ 'coc-translator',
@@ -42,7 +42,7 @@ let g:coc_global_extensions =
     " \ 'coc-post',
 
 " vimwiki的路径
-let g:wiki_path = $HOME.'/Documents/wiki'
+let g:vimwiki_path = $HOME.'/Documents/wiki'
 
 " bookmark文件存储路径
 let g:bookmark_file = $HOME.'/.cache/vim/vim-bookmarks'
