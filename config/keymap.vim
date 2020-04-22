@@ -25,14 +25,16 @@ nnoremap <M-q> q
 
 " terminal
 if has('nvim')
-	au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+    au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
 else
-	tnoremap <Esc> <C-\><C-n>
+    tnoremap <Esc> <C-\><C-n>
 endif
 
 " 更改窗口大小
-nnoremap <M-{> :vertical resize -5<CR>
-nnoremap <M-}> :vertical resize +5<CR>
+nnoremap <M-_> :resize +3<CR>
+nnoremap <M--> :resize -3<CR>
+nnoremap <M-(> :vertical resize -3<CR>
+nnoremap <M-)> :vertical resize +3<CR>
 
 " 分割窗口
 nnoremap <c-w>k :abo split <cr>
@@ -78,14 +80,14 @@ nnoremap Y y$
 "     endif
 " endfunction
 if !HasPlug('vim-airline')
-	nnoremap  <M-l> :tabnext<cr>
-	nnoremap  <M-h> :tabprevious<CR>
-	tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
-	tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
+    nnoremap  <M-l> :tabnext<cr>
+    nnoremap  <M-h> :tabprevious<CR>
+    tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
+    tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
 endif
 
 function s:new_tab_before() abort
-	exec "tabnew | -tabmove"
+    exec "tabnew | -tabmove"
 endfunction
 " 在前面新建一个tab
 nnoremap <silent> <leader>tN :call <SID>new_tab_before()<cr>
@@ -96,7 +98,7 @@ nnoremap  <leader>tm :tabmove 1<cr>
 nnoremap  <leader>tM :tabmove -1<cr>
 
 function! SystemExecuteCurrentFile(f)
-	exec 'silent !xdg-open ' . fnameescape(a:f) . ' > /dev/null'
+    exec 'silent !xdg-open ' . fnameescape(a:f) . ' > /dev/null'
 endfunction
 
 " 使用系统应用打开文件

@@ -80,7 +80,7 @@ Plug 'davinche/DrawIt', {'on': 'DrawIt'}
 " 高亮
 Plug 'sheerun/vim-polyglot'
 " python高亮，异步
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 Plug 'mhinz/vim-startify'
@@ -94,13 +94,13 @@ call plug#end()
 
 " 判断该插件是否已经安装
 fun! HasInstall(plugin_name) abort
-	let s:plugin_path = g:plugins_path . "/" . a:plugin_name
+    let s:plugin_path = g:plugins_path . "/" . a:plugin_name
+    if !empty(glob(s:plugin_path))
+        return v:true
+    else
+        return v:false
+    endif
 
-	if !empty(glob(s:plugin_path))
-		return v:true
-	else
-		return v:false
-	endif
 endfunction
 
 " 判断插件列表是否有这个插件
