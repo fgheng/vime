@@ -16,25 +16,24 @@ let g:VM_maps = {}
 let g:VM_maps["Switch Mode"]                 = '<Tab>'
 let g:VM_maps["Add Cursor At Pos"]           = '<C-c>'
 let g:VM_maps['Visual Add']                  = '<C-c>'
-let g:VM_maps['Find Under']                  = '<c-n>'
-let g:VM_maps['Find Subword Under']          = '<C-n>'
 let g:VM_maps["Select All"]                  = '<c-s>'
 let g:VM_maps["Visual All"]                  = '<c-s>'
+" 使用正则进行匹配
 let g:VM_maps["Start Regex Search"]          = '\\/'
 let g:VM_maps["Visual Regex"]                = '\\/'
 
 " let g:VM_maps["Alt Skip"]                    = 'n'
-let g:VM_maps["Remove Region"]               = 'Q'
-let g:VM_maps["Skip Region"]                 = 'q' " 取消当前位置并跳到下一处
+let g:VM_maps["Remove Region"]               = 'q'
+"let g:VM_maps["Skip Region"]                 = 'q' " 取消当前位置并跳到下一处
 let g:VM_maps["Invert Direction"]            = 'o'
 let g:VM_maps["Find Operator"]               = "m"
 let g:VM_maps["Surround"]                    = 'S'
 
-" let g:VM_maps["Find Next"]                   = '}'
-" let g:VM_maps["Find Prev"]                   = '{'
+" 将findx更换为其他的符号，那么就可以使用n向下跳转
+" 使用ctrl-n进行选择了
+let g:VM_maps["Find Next"]                   = '<c-d>'
+let g:VM_maps["Find Prev"]                   = '<c-D>'
+let g:VM_maps['Find Under']                  = '<c-n>'
+let g:VM_maps['Find Subword Under']          = '<c-N>'
 let g:VM_maps["Goto Next"]                   = ']'
 let g:VM_maps["Goto Prev"]                   = '['
-
-" let g:VM_maps["Visual Regex"]                = '\\/'
-" let g:VM_maps["Visual All"]                  = '\\A'
-" let g:VM_maps["Visual Add"]                  = '\\a'

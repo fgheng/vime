@@ -173,23 +173,23 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 多光标使用的是插件[vim-visual-multi](https://github.com/mg979/vim-visual-multi)以及coc自带的多光标，如果`plug.vim`中没有[vim-visual-multi](https://github.com/mg979/vim-visual-multi)那么会使用coc自带的插件，coc行为与前者类似，但是功能不如前者多。
 
-| 按键         | 模式              | 描述                                                         |
-| ------------ | ----------------- | ------------------------------------------------------------ |
-| tab          | visual-multi-mode | 光标和扩展模式直接切换                                       |
-| shift-方向键 | normal            | 选中区域并进入visual-multi-mode                              |
-| ctrl-c       | normal            | 在当前位置插入一个光标                                       |
-| ctrl-down/up | normal            | 垂直方向插入多光标                                           |
-| ctrl-s       | normal/visual     | 1. 选中当前光标下的所有单词<br>2. visual模式下选中所有的当前选中的内容 |
-| ctrl-n       | normal            | 在visual模式下选中内容之后，按下ctrl-n会在下一处与当前选中内一样的地方插入光标。非visual模式下，与ctrl-s表现差不多，不过是依次选择当前光标下的单词。 |
-| q            | visual-multi-mode | 取消当前位置插入的光标，并跳到下一个匹配位置                 |
-| Q            | visual-multi-mode | 取消当前的光标或者选中的区域                                 |
-| ]/[          | visual-multi-mode | 在多个选中的光标之间进行跳转                                 |
-| n/N          | visual-multi-mode | 跳到下一个/上一个o匹配的模式                                 |
-| S            | visual-multi-mode | 在多光标模式下，将多个选中的内容以某种符号进行进行包围       |
-| o            | visual-multi-mode | 交换光标位置                                                 |
-| m            |                   |                                                              |
-| \\\/         | normal            | 以正则匹配的方式设置多光标                                   |
-|              |                   |                                                              |
+| 按键         | 模式                  | 描述                                                         |
+| ------------ | --------------------- | ------------------------------------------------------------ |
+| tab          | visual-multi-mode     | 光标和扩展模式直接切换                                       |
+| shift-方向键 | normal                | 选中区域并进入visual-multi-mode                              |
+| ctrl-c       | normal                | 在当前位置插入一个光标                                       |
+| ctrl-down/up | normal                | 垂直方向插入多光标                                           |
+| ctrl-s       | normal/visual         | 1. 选中当前光标下的所有单词<br>2. visual模式下选中所有的当前选中的内容 |
+| ctrl-n/N     | normal                | 在visual模式下选中内容之后，按下ctrl-n会在下一处与当前选中内一样的地方插入光标。非visual模式下，与ctrl-s表现差不多，不过是依次选择当前光标下的单词。 |
+| q            | visual-multi-mode     | ~~取消当前位置插入的光标，并跳到下一个匹配位置~~<br>取消当前光标或者选中的区域 |
+| ~~Q~~        | ~~visual-multi-mode~~ | ~~取消当前的光标或者选中的区域~~                             |
+| ]/[          | visual-multi-mode     | 在多个选中的光标之间进行跳转                                 |
+| n/N          | visual-multi-mode     | 跳到下一个/上一个匹配的模式，可以代替]/[进行使用             |
+| S            | visual-multi-mode     | 在多光标模式下，将多个选中的内容以某种符号进行进行包围       |
+| o            | visual-multi-mode     | 交换光标位置                                                 |
+| m            |                       |                                                              |
+| \\\/         | normal                | 以正则匹配的方式设置多光标                                   |
+|              |                       |                                                              |
 
 
 #### 6.6 注释与文档

@@ -41,7 +41,7 @@ set noswapfile
 set autoread                                        " 文件在外部被修改过，重新读入
 set autowrite                                       " 自动写回
 set confirm                                         " 显示确认对话框
-set laststatus=2
+set laststatus=0                                    " 状态栏
 set showtabline=0
 set noshowmode
 set timeout ttimeout

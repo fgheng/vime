@@ -29,7 +29,7 @@ Plug 'ayu-theme/ayu-vim'
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } | Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " 彩虹括号

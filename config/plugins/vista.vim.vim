@@ -5,8 +5,6 @@ endfunction
 
 set statusline+=%{NearestMethodOrFunction()}
 
-" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-
 let g:vista_ctags_cmd = {
       \ 'haskell': 'hasktags -x -o - -c',
       \ }
@@ -17,12 +15,5 @@ let g:vista#renderer#icons = {
 \   "function": "\uf794",
 \   "variable": "\uf71b",
 \  }
-
-
-" if HasPlug('coc.nvim')
-"     nnoremap <M-t> <esc>:Vista finder coc<CR>
-" else
-"     nnoremap <M-t> :Vista finder<CR>
-" endif
 
 nnoremap <F3> :Vista!!<CR>
