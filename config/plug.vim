@@ -4,9 +4,10 @@
 call plug#begin(g:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'codota/tabnine-vim'
 " Git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+" Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
 " 这下面可以算是一组插件
 Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plug 'tpope/vim-fugitive'
 " Plug 'antoinemadec/coc-fzf' " coc与fzf的结合
@@ -26,6 +27,8 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'tyrannicaltoucan/vim-quantum'
 Plug 'ayu-theme/ayu-vim'
+Plug 'tomasr/molokai'
+Plug 'jacoborus/tender.vim'
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
@@ -60,18 +63,18 @@ Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 编译运行
-Plug 'skywind3000/asynctasks.vim', {'on': ['AsyncTask','AsyncTaskEdit','AsyncTaskList','AsyncTaskMarco', 'AsyncTaskProfile']}
-Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun', 'AsyncStop']}
+" Plug 'skywind3000/asynctasks.vim', {'on': ['AsyncTask','AsyncTaskEdit','AsyncTaskList','AsyncTaskMarco', 'AsyncTaskProfile']}
+" Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun', 'AsyncStop']}
 " debug
-Plug 'puremourning/vimspector'
+" Plug 'puremourning/vimspector'
 Plug 'voldikss/vim-floaterm'
 Plug 'vimwiki/vimwiki'
 " markdown内运行代码
-" Plug 'gpanders/vim-medieval'
-"{'on': ['Eval', 'Eval!', 'EvalBlock!', 'EvalBlock']}
-Plug 'dbridges/vim-markdown-runner'
+" Plug 'gpanders/vim-medieval', {'on': ['Eval', 'Eval!', 'EvalBlock!', 'EvalBlock']}
+" Plug 'dbridges/vim-markdown-runner'
 " 数据库
 Plug 'tpope/vim-dadbod', {'on': 'DB'}
+" 书签
 " Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
@@ -80,14 +83,13 @@ Plug 'davinche/DrawIt', {'on': 'DrawIt'}
 " 高亮
 Plug 'sheerun/vim-polyglot'
 " python高亮，异步
-"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 Plug 'mhinz/vim-startify'
 " 翻译
 " Plug 'voldikss/vim-translator'
 Plug 'iamcco/dict.vim', {'on': ['<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch', '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch']}
-Plug 'dstein64/vim-startuptime'
 Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
@@ -100,7 +102,6 @@ fun! HasInstall(plugin_name) abort
     else
         return v:false
     endif
-
 endfunction
 
 " 判断插件列表是否有这个插件

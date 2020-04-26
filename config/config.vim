@@ -34,11 +34,11 @@ let g:coc_global_extensions =
     \ 'coc-import-cost',
     \ 'coc-pyright',
     \ 'coc-git',
+    \ 'coc-python',
+    \ 'coc-tabnine'
     \ ]
-    "\ 'coc-python',
     " \ 'coc-translator',
     " \ 'coc-ecdict',
-    " \ 'coc-tabnine',
     " \ 'coc-post',
 
 " vimwiki的路径
