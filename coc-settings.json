@@ -74,7 +74,7 @@
     // python
     // 这是coc-python
     //"python.autoComplete.addBrackets": true,
-    // "python.jediEnabled": false, // 需要安装jdei
+    "python.jediEnabled": false, // 需要安装jdei
     // 这是coc-pyright
     //"python.pythonPath": "python",
 

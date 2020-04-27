@@ -1,3 +1,6 @@
+" fzf文件夹
+let g:fzf_dir = $HOME.'/.cache/vim/fzf'
+
 if has('nvim')
 	let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
 endif

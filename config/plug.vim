@@ -1,6 +1,10 @@
 " 依赖的软件
 " nodejs, npm, ripgrep, clang, ctags, zathura-pdf-mupdf, texlive-most,
 " texlive-lang, remote-neovim
+
+" 设置vim-plug插件安装路径
+let g:plugins_path = $HOME.'/.cache/vim/plugins'
+
 call plug#begin(g:plugins_path)
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
@@ -32,7 +36,7 @@ Plug 'jacoborus/tender.vim'
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 底栏
-" Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 " 关灯读小说
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } | Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 " 彩虹括号
@@ -53,6 +57,8 @@ Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 " 快速移动
 Plug 'rhysd/clever-f.vim'
+" 对齐
+Plug 'junegunn/vim-easy-align'
 " Plug 'justinmk/vim-sneak'
 " 对齐线
 Plug 'Yggdroot/indentLine'

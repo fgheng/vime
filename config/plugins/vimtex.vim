@@ -1,6 +1,9 @@
 " https://zhuanlan.zhihu.com/p/61036165
 let g:tex_flavor='latex'
 
+" vimtex默认的pdf浏览器
+let g:latex_viewer = 'zathura'
+
 if has("nvim")
 	let g:vimtex_compiler_progname = 'nvr'
 endif
