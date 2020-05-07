@@ -9,7 +9,7 @@ set smartindent                                     " 智能缩进
 set autoindent                                      " 自动换行缩进
 set linebreak                                       " 软折行
 set noswapfile                                      " 禁止生成swap文件
-set colorcolumn=80                                  " 高亮第80行
+set colorcolumn=81                                  " 高亮第80行
 set hidden                                          " 终端隐藏后不结束
 set ignorecase                                      " 忽略大小写
 " set smartcase
@@ -54,7 +54,7 @@ set mouse=a                                         " 允许使用鼠标
 set cmdheight=1
 set conceallevel=0                                  " json文件不显示引号
 
-set showtabline=2                                   " 总是显示tab标签栏
+" set showtabline=2                                   " 总是显示tab标签栏
 
 set re=1
 

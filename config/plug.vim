@@ -7,16 +7,13 @@ let g:plugins_path = $HOME.'/.cache/vim/plugins'
 
 call plug#begin(g:plugins_path)
 
+" Plug 'ycm-core/YouCompleteMe'
+
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-" Plug 'codota/tabnine-vim'
 " Git
-" Plug 'tpope/vim-fugitive'
-" Plug 'airblade/vim-gitgutter'
 " 这下面可以算是一组插件
 Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plug 'tpope/vim-fugitive'
-" Plug 'antoinemadec/coc-fzf' " coc与fzf的结合
-" Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
-" Plug 'liuchengxu/vim-clap', {'do': ':Clap install-binary'}
+" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' } | Plug 'vn-ki/coc-clap' | Plug 'liuchengxu/vista.vim'
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
 " 快速注释插件
@@ -27,14 +24,8 @@ Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate']}
 " 主题
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'tyrannicaltoucan/vim-quantum'
-Plug 'ayu-theme/ayu-vim'
-Plug 'tomasr/molokai'
-Plug 'jacoborus/tender.vim'
 " 函数列表
-Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
+Plug 'liuchengxu/vista.vim' ", {'on': ['Vista!!', 'Vista']}
 " 底栏
 Plug 'itchyny/lightline.vim'
 " 关灯读小说
@@ -54,18 +45,17 @@ Plug 'honza/vim-snippets'
 " 快速跳转窗口
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 二进制
-Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
+" Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 " 快速移动
 Plug 'rhysd/clever-f.vim'
 " 对齐
 Plug 'junegunn/vim-easy-align'
-" Plug 'justinmk/vim-sneak'
 " 对齐线
 Plug 'Yggdroot/indentLine'
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " 放大窗口
-Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
+" Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 编译运行
@@ -79,24 +69,30 @@ Plug 'vimwiki/vimwiki'
 " Plug 'gpanders/vim-medieval', {'on': ['Eval', 'Eval!', 'EvalBlock!', 'EvalBlock']}
 " Plug 'dbridges/vim-markdown-runner'
 " 数据库
-Plug 'tpope/vim-dadbod', {'on': 'DB'}
+" Plug 'tpope/vim-dadbod', {'on': 'DB'}
 " 书签
 " Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
 " 画图，使用leaderds结束
-Plug 'davinche/DrawIt', {'on': 'DrawIt'}
+" Plug 'davinche/DrawIt', {'on': 'DrawIt'}
 " 高亮
 Plug 'sheerun/vim-polyglot'
 " python高亮，异步
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+if has('nvim')
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+endif
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 Plug 'mhinz/vim-startify'
 " 翻译
 " Plug 'voldikss/vim-translator'
-Plug 'iamcco/dict.vim', {'on': ['<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch', '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch']}
+" Plug 'iamcco/dict.vim', {'on': ['<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch', '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch']}
 Plug 'christoomey/vim-tmux-navigator'
+" jk加速
+" Plug 'rhysd/accelerated-jk'
+" 平滑滚动
+Plug 'psliwka/vim-smoothie'
 
 call plug#end()
 

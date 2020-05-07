@@ -1,4 +1,3 @@
-echo "here in youcomplete"
 " 不使用clangd
 let g:ycm_use_clangd = 2
 " .ycm_extra_conf.py的路径

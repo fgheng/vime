@@ -1,5 +1,5 @@
 " 获得当前文件所在目录
-let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+let s:home = expand( '<sfile>:p:h' )
 " 获取配置文件所在目录
 let s:home = s:home . '/config'
 " 插件配置文件所在路径
@@ -9,8 +9,6 @@ let s:custom_plugin_config_path = s:home . '/custom'
 
 command! -nargs=1 LoadScript exec 'source ' . s:home. '/' . '<args>'
 
-" 加载配置
-LoadScript config.vim
 " 加载插件列表
 LoadScript plug.vim
 " 加载基础配置

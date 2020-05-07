@@ -2,7 +2,7 @@
 let g:fzf_dir = $HOME.'/.cache/vim/fzf'
 
 if has('nvim')
-	let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
+    let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.6 } }
 endif
 
 " 总是开启预览
@@ -16,9 +16,9 @@ let g:fzf_history_dir = g:fzf_dir . "/fzf-history"
 
 " ref https://github.com/junegunn/fzf.vim/issues/379
 function! s:SystemExecute(lines)
-	for line in a:lines
-		exec 'silent !xdg-open ' . fnameescape(line) . ' > /dev/null'
-	endfor
+    for line in a:lines
+        exec 'silent !xdg-open ' . fnameescape(line) . ' > /dev/null'
+    endfor
 endfunction
 
 function! s:DeleteBuffer(lines)
@@ -28,36 +28,36 @@ function! s:DeleteBuffer(lines)
 endfunction
 
 let g:fzf_action = {
-	\ 'ctrl-t': 'tab split',
-	\ 'ctrl-s': 'split',
-	\ 'ctrl-v': 'vsplit',
-	\ 'ctrl-x': function('s:SystemExecute'),
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-s': 'split',
+    \ 'ctrl-v': 'vsplit',
+    \ 'ctrl-x': function('s:SystemExecute'),
 \ }
 "\ 'ctrl-w': function('s:DeleteBuffer'),
 
 function! s:RipgrepFzfWithWiki(query, fullscreen)
-	let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
 
-	if &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
-		let wiki_path = g:vimwiki_path
-	else
-		let wiki_path = ""
-	endif
+    if &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
+        let wiki_path = g:vimwiki_path
+    else
+        let wiki_path = ""
+    endif
 
-	let initial_command = printf(command_fmt, shellescape(a:query), wiki_path)
-	let reload_command = printf(command_fmt, '{q}', wiki_path)
-	let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    let initial_command = printf(command_fmt, shellescape(a:query), wiki_path)
+    let reload_command = printf(command_fmt, '{q}', wiki_path)
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
 
-	call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 command! -nargs=* -bang RGWithWiki call s:RipgrepFzfWithWiki(<q-args>, <bang>0)
 
 function! s:FilesWithWiki(query, fullscreen)
-	if empty(a:query) && &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
-		call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
-	else
-		call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
-	endif
+    if empty(a:query) && &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
+        call fzf#vim#files(g:vimwiki_path, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
+    else
+        call fzf#vim#files(a:query, {'options': ['--info=inline', '--preview', 'cat {}']}, a:fullscreen)
+    endif
 endfunction
 command! -bang -nargs=? -complete=dir FWW call s:FilesWithWiki(<q-args>, <bang>0)
 

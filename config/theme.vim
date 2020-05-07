@@ -17,11 +17,11 @@ if has('termguicolors')
 endif
 
 colorscheme gruvbox
-" if has('nvim')
-"     hi normal     ctermbg=NONE guibg=NONE
-"     hi linenr     ctermbg=NONE guibg=NONE
-"     hi signcolumn ctermbg=NONE guibg=NONE
-" endif
+if has('nvim')
+    hi normal     ctermbg=NONE guibg=NONE
+    hi linenr     ctermbg=NONE guibg=NONE
+    hi signcolumn ctermbg=NONE guibg=NONE
+endif
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#ff0033 guibg=NONE
