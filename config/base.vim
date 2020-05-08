@@ -54,7 +54,7 @@ set mouse=a                                         " 允许使用鼠标
 set cmdheight=1
 set conceallevel=0                                  " json文件不显示引号
 
-" set showtabline=2                                   " 总是显示tab标签栏
+set showtabline=2                                   " 总是显示tab标签栏
 
 set re=1
 

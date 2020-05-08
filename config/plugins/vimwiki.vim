@@ -1,5 +1,6 @@
 " vimwiki的路径
 let g:vimwiki_path = $HOME.'/Documents/wiki'
+
 " TODO 判断vimwiki_path是否存在
 let g:vimwiki_list = [
 			\ {
