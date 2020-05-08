@@ -87,7 +87,7 @@ Plug 'yianwillis/vimcdoc'
 Plug 'mhinz/vim-startify'
 " 翻译
 " Plug 'voldikss/vim-translator'
-" Plug 'iamcco/dict.vim', {'on': ['<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch', '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch']}
+Plug 'iamcco/dict.vim', {'on': ['<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch', '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch']}
 Plug 'christoomey/vim-tmux-navigator'
 " jk加速
 " Plug 'rhysd/accelerated-jk'

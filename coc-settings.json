@@ -1,35 +1,13 @@
 {
     // preferences
-    "coc.preferences.colorSupport": true,
-    "coc.preferences.rootPatterns": [
-        ".git",
-        ".vim",
-        ".projections.json",
-        ".project"
-    ],
-    "coc.preferences.formatOnSaveFiletypes": [
-        "javascript",
-        "java",
-        "json",
-//        "python",
-        "c",
-        "cc",
-        "cu",
-        "cpp",
-        "go"
-    ],
     "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
 
     // suggest
-    "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
-    "suggest.timeout": 5000, // 超过500ms就停止
-    "suggest.noselect": true, // 不选中第一个
-    "suggest.detailField": "abbr", // abbr menu preview
-    //"suggest.triggerCompletionWait": 50, // default 60
+    "suggest.timeout": 1000, // 超过500ms就停止
+    "suggest.noselect": true, // 选中第一个
 
     // diagnostic
-    "diagnostic.refreshOnInsertMode": true, // 插入模式也可以使用diagnostic
     "diagnostic.signOffset": 9999, // 越大等级越高
     "diagnostic.errorSign": "●",
     "diagnostic.warningSign": "●",
@@ -40,8 +18,7 @@
     // "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
 
     // source
-    "coc.source.word.filetypes": ["md", "tex"],
-    "coc.source.word.priority": 100,
+    //"coc.source.word.filetypes": ["md", "tex"],
 
     // list
     "list.maxHeight": 10,
@@ -61,28 +38,17 @@
     "list.source.files.args": ["--files"],
     "list.source.files.excludePatterns": [".git"], // 忽略搜索的文件列表
 
-    // signature
-    //"signature.target": "float", // 不使用悬浮进行参数提示而是使用echo提示
-
-    // cursors
-    "cursors.cancelKey": "<BackSpace>", // 多光标取消选择快捷键
-
     // session
-    "session.saveOnVimLeave": true,
-    //"session.directory": "~/.cache/vim/sessions/",
+    "session.saveOnVimLeave": true, // 退出时保存session
+    "session.directory": "~/.cache/vim/sessions/",
 
     // python
-    // 这是coc-python
-    //"python.autoComplete.addBrackets": true,
     "python.jediEnabled": false, // 需要安装jdei
-    // 这是coc-pyright
-    //"python.pythonPath": "python",
-
-    // java
-    // "java.home": "/usr/lib/jvm/default", // 不同的系统需要进行相应的设置
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
 
     // highlight
-    "highlight.disableLanguages": ["csv"],
+    "highlight.disableLanguages": ["csv"], // 取消高亮文件
 
     //snippet
     "snippets.ultisnips.enable": true, // ultisnips 快速跳转
@@ -90,7 +56,6 @@
         "cpp": ["c"],
         "typescript": ["javascript"]
     },
-    "snippets.shortcut": "  Ⓢ",
 
     //explorer
     "explorer.icon.enableNerdfont": true,
@@ -178,7 +143,7 @@
     "git.addGBlameToBufferVar": true,
     "git.addGBlameToVirtualText": true,
 
-    "git.virtualTextPrefix": "  ··· ",
+    "git.virtualTextPrefix": "  >>> ",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
     "git.removedSign.hlGroup": "GitGutterDelete",

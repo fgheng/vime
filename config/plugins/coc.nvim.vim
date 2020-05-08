@@ -1,7 +1,5 @@
 " 设置coc插件目录
 let g:coc_data_home = $HOME.'/.cache/vim/coc'
-" 设置cocsession目录
-let g:coc_session_directory = $HOME.'/.cache/vim/sessions/'
 " coc插件列表
 let s:coc_extensions = [
     \ 'coc-explorer',
@@ -14,7 +12,6 @@ let s:coc_extensions = [
     \ 'coc-xml',
     \ 'coc-html',
     \ 'coc-css',
-    \ 'coc-tailwindcss',
     \ 'coc-yank',
     \ 'coc-lists',
     \ 'coc-json',
@@ -22,7 +19,6 @@ let s:coc_extensions = [
     \ 'coc-rls',
     \ 'coc-java',
     \ 'coc-go',
-    \ 'coc-word',
     \ 'coc-highlight',
     \ 'coc-yaml',
     \ 'coc-git',
@@ -30,6 +26,8 @@ let s:coc_extensions = [
     \ 'coc-cmake',
     \ 'coc-python',
     \ ]
+    "\ 'coc-word',
+    "\ 'coc-tailwindcss',
     "\ 'coc-import-cost',
     "\ 'coc-sql',
     "\ 'coc-tabnine',
@@ -273,7 +271,7 @@ endif
 
 "--------------------------------- 配置json文件
 " session 保存目录
-call coc#config('session.directory', g:coc_session_directory)
+"call coc#config('session.directory', g:coc_session_directory)
 
 "--------------------------------- 自定义命令
 " call coc#add_command('call CocAction("pickColor")', 'MundoToggle', '显示撤回列表')
