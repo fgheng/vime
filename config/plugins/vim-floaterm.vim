@@ -24,5 +24,5 @@ au FileType floaterm tnoremap <M-h> <c-\><c-n>:FloatermPrev<CR>
 au FIleType floaterm tnoremap <M-l> <c-\><c-n>:FloatermNext<CR>
 autocmd User Startified setlocal buflisted
 
-nmap <leader>f :FloatermNew ranger<cr>
-nmap <leader>g :FloatermNew lazygit<cr>
+" nmap <leader>f :FloatermNew ranger<cr>
+" nmap <leader>g :FloatermNew lazygit<cr>

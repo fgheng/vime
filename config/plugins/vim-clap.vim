@@ -46,9 +46,9 @@ nnoremap <M-r> :Clap history<CR>
 nnoremap <M-m> :Clap marks<CR>
 nnoremap <M-M> :Clap maps<CR>
 nnoremap <M-w> :Clap windows<CR>
-nnoremap <M-g> :Clap git_diff_files<CR>
-nnoremap <M-G> :Clap gfiles<CR>
 nnoremap <M-y> :Clap yanks<CR>
 
-nnoremap gm :Clap bcommits<cr>
-nnoremap gM :Clap commits<cr>
+nnoremap <leader>gg :Clap git_diff_files<CR>
+nnoremap <leader>gf :Clap gfiles<CR>
+nnoremap <leader>gm :Clap bcommits<cr>
+nnoremap <leader>gM :Clap commits<cr>

@@ -7,6 +7,7 @@ let g:plugins_path = $HOME.'/.cache/vim/plugins'
 
 call plug#begin(g:plugins_path)
 
+" Plug 'neovim/nvim-lsp'
 " Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 这下面可以算是一组插件
@@ -22,6 +23,8 @@ Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate']}
 " 主题
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/forest-night'
 " 函数列表
 Plug 'liuchengxu/vista.vim' ", {'on': ['Vista!!', 'Vista']}
 " 底栏
@@ -43,7 +46,9 @@ Plug 'honza/vim-snippets'
 " 快速跳转窗口
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 快速移动
-Plug 'rhysd/clever-f.vim'
+" Plug 'rhysd/clever-f.vim'
+Plug 'easymotion/vim-easymotion'
+" Plug 'unblevable/quick-scope'
 " 对齐
 Plug 'junegunn/vim-easy-align'
 " 对齐线

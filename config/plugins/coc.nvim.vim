@@ -22,10 +22,10 @@ let s:coc_extensions = [
     \ 'coc-highlight',
     \ 'coc-yaml',
     \ 'coc-git',
-    \ 'coc-lua',
     \ 'coc-cmake',
     \ 'coc-python',
     \ ]
+    " \ 'coc-lua',
     "\ 'coc-word',
     "\ 'coc-tailwindcss',
     "\ 'coc-import-cost',
@@ -216,8 +216,8 @@ if HasCocPlug('coc-lists')
         nnoremap <silent> <M-w> :CocList windows<CR>
 
         if HasCocPlug('coc-git')
-            nnoremap <silent> gm :CocList bcommits<CR>
-            nnoremap <silent> gM :CocList commits<CR>
+            nnoremap <silent> <leader>gm :CocList bcommits<CR>
+            nnoremap <silent> <leader>gM :CocList commits<CR>
         endif
     endif
 endif
@@ -262,11 +262,11 @@ endif
 
 if HasCocPlug('coc-git')
     " 导航到修改块
-    nmap gk <Plug>(coc-git-prevchunk)
-    nmap gj <Plug>(coc-git-nextchunk)
+    nmap <leader>gk <Plug>(coc-git-prevchunk)
+    nmap <leader>gj <Plug>(coc-git-nextchunk)
     " 显示光标处的修改信息
-    nmap gp <Plug>(coc-git-chunkinfo)
-    nmap gu <esc>:CocCommand git.chunkUndo<cr>
+    nmap <leader>gp <Plug>(coc-git-chunkinfo)
+    nmap <leader>gu <esc>:CocCommand git.chunkUndo<cr>
 endif
 
 "--------------------------------- 配置json文件

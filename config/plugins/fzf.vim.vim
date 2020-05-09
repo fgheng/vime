@@ -10,7 +10,7 @@ let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 if has('nvim')
     let g:fzf_layout = {
         \ 'window': {
-            \ 'up': '~90%', 'width': 0.4, 'height': 0.8, 'yoffset':0.5,
+            \ 'up': '~90%', 'width': 0.6, 'height': 0.8, 'yoffset':0.5,
             \ 'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp'
         \ }
     \ }
@@ -109,11 +109,11 @@ nnoremap <M-r> :History<CR>
 nnoremap <M-m> :Marks<CR>
 nnoremap <M-M> :Maps<CR>
 nnoremap <M-w> :Windows<CR>
-nnoremap <M-g> :GFiles?<CR>
-nnoremap <M-G> :GFiles<CR>
 
-nnoremap gm :BCommits<cr>
-nnoremap gM :Commits<cr>
+nnoremap <leader>gf :GFiles?<CR>
+nnoremap <leader>gF :GFiles<CR>
+nnoremap <leader>gm :BCommits<cr>
+nnoremap <leader>gM :Commits<cr>
 
 au FileType fzf tnoremap <buffer> <C-j> <Down>
 au FileType fzf tnoremap <buffer> <C-k> <Up>

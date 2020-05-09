@@ -16,12 +16,16 @@ if has('termguicolors')
     set termguicolors
 endif
 
-colorscheme gruvbox
-if has('nvim')
-    hi normal     ctermbg=NONE guibg=NONE
-    hi linenr     ctermbg=NONE guibg=NONE
-    hi signcolumn ctermbg=NONE guibg=NONE
-endif
+let g:forest_night_enable_italic = 1
+let g:forest_night_enable_italic_comment = 1
+let g:forest_night_transparent_background = 1
+" let g:forest_night_current_word = 'underline'
+colorscheme forest-night
+" if has('nvim')
+    " hi normal     ctermbg=NONE guibg=NONE
+    " hi linenr     ctermbg=NONE guibg=NONE
+    " hi signcolumn ctermbg=NONE guibg=NONE
+" endif
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#ff0033 guibg=NONE

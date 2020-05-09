@@ -18,30 +18,30 @@ let g:Lf_GtagsAutoGenerate = 0
 let g:Lf_Gtagslabel = 'native-pygments'
 
 function! LeaderfFileWithWiki(query) abort
-	if empty(a:query) && &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
-		exec "LeaderfFile " . g:vimwiki_path
-	else
-		exec "LeaderfFile " . a:query
-	endif
+    if empty(a:query) && &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
+        exec "LeaderfFile " . g:vimwiki_path
+    else
+        exec "LeaderfFile " . a:query
+    endif
 endfunction
 
 function! LeaderfRgWithWiki(query) abort
-	if &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
-		exec 'Leaderf rg -F -e "" ' . g:vimwiki_path
-	else
-		exec 'Leaderf rg -F -e ' . leaderf#Rg#visual()
-	endif
+    if &ft ==? 'vimwiki' && match(expand('%'), expand(g:vimwiki_path)) > -1
+        exec 'Leaderf rg -F -e "" ' . g:vimwiki_path
+    else
+        exec 'Leaderf rg -F -e ' . leaderf#Rg#visual()
+    endif
 endfunction
 
 if !HasPlug('fzf.vim')
-	nnoremap <M-f> :call LeaderfFileWithWiki("")<CR>
-	nnoremap <M-F> :call LeaderfFileWithWiki($HOME)<CR>
-	noremap <M-b> :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-	noremap <M-c> :LeaderfCommand<cr>
-	noremap <M-t> :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-	noremap <M-T> :LeaderfBufTagAll<cr>
-	noremap <M-s> :call LeaderfRgWithWiki("")<cr>
-	noremap ? :LeaderfLineAll<CR>
-	noremap <M-r> :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-	noremap <M-w> :<C-U><C-R>=printf("Leaderf! window %s", "")<CR><CR>
+    nnoremap <M-f>: call LeaderfFileWithWiki("")<CR>
+    nnoremap <M-F>: call LeaderfFileWithWiki($HOME)<CR>
+    noremap <M-s>:  call LeaderfRgWithWiki("")<cr>
+    noremap <M-b>:  <C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+    noremap <M-c>:  LeaderfCommand<cr>
+    noremap <M-t>:  <C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+    noremap <M-T>:  LeaderfBufTagAll<cr>
+    noremap ?:      LeaderfLineAll<CR>
+    noremap <M-r>:  <C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+    noremap <M-w>:  <C-U><C-R>=printf("Leaderf! window %s", "")<CR><CR>
 endif
