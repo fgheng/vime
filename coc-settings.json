@@ -9,10 +9,10 @@
 
     // diagnostic
     "diagnostic.signOffset": 9999, // 越大等级越高
-    "diagnostic.errorSign": "●",
-    "diagnostic.warningSign": "●",
-    "diagnostic.infoSign": "⦁", // ">>",
-    "diagnostic.hintSign": "⦁", // ">>",
+    "diagnostic.errorSign": "■",
+    "diagnostic.warningSign": "■", // ●
+    "diagnostic.infoSign": "●", // "⦁>>",
+    "diagnostic.hintSign": "●", // ">>",
     "diagnostic.displayByAle": false,
     "diagnostic.maxWindowHeight": 10, // 窗口最大高度
     // "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
@@ -80,43 +80,43 @@
     "explorer.keyMappings": {
         "a": "unmap", // 取消按键映射a
 
-        // 目录
+        // 目录操作
         "k": "nodePrev",
         "j": "nodeNext",
         "h": "collapse",
         "l": ["expandable?", "expand", "open"],
-        "L": "expandRecursive", // 递归打开
-        "H": "collapseRecursive", // 递归关闭
-        "K": "expandablePrev", // 跳到上一个可打开处
-        "J": "expandableNext", //
-        "<cr>": ["expandable?", "cd", "open"], // 打开并进入目录同时更改cwd
-        "<bs>": "gotoParent", // 回到上一级目录并更改cwd
-        "r": "refresh", // 刷新
+        "L": "expandRecursive",                 // 递归打开
+        "H": "collapseRecursive",               // 递归关闭
+        "K": "expandablePrev",                  // 跳到上一个可打开处
+        "J": "expandableNext",                  //
+        "<cr>": ["expandable?", "cd", "open"],  // 打开并进入目录同时更改cwd
+        "<bs>": "gotoParent",                   // 回到上一级目录并更改cwd
+        "r": "refresh",                         // 刷新
 
-        "v": ["toggleSelection", "normal:j"], // 选中并下移
+        "v": ["toggleSelection", "normal:j"],   // 选中并下移
         "V": ["toggleSelection", "normal:k"],
-        "*": "toggleSelection", // 选中
+        "*": "toggleSelection",                 // 选中
 
         // open
-        "ss": "open:split", // 水平
-        "sv": "open:vsplit", // 垂直
-        "st": "open:tab", // tab
+        "os": "open:split",  // 水平
+        "ov": "open:vsplit", // 垂直
+        "ot": "open:tab",    // tab
 
         // 文件操作
-        "dd": "cutFile",
-        "Y": "copyFile",
-        "D": "delete",
-        "P": "pasteFile",
-        "R": "rename",
-        "A": "addFile",
-        "yy": "copyFilepath",
-        "y": "copyFilename",
+        "dd": "cutFile",      // 剪切
+        "Y": "copyFile",      // 复制文件
+        "D": "delete",        // 删除文件
+        "P": "pasteFile",     // 粘贴文件
+        "R": "rename",        // 重命名文件
+        "A": "addFile",       // 新建文件/夹
+        "yy": "copyFilepath", // 复制文件路径
+        "y": "copyFilename",  // 复制文件名
 
         // other
         "gp": "preview:labeling", // 预览详细信息
-        "x": "systemExecute", // 执行
-        "f": "search", // 搜索
-        "F": "searchRecursive",
+        "x": "systemExecute",     // 使用系统应用打开
+        "f": "search",            // 搜索
+        "F": "searchRecursive",   // 递归搜索
 
         ".": "toggleHidden",
         "<tab>": "actionMenu",
@@ -142,8 +142,7 @@
     // git
     "git.addGBlameToBufferVar": true,
     "git.addGBlameToVirtualText": true,
-
-    "git.virtualTextPrefix": "  >>> ",
+    "git.virtualTextPrefix": "  ➤  ",
     "git.addedSign.hlGroup": "GitGutterAdd",
     "git.changedSign.hlGroup": "GitGutterChange",
     "git.removedSign.hlGroup": "GitGutterDelete",
@@ -153,7 +152,7 @@
     "git.changedSign.text": "▎",
     "git.removedSign.text": "▎",
     "git.topRemovedSign.text": "▔",
-    "git.changeRemovedSign.text": "▋",
+    "git.changeRemovedSign.text": "▋",//▓
 
     //prettier
     "prettier.tabWidth": 4,

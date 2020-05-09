@@ -23,9 +23,10 @@ let s:coc_extensions = [
     \ 'coc-yaml',
     \ 'coc-git',
     \ 'coc-cmake',
-    \ 'coc-python',
+    \ 'coc-pyright',
+    \ 'coc-kite',
     \ ]
-    " \ 'coc-lua',
+    "\ 'coc-lua',
     "\ 'coc-word',
     "\ 'coc-tailwindcss',
     "\ 'coc-import-cost',
