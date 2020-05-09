@@ -24,4 +24,4 @@ highlight link GitGutterChangeLineNr SignifySignChange
 highlight link GitGutterDeleteLineNr SignifySignDelete
 highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 
-nmap gf <esc>:GitGutterFold<cr>
+" nmap <leader>gf <esc>:GitGutterFold<cr>

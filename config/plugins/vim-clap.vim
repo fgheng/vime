@@ -48,7 +48,7 @@ nnoremap <M-M> :Clap maps<CR>
 nnoremap <M-w> :Clap windows<CR>
 nnoremap <M-y> :Clap yanks<CR>
 
-nnoremap <leader>gg :Clap git_diff_files<CR>
+nnoremap <leader>gd :Clap git_diff_files<CR>
 nnoremap <leader>gf :Clap gfiles<CR>
 nnoremap <leader>gm :Clap bcommits<cr>
 nnoremap <leader>gM :Clap commits<cr>
