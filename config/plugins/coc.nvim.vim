@@ -5,7 +5,6 @@ let s:coc_extensions = [
     \ 'coc-explorer',
     \ 'coc-tsserver',
     \ 'coc-prettier',
-    \ 'coc-snippets',
     \ 'coc-calc',
     \ 'coc-vimlsp',
     \ 'coc-marketplace',
@@ -24,8 +23,10 @@ let s:coc_extensions = [
     \ 'coc-git',
     \ 'coc-cmake',
     \ 'coc-pyright',
+    \ 'coc-snippets',
     \ 'coc-kite',
     \ ]
+    " \ 'coc-ultisnips',
     "\ 'coc-lua',
     "\ 'coc-word',
     "\ 'coc-tailwindcss',
@@ -63,10 +64,6 @@ function! s:check_back_space() abort
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" alt j k 用于补全块的跳转
-let g:coc_snippet_next = '<m-j>'
-let g:coc_snippet_prev = '<m-k>'
-
 " tab选择下一个补全
 inoremap <silent><expr> <TAB>
     \ pumvisible() ? "\<c-n>" :
@@ -98,20 +95,6 @@ endif
 nmap <silent> <M-j> <Plug>(coc-diagnostic-next)
 nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
 
-" 代码导航
-" function! s:GoToDefinition() abort
-"   if CocAction('jumpDefinition')
-"     return v:true
-"   endif
-
-"   let ret = execute("silent! normal \<C-]>")
-"   if ret =~ "Error" || ret =~ "错误"
-"     call searchdecl(expand('<cword>'))
-"   endif
-" endfunction
-" " 跳转到定义
-" nmap <silent> gd :call <SID>GoToDefinition()<CR>
-" nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gd :<C-u>call CocActionAsync('jumpDefinition')<CR>
 " 跳转到类型定义
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -221,6 +204,12 @@ if HasCocPlug('coc-lists')
             nnoremap <silent> <leader>gM :CocList commits<CR>
         endif
     endif
+endif
+
+if HasCocPlug('coc-snippets')
+    " alt j k 用于补全块的跳转
+    let g:coc_snippet_next = '<m-j>'
+    let g:coc_snippet_prev = '<m-k>'
 endif
 
 if HasCocPlug('coc-yank')

@@ -1,7 +1,5 @@
 set number
 set relativenumber                                  " 设置相对行号
-set cursorline                                      " 高亮当前行
-set cursorcolumn                                    " 高亮当前列
 set incsearch                                       " 搜索时即高亮
 set hlsearch                                        " 高亮匹配内容
 set wrap
@@ -9,7 +7,6 @@ set smartindent                                     " 智能缩进
 set autoindent                                      " 自动换行缩进
 set linebreak                                       " 软折行
 set noswapfile                                      " 禁止生成swap文件
-set colorcolumn=81                                  " 高亮第80行
 set hidden                                          " 终端隐藏后不结束
 set ignorecase                                      " 忽略大小写
 " set smartcase
@@ -41,8 +38,6 @@ set noswapfile
 set autoread                                        " 文件在外部被修改过，重新读入
 set autowrite                                       " 自动写回
 set confirm                                         " 显示确认对话框
-set laststatus=0                                    " 状态栏
-set showtabline=0
 set noshowmode
 set timeout ttimeout
 set timeoutlen=500
@@ -54,6 +49,7 @@ set mouse=a                                         " 允许使用鼠标
 set cmdheight=1
 set conceallevel=0                                  " json文件不显示引号
 
+set laststatus=0                                    " 状态栏, lightline中更改了
 set showtabline=2                                   " 总是显示tab标签栏
 
 set re=1

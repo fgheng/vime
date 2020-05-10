@@ -27,6 +27,16 @@ colorscheme forest-night
     " hi signcolumn ctermbg=NONE guibg=NONE
 " endif
 
+" cursor and cursorline
+set cursorline                                      " 高亮当前行
+set cursorcolumn                                    " 高亮当前列
+set colorcolumn=81                                  " 高亮第80行
+highlight ColorColumn guibg=#303030 " #626262
+highlight CursorColumn guibg=#303030 ctermbg=lightgrey
+highlight CursorLine guibg=#303030 ctermbg=lightgrey
+" 光标形状与终端一致
+set guicursor=
+
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#ff0033 guibg=NONE
 

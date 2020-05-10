@@ -43,6 +43,8 @@ Plug 'tpope/vim-repeat'
 Plug 'ntpeters/vim-better-whitespace'
 " 代码段
 Plug 'honza/vim-snippets'
+" 代码段同步更改
+" Plug 'SirVer/ultisnips'
 " 快速跳转窗口
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 快速移动
@@ -76,10 +78,14 @@ Plug 'iamcco/dict.vim', {'on': ['<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>
 Plug 'christoomey/vim-tmux-navigator'
 " 平滑滚动
 Plug 'psliwka/vim-smoothie'
+" 放大窗口
+Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
+" ranger
+Plug 'francoiscabrol/ranger.vim'
+" buffer close
+Plug 'rbgrouleff/bclose.vim'
 " 二进制
 " Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
-" 放大窗口
-" Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " 编译运行
 " Plug 'skywind3000/asynctasks.vim', {'on': ['AsyncTask','AsyncTaskEdit','AsyncTaskList','AsyncTaskMarco', 'AsyncTaskProfile']}
 " Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun', 'AsyncStop']}
