@@ -6,7 +6,7 @@
 
 将需要安装的插件写到`config/plug.vim`中，然后在`config/plugins`目录下建立与插件同名的配置文件，在该文件中写入自己的配置即可，如果要删除插件，只需要从`config/plug.vim`中删除插件条目即可，`config/plugins`目录下的同名配置文件不再加载，可以不用删除。
 
-![vime](./assets/readme1.png)
+![vime](./assets/readme2.png)
 
 ### 2. 整体结构
 
@@ -27,7 +27,7 @@
 
 目录结构：
 
-1. `plug.vim`文件就是`vim-plug`的插件配置文件，里面是我们需要的插件列表，写在这里面的插件会加载他的配置，插件的配置在`plugins`目录下，一个插件对应一个文件。注释掉的插件不会加载其配置。
+1. `plug.vim`文件就是`vim-plug`的插件配置文件，里面是我们需要的插件列表，写在这里面的插件会加载他的配置，插件的配置在`plugins`目录下，vim/nvim启动的时候会根据`plug.vim`中的插件列表来这个目录下加载对应名字的配置文件，注释掉的插件不会加载其配置文件。
 2. `base.vim`用于基础配置
 3. `keymap.vim`用于按键映射
 4. `theme.vim`用于主题配置
@@ -231,8 +231,6 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 | \<leader>c\<space> |               |                                            |
 |                    |               |                                            |
 | \<leader>cn        |               |                                            |
-
-
 
 #### 6.7 终端
 
