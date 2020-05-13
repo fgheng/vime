@@ -7,32 +7,58 @@ let g:plugins_path = $HOME.'/.cache/vim/plugins'
 
 call plug#begin(g:plugins_path)
 
+" 补全类插件
 " Plug 'neovim/nvim-lsp'
 " Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-" 这下面可以算是一组插件
-Plug 'junegunn/fzf', { 'do': './install --bin' } | Plug 'junegunn/fzf.vim' | Plug 'tpope/vim-fugitive'
-" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' } | Plug 'vn-ki/coc-clap' | Plug 'liuchengxu/vista.vim'
+
+" 检索类插件
+Plug 'junegunn/fzf', { 'do': './install --bin' } |
+\ Plug 'junegunn/fzf.vim' |
+\ Plug 'tpope/vim-fugitive'
+
+" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' } |
+"\ Plug 'vn-ki/coc-clap' |
+"\ Plug 'liuchengxu/vista.vim'
+
 " latex插件
-Plug 'lervag/vimtex', {'for': 'tex'} " pip install remote-neovim  zathura-pdf-mupdf xdotool texlive-most texlive-lang
-" 快速注释插件
-Plug 'scrooloose/nerdcommenter'
-" Plug 'tyru/caw.vim'
+Plug 'lervag/vimtex', {'for': 'tex'}
+
+" 文档类插件
+" Plug 'scrooloose/nerdcommenter'
+Plug 'tyru/caw.vim'
 " 生成注释文档, 不适用默认的映射，这样启动更快
 Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate']}
-" 主题
+" vim中文文档
+Plug 'yianwillis/vimcdoc'
+
+" 主题类插件
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/forest-night'
-" 函数列表
-Plug 'liuchengxu/vista.vim' ", {'on': ['Vista!!', 'Vista']}
+" 彩虹括号
+Plug 'luochen1990/rainbow'
 " 底栏
 Plug 'itchyny/lightline.vim'
 " 关灯读小说
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } | Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
-" 彩虹括号
-Plug 'luochen1990/rainbow'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' } |
+\ Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+
+" 高亮类插件
+Plug 'sheerun/vim-polyglot'
+" python高亮，异步
+if has('nvim')
+    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'}
+endif
+" c++ 高亮
+Plug 'jackguo380/vim-lsp-cxx-highlight', {
+            \ 'for': [
+            \ 'cpp', 'c', 'cu', 'h', 'hpp', 'hh', 'objc', 'objcpp'
+            \ ]}
+
+" 函数列表
+Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
 " 快速包围
@@ -49,7 +75,13 @@ Plug 'honza/vim-snippets'
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 快速移动
 " Plug 'rhysd/clever-f.vim'
-Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion', {'on':
+            \ [
+            \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
+            \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
+            \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
+            \ '<Plug>(easymotion-overwin-w)'
+            \ ]}
 " Plug 'unblevable/quick-scope'
 " 对齐
 Plug 'junegunn/vim-easy-align'
@@ -59,33 +91,36 @@ Plug 'Yggdroot/indentLine'
 Plug 'mg979/vim-visual-multi'
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
-Plug 'voldikss/vim-floaterm'
+Plug 'voldikss/vim-floaterm', {'on':
+            \[
+            \ 'FloatermNew', 'FloatermToggle'
+            \ ]}
 Plug 'vimwiki/vimwiki'
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
-" 高亮
-Plug 'sheerun/vim-polyglot'
-" python高亮，异步
-if has('nvim')
-    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-endif
-" vim中文文档
-Plug 'yianwillis/vimcdoc'
 Plug 'mhinz/vim-startify'
 " 翻译
 " Plug 'voldikss/vim-translator'
-Plug 'iamcco/dict.vim', {'on': ['<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch', '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch']}
+Plug 'iamcco/dict.vim', {'on':
+            \ [
+            \ '<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch',
+            \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
+            \ ]}
+" tmux与vim窗口导航
 Plug 'christoomey/vim-tmux-navigator'
 " 平滑滚动
 Plug 'psliwka/vim-smoothie'
 " 放大窗口
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " ranger
-Plug 'francoiscabrol/ranger.vim'
+Plug 'francoiscabrol/ranger.vim', {'on':
+            \ [
+            \ 'RangerCurrentFile', 'RangerWorkingDirectory'
+            \ ]}
 " buffer close
-Plug 'rbgrouleff/bclose.vim'
+Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " 二进制
-" Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
+Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
 " 编译运行
 " Plug 'skywind3000/asynctasks.vim', {'on': ['AsyncTask','AsyncTaskEdit','AsyncTaskList','AsyncTaskMarco', 'AsyncTaskProfile']}
 " Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun', 'AsyncStop']}
@@ -102,6 +137,9 @@ Plug 'rbgrouleff/bclose.vim'
 " Plug 'davinche/DrawIt', {'on': 'DrawIt'}
 " jk加速
 " Plug 'rhysd/accelerated-jk'
+" 输入法切换
+" Plug 'rlue/vim-barbaric'
+Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 
 call plug#end()
 

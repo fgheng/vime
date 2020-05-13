@@ -4,7 +4,7 @@
 
     // suggest
     "suggest.acceptSuggestionOnCommitCharacter": true,
-    "suggest.timeout": 1000, // 超过500ms就停止
+    "suggest.timeout": 5000, // 超过500ms就停止
     "suggest.noselect": true, // 选中第一个
 
     // diagnostic
@@ -168,23 +168,6 @@
     "yank.highlight.duration": 200,
     "yank.enableCompletion": false, // 补全中不用yank
 
-    // lsp
-    "languageserver": {
-        "clangd": {
-            "command": "clangd",
-            "args": ["--background-index"],
-            "trace.server": "verbose",
-            "filetypes": ["c", "cc", "cpp", "cu", "cuda", "objc", "objcpp"],
-            "rootPatterns": [
-                ".clang",
-                ".ccls",
-                ".vim/",
-                ".git/",
-                ".hg/",
-                ".clang_complete",
-                "compile_commands.json",
-                "compile_flags.txt"
-            ]
-        }
-    }
+    // clangd
+    "clangd.semanticHighlighting": true, // 配合插件vim-lsp-cxx-highlight实现高亮
 }

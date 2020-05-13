@@ -2,9 +2,7 @@
 
 ## 1. About
 
-该项目使用分离配置文件的方式，一个插件对应一个配置文件，方便插件的增删，同时也方便插件配置文件的移植。
-
-将需要安装的插件写到`config/plug.vim`中，然后在`config/plugins`目录下建立与插件同名的配置文件，在该文件中写入自己的配置即可，如果要删除插件，只需要从`config/plug.vim`中删除插件条目即可，`config/plugins`目录下的同名配置文件不再加载，可以不用删除。
+该项目的特点是一个插件对应一个配置文件，只要在插件列表中增加了插件，那么就会自动载入该插件的配置文件。可以说耦合性很低，甚至每个插件配置文件中的配置单独拿出来放到你自己的vim配种中就可以用了。
 
 ![vime](./assets/readme2.png)
 
@@ -28,23 +26,28 @@
 目录结构：
 
 1. `plug.vim`文件就是`vim-plug`的插件配置文件，里面是我们需要的插件列表，写在这里面的插件会加载他的配置，插件的配置在`plugins`目录下，vim/nvim启动的时候会根据`plug.vim`中的插件列表来这个目录下加载对应名字的配置文件，注释掉的插件不会加载其配置文件。
+
 2. `base.vim`用于基础配置
+
 3. `keymap.vim`用于按键映射
+
 4. `theme.vim`用于主题配置
+
 5. `plugins`目录下是所有插件的配置文件，一个插件一个配置文件，只会加载`plug.vim`中安装的插件的配置。
-6. `config.vim`用于一些个人配置或全局配置，比如插件的缓存目录，笔记的根目录等
 
-### 3. 简单了解
+6. ~~`config.vim`用于一些个人配置或全局配置，比如插件的缓存目录，笔记的根目录等~~
 
-1. 补全使用的是[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)
-2. 文件管理使用的是[weirongxu/*coc*-explorer](https://github.com/weirongxu/coc-explorer)
-3. 函数浏览器使用的是[liuchengxu/*vista*.*vim*](https://github.com/liuchengxu/vista.vim)
+   为了便于移植，取消了这种全局性的变量，一些需要配置文件路径的插件罗列如下，如果你需要某个插件的配置，直接复制这个插件的配置的话，需要将一些路径更改为自己的路径。
 
-### 4. 依赖
+   - `config/plug.vim`:  `g:plugins_path`这是插件的安装目录
+   - `config/plugins/fzf.vim.vim`: `g:fzf_dir`这是fzf用到的目录，`g:fzf_history_dir`这是fzf的历史文件所在的目录
+   - `config/plugins/coc.nvim.vim`: `g:coc_data_home` 这是coc插件的安装目录
+
+### 3. 依赖
 
 需要安装如下软件：
 
-1. nodejs，npm：必装
+1. nodejs，npm，neovim(pip install)：必装
 2. ripgrep：必装，用于文件内容检索
 3. neovim-remote:：可选，vimtex会用到，但是也可以不用，安装体验更好，`pip install neovim-remote`
 4. clangd：可选，用于c系补全

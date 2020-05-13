@@ -1,8 +1,8 @@
 " 设置coc插件目录
 let g:coc_data_home = $HOME.'/.cache/vim/coc'
 " coc插件列表
-let s:coc_extensions = [
-    \ 'coc-explorer',
+" let s:coc_extensions = [
+let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-prettier',
     \ 'coc-calc',
@@ -25,29 +25,26 @@ let s:coc_extensions = [
     \ 'coc-pyright',
     \ 'coc-snippets',
     \ 'coc-kite',
+    \ 'coc-explorer',
+    \ 'coc-clangd',
+    \ 'coc-sql',
     \ ]
-    " \ 'coc-ultisnips',
-    "\ 'coc-lua',
-    "\ 'coc-word',
-    "\ 'coc-tailwindcss',
-    "\ 'coc-import-cost',
-    "\ 'coc-sql',
+    "\ 'coc-lua'
+    "\ 'coc-ultisnips',
     "\ 'coc-tabnine',
-    "\ 'coc-kite',
-    "\ 'coc-pyright',
 
 function! s:uninstall_unused_coc_extensions() abort
     for e in keys(json_decode(join(readfile(expand(g:coc_data_home . '/extensions/package.json')), "\n"))['dependencies'])
-        if index(s:coc_extensions, e) < 0
+        if index(g:coc_global_extensions, e) < 0
             execute 'CocUninstall ' . e
         endif
     endfor
 endfunction
 autocmd User CocNvimInit call s:uninstall_unused_coc_extensions()
 
-for e in s:coc_extensions
-    silent! call coc#add_extension(e)
-endfor
+" for e in s:coc_extensions
+"     silent! call coc#add_extension(e)
+" endfor
 
 " 判断是否安装了coc插件
 fun! HasCocPlug(cocPlugName)
