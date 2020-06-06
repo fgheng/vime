@@ -91,5 +91,6 @@ nmap <leader>gs <esc>:call GitVDiffToggle()<cr>
 nmap <leader>gb <esc>:call GitBlameToggle()<cr>
 nmap <leader>gc <esc>:Gcommit<cr>
 nmap <leader>gw <esc>:Gw<cr>
+
 " nmap gl <esc>:call GlogToggle()<cr>
 " nmap gt <esc>:call GstatusToggle()<cr>

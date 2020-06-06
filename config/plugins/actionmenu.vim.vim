@@ -1,5 +1,6 @@
 let s:code_actions = []
 
+
 func! ActionMenuCodeActions() abort
 	let s:code_actions = CocAction('codeActions')
 	let l:menu_items = map(copy(s:code_actions), { index, item -> item['title'] })

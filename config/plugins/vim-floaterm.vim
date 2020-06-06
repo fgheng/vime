@@ -20,9 +20,7 @@ function s:changeFlt(direction)
     endif
 endfunction
 
-au FileType floaterm tnoremap <M-h> <c-\><c-n>:FloatermPrev<CR>
-au FIleType floaterm tnoremap <M-l> <c-\><c-n>:FloatermNext<CR>
-autocmd User Startified setlocal buflisted
+au FileType floaterm tnoremap <buffer> <M-h> <c-\><c-n>:FloatermPrev<CR>
+au FIleType floaterm tnoremap <buffer> <M-l> <c-\><c-n>:FloatermNext<CR>
 
-" nmap <leader>f :FloatermNew ranger<cr>
-" nmap <leader>g :FloatermNew lazygit<cr>
+autocmd User Startified setlocal buflisted

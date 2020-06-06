@@ -16,11 +16,16 @@ if has('termguicolors')
     set termguicolors
 endif
 
-let g:forest_night_enable_italic = 1
-let g:forest_night_enable_italic_comment = 1
-let g:forest_night_transparent_background = 1
+" let g:forest_night_enable_italic = 1
+" let g:forest_night_enable_italic_comment = 1
+" let g:forest_night_transparent_background = 1
 " let g:forest_night_current_word = 'underline'
-colorscheme forest-night
+" colorscheme forest-night
+let g:srcery_bold=1
+let g:srcety_italic=1
+let g:srcery_transparent_background=1
+colorscheme srcery
+
 " if has('nvim')
     " hi normal     ctermbg=NONE guibg=NONE
     " hi linenr     ctermbg=NONE guibg=NONE
@@ -31,7 +36,7 @@ colorscheme forest-night
 set cursorline                                      " 高亮当前行
 set cursorcolumn                                    " 高亮当前列
 set colorcolumn=81                                  " 高亮第80行
-highlight ColorColumn guibg=#303030 " #626262
+highlight ColorColumn guibg=#303030
 highlight CursorColumn guibg=#303030 ctermbg=lightgrey
 highlight CursorLine guibg=#303030 ctermbg=lightgrey
 " 光标形状与终端一致

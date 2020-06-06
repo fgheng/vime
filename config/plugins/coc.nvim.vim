@@ -12,23 +12,25 @@ let g:coc_global_extensions = [
     \ 'coc-html',
     \ 'coc-css',
     \ 'coc-yank',
-    \ 'coc-lists',
     \ 'coc-json',
     \ 'coc-sh',
     \ 'coc-rls',
     \ 'coc-java',
     \ 'coc-go',
-    \ 'coc-highlight',
     \ 'coc-yaml',
     \ 'coc-git',
     \ 'coc-cmake',
-    \ 'coc-pyright',
     \ 'coc-snippets',
-    \ 'coc-kite',
-    \ 'coc-explorer',
     \ 'coc-clangd',
-    \ 'coc-sql',
+    \ 'coc-pyright',
+    \ 'coc-highlight',
     \ ]
+
+    " \ 'coc-lists',
+    "\ 'coc-explorer',
+    "\ 'coc-python',
+    "\ 'coc-kite',
+    "\ 'coc-sql',
     "\ 'coc-lua'
     "\ 'coc-ultisnips',
     "\ 'coc-tabnine',
@@ -41,10 +43,6 @@ function! s:uninstall_unused_coc_extensions() abort
     endfor
 endfunction
 autocmd User CocNvimInit call s:uninstall_unused_coc_extensions()
-
-" for e in s:coc_extensions
-"     silent! call coc#add_extension(e)
-" endfor
 
 " 判断是否安装了coc插件
 fun! HasCocPlug(cocPlugName)
@@ -148,7 +146,6 @@ nmap <space>f  <Plug>(coc-fix-current)
 " 变量重命名
 nmap <space>rn <Plug>(coc-rename)
 
-"---------------------------------------------- 多光标
 if !HasPlug("vim-visual-multi")
     " ctrl n下一个，ctrl p上一个
     " ctrl c 添加一个光标再按一次取消，
@@ -182,7 +179,7 @@ function! CocListFilesWithWiki(query)
 endfunction
 if HasCocPlug('coc-lists')
     " TODO 需要思考一下这里的逻辑
-    if !has('nvim') && !HasPlug('LeaderF') || !HasPlug('LeaderF') || !HasPlug('vim-clap') && !HasPlug('fzf.vim') && !HasPlug('coc-fzf')
+    if !has('nvim') || !HasPlug('fzf.vim') && !HasPlug('LeaderF') && !HasPlug('vim-clap')
         nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
         nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
         nnoremap <silent> <M-b> :CocList buffers<CR>
@@ -213,20 +210,9 @@ if HasCocPlug('coc-yank')
     " nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
     if !HasPlug('vim-clap')
         nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
+        call coc#config('yank.highlight.duration', 200)
+        call coc#config('yank.enableCompletion', v:false)
     endif
-endif
-
-if HasCocPlug('coc-explorer')
-    let g:coc_explorer_global_presets = {
-    \   'floating': {
-    \      'position': 'floating',
-    \      'floating-width': 150,
-    \      'floating-height': 30,
-    \   }
-    \ }
-
-    " nmap <silent> <F2> :CocCommand explorer --preset floating<cr>
-    nmap <silent> <F2> :CocCommand explorer<cr>
 endif
 
 if HasCocPlug('coc-translator')
@@ -256,9 +242,171 @@ if HasCocPlug('coc-git')
     nmap <leader>gu <esc>:CocCommand git.chunkUndo<cr>
 endif
 
-"--------------------------------- 配置json文件
-" session 保存目录
-"call coc#config('session.directory', g:coc_session_directory)
-
 "--------------------------------- 自定义命令
 " call coc#add_command('call CocAction("pickColor")', 'MundoToggle', '显示撤回列表')
+
+"--------------------------------- 配置json文件
+
+" coc-lists
+if HasCocPlug("coc-lists")
+    " session 保存目录
+    call coc#config('session.directory', g:session_dir)
+    call coc#config('session.saveOnVimLeave', v:false)
+
+    call coc#config('list.maxHeight', 10)
+    call coc#config('list.maxPreviewHeight', 8)
+    call coc#config('list.autoResize', v:false)
+    call coc#config('list.source.grep.command', 'rg')
+    call coc#config('list.source.grep.defaultArgs', [
+                \ '--column',
+                \ '--line-number',
+                \ '--no-heading',
+                \ '--color=always',
+                \ '--smart-case'
+            \ ])
+    call coc#config('list.source.lines.defaultArgs', ['-e'])
+    call coc#config('list.source.words.defaultArgs', ['-e'])
+    call coc#config('list.source.files.command', 'rg')
+    call coc#config('list.source.files.args', ['--files'])
+    call coc#config('list.source.files.excludePatterns', ['.git'])
+endif
+
+" coc-clangd
+if HasCocPlug('coc-clangd')
+    " 配合插件vim-lsp-cxx-highlight实现高亮
+    call coc#config('clangd.semanticHighlighting', v:true)
+endif
+
+" coc-kite
+if HasCocPlug('coc-kite')
+    call coc#config('kite.pollingInterval', 1000)
+endif
+
+" coc-xml
+if HasCocPlug('coc-xml')
+    call coc#config('xml.java.home', '/usr/lib/jvm/default/')
+endif
+
+" coc-prettier
+if HasCocPlug('coc-prettier')
+    call coc#config('prettier.tabWidth', 4)
+endif
+
+" coc-git
+if HasCocPlug('coc-git')
+    call coc#config('git.addGBlameToBufferVar', v:true)
+    call coc#config('git.addGBlameToVirtualText', v:true)
+    call coc#config('git.virtualTextPrefix', '  ➤  ')
+    call coc#config('git.addedSign.hlGroup', 'GitGutterAdd')
+    call coc#config('git.changedSign.hlGroup', 'GitGutterChange')
+    call coc#config('git.removedSign.hlGroup', 'GitGutterDelete')
+    call coc#config('git.topRemovedSign.hlGroup', 'GitGutterDelete')
+    call coc#config('git.changeRemovedSign.hlGroup', 'GitGutterChangeDelete')
+    call coc#config('git.addedSign.text', '▎')
+    call coc#config('git.changedSign.text', '▎')
+    call coc#config('git.removedSign.text', '▎')
+    call coc#config('git.topRemovedSign.text', '▔')
+    call coc#config('git.changeRemovedSign.text', '▋')
+endif
+
+" coc-snippets
+if HasCocPlug('coc-snippets')
+    call coc#config("snippets.ultisnips.enable", v:true)
+    call coc#config("snippets.ultisnips.directories", [
+                \ 'UltiSnips',
+                \ 'gosnippets/UltiSnips'
+            \ ])
+    call coc#config("snippets.extends", {
+                \ 'cpp': ['c'],
+                \ 'typescript': ['javascript']
+            \ })
+endif
+
+
+" coc-highlight
+if HasCocPlug('coc-highlight')
+    call coc#config("highlight.disableLanguages", ["csv"])
+endif
+
+" coc-python
+if HasCocPlug('coc-python')
+    call coc#config("python.jediEnabled", v:false)
+    call coc#config("python.linting.enabled", v:true)
+    call coc#config("python.linting.pylintEnabled", v:true)
+endif
+
+" coc-explorer
+if HasCocPlug('coc-explorer')
+    " nmap <silent> <F2> :CocCommand explorer --preset floating<cr>
+    nmap <silent> <F2> :CocCommand explorer<cr>
+
+    let g:coc_explorer_global_presets = {
+    \   'floating': {
+    \      'position': 'floating',
+    \      'floating-width': 150,
+    \      'floating-height': 30,
+    \   }
+    \ }
+
+    call coc#config("explorer.icon.enableNerdfont", v:true)
+    call coc#config("explorer.sources", [
+           \{
+               \"name": "buffer",
+               \"expand": v:true
+           \},
+           \{
+               \"name": "file",
+               \"expand": v:true
+           \}
+       \])
+    call coc#config("explorer.file.autoReveal", v:true)
+    call coc#config("explorer.width", 40)
+    call coc#config("explorer.keyMappingMode", "none")
+      "\ 'a': v:false,
+    call coc#config("explorer.keyMappings", {
+      \ 'k': 'nodePrev',
+      \ 'j': 'nodeNext',
+      \ 'h': 'collapse',
+      \ 'l': ['expandable?', 'expand', 'open'],
+      \ 'L': 'expandRecursive',
+      \ 'H': 'collapseRecursive',
+      \ 'K': 'expandablePrev',
+      \ 'J': 'expandableNext',
+      \ '<cr>': ['expandable?', 'cd', 'open'],
+      \ '<bs>': 'gotoParent',
+      \ 'r': 'refresh',
+      \ 't': ['toggleSelection', 'normal:j'],
+      \ 'T': ['toggleSelection', 'normal:k'],
+      \ '*': 'toggleSelection',
+      \ 'os': 'open:split',
+      \ 'ov': 'open:vsplit',
+      \ 'ot': 'open:tab',
+      \ 'dd': 'cutFile',
+      \ 'Y': 'copyFile',
+      \ 'D': 'delete',
+      \ 'P': 'pasteFile',
+      \ 'R': 'rename',
+      \ 'N': 'addFile',
+      \ 'yp': 'copyFilepath',
+      \ 'yn': 'copyFilename',
+      \ 'gp': 'preview:labeling',
+      \ 'x': 'systemExecute',
+      \ 'f': 'search',
+      \ 'F': 'searchRecursive',
+      \ '\.': 'toggleHidden',
+      \ '<tab>': 'actionMenu',
+      \ '?': 'help',
+      \ 'q': 'quit',
+      \ '<esc>': 'esc',
+      \ 'gf': 'gotoSource:file',
+      \ 'gb': 'gotoSource:buffer',
+      \ '[[': 'sourcePrev',
+      \ ']]': 'sourceNext',
+      \ '[d': 'diagnosticPrev',
+      \ ']d': 'diagnosticNext',
+      \ '[c': 'gitPrev',
+      \ ']c': 'gitNext',
+      \ '<<': 'gitStage',
+      \ '>>': 'gitUnstage'
+    \ })
+endif

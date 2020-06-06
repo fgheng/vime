@@ -1,5 +1,60 @@
-" 这里是现在或者曾经使用过的插件列表
+" 一些插件列表
+" nodejs, npm, ripgrep, clang, ctags, zathura-pdf-mupdf, texlive-most,
+" texlive-lang, remote-neovim
+Plug 'neovim/nvim-lsp'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' } |
+    \ Plug 'vn-ki/coc-clap' |
+    \ Plug 'liuchengxu/vista.vim'
+Plug 'Yggdroot/LeaderF'
+" latex插件
+Plug 'lervag/vimtex', {'for': 'tex'}
+Plug 'scrooloose/nerdcommenter'
+" vim中文文档
+Plug 'yianwillis/vimcdoc'
+" 关灯读小说
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+\ | Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
+" 代码段同步更改
+Plug 'SirVer/ultisnips'
+" 快速移动
+Plug 'rhysd/clever-f.vim'
+Plug 'unblevable/quick-scope'
+Plug 'voldikss/vim-translator'
+" 放大窗口
+Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
+" 平滑滚动
+Plug 'psliwka/vim-smoothie'
+" 二进制
+Plug 'Shougo/vinarise.vim', { 'on': 'Vinarise' }
+" 编译运行
+Plug 'skywind3000/asynctasks.vim', {'on': ['AsyncTask','AsyncTaskEdit','AsyncTaskList','AsyncTaskMarco', 'AsyncTaskProfile']}
+Plug 'skywind3000/asyncrun.vim', {'on': ['AsyncRun', 'AsyncStop']}
+" debug
+Plug 'puremourning/vimspector'
+" markdown内运行代码
+Plug 'gpanders/vim-medieval', {'on': ['Eval', 'Eval!', 'EvalBlock!', 'EvalBlock']}
+Plug 'dbridges/vim-markdown-runner'
+" 数据库
+Plug 'tpope/vim-dadbod', {'on': 'DB'}
+" 书签
+Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
+" 画图，使用leaderds结束
+Plug 'davinche/DrawIt', {'on': 'DrawIt'}
+" jk加速
+Plug 'rhysd/accelerated-jk'
+" 输入法切换
+Plug 'rlue/vim-barbaric'
+Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
@@ -79,6 +134,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'dhruvasagar/vim-table-mode'
 " csv
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
+Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
+" 窗口聚焦
+Plug 'TaDaa/vimade'
 
 if !has('nvim')
 	Plug 'vim-utils/vim-alt-mappings'

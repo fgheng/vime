@@ -22,4 +22,3 @@ let g:go_highlight_variable_assignments = 1
 
 " python高亮用semshi
 " let g:python_highlight_all = 1
-

@@ -4,7 +4,7 @@ if &laststatus < 2
 endif
 
 let g:lightline = {
-    \ 'colorscheme': 'forest_night',
+    \ 'colorscheme': 'srcery',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'readonly', 'filename', 'modified'],

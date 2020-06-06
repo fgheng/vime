@@ -33,15 +33,13 @@ function! LeaderfRgWithWiki(query) abort
     endif
 endfunction
 
-if !HasPlug('fzf.vim')
-    nnoremap <M-f>: call LeaderfFileWithWiki("")<CR>
-    nnoremap <M-F>: call LeaderfFileWithWiki($HOME)<CR>
-    noremap <M-s>:  call LeaderfRgWithWiki("")<cr>
-    noremap <M-b>:  <C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
-    noremap <M-c>:  LeaderfCommand<cr>
-    noremap <M-t>:  <C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
-    noremap <M-T>:  LeaderfBufTagAll<cr>
-    noremap ?:      LeaderfLineAll<CR>
-    noremap <M-r>:  <C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
-    noremap <M-w>:  <C-U><C-R>=printf("Leaderf! window %s", "")<CR><CR>
-endif
+nnoremap <M-f> :call LeaderfFileWithWiki("")<CR>
+nnoremap <M-F> :call LeaderfFileWithWiki($HOME)<CR>
+nnoremap <M-s> :call LeaderfRgWithWiki("")<cr>
+nnoremap <M-b> :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+nnoremap <M-c> :LeaderfCommand<cr>
+nnoremap <M-t> :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+nnoremap <M-T> :LeaderfBufTagAll<cr>
+nnoremap ?     :LeaderfLineAll<CR>
+nnoremap <M-r> :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+nnoremap <M-w> :<C-U><C-R>=printf("Leaderf! window %s", "")<CR><CR>

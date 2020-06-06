@@ -1,3 +1,9 @@
+" 全局变量
+let g:session_dir = $HOME.'/.cache/vim/sessions'
+" 设置vim-plug插件安装路径
+let g:plugins_path = $HOME.'/.cache/vim/plugins'
+
+" 基础配置
 set number
 set relativenumber                                  " 设置相对行号
 set incsearch                                       " 搜索时即高亮
@@ -49,7 +55,7 @@ set mouse=a                                         " 允许使用鼠标
 set cmdheight=1
 set conceallevel=0                                  " json文件不显示引号
 
-set laststatus=0                                    " 状态栏, lightline中更改了
+set laststatus=2                                    " 状态栏, lightline中更改了
 set showtabline=2                                   " 总是显示tab标签栏
 
 set re=1
@@ -118,3 +124,9 @@ if !has('nvim')
 
     call Terminal_MetaMode(0)
 endif
+
+" 退出vim自动保存session
+function SaveSession()
+    exec "mksession! " . g:session_dir . "/session.vim"
+endfunction
+autocmd VimLeavePre * call SaveSession()

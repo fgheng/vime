@@ -110,10 +110,11 @@ nnoremap <M-m> :Marks<CR>
 nnoremap <M-M> :Maps<CR>
 nnoremap <M-w> :Windows<CR>
 
+nnoremap <M-g> :BCommits<cr>
+nnoremap <M-G> :Commits<cr>
+
 nnoremap <leader>gf :GFiles?<CR>
 nnoremap <leader>gF :GFiles<CR>
-nnoremap <leader>gm :BCommits<cr>
-nnoremap <leader>gM :Commits<cr>
 
 au FileType fzf tnoremap <buffer> <C-j> <Down>
 au FileType fzf tnoremap <buffer> <C-k> <Up>
