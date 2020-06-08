@@ -70,11 +70,11 @@ inoremap <silent><expr> <S-TAB>
     \ pumvisible() ? "\<C-p>" :
     \ "\<C-h>"
 
-" 选择下一个补全
+" alt j选择下一个补全
 inoremap <silent><expr> <M-j>
     \ pumvisible() ? "\<C-n>" : return
 
-" 选择上一个补全
+" alt k选择上一个补全
 inoremap <silent><expr> <M-k>
     \ pumvisible() ? "\<C-p>" : return
 

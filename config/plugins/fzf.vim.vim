@@ -104,7 +104,7 @@ nnoremap <M-T> :Tags<CR>
 " 使用rg搜索工作目录
 nnoremap <M-s> :RGWithWiki<CR>
 " 模糊搜索所有buffer
-nnoremap ? :Lines<CR>
+nnoremap ? :BLines<CR>
 nnoremap <M-r> :History<CR>
 nnoremap <M-m> :Marks<CR>
 nnoremap <M-M> :Maps<CR>

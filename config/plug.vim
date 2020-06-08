@@ -89,10 +89,10 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 Plug 'psliwka/vim-smoothie'
 " zeal
 Plug 'KabbAmine/zeavim.vim'
-" 开机时间
-Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 " 窗口聚焦
 Plug 'TaDaa/vimade'
+" 在命令行使用linux命令新建文件文件夹重命名当前buffer等
+Plug 'tpope/vim-eunuch'
 
 call plug#end()
 

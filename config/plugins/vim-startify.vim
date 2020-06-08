@@ -33,7 +33,6 @@ let g:startify_commands = [
     \ {'u': ['插件更新', 'PlugUpdate']},
     \ {'t': ['打开终端', 'terminal']},
     \ {'w': ['笔记列表', 'VimwikiIndex']},
-    \ {'s': ['开机时间', 'StartupTime']},
     \ ]
 
 let g:startify_lists = [
