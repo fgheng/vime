@@ -23,14 +23,8 @@ endif
 " colorscheme forest-night
 let g:srcery_bold=1
 let g:srcety_italic=1
-let g:srcery_transparent_background=1
+" let g:srcery_transparent_background=1
 colorscheme srcery
-
-" if has('nvim')
-    " hi normal     ctermbg=NONE guibg=NONE
-    " hi linenr     ctermbg=NONE guibg=NONE
-    " hi signcolumn ctermbg=NONE guibg=NONE
-" endif
 
 " cursor and cursorline
 set cursorline                                      " 高亮当前行
