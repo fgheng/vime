@@ -1,4 +1,5 @@
 " 全局变量
+" session目录
 let g:session_dir = $HOME.'/.cache/vim/sessions'
 " 设置vim-plug插件安装路径
 let g:plugins_path = $HOME.'/.cache/vim/plugins'

@@ -23,7 +23,7 @@ endif
 " colorscheme forest-night
 let g:srcery_bold=1
 let g:srcety_italic=1
-" let g:srcery_transparent_background=1
+let g:srcery_transparent_background=1
 colorscheme srcery
 
 " cursor and cursorline

@@ -93,22 +93,24 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 #### 6.2 窗口与tab
 
-| 按键           | 描述                                          |
-| -------------- | --------------------------------------------- |
-| ==>窗口<==     |                                               |
-| ctrl-w-h/j/k/l | 分别在当前窗口的左/下/上/右侧打开一个新的窗口 |
-| ctrl-h/j/k/l   | 分别移动光标到当前窗口的左/下/上/右侧窗口     |
-| alt-H/J/K/L    | 分别移动光标到当前窗口的左/下/上/右侧窗口     |
-| ctrl-w-o       | 最大化当前窗口，再按一次恢复                  |
-| -              | 选择窗口<br>交换窗口                          |
-| alt-q          | 关闭窗口                                      |
-| alt-{          | 更改窗口宽度                                  |
-| alt-}          | 更改窗口宽度                                  |
-| ==>tab<==      |                                               |
-| \<leader>tn    | 在后面新建一个tab                             |
-| \<leader>tN    | 在前面新建一个tab                             |
-| \<leader>tc    | 关闭一个tab                                   |
-| alt-h/l        | 切换到上一个/下一个tab                        |
+| 按键           | 描述                                                                       |
+| -------------- | ---------------------------------------------                              |
+| ==>窗口<==     |                                                                            |
+| ctrl-w-h/j/k/l | 分别在当前窗口的左/下/上/右侧打开一个新的窗口                              |
+| ctrl-h/j/k/l   | 分别移动光标到当前窗口的左/下/上/右侧窗口                                  |
+| alt-H/J/K/L    | 分别移动光标到当前窗口的左/下/上/右侧窗口                                  |
+| ctrl-w-o       | 最大化当前窗口，再按一次恢复                                               |
+| -              | 选择窗口<br>交换窗口                                                       |
+| q              | 关闭窗口                                                                   |
+| alt+(          | 窗口左右方向变小                                                           |
+| alt+)          | 窗口左右方向变大                                                           |
+| alt+-          | 窗口上下方向变小                                                           |
+| alt+_          | 窗口上下方向变大                                                           |
+| ==>tab<==      |                                                                            |
+| \<leader>tn    | 在后面新建一个tab                                                          |
+| \<leader>tN    | 在前面新建一个tab                                                          |
+| \<leader>tc    | 关闭一个tab                                                                |
+| alt-h/l        | 切换到上一个/下一个tab<br>如果存在浮动终端，则切换为上一个或下一个浮动终端 |
 
 #### 6.3 文件管理
 
@@ -197,11 +199,13 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 #### 6.6 注释与文档
 
-注释插件使用~~[nerdcomment](https://github.com/preservim/nerdcommenter)~~  [*tyru*/*caw*.*vim*](https://github.com/tyru/caw.vim)，文档生成器使用[kkoomen/*vim*-*doge*](https://github.com/kkoomen/vim-doge)
+文档生成器使用[kkoomen/*vim*-*doge*](https://github.com/kkoomen/vim-doge)
 
 | 按键       | 模式   | 描述         |
 | ---------- | ------ | ------------ |
 | \<leader>d | normal | 生成函数文档 |
+
+注释插件使用[nerdcomment](https://github.com/preservim/nerdcommenter)或者[*tyru*/*caw*.*vim*](https://github.com/tyru/caw.vim)
 
 caw快捷键，功能没有nerdcomment多，但是简洁够用
 
@@ -267,7 +271,7 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 
 笔记使用的是插件[vimwiki/*vimwiki*](https://github.com/vimwiki/vimwiki)，可以记笔记可以写日记，支持markdown。
 
-可以使用[junegunn/*fzf.vim*](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)进行笔记文件和笔记内容的搜索。
+可以使用[junegunn/*fzf.vim*](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)进行笔记文件和笔记内容的搜索，这个已经配置好了可以直接使用。
 
 ![biji](https://s1.ax1x.com/2020/03/29/GE03VS.gif)
 
@@ -368,9 +372,11 @@ vimtex的快捷键都是以\<leader>l作为开头的。
 
 #### 6.14 Debug
 
-debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourning/vimspector)
+debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourning/vimspector)，暂时没有需求，所以还没有配置。
 
 #### 6.15 Run
+
+代码run使用韦大的插件，但是我现在还没有需求，做一暂时没有配置。
 
 #### 6.16 翻译
 
