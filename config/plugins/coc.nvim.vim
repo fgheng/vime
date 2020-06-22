@@ -339,6 +339,11 @@ if HasCocPlug('coc-python')
     call coc#config("python.linting.pylintEnabled", v:true)
 endif
 
+" coc-rainbow-fart
+if HasCocPlug('coc-rainbow-fart')
+    call coc#config("rainbow-fart.ffplay", "ffplay")
+endif
+
 " coc-explorer
 if HasCocPlug('coc-explorer')
 
