@@ -3,6 +3,8 @@ let g:coc_data_home = $HOME.'/.cache/vim/coc'
 " coc插件列表
 " let s:coc_extensions = [
 let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-prettier',
     \ 'coc-calc',
     \ 'coc-vimlsp',
     \ 'coc-marketplace',
@@ -17,10 +19,10 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-python',
     \ 'coc-highlight',
+    \ 'coc-explorer',
+    \ 'coc-rainbow-fart',
     \ ]
 
-    " \ 'coc-tsserver',
-    " \ 'coc-prettier',
     " \ 'coc-html',
     " \ 'coc-css',
     " \ 'coc-pyright',
@@ -339,32 +341,38 @@ endif
 
 " coc-explorer
 if HasCocPlug('coc-explorer')
-    " nmap <silent> <F2> :CocCommand explorer --preset floating<cr>
-    nmap <silent> <F2> :CocCommand explorer<cr>
 
     let g:coc_explorer_global_presets = {
-    \   'floating': {
-    \      'position': 'floating',
-    \      'floating-width': 150,
-    \      'floating-height': 30,
-    \   }
+        \   '.vim': {
+        \      'root-uri': '~/.vim',
+        \   },
+        \   'floating': {
+        \      'position': 'floating',
+        \   },
+        \   'floatingTop': {
+        \     'position': 'floating',
+        \     'floating-position': 'center-top',
+        \   },
+        \   'floatingLeftside': {
+        \      'position': 'floating',
+        \      'floating-position': 'center',
+        \      'floating-width': 100,
+        \   },
+        \   'floatingRightside': {
+        \      'position': 'floating',
+        \      'floating-position': 'center',
+        \      'floating-width': 100,
+        \   },
+        \   'simplify': {
+        \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+        \   }
     \ }
 
+
     call coc#config("explorer.icon.enableNerdfont", v:true)
-    call coc#config("explorer.sources", [
-           \{
-               \"name": "buffer",
-               \"expand": v:true
-           \},
-           \{
-               \"name": "file",
-               \"expand": v:true
-           \}
-       \])
-    call coc#config("explorer.file.autoReveal", v:true)
-    call coc#config("explorer.width", 40)
-    call coc#config("explorer.keyMappingMode", "none")
-      "\ 'a': v:false,
+    " call coc#config("explorer.file.autoReveal", v:true)
+    " call coc#config("explorer.keyMappingMode", "none")
+      " "\ 'a': v:false,
     call coc#config("explorer.keyMappings", {
       \ 'k': 'nodePrev',
       \ 'j': 'nodeNext',
@@ -395,7 +403,6 @@ if HasCocPlug('coc-explorer')
       \ 'x': 'systemExecute',
       \ 'f': 'search',
       \ 'F': 'searchRecursive',
-      \ '\.': 'toggleHidden',
       \ '<tab>': 'actionMenu',
       \ '?': 'help',
       \ 'q': 'quit',
@@ -411,4 +418,9 @@ if HasCocPlug('coc-explorer')
       \ '<<': 'gitStage',
       \ '>>': 'gitUnstage'
     \ })
+      " \ '\.': 'toggleHidden',
+
+    " Use preset argument to open it
+    " nmap <space>rd :CocCommand explorer --preset .vim<CR>
+    nmap <F2> :CocCommand explorer --preset floating --open-action-strategy sourceWindow<CR>
 endif

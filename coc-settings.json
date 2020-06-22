@@ -6,7 +6,34 @@
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 5000, // 超过500ms就停止
     "suggest.noselect": true, // 选中第一个
-    "suggest.snippetIndicator": " ",
+    //"suggest.snippetIndicator": " ",
+    "suggest.completionItemKindLabels": {
+        "class": "",
+        "color": "",
+        "constant": "",
+        "default": "",
+        "enum": "",
+        "enumMember": "",
+        "event": "鬒",
+        "field": "m",
+        "file": "",
+        "folder": "",
+        "function": "F",
+        "interface": "",
+        "keyword": "",
+        "method": "f",
+        "module": "",
+        "operator": "Ψ",
+        "property": "",
+        "reference": "r",
+        "snippet": "",
+        "struct": "פּ",
+        "text": "",
+        "typeParameter": "",
+        "unit": "",
+        "value": "",
+        "variable": "",
+    },
 
     // diagnostic
     "diagnostic.signOffset": 9999, // 越大等级越高
