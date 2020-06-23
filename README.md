@@ -332,17 +332,17 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 
 | 按键            | 模式    | 描述                       | 提供者|
 | ------------------ | ------- | -------------------------- |--------|
-| gf   | normal | 折叠/打开未改变的行 | gitgutter |
-| gk | normal | 跳转到上一个修改地方 | coc-git |
-| gj | normal | 跳转到下一个修改地方 | coc-git |
-| gp | normal | 浮动预览光标处的修改 | coc-git |
-| gu | normal | 撤销光标处相对于上次提交的修改 | coc-git |
-| gb | normal | 打开/关闭 blame | fugitive |
-| gs | normal | git different split | fugitive |
-| gm   | normal | 查看当前文件的commits          | fzf/coc-git |
-| gM   | normal | 查看所有的commits              | fzf/coc-git |
-| gc   | normal | git commit                     | fugitive  |
-| gw | normal | 写入，相当于git add | fugitive |
+| ~~gf~~ | normal | 折叠/打开未改变的行 | gitgutter |
+| ~~gk~~ | normal | 跳转到上一个修改地方 | coc-git |
+| ~~gj~~ | normal | 跳转到下一个修改地方 | coc-git |
+| ~~gp~~ | normal | 浮动预览光标处的修改 | coc-git |
+| ~~gu~~ | normal | 撤销光标处相对于上次提交的修改 | coc-git |
+| \<leader>gb | normal | 打开/关闭 blame | fugitive |
+| \<leader>gs | normal | git different split | fugitive |
+| ~~gm~~ | normal | 查看当前文件的commits          | fzf/coc-git |
+| ~~gM~~ | normal | 查看所有的commits              | fzf/coc-git |
+| \<leader>gc | normal | git commit                     | fugitive  |
+| \<leader>gw | normal | 写入，相当于git add | fugitive |
 
 
 #### 6.11 数据库

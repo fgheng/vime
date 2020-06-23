@@ -181,9 +181,9 @@ function! CocListFilesWithWiki(query)
         exec "CocList --no-sort files " . a:query
     endif
 endfunction
-if HasCocPlug('coc-lists')
-    " TODO 需要思考一下这里的逻辑
-    if !has('nvim') || !HasPlug('fzf.vim') && !HasPlug('LeaderF') && !HasPlug('vim-clap')
+" TODO 需要思考一下这里的逻辑
+if !has('nvim') || !HasPlug('fzf.vim') && !HasPlug('LeaderF') && !HasPlug('vim-clap')
+    if HasCocPlug('coc-lists')
         nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
         nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
         nnoremap <silent> <M-b> :CocList buffers<CR>
@@ -197,10 +197,11 @@ if HasCocPlug('coc-lists')
         nnoremap <silent> <M-M> :CocList maps<CR>
         nnoremap <silent> <M-w> :CocList windows<CR>
 
-        if HasCocPlug('coc-git')
-            nnoremap <silent> <leader>gm :CocList bcommits<CR>
-            nnoremap <silent> <leader>gM :CocList commits<CR>
-        endif
+    endif
+
+    if HasCocPlug('coc-git')
+        nnoremap <silent> <leader>gm :CocList bcommits<CR>
+        nnoremap <silent> <leader>gM :CocList commits<CR>
     endif
 endif
 
