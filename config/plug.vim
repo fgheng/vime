@@ -11,6 +11,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档, 不适用默认的映射，这样启动更快
 Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate']}
+" Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " 主题类插件
 Plug 'rakr/vim-one'
@@ -94,6 +95,8 @@ Plug 'KabbAmine/zeavim.vim'
 " 在命令行使用linux命令新建文件文件夹重命名当前buffer等
 Plug 'tpope/vim-eunuch'
 Plug 'davinche/DrawIt', {'on': 'DrawIt'}
+" 窗口放大
+Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 
 call plug#end()
 

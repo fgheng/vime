@@ -5,23 +5,27 @@ let g:session_dir = $HOME.'/.cache/vim/sessions'
 let g:plugins_path = $HOME.'/.cache/vim/plugins'
 
 " 基础配置
+set nocompatible                                            " 不要兼容vi
+filetype plugin indent on
+set encoding=utf-8                                          " 编码
+set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1        " 编码猜测
 set number
-set relativenumber                                  " 设置相对行号
-set incsearch                                       " 搜索时即高亮
-set hlsearch                                        " 高亮匹配内容
+set relativenumber                                          " 设置相对行号
+set incsearch                                               " 搜索时即高亮
+set hlsearch                                                " 高亮匹配内容
 set wrap
-set smartindent                                     " 智能缩进
-set autoindent                                      " 自动换行缩进
-set linebreak                                       " 软折行
-set noswapfile                                      " 禁止生成swap文件
-set hidden                                          " 终端隐藏后不结束
-set ignorecase                                      " 忽略大小写
+set smartindent                                             " 智能缩进
+set autoindent                                              " 自动换行缩进
+set linebreak                                               " 软折行
+set noswapfile                                              " 禁止生成swap文件
+set hidden                                                  " 终端隐藏后不结束
+set ignorecase                                              " 忽略大小写
 " set smartcase
-set infercase                                       " Adjust case in insert completion mode
-set history=500                                     " 历史命令
-set splitbelow                                      " 在下方分割
-set autoindent                                      " 使用空格进行缩进
-set expandtab                                       " tab扩展为空格
+set infercase                                               " Adjust case in insert completion mode
+set history=500                                             " 历史命令
+set splitbelow                                              " 在下方分割
+set autoindent                                              " 使用空格进行缩进
+set expandtab                                               " tab扩展为空格
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -29,22 +33,22 @@ set smarttab
 set smartindent
 set shiftround
 "set foldmethod=indent
-set list                                            " 只有setlist后面的才会起作用
+set list                                                    " 只有setlist后面的才会起作用
 set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
 set listchars+=eol:¬
-set listchars+=trail:·                              " 尾部空白
-" set listchars+=space:\                             " 空白
-set pumheight=20                                    " 设置弹出框大小, 0 则有多少显示多少
+set listchars+=trail:·                                      " 尾部空白
+" set listchars+=space:\                                     " 空白
+set pumheight=20                                            " 设置弹出框大小, 0 则有多少显示多少
 
-set nobackup                                        " coc
-set nowritebackup                                   " coc
-set shortmess+=c                                    " coc
-set signcolumn=yes                                  " coc
-set sessionoptions+=globals                         " coc
+set nobackup                                                " coc
+set nowritebackup                                           " coc
+set shortmess+=c                                            " coc
+set signcolumn=yes                                          " coc
+set sessionoptions+=globals                                 " coc
 set noswapfile
-set autoread                                        " 文件在外部被修改过，重新读入
-set autowrite                                       " 自动写回
-set confirm                                         " 显示确认对话框
+set autoread                                                " 文件在外部被修改过，重新读入
+set autowrite                                               " 自动写回
+set confirm                                                 " 显示确认对话框
 set noshowmode
 set timeout ttimeout
 set timeoutlen=500
@@ -52,7 +56,7 @@ set ttimeoutlen=10
 set updatetime=100                                  " 更新时间100ms 默认4000ms 写入swap的时间
 set shortmess+=c
 
-set mouse=a                                         " 允许使用鼠标
+set mouse=n                                         " 允许使用鼠标, normal生效，a则是全模式生效
 set cmdheight=1
 set conceallevel=0                                  " json文件不显示引号
 
@@ -60,12 +64,9 @@ set laststatus=2                                    " 状态栏, lightline中更
 set showtabline=2                                   " 总是显示tab标签栏
 
 set re=1
-
-set nocompatible                                    " vimwiki需要
-filetype plugin on                                  " vimwiki 和 anyfold需要
 syntax on                                           " vimwiki 和 anyfold需要 pyplot也要
 
-au FileType c,cpp,java set mps+==:;                 " 按下%可以在=和;直接跳转
+"au FileType c,cpp,java set mps+==:;                 " 按下%可以在=和;直接跳转
 
 if has('nvim')
     " neovim的新特性，标识列自动变化
@@ -127,7 +128,27 @@ if !has('nvim')
 endif
 
 " 退出vim自动保存session
-function SaveSession()
-    exec "mksession! " . g:session_dir . "/session.vim"
+function! s:SaveSession() abort
+    if !isdirectory(g:session_dir)
+        call mkdir(g:session_dir)
+    endif
+    " 0始终是最近的，然后1是上上一次的，2是上上上一次的
+    let l:sessions = [g:session_dir . '/session_0.vim',
+                \ g:session_dir. '/session_1.vim',
+                \ g:session_dir. '/session_2.vim']
+
+    if filereadable(l:sessions[1])
+        call rename(l:sessions[1], l:sessions[2])
+    endif
+
+    if filereadable(l:sessions[0])
+        call rename(l:sessions[0], l:sessions[1])
+    endif
+    exec "mksession! " . l:sessions[0]
+
 endfunction
-autocmd VimLeavePre * call SaveSession()
+
+augroup BASE
+    autocmd!
+    autocmd VimLeavePre * call s:SaveSession()
+augroup END
