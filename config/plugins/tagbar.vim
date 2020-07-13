@@ -1,4 +1,4 @@
-if HasPlug('tagbar')
+if g:HasPlug('tagbar')
     let g:tagbar_width = 35
     function! Tagbar_Toggle()
         let a:bufnr = bufnr('__vista__')

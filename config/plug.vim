@@ -19,6 +19,7 @@ Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/forest-night'
 Plug 'srcery-colors/srcery-vim'
+Plug 'chuling/pure-material.vim'
 
 " 底栏
 Plug 'itchyny/lightline.vim'
@@ -78,43 +79,23 @@ Plug 'iamcco/dict.vim', {'on':
 " tmux与vim窗口导航
 Plug 'christoomey/vim-tmux-navigator'
 " ranger
-Plug 'francoiscabrol/ranger.vim', {'on':
-           \ [
-           \ 'RangerCurrentFile', 'RangerWorkingDirectory'
-           \ ]}
+" Plug 'francoiscabrol/ranger.vim', {'on': [
+"            \ 'RangerCurrentFile', 'RangerWorkingDirectory'
+"            \ ]}
 " buffer close
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'}
 " 平滑滚动
 Plug 'psliwka/vim-smoothie'
-" zeal
-Plug 'KabbAmine/zeavim.vim'
-" 窗口聚焦
-" Plug 'TaDaa/vimade'
 " 在命令行使用linux命令新建文件文件夹重命名当前buffer等
-Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-eunuch', {'on': ['Mkdir', 'Rename', 'Unlink', 'Delete', 'Move', 'Chmod', 'Cfind', 'Clocate', 'Lfine', 'Llocate', 'SudoEdit', 'SudoWrite', 'Wall', 'W']}
 Plug 'davinche/DrawIt', {'on': 'DrawIt'}
 " 窗口放大
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
+" vim中文文档
+Plug 'yianwillis/vimcdoc'
+" 依赖:python-pysdl2 sdl2 sdl2-mixer
+Plug 'skywind3000/vim-keysound'
 
 call plug#end()
-
-" 判断该插件是否已经安装
-fun! HasInstall(plugin_name) abort
-    let s:plugin_path = g:plugins_path . "/" . a:plugin_name
-    if !empty(glob(s:plugin_path))
-        return v:true
-    else
-        return v:false
-    endif
-endfunction
-
-" 判断插件列表是否有这个插件
-fun! HasPlug(plugName)
-    if index(g:plugs_order, a:plugName) > -1
-        return v:true
-    else
-        return v:false
-    endif
-endfunction

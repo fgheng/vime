@@ -1,4 +1,4 @@
-if HasPlug("defx.nvim")
+if g:HasPlug("defx.nvim")
 " Defx settings
 " ---
 " See https://github.com/shougo/defx.nvim

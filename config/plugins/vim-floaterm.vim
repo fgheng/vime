@@ -9,18 +9,9 @@ nmap <M-=> :FloatermToggle<cr>
 tnoremap <M-+> <c-\><c-n>:FloatermNew<cr>
 tnoremap <M-=> <c-\><c-n>:FloatermToggle<cr>
 
-function s:changeFlt(direction)
-    if &ft == "floaterm"
-        exec "normal <c-\><c-n>"
-        if a:direction ==? "left"
-            exec "FloatermPrev"
-        elseif a:direction ==? "right"
-            exec "FloatermNext"
-        endif
-    endif
-endfunction
-
-au FileType floaterm tnoremap <buffer> <M-h> <c-\><c-n>:FloatermPrev<CR>
-au FIleType floaterm tnoremap <buffer> <M-l> <c-\><c-n>:FloatermNext<CR>
-
-autocmd User Startified setlocal buflisted
+augroup my-floaterm
+    autocmd!
+    au FileType floaterm tnoremap <buffer> <M-h> <c-\><c-n>:FloatermPrev<CR>
+    au FIleType floaterm tnoremap <buffer> <M-l> <c-\><c-n>:FloatermNext<CR>
+    " au User Startified setlocal buflisted
+augroup END

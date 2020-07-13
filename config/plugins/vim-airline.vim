@@ -22,7 +22,7 @@ call airline#add_inactive_statusline_func('WindowNumber')
 
 " 关闭airline的coc集成
 let g:airline#extensions#coc#enabled = 0
-if HasPlug('coc.nvim')
+if g:HasPlug('coc.nvim')
 	let g:airline_section_x = '%{coc#status()}'
 endif
 

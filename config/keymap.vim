@@ -1,3 +1,5 @@
+" 快捷键配置
+
 " 窗口
 noremap <c-h> <C-w>h
 noremap <c-j> <C-w>j
@@ -16,23 +18,30 @@ tnoremap <M-J> <c-\><c-n><C-w>j
 tnoremap <M-K> <c-\><c-n><C-w>k
 tnoremap <M-L> <c-\><c-n><C-w>l
 
-inoremap jk <esc>
 nnoremap q <esc>:close<cr>
 vnoremap q <esc>:close<cr>
 nnoremap <BackSpace> :nohl<cr>
+
 " alt q执行宏录制功能
 nnoremap <M-q> q
+" esc
+inoremap jk <esc>
 
-" terminal
 if has('nvim')
-    au TermOpen * tnoremap <buffer> <Esc> <c-\><c-n>
+    au TermOpen term://* tnoremap <buffer> <Esc> <c-\><c-n> | startinsert
+    au BufEnter term://* startinsert
 else
-    tnoremap <Esc> <C-\><C-n>
+    au TerminalOpen term://* tnoremap <buffer> <Esc> <C-\><C-n> | startinsert
+    " au BufEnter term://* startinsert
 endif
 
-" 更改窗口大小
+" 新建终端
+nnoremap <leader>tt :terminal<cr>
+
+" 更改窗口垂直大小
 nnoremap <M-_> :resize +3<CR>
 nnoremap <M--> :resize -3<CR>
+" 更改窗口水平大小
 nnoremap <M-(> :vertical resize -3<CR>
 nnoremap <M-)> :vertical resize +3<CR>
 
@@ -48,7 +57,24 @@ inoremap <M-O> <esc>O
 inoremap <M-h> <esc>I
 inoremap <M-l> <esc>A
 
-noremap <space><space> <esc>:w<cr>
+" 保存
+function! s:Wall() abort
+    " 记录当前的tab以及window
+    let tab = tabpagenr()
+    let win = winnr()
+    let seen = {}
+    " 保存当前的buffer
+    if !&readonly && expand("%") !=# ''
+        let seen[bufnr('')] = 1
+        write
+    endif
+    " 在每个标签页每个窗口执行
+    tabdo windo if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# '' && !has_key(seen, bufnr('')) |silent write | let seen[bufnr('')] = 1 | endif
+    " 返回之前的tab和window
+    execute 'tabnext '.tab
+    execute win.'wincmd w'
+endfunction
+noremap <silent> <space><space> <esc>:call <SID>Wall()<cr>
 
 nnoremap j gj
 nnoremap k gk
@@ -58,49 +84,24 @@ vnoremap k gk
 " 复制到末尾
 nnoremap Y y$
 
-" termina 使用alt h l
-" function s:changeFlt(direction)
-"     if HasPlug('vim-floaterm')
-"         if &ft ==? "floaterm"
-"             exec "normal <c-\><c-n>"
-"             if a:direction ==? "left"
-"                 exec "FloatermPrev"
-"             elseif a:direction ==? "right"
-"                 exec "FloatermNext"
-"             endif
-"         endif
-"     else
-"         if a:direction ==? "left"
-"             if &bt ==? 'terminal'
-"                 exec "normal <c-\><c-n>:tabnext<cr>"
-"             else
-"             endif
-"         elseif a:direction ==? 'right'
-"         endif
-"     endif
-" endfunction
-if !HasPlug('vim-airline')
+if !g:HasPlug('vim-airline')
     nnoremap  <M-l> :tabnext<cr>
     nnoremap  <M-h> :tabprevious<CR>
     tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
     tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
 endif
 
-function s:new_tab_before() abort
-    exec "tabnew | -tabmove"
-endfunction
-" 在前面新建一个tab
-nnoremap <silent> <leader>tN :call <SID>new_tab_before()<cr>
 " 在后面新建一个tab
 nnoremap <silent> <leader>tn :tabnew<cr>
 nnoremap <silent> <leader>tc :tabclose<cr>
-nnoremap  <leader>tm :tabmove 1<cr>
-nnoremap  <leader>tM :tabmove -1<cr>
-" nnoremap  <leader>tt :tabnew | terminal
+nnoremap <silent> <M-L> :tabmove +1<cr>
+nnoremap <silent> <M-H> :tabmove -1<cr>
+tnoremap <silent> <M-L> <c-\><c-n>:tabmove +1<cr>
+tnoremap <silent> <M-H> <c-\><c-n>:tabmove -1<cr>
 
-function! SystemExecuteCurrentFile(f)
+" TODO 改成在fzf中搜索系统应用，快捷键改成altx
+function! s:SystemExecuteCurrentFile(f)
     exec 'silent !xdg-open ' . fnameescape(a:f) . ' > /dev/null'
 endfunction
-
-" 使用系统应用打开文件
-noremap <silent> <c-x> :call SystemExecuteCurrentFile(expand('%:p'))<cr>
+" 使用系统应用打开当前buffer文件
+noremap <silent> <c-x> :call <SID>SystemExecuteCurrentFile(expand('%:p'))<cr>

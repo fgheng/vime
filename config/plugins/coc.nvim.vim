@@ -1,7 +1,4 @@
-" 设置coc插件目录
-let g:coc_data_home = $HOME.'/.cache/vim/coc'
 " coc插件列表
-" let s:coc_extensions = [
 let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-prettier',
@@ -17,12 +14,14 @@ let g:coc_global_extensions = [
     \ 'coc-cmake',
     \ 'coc-snippets',
     \ 'coc-clangd',
-    \ 'coc-python',
     \ 'coc-highlight',
     \ 'coc-explorer',
-    \ 'coc-rainbow-fart',
+    \ 'coc-bookmark',
+    \ 'coc-python',
     \ ]
 
+    " \ 'coc-python',
+    " \ 'coc-rainbow-fart',
     " \ 'coc-html',
     " \ 'coc-css',
     " \ 'coc-pyright',
@@ -39,6 +38,7 @@ let g:coc_global_extensions = [
     "\ 'coc-ultisnips',
     "\ 'coc-tabnine',
 
+" 卸载不在列表中的插件
 function! s:uninstall_unused_coc_extensions() abort
     for e in keys(json_decode(join(readfile(expand(g:coc_data_home . '/extensions/package.json')), "\n"))['dependencies'])
         if index(g:coc_global_extensions, e) < 0
@@ -47,15 +47,6 @@ function! s:uninstall_unused_coc_extensions() abort
     endfor
 endfunction
 autocmd User CocNvimInit call s:uninstall_unused_coc_extensions()
-
-" 判断是否安装了coc插件
-fun! HasCocPlug(cocPlugName)
-    if index(g:coc_global_extensions, a:cocPlugName) > -1
-        return v:true
-    else
-        return v:false
-    endif
-endfunc
 
 " 检查当前光标前面是不是空白字符
 function! s:check_back_space() abort
@@ -127,18 +118,18 @@ augroup end
 command! -nargs=0 Format :call CocAction('format')
 au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
-if !HasPlug('coc-fzf')
+if !g:HasPlug('coc-fzf')
     " Show all diagnostics
     nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
     " Manage extensions
-    nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+    " nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
     nnoremap <silent> <space>o  :<C-u>CocList --auto-preview outline<cr>
     nnoremap <silent> <space>O  :<C-u>CocList --auto-preview --interactive symbols<cr>
     " Show commands
     nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
     " Resume latest coc list
     nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-    nnoremap <silent> <space>s  :<C-u>CocList services<CR>
+    " nnoremap <silent> <space>s  :<C-u>CocList services<CR>
     " show coclist 早晚要放进去的
     nnoremap <silent> <space>l  :<C-u>CocList<CR>
 endif
@@ -150,7 +141,7 @@ nmap <space>f  <Plug>(coc-fix-current)
 " 变量重命名
 nmap <space>rn <Plug>(coc-rename)
 
-if !HasPlug("vim-visual-multi")
+if !g:HasPlug("vim-visual-multi")
     " ctrl n下一个，ctrl p上一个
     " ctrl c 添加一个光标再按一次取消，
     nmap <silent> <C-c> <Plug>(coc-cursors-position)
@@ -169,7 +160,7 @@ if !HasPlug("vim-visual-multi")
     nmap <leader>x  <Plug>(coc-cursors-operator)
 endif
 
-if HasCocPlug('coc-highlight')
+if g:HasCocPlug('coc-highlight')
     " 高亮当前光标下的所有单词
     au CursorHold * silent call CocActionAsync('highlight')
 endif
@@ -182,8 +173,8 @@ function! CocListFilesWithWiki(query)
     endif
 endfunction
 " TODO 需要思考一下这里的逻辑
-if !has('nvim') || !HasPlug('fzf.vim') && !HasPlug('LeaderF') && !HasPlug('vim-clap')
-    if HasCocPlug('coc-lists')
+if !has('nvim') || !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
+    if g:HasCocPlug('coc-lists')
         nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
         nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
         nnoremap <silent> <M-b> :CocList buffers<CR>
@@ -199,46 +190,50 @@ if !has('nvim') || !HasPlug('fzf.vim') && !HasPlug('LeaderF') && !HasPlug('vim-c
 
     endif
 
-    if HasCocPlug('coc-git')
+    if g:HasCocPlug('coc-git')
         nnoremap <silent> <leader>gm :CocList bcommits<CR>
         nnoremap <silent> <leader>gM :CocList commits<CR>
     endif
 endif
 
-if HasCocPlug('coc-snippets')
+if g:HasCocPlug('coc-snippets')
     " alt j k 用于补全块的跳转
     let g:coc_snippet_next = '<m-j>'
     let g:coc_snippet_prev = '<m-k>'
 endif
 
-if HasCocPlug('coc-yank')
+if g:HasCocPlug('coc-yank')
     " nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
-    if !HasPlug('vim-clap')
+    if !g:HasPlug('vim-clap')
         nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
         call coc#config('yank.highlight.duration', 200)
         call coc#config('yank.enableCompletion', v:false)
     endif
 endif
 
-if HasCocPlug('coc-translator')
+if g:HasCocPlug('coc-translator')
     nmap  <M-e> <Plug>(coc-translator-e)
     nmap  <M-d> <Plug>(coc-translator-p)
 endif
 
-if HasCocPlug('coc-bookmark')
-    if !HasPlug('vim-bookmarks')
+if g:HasCocPlug('coc-bookmark')
+    if !g:HasPlug('vim-bookmarks')
+        call coc#config("bookmark.sign", "♥")
         nmap <silent> ma <Plug>(coc-bookmark-annotate)
         nmap <silent> mm <Plug>(coc-bookmark-toggle)
+        nmap <silent> mj <Plug>(coc-bookmark-next)
+        nmap <silent> mk <Plug>(coc-bookmark-prev)
+        nmap <silent> mc :CocCommand bookmark.clearForCurrentFile<cr>
         nmap <silent> ml :CocList bookmark<cr>
     endif
 endif
 
-if HasCocPlug('coc-todolist')
+if g:HasCocPlug('coc-todolist')
     nmap <silent> <space>tl :<C-u>CocList todolist<cr>
     nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
 endif
 
-if HasCocPlug('coc-git')
+if g:HasCocPlug('coc-git')
     " 导航到修改块
     nmap <leader>gk <Plug>(coc-git-prevchunk)
     nmap <leader>gj <Plug>(coc-git-nextchunk)
@@ -253,7 +248,7 @@ endif
 "--------------------------------- 配置json文件
 
 " coc-lists
-if HasCocPlug("coc-lists")
+if g:HasCocPlug("coc-lists")
     " session 保存目录
     call coc#config('session.directory', g:session_dir)
     call coc#config('session.saveOnVimLeave', v:false)
@@ -277,28 +272,28 @@ if HasCocPlug("coc-lists")
 endif
 
 " coc-clangd
-if HasCocPlug('coc-clangd')
+if g:HasCocPlug('coc-clangd')
     " 配合插件vim-lsp-cxx-highlight实现高亮
     call coc#config('clangd.semanticHighlighting', v:true)
 endif
 
 " coc-kite
-if HasCocPlug('coc-kite')
+if g:HasCocPlug('coc-kite')
     call coc#config('kite.pollingInterval', 1000)
 endif
 
 " coc-xml
-if HasCocPlug('coc-xml')
+if g:HasCocPlug('coc-xml')
     call coc#config('xml.java.home', '/usr/lib/jvm/default/')
 endif
 
 " coc-prettier
-if HasCocPlug('coc-prettier')
+if g:HasCocPlug('coc-prettier')
     call coc#config('prettier.tabWidth', 4)
 endif
 
 " coc-git
-if HasCocPlug('coc-git')
+if g:HasCocPlug('coc-git')
     call coc#config('git.addGBlameToBufferVar', v:true)
     call coc#config('git.addGBlameToVirtualText', v:true)
     call coc#config('git.virtualTextPrefix', '  ➤  ')
@@ -315,7 +310,7 @@ if HasCocPlug('coc-git')
 endif
 
 " coc-snippets
-if HasCocPlug('coc-snippets')
+if g:HasCocPlug('coc-snippets')
     call coc#config("snippets.ultisnips.enable", v:true)
     call coc#config("snippets.ultisnips.directories", [
                 \ 'UltiSnips',
@@ -329,25 +324,24 @@ endif
 
 
 " coc-highlight
-if HasCocPlug('coc-highlight')
+if g:HasCocPlug('coc-highlight')
     call coc#config("highlight.disableLanguages", ["csv"])
 endif
 
 " coc-python
-if HasCocPlug('coc-python')
+if g:HasCocPlug('coc-python')
     call coc#config("python.jediEnabled", v:false)
     call coc#config("python.linting.enabled", v:true)
     call coc#config("python.linting.pylintEnabled", v:true)
 endif
 
 " coc-rainbow-fart
-if HasCocPlug('coc-rainbow-fart')
+if g:HasCocPlug('coc-rainbow-fart')
     call coc#config("rainbow-fart.ffplay", "ffplay")
 endif
 
 " coc-explorer
-if HasCocPlug('coc-explorer')
-
+if g:HasCocPlug('coc-explorer')
     let g:coc_explorer_global_presets = {
         \   '.vim': {
         \      'root-uri': '~/.vim',
@@ -376,6 +370,7 @@ if HasCocPlug('coc-explorer')
 
 
     call coc#config("explorer.icon.enableNerdfont", v:true)
+    call coc#config("explorer.bookmark.child.template", "[selection | 1] [filename] [position] - [annotation]")
     " call coc#config("explorer.file.autoReveal", v:true)
     " call coc#config("explorer.keyMappingMode", "none")
       " "\ 'a': v:false,
@@ -428,5 +423,6 @@ if HasCocPlug('coc-explorer')
 
     " Use preset argument to open it
     " nmap <space>rd :CocCommand explorer --preset .vim<CR>
-    nmap <F2> :CocCommand explorer --preset floating --open-action-strategy sourceWindow<CR>
+    nmap <F2> :CocCommand explorer<CR>
+    command ExplorerF :CocCommand explorer --preset floating --open-action-strategy sourceWindow<CR>
 endif

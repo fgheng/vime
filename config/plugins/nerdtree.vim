@@ -3,7 +3,7 @@
 let NERDTreeMinimalUI = 1 " 最小化显示，不显示?
 let NERDChristmasTree = 1
 
-if HasPlug('nerdtree-git-plugin')
+if g:HasPlug('nerdtree-git-plugin')
     let g:NERDTreeIndicatorMapCustom = {
         \ "Modified"  : "✹",
         \ "Staged"    : "✚",

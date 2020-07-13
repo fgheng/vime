@@ -1,4 +1,4 @@
-if HasPlug('defx.nvim')
+if g:HasPlug('defx.nvim')
 
     let s:DefxWinNr = -1
     let s:beforWinnr = -1

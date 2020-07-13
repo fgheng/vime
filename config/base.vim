@@ -1,12 +1,7 @@
-" 全局变量
-" session目录
-let g:session_dir = $HOME.'/.cache/vim/sessions'
-" 设置vim-plug插件安装路径
-let g:plugins_path = $HOME.'/.cache/vim/plugins'
-
-" 基础配置
+" 基本配置
 set nocompatible                                            " 不要兼容vi
 filetype plugin indent on
+
 set encoding=utf-8                                          " 编码
 set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1        " 编码猜测
 set number
@@ -66,89 +61,13 @@ set showtabline=2                                   " 总是显示tab标签栏
 set re=1
 syntax on                                           " vimwiki 和 anyfold需要 pyplot也要
 
-"au FileType c,cpp,java set mps+==:;                 " 按下%可以在=和;直接跳转
-
 if has('nvim')
-    " neovim的新特性，标识列自动变化
     " set signcolumn=auto:2
     set signcolumn=yes
 else
     set scl=yes
 endif
 
-"记住退出位置
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
-
-" vim alt配置
-if !has('nvim')
-    function! Terminal_MetaMode(mode)
-        set ttimeout
-        if $TMUX != ''
-            set ttimeoutlen=30
-        elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
-            set ttimeoutlen=80
-        endif
-        if has('nvim') || has('gui_running')
-            return
-        endif
-        function! s:metacode(mode, key)
-            if a:mode == 0
-                exec "set <M-".a:key.">=\e".a:key
-            else
-                exec "set <M-".a:key.">=\e]{0}".a:key."~"
-            endif
-        endfunc
-        for i in range(10)
-            call s:metacode(a:mode, nr2char(char2nr('0') + i))
-        endfor
-        for i in range(26)
-            call s:metacode(a:mode, nr2char(char2nr('a') + i))
-            call s:metacode(a:mode, nr2char(char2nr('A') + i))
-        endfor
-        if a:mode != 0
-            for c in [',', '.', '/', ';', '[', ']', '{', '}']
-                call s:metacode(a:mode, c)
-            endfor
-            for c in ['?', ':', '-', '_']
-                call s:metacode(a:mode, c)
-            endfor
-        else
-            for c in [',', '.', '/', ';', '{', '}']
-                call s:metacode(a:mode, c)
-            endfor
-            for c in ['?', ':', '-', '_']
-                call s:metacode(a:mode, c)
-            endfor
-        endif
-    endfunc
-
-    call Terminal_MetaMode(0)
-endif
-
-" 退出vim自动保存session
-function! s:SaveSession() abort
-    if !isdirectory(g:session_dir)
-        call mkdir(g:session_dir)
-    endif
-    " 0始终是最近的，然后1是上上一次的，2是上上上一次的
-    let l:sessions = [g:session_dir . '/session_0.vim',
-                \ g:session_dir. '/session_1.vim',
-                \ g:session_dir. '/session_2.vim']
-
-    if filereadable(l:sessions[1])
-        call rename(l:sessions[1], l:sessions[2])
-    endif
-
-    if filereadable(l:sessions[0])
-        call rename(l:sessions[0], l:sessions[1])
-    endif
-    exec "mksession! " . l:sessions[0]
-
-endfunction
-
-augroup BASE
-    autocmd!
-    autocmd VimLeavePre * call s:SaveSession()
-augroup END
