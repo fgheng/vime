@@ -38,7 +38,7 @@ Plug 'puremourning/vimspector'
 Plug 'gpanders/vim-medieval', {'on': ['Eval', 'Eval!', 'EvalBlock!', 'EvalBlock']}
 Plug 'dbridges/vim-markdown-runner'
 " 数据库
-Plug 'tpope/vim-dadbod', {'on': 'DB'}
+Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'tpope/vim-dadbod', {'on': 'DB'}
 " 书签
 Plug 'MattesGroeger/vim-bookmarks', {'on': ['BookmarkToggle', 'BookmarkAnnotate', 'BookmarkShowAll', 'BookmarkClear', 'BookmarkClearAll']}
 " 画图，使用leaderds结束
@@ -147,4 +147,16 @@ Plug 'skywind3000/vim-keysound'
 Plug 'mcchrish/nnn.vim'
 " 快速打开终端, neovim需要pip install neovim-remote
 Plug 'skywind3000/vim-terminal-help'
+" grammarly语法
+Plug 'dpelle/vim-LanguageTool'
 
+" python高亮，异步
+if has('nvim')
+    plug 'numirias/semshi', {'do': ':updateremoteplugins', 'for': 'python'}
+endif
+" c++ 高亮
+plug 'jackguo380/vim-lsp-cxx-highlight', {
+          \ 'for': [
+          \ 'cpp', 'c', 'cu', 'h', 'hpp', 'hh', 'objc', 'objcpp'
+          \ ]}
+Plug 'nvim-treesitter/nvim-treesitter'

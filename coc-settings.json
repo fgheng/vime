@@ -1,7 +1,6 @@
 {
     // preferences
     "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
-
     // suggest
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 5000, // 超过500ms就停止
@@ -35,12 +34,11 @@
     },
 
     // diagnostic
-    "diagnostic.signOffset": 9999, // 越大等级越高
+    "diagnostic.signOffset": 9999,
     "diagnostic.errorSign": "■",
-    "diagnostic.warningSign": "■", // ●
-    "diagnostic.infoSign": "●", // "⦁>>",
-    "diagnostic.hintSign": "●", // ">>",
+    "diagnostic.warningSign": "■",
+    "diagnostic.infoSign": "●",
+    "diagnostic.hintSign": "●",
     "diagnostic.displayByAle": false,
-    "diagnostic.maxWindowHeight": 10 // 窗口最大高度
-    // "diagnostic.checkCurrentLine": true, // 光标在当前行就可以显示错误而非错误位置处
+    "diagnostic.maxWindowHeight": 10
 }

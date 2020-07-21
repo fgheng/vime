@@ -69,7 +69,7 @@ function! s:Wall() abort
         write
     endif
     " 在每个标签页每个窗口执行
-    tabdo windo if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# '' && !has_key(seen, bufnr('')) |silent write | let seen[bufnr('')] = 1 | endif
+    tabdo windo if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# '' && !has_key(seen, bufnr('')) | silent write | let seen[bufnr('')] = 1 | endif
     " 返回之前的tab和window
     execute 'tabnext '.tab
     execute win.'wincmd w'

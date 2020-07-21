@@ -8,10 +8,9 @@ Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': './install --bin' }
 \ | Plug 'tpope/vim-fugitive'
 " 文档类插件
-Plug 'scrooloose/nerdcommenter'
+Plug 'tyru/caw.vim'
 " 生成注释文档, 不适用默认的映射，这样启动更快
 Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate']}
-" Plug 'vim-scripts/DoxygenToolkit.vim'
 
 " 主题类插件
 Plug 'rakr/vim-one'
@@ -19,7 +18,6 @@ Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/forest-night'
 Plug 'srcery-colors/srcery-vim'
-Plug 'chuling/pure-material.vim'
 
 " 底栏
 Plug 'itchyny/lightline.vim'
@@ -27,15 +25,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'luochen1990/rainbow'
 " 高亮类插件
 Plug 'sheerun/vim-polyglot'
-" python高亮，异步
-if has('nvim')
-    Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'}
-endif
-" c++ 高亮
-Plug 'jackguo380/vim-lsp-cxx-highlight', {
-            \ 'for': [
-            \ 'cpp', 'c', 'cu', 'h', 'hpp', 'hh', 'objc', 'objcpp'
-            \ ]}
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
@@ -78,10 +67,6 @@ Plug 'iamcco/dict.vim', {'on':
             \ ]}
 " tmux与vim窗口导航
 Plug 'christoomey/vim-tmux-navigator'
-" ranger
-" Plug 'francoiscabrol/ranger.vim', {'on': [
-"            \ 'RangerCurrentFile', 'RangerWorkingDirectory'
-"            \ ]}
 " buffer close
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " latex插件
@@ -97,5 +82,15 @@ Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 Plug 'yianwillis/vimcdoc'
 " 依赖:python-pysdl2 sdl2 sdl2-mixer
 Plug 'skywind3000/vim-keysound'
-
+" tmux.conf set -g focus-events on
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
+" vim 打开pdf
+Plug 'makerj/vim-pdf', {'for': 'pdf'}
+" debug
+" Plug 'puremourning/vimspector'
+" 运行代码
+" plug 'skywind3000/asynctasks.vim', {'on': ['asynctask','asynctaskedit','asynctasklist','asynctaskmarco', 'asynctaskprofile']}
+" plug 'skywind3000/asyncrun.vim', {'on': ['asyncrun', 'asyncstop']}
+Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()

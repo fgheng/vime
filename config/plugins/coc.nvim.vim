@@ -14,12 +14,12 @@ let g:coc_global_extensions = [
     \ 'coc-cmake',
     \ 'coc-snippets',
     \ 'coc-clangd',
-    \ 'coc-highlight',
     \ 'coc-explorer',
     \ 'coc-bookmark',
     \ 'coc-python',
     \ ]
 
+    " \ 'coc-highlight',
     " \ 'coc-python',
     " \ 'coc-rainbow-fart',
     " \ 'coc-html',
@@ -85,13 +85,13 @@ endif
 nmap <silent> <M-j> <Plug>(coc-diagnostic-next)
 nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
 
-nmap <silent> gd :<C-u>call CocActionAsync('jumpDefinition')<CR>
+nmap <silent> gd :<c-u>call CocActionAsync('jumpDefinition')<cr>
 " 跳转到类型定义
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gy <plug>(coc-type-definition)
 " 跳转到实现
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gi <plug>(coc-implementation)
 " 跳转到引用
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gr <plug>(coc-references)
 
 " 使用K悬浮显示定义
 function! s:show_documentation()
@@ -330,7 +330,7 @@ endif
 
 " coc-python
 if g:HasCocPlug('coc-python')
-    call coc#config("python.jediEnabled", v:false)
+    call coc#config("python.jediEnabled", v:true)
     call coc#config("python.linting.enabled", v:true)
     call coc#config("python.linting.pylintEnabled", v:true)
 endif
@@ -424,5 +424,5 @@ if g:HasCocPlug('coc-explorer')
     " Use preset argument to open it
     " nmap <space>rd :CocCommand explorer --preset .vim<CR>
     nmap <F2> :CocCommand explorer<CR>
-    command ExplorerF :CocCommand explorer --preset floating --open-action-strategy sourceWindow<CR>
+    nmap <leader>f :CocCommand explorer --preset floating --open-action-strategy sourceWindow<CR>
 endif

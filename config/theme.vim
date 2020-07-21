@@ -16,30 +16,10 @@ if has('termguicolors')
     set termguicolors
 endif
 
-" let g:forest_night_enable_italic = 1
-" let g:forest_night_enable_italic_comment = 1
-" let g:forest_night_transparent_background = 1
-" let g:forest_night_current_word = 'underline'
-" colorscheme forest-night
 let g:srcery_bold=1
 let g:srcety_italic=1
 let g:srcery_transparent_background=1
 colorscheme srcery
-"
-" colorscheme pure_material
-
-" cursor and cursorline
-set cursorline                                      " 高亮当前行
-set cursorcolumn                                    " 高亮当前列
-set colorcolumn=81                                  " 高亮第80行
-" 横纵座标颜色
-highlight ColorColumn guibg=#4A2940
-" highlight CursorColumn guibg=#4A2940 ctermbg=#4A2940
-" highlight CursorLine guibg=#4A2940 ctermbg=#4A2940
-highlight CursorColumn guibg=#4A2940
-highlight CursorLine guibg=#4A2940
-" 光标形状与终端一致
-set guicursor=
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#ff0033 guibg=NONE
@@ -50,13 +30,15 @@ if g:HasPlug('coc.nvim')
         hi CocCursorRange cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffff00
     endif
 
-    " coc 高亮单词
-    au VimEnter * hi CocHighlightText guifg=#ffb6c1
-
     hi link CocErrorSign red
     hi link CocWarningSign yellow
     hi link CocInfoSign green
     hi link CocHintSign blue
+
+    if g:HasCocPlug('coc-highlight')
+        " coc 高亮单词
+        au VimEnter * hi CocHighlightText guifg=#ffb6c1
+    endif
 
     if g:HasCocPlug('coc-yank')
         " coc yank背景颜色

@@ -61,6 +61,11 @@ set showtabline=2                                   " 总是显示tab标签栏
 set re=1
 syntax on                                           " vimwiki 和 anyfold需要 pyplot也要
 
+set cursorline                                      " 高亮当前行
+set cursorcolumn                                    " 高亮当前列
+set colorcolumn=81                                  " 高亮第81列
+set guicursor=
+
 if has('nvim')
     " set signcolumn=auto:2
     set signcolumn=yes
