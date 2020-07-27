@@ -1,5 +1,5 @@
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 0    " 打开buffer
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#tab_nr_type= 2
@@ -7,7 +7,7 @@ let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#tabs_label = 'TABS'
 let g:airline#extensions#tabline#left_alt_sep = '>'
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline#extensions#tabline#exclude_buffers = ["[defx]", "!", "vimfiler", "nnn"]
+let g:airline#extensions#tabline#exclude_buffers = ["[defx]", "!", "vimfiler", "nnn", "vista"]
 
 " 显示窗口号
 function! WindowNumber(...)

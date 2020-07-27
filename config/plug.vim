@@ -12,15 +12,21 @@ Plug 'tyru/caw.vim'
 " 生成注释文档, 不适用默认的映射，这样启动更快
 Plug 'kkoomen/vim-doge', {'on': ['DogeGenerate']}
 
-" 主题类插件
+" 主题theme类插件
+Plug 'ajmwagar/vim-deus'
+Plug 'crusoexia/vim-monokai'
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/forest-night'
 Plug 'srcery-colors/srcery-vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'altercation/vim-colors-solarized'
 
 " 底栏
 Plug 'itchyny/lightline.vim'
+" Plug 'vim-airline/vim-airline'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 高亮类插件
@@ -49,7 +55,7 @@ Plug 'easymotion/vim-easymotion', {'on':
 " 对齐
 Plug 'junegunn/vim-easy-align'
 " 对齐线
-Plug 'Yggdroot/indentLine', {'on': 'IndentLinesEnable'}
+Plug 'Yggdroot/indentLine' ", {'on': 'IndentLinesEnable'}
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " csv
@@ -67,6 +73,10 @@ Plug 'iamcco/dict.vim', {'on':
             \ ]}
 " tmux与vim窗口导航
 Plug 'christoomey/vim-tmux-navigator'
+" tmux.conf set -g focus-events on
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'roxma/vim-tmux-clipboard'
+Plug 'edkolev/tmuxline.vim'
 " buffer close
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " latex插件
@@ -82,9 +92,6 @@ Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 Plug 'yianwillis/vimcdoc'
 " 依赖:python-pysdl2 sdl2 sdl2-mixer
 Plug 'skywind3000/vim-keysound'
-" tmux.conf set -g focus-events on
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'roxma/vim-tmux-clipboard'
 " vim 打开pdf
 Plug 'makerj/vim-pdf', {'for': 'pdf'}
 " debug
@@ -93,4 +100,13 @@ Plug 'makerj/vim-pdf', {'for': 'pdf'}
 " plug 'skywind3000/asynctasks.vim', {'on': ['asynctask','asynctaskedit','asynctasklist','asynctaskmarco', 'asynctaskprofile']}
 " plug 'skywind3000/asyncrun.vim', {'on': ['asyncrun', 'asyncstop']}
 Plug 'nvim-treesitter/nvim-treesitter'
+" 总是匹配tag
+Plug 'valloric/MatchTagAlways', {'for': ['html', 'css', 'xml']}
+if has('nvim')
+    Plug 'norcalli/nvim-colorizer.lua'
+else
+    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+endif
+" go to file
+Plug 'tpope/vim-apathy'
 call plug#end()

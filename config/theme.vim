@@ -50,4 +50,3 @@ if g:HasPlug('coc.nvim')
         hi CocExplorerNormalFloat guibg=None
     endif
 endif
-

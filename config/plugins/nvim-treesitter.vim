@@ -21,13 +21,13 @@ require'nvim-treesitter.configs'.setup {
     },
     -- 一些重构方案
     refactor = {
-        highlight_definitions = {
+        highlight_definitions = { -- 高亮定义
             enable = true
         },
-        highlight_current_scope = {
+        highlight_current_scope = { -- 高亮范围
             enable = true
         },
-        smart_rename = {
+        smart_rename = { -- 智能重命名
             enable = false,
             keymaps = {
             smart_rename = "grr"            -- mapping to rename reference under cursor

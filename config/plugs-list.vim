@@ -160,3 +160,9 @@ plug 'jackguo380/vim-lsp-cxx-highlight', {
           \ 'cpp', 'c', 'cu', 'h', 'hpp', 'hh', 'objc', 'objcpp'
           \ ]}
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'ap/vim-css-color'
+if has('nvim')
+    Plug 'norcalli/nvim-colorizer.lua'
+else
+    Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
+endif
