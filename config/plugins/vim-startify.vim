@@ -21,14 +21,14 @@ let g:startify_dir_number = 6
 let g:startify_session_persistence    = 1
 let g:startify_session_dir = g:session_dir
 
-" 书签
+" bookmarks 书签
 let g:startify_bookmarks = [
             \ '~/Documents/wiki/草稿/todo.md',
             \ '~/Documents/wiki/草稿/快速笔记.md',
             \ '~/.dotfiles/nvim/config/plug.vim'
             \ ]
 
-" 命令
+" command 命令
 let g:startify_commands = [
     \ {'u': ['插件更新', 'PlugUpdate']},
     \ {'t': ['打开终端', 'terminal']},
@@ -44,8 +44,8 @@ let g:startify_lists = [
        \ ]
 
 " 打开buffer也显示startify
-autocmd BufEnter *
-      \ if !exists('t:startify_new_tab') && empty(expand('%')) && !exists('t:goyo_master') |
-      \   let t:startify_new_tab = 1 |
-      \   Startify |
-      \ endif
+" autocmd BufEnter *
+"      \ if !exists('t:startify_new_tab') && empty(expand('%')) && !exists('t:goyo_master') |
+"      \   let t:startify_new_tab = 1 |
+"      \   Startify |
+"      \ endif

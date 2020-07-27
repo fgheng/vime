@@ -166,3 +166,4 @@ if has('nvim')
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
 endif
+Plug 'francoiscabrol/ranger.vim'

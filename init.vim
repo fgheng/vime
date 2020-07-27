@@ -8,6 +8,12 @@ let g:plugins_path = $HOME.'/.cache/vim/plugins'
 let g:config_path = expand('<sfile>:p:h') . '/config'
 " coc插件目录
 let g:coc_data_home = $HOME.'/.cache/vim/coc'
+" 操作系统判别
+if(has("win32") || has("win64") || has("win95") || has("win16"))
+    let g:isWindows = v:true
+else | let g:isWindows = v:false | endif
+" gui还是terminal
+if has("gui_running") | let g:isGUI = v:true | else | let g:isGUI = v:false | endif
 """
 
 " 插件配置文件所在路径
@@ -17,13 +23,7 @@ let s:custom_config_home = g:config_path . '/custom'
 
 command! -nargs=1 LoadScript exec 'source ' . g:config_path. '/' . '<args>'
 
-" 定义一些全局变量
-if(has("win32") || has("win64") || has("win95") || has("win16")) | let g:isWindows = v:true
-else | let g:isWindows = v:false | endif
 
-if has("gui_running") | let g:isGUI = v:true | else | let g:isGUI = v:false | endif
-
-" 载入配置
 " 加载基础配置
 LoadScript base.vim
 " 加载插件列表

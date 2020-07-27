@@ -92,7 +92,7 @@ Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 Plug 'yianwillis/vimcdoc'
 " 依赖:python-pysdl2 sdl2 sdl2-mixer
 Plug 'skywind3000/vim-keysound'
-" vim 打开pdf
+" vim 打开pdf并阅读
 Plug 'makerj/vim-pdf', {'for': 'pdf'}
 " debug
 " Plug 'puremourning/vimspector'
@@ -110,3 +110,44 @@ endif
 " go to file
 Plug 'tpope/vim-apathy'
 call plug#end()
+
+" coc插件列表
+let g:coc_global_extensions = [
+    \ 'coc-tsserver',
+    \ 'coc-prettier',
+    \ 'coc-calc',
+    \ 'coc-vimlsp',
+    \ 'coc-marketplace',
+    \ 'coc-xml',
+    \ 'coc-yank',
+    \ 'coc-json',
+    \ 'coc-sh',
+    \ 'coc-yaml',
+    \ 'coc-git',
+    \ 'coc-cmake',
+    \ 'coc-snippets',
+    \ 'coc-clangd',
+    \ 'coc-explorer',
+    \ 'coc-bookmark',
+    \ 'coc-python',
+    \ ]
+
+    " \ 'coc-highlight',
+    " \ 'coc-python',
+    " \ 'coc-rainbow-fart',
+    " \ 'coc-html',
+    " \ 'coc-css',
+    " \ 'coc-pyright',
+    " \ 'coc-lists',
+    " \ 'coc-rls',
+    " \ 'coc-java',
+    " \ 'coc-go',
+
+    "\ 'coc-explorer',
+    "\ 'coc-python',
+    "\ 'coc-kite',
+    "\ 'coc-sql',
+    "\ 'coc-lua'
+    "\ 'coc-ultisnips',
+    "\ 'coc-tabnine',
+

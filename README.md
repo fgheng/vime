@@ -6,6 +6,8 @@
 
 ![vime](./assets/readme2.png)
 
+
+
 ### 2. 整体结构
 
 ```bash
@@ -46,14 +48,21 @@
 
 7. `custom`该目录是用户自己定义的简单脚本，该目录下的所有`.vim`脚本都会在启动的时候加载
 
+
+
 ### 3. 依赖
+
+**一定要注意，很多时候如果依赖补全会提示错误，如果不想安装这么多依赖，按照要求去除某些插件即可**
 
 需要安装如下软件：
 
 1. nodejs，npm，neovim(pip install)：必装
 2. ripgrep：必装，用于文件内容检索
 3. neovim-remote:：可选，vimtex会用到，但是也可以不用，安装体验更好，`pip install neovim-remote`
-4. clangd：可选，用于c系补全
+4. clangd：可选，用于c系补全，如果不需要，可以在`config/plug.vim`中去掉`coc-clangd`
+5. python-pysdl2 sdl2 sdl2-mixer: 可选，这是模拟机械键盘声音用到的，如果不需要可以在`config/plug.vim`中去掉keysound这个插件。
+
+
 
 ### 5. 安装
 
@@ -63,11 +72,23 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 然后打开neovim，执行`:PlugInstall`等待插件安装完毕即可！
 
-### 6. 快捷键
+
+
+### 6. 插件列表
+
+这个直接查看`config/plug.vim`文件，里面是所有的插件，当然可以添加新的插件，那新增加插件的配置请写到`config/plugins/`目录下面。
+
+比如你要增加[clever-f.vim](https://github.com/rhysd/clever-f.vim)这个插件，请在`config/plugins/`目录下加上`Plug 'rhysd/clever-f.vim'`语句，然后在`config/plugins/`目录下新建`clever-f.vim.vim`文件（注意需要反斜杠/后面的所有字母作为文件名称，然后在追加.vim后缀），接下来你就可以在新建的配置文件`clever-f.vim.vim`下写关于该插件的配置了。
+
+如果不想使用该插件了，那么直接在`config/plug.vim`文件中删除`Plug 'rhysd/clever-f.vim'`语句即可，而他的配置文件`clever-f.vim.vim`则无需删除，下次打开nvim的时候会自动判断需不需要加载该配置。
+
+
+
+### 7. 快捷键
 
 不管您选择了哪种补全插件，哪种检索插件，我们的快捷键配置都会尽可能保持一致，无须更改您的使用习惯，改变的只是`neo/vim`表现形式。
 
-#### 6.1 补全行为
+#### 7.1 补全行为
 
 补全使用的[neoclide/*coc.nvim*](https://github.com/neoclide/coc.nvim)插件，该项目中也有[ycm-core/*YouCompleteMe*](https://github.com/ycm-core/YouCompleteMe)的配置，但最近主要使用coc，故ycm的配置已经很久不更新了。
 
@@ -96,7 +117,9 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | \<space>O | 打开coclist symbols     | coc    |
 |           |                         |        |
 
-#### 6.2 窗口与tab
+
+
+#### 7.2 窗口与tab
 
 | 按键           | 描述                                                         |
 | -------------- | ------------------------------------------------------------ |
@@ -117,7 +140,9 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | alt-H/L        | 将当前的tab移动到左侧/右侧                                   |
 | alt-h/l        | 切换到上一个/下一个tab<br>如果存在浮动终端，则切换为上一个或下一个浮动终端 |
 
-#### 6.3 文件管理
+
+
+#### 7.3 文件管理
 
 文件管理使用的插件是[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)、[Shougo/*defx*.nvim](https://github.com/Shougo/defx.nvim)，两者之一，需要在`plug.vim`中选择，快捷键行为基本一致。支持浮动窗口。
 
@@ -158,7 +183,9 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | F     | 递归搜索文件                                  |
 |       |                                               |
 
-#### 6.4 buffer与文件检索等
+
+
+#### 7.4 buffer与文件检索等
 
 该操作主要由[junegunn/*fzf*.vim](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)、[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)、[liuchengxu/*vim*-*clap*](https://github.com/liuchengxu/vim-clap)中的一个完成，快捷键基本一致，主要看`plug.vim`中选择的是哪一个插件，其中[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)优先级最低，有其他插件，那么就会覆盖掉coc的操作。
 
@@ -179,7 +206,8 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | alt-G | 显示所有提交的file列表                                       | fzf/clap/coc         |
 
 
-#### 6.5 多光标
+
+#### 7.5 多光标
 
 多光标使用的是插件[vim-visual-multi](https://github.com/mg979/vim-visual-multi)以及coc自带的多光标，如果`plug.vim`中没有[vim-visual-multi](https://github.com/mg979/vim-visual-multi)那么会使用coc自带的插件，coc行为与前者类似，但是功能不如前者多。
 
@@ -202,7 +230,20 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 |                  |                       |                                                              |
 
 
-#### 6.6 注释与文档
+
+#### 7.6 快速跳转
+
+快速跳转使用的是[vim-easymotion](https://github.com/easymotion/vim-easymotion)或者[clever-f](https://github.com/rhysd/clever-f.vim)，easymotion中只使用了两个功能，一个是使用char进行跳转，另一个是跳转到行。
+
+| 按键 | 模式   | 描述                                                         |
+| ---- | ------ | ------------------------------------------------------------ |
+| f    | normal | 根据输入的char进行跳转，按下f后会提示要跳转到哪个char，<br>需要再输入一个char然后回车确认 |
+| gl   | normal | 跳转到行                                                     |
+|      |        |                                                              |
+
+
+
+#### 7.6 注释与文档
 
 文档生成器使用[kkoomen/*vim*-*doge*](https://github.com/kkoomen/vim-doge)
 
@@ -244,7 +285,9 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 |                    |               |                                            |
 | \<leader>cn        |               |                                            |
 
-#### 6.7 终端
+
+
+#### 7.7 终端
 
 终端使用的是[voldikss/vim-*floaterm*](https://github.com/voldikss/vim-floaterm)
 
@@ -255,7 +298,9 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 | alt h | tnormal        | 打开终端后，切换到上一个终端 |
 | alt l | tnormal        | 打开终端后，切换到下一个终端 |
 
-#### 6.8 代码折叠
+
+
+#### 7.8 代码折叠
 
 代码折叠使用的插件是[pseewald/vim-*anyfold*](https://github.com/pseewald/vim-anyfold)
 
@@ -272,7 +317,9 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 | zr   | normal | 减少折叠             |
 |      | normal | 打开所有折叠         |
 
-#### 6.9 笔记
+
+
+#### 7.9 笔记
 
 笔记使用的是插件[vimwiki/*vimwiki*](https://github.com/vimwiki/vimwiki)，可以记笔记可以写日记，支持markdown。
 
@@ -316,9 +363,11 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 | gqq 或 gww           | normal  | 格式化表格                 |
 |                      |         |                            |
 
-#### 6.9 书签
 
-标记使用vim-bookmarks或者coc-bookmarks，因为coc-explorer支持显示coc-bookmark中的书签，所以我使用coc-bookmark，不过可以在plug.vim中加入vim-bookmarks两者快捷键一致
+
+#### 7.10 书签
+
+标记使用[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)或者[coc-bookmark](https://github.com/voldikss/coc-bookmark)，因为[coc-explorer](https://github.com/weirongxu/coc-explorer)支持显示[coc-bookmark](https://github.com/voldikss/coc-bookmark)中的书签，所以我使用[coc-bookmark](https://github.com/voldikss/coc-bookmark)，不过可以在`config/plug.vim`中加入[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)两者快捷键一致
 
 | 按键 | 模式   | 描述                   |
 | ---- | ------ | ---------------------- |
@@ -332,7 +381,11 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 
 
 
-#### 6.9 Surround
+#### 7.11 session
+
+默认使用了[vim-startify](https://github.com/mhinz/vim-startify)这个插件作为开始界面，该插件的可以自定义起始界面，配置在`./config/plugins/vim-startify.vim`下，可以自定义配置。session使用轮换方式，第一次存储一个session0，第二次还是存储session0，不过上一次的session0变为了session1，第三次存储session0，前面的session0变为session1，session1变为session2。
+
+#### 7.12 Surround
 
 Surround是使用快捷键来给指定的字符串添加包围，比如引号等。使用的插件是[tpope/*vim*-*surround*](https://github.com/tpope/vim-surround)
 
@@ -347,7 +400,7 @@ Surround是使用快捷键来给指定的字符串添加包围，比如引号等
 | yss)      | normal | 整行增加括号                                     |
 | ysiw\<em> | normal | 在一个单词处增加\<em>\</em>包围                  |
 
-#### 6.10 Git
+#### 7.13 Git
 
 git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblade/vim-gitgutter)、[tpope/vim-*fugitive*](https://github.com/tpope/vim-fugitive)、[neoclide/*coc-git*](https://github.com/neoclide/coc-git)
 
@@ -366,15 +419,15 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 | \<leader>gw | normal | 写入，相当于git add | fugitive |
 
 
-#### 6.11 数据库
+#### 7.14 数据库
 
 数据库可以选择使用[tpope/vim-*dadbod*](https://github.com/tpope/vim-dadbod)
 
-#### 6.12 绘图
+#### 7.15绘图
 
 绘图使用[vim-scripts/*DrawIt*](https://github.com/vim-scripts/DrawIt)，命令行输入`DrawIt`进入绘图模式。
 
-#### 6.13 Latex
+#### 7.16 Latex
 
 latex可以选择使用[lervag/*vimtex*](https://github.com/lervag/vimtex)
 
@@ -391,15 +444,15 @@ vimtex的快捷键都是以\<leader>l作为开头的。
 |                   |      |                             |
 
 
-#### 6.14 Debug
+#### 7.17 Debug
 
 debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourning/vimspector)，暂时没有需求，所以还没有配置。
 
-#### 6.15 Run
+#### 7.18 Run
 
 代码run使用韦大的插件，但是我现在还没有需求，做一暂时没有配置。
 
-#### 6.16 翻译
+#### 7.19 翻译
 
 翻译之前使用[voldikss/*coc-translator*](https://github.com/voldikss/coc-translator)，接下来又换成了[voldikss/*vim*-*translator*](https://github.com/voldikss/vim-translator)然后感觉都稍微有些许问题，最后选择了[iamcco/*dict*.*vim*](https://github.com/iamcco/dict.vim)，但是该插件不支持悬浮窗口，我需要对其更改下支持悬浮窗口。
 
@@ -409,7 +462,7 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 | \<leader>e | normal/visual | 在命令栏输出解释 |
 | \<leader>r | normal/visual | 用翻译内容替换当前光标或选中的内容 |
 
-#### 6.16 其他
+#### 7.20 其他
 
 | 按键   | 模式   | 描述                                                       |
 | ------ | ------ | ---------------------------------------------------------- |
