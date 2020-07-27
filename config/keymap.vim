@@ -101,7 +101,10 @@ tnoremap <silent> <M-H> <c-\><c-n>:tabmove -1<cr>
 
 " TODO 改成在fzf中搜索系统应用，快捷键改成altx
 function! s:SystemExecuteCurrentFile(f)
-    exec 'silent !xdg-open ' . fnameescape(a:f) . ' > /dev/null'
+    if g:isWindows | echo
+    else
+        exec 'silent !xdg-open ' . fnameescape(a:f) . ' > /dev/null'
+    endif
 endfunction
 " 使用系统应用打开当前buffer文件
 noremap <silent> <c-x> :call <SID>SystemExecuteCurrentFile(expand('%:p'))<cr>

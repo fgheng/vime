@@ -424,5 +424,7 @@ if g:HasCocPlug('coc-explorer')
     " Use preset argument to open it
     " nmap <space>rd :CocCommand explorer --preset .vim<CR>
     nmap <F2> :CocCommand explorer<CR>
-    nmap <leader>f :CocCommand explorer --preset floating --open-action-strategy sourceWindow<CR>
+    if !g:HasPlug('ranger.vim')
+        nmap <leader>f :CocCommand explorer --preset floating --open-action-strategy sourceWindow<CR>
+    endif
 endif
