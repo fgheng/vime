@@ -2,8 +2,6 @@
 
 ## 1. About
 
-
-
 ![vime](./assets/readme2.png)
 
 该项目的特点在于一个插件对应一个配置文件，只要在插件列表中增加了插件，那么就会自动载入该插件的配置文件。该项目耦合性很低，甚至每个插件配置文件单独拿出来放到你自己的vim配置中就可以直接使用了。
@@ -138,7 +136,7 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 文件管理使用的插件是[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)、[Shougo/*defx*.nvim](https://github.com/Shougo/defx.nvim)，两者之一，需要在`plug.vim`中选择，快捷键行为基本一致。支持浮动窗口。
 
-~~同时可以使用\<leader>f打开ranger。~~因为coc-explorer开始支持浮动窗口，因此将\<leader>f映射为了浮动模式的coc-explorer，不再使用ranger，如果希望使用ranger，那么可以在plug.vim中加入ranger插件即可。
+~~同时可以使用\<leader>f打开ranger。~~ 因为coc-explorer开始支持浮动窗口，因此将\<leader>f映射为了浮动模式的[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)，不再使用[ranger.vim](https://github.com/francoiscabrol/ranger.vim)，如果希望使用[ranger.vim](https://github.com/francoiscabrol/ranger.vim)，那么可以在plug.vim中加入[ranger.vim](https://github.com/francoiscabrol/ranger.vim)即可。
 
 | 按键  | 描述                                          |
 | ----- | --------------------------------------------- |
