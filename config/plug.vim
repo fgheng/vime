@@ -107,8 +107,9 @@ if has('nvim')
 else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
 endif
-" go to file
+" 加强版的 go to file
 Plug 'tpope/vim-apathy'
+
 call plug#end()
 
 " coc插件列表

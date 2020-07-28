@@ -48,9 +48,11 @@
 
 1. nodejs，npm，neovim(pip install)：必装
 2. ripgrep：必装，用于文件内容检索
-3. neovim-remote:：可选，vimtex会用到，但是也可以不用，安装体验更好，`pip install neovim-remote`
-4. clangd：可选，用于c系补全，如果不需要，可以在`config/plug.vim`中去掉`coc-clangd`
-5. python-pysdl2 sdl2 sdl2-mixer: 可选，这是模拟机械键盘声音用到的，如果不需要可以在`config/plug.vim`中去掉keysound这个插件。
+3. neovim-remote：可选，vimtex会用到，但是也可以不用，安装体验更好，`pip install neovim-remote`
+4. xdotool：可选，用于vimtex
+5. zathura：可选，用于vimtex的预览
+6. clangd：可选，用于c系补全，如果不需要，可以在`config/plug.vim`中去掉`coc-clangd`
+7. python-pysdl2 sdl2 sdl2-mixer: 可选，这是模拟机械键盘声音用到的，如果不需要可以在`config/plug.vim`中去掉keysound这个插件。
 
 
 
@@ -375,6 +377,8 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 
 默认使用了[vim-startify](https://github.com/mhinz/vim-startify)这个插件作为开始界面，该插件的可以自定义起始界面，配置在`./config/plugins/vim-startify.vim`下，可以自定义配置。session使用轮换方式，第一次存储一个session0，第二次还是存储session0，不过上一次的session0变为了session1，第三次存储session0，前面的session0变为session1，session1变为session2。
 
+
+
 #### 7.12 Surround
 
 Surround是使用快捷键来给指定的字符串添加包围，比如引号等。使用的插件是[tpope/*vim*-*surround*](https://github.com/tpope/vim-surround)
@@ -389,6 +393,8 @@ Surround是使用快捷键来给指定的字符串添加包围，比如引号等
 | ysiw[     | normal | 同上，不过两侧会增加空格                         |
 | yss)      | normal | 整行增加括号                                     |
 | ysiw\<em> | normal | 在一个单词处增加\<em>\</em>包围                  |
+
+
 
 #### 7.13 Git
 
@@ -409,13 +415,18 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 | \<leader>gw | normal | 写入，相当于git add | fugitive |
 
 
+
 #### 7.14 数据库
 
 数据库可以选择使用[tpope/vim-*dadbod*](https://github.com/tpope/vim-dadbod)
 
+
+
 #### 7.15绘图
 
 绘图使用[vim-scripts/*DrawIt*](https://github.com/vim-scripts/DrawIt)，命令行输入`DrawIt`进入绘图模式。
+
+
 
 #### 7.16 Latex
 
@@ -425,22 +436,36 @@ vimtex的快捷键都是以\<leader>l作为开头的。
 
 | 按键        | 模式 | 描述         |
 | ----------- | ---- | ------------ |
-| \<leader>ll |      | 准备编译文档 |
-| \<leader>lv           |      | 在pdf文档中定位到当前位置 |
-| \<leader>ll or lk    |      | 停止编译 |
-| \<leader>le          |      | 删除log，errors以及warnings |
-| \<leader>lc           |      | 删除多余的文档 |
-| %                 |      | 在定界符之间跳转            |
+| \<leader>ll | normal | 准备编译文档 |
+| \<leader>lv           | normal | 在pdf文档中定位到当前位置 |
+| \<leader>ll or lk    | normal | 停止编译 |
+| \<leader>le          | normal | 删除log，errors以及warnings |
+| \<leader>lc           | normal | 删除多余的文档 |
+| %                 | normal | 在定界符之间跳转            |
 |                   |      |                             |
+
+关于neovim+vimtex+zathura的反向搜索，也就是在从zathura定位到vim中的代码位置，首先需要安装一些依赖，`neovim-remote`、`xdotool`，然后需要编辑zathura的配置文件`~/.config/zathura/zathurarc`，加入如下内容：
+
+```
+set synctex true
+set synctex-editor-command "gvim --remote-silent +%l %f"
+```
+
+这样在zathura中就可以使用ctrl+鼠标左键直接定位到对应的代码位置了。
+
 
 
 #### 7.17 Debug
 
 debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourning/vimspector)，暂时没有需求，所以还没有配置。
 
+
+
 #### 7.18 Run
 
 代码run使用韦大的插件，但是我现在还没有需求，做一暂时没有配置。
+
+
 
 #### 7.19 翻译
 
@@ -451,6 +476,8 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 | \<leader>w | normal/visual | 翻译当前光标下的内容/选中的内容，在新窗口展示 |
 | \<leader>e | normal/visual | 在命令栏输出解释 |
 | \<leader>r | normal/visual | 用翻译内容替换当前光标或选中的内容 |
+
+
 
 #### 7.20 其他
 

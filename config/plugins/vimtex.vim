@@ -1,20 +1,18 @@
 " https://zhuanlan.zhihu.com/p/61036165
 let g:tex_flavor='latex'
 
-" vimtex默认的pdf浏览器
-let g:latex_viewer = 'zathura'
-
 if has("nvim")
+    " 用于反向搜索
 	let g:vimtex_compiler_progname = 'nvr'
 endif
 
 " vimtex默认的pdf浏览器
-let g:vimtex_view_method=g:latex_viewer
+let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 let g:tex_conceal='abdmg'
 
 " let g:latex_view_general_viewer = 'zathura'
-" " let g:latex_view_general_options = shellescape('--synctex-forward "' . exepath(v:progpath) . ' --servername ' . v:servername . ' +{%lline} {%ffile}"')
+" let g:latex_view_general_options = shellescape('--synctex-forward "' . exepath(v:progpath) . ' --servername ' . v:servername . ' +{%lline} {%ffile}"')
 " let g:latex_view_general_options = shellescape('--synctex-forward "' . v:progname . ' --servername ' . v:servername . ' +{%line} {%file}"')
 
 " if &ft == 'latex' || &ft == 'tex'
