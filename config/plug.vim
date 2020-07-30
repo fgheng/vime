@@ -91,7 +91,9 @@ Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 " 依赖:python-pysdl2 sdl2 sdl2-mixer
-Plug 'skywind3000/vim-keysound'
+if has('nvim')
+    Plug 'skywind3000/vim-keysound'
+endif
 " vim 打开pdf并阅读
 Plug 'makerj/vim-pdf', {'for': 'pdf'}
 " debug
@@ -99,7 +101,9 @@ Plug 'makerj/vim-pdf', {'for': 'pdf'}
 " 运行代码
 " plug 'skywind3000/asynctasks.vim', {'on': ['asynctask','asynctaskedit','asynctasklist','asynctaskmarco', 'asynctaskprofile']}
 " plug 'skywind3000/asyncrun.vim', {'on': ['asyncrun', 'asyncstop']}
-Plug 'nvim-treesitter/nvim-treesitter'
+if has('nvim')
+    Plug 'nvim-treesitter/nvim-treesitter'
+endif
 " 总是匹配tag
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'css', 'xml']}
 if has('nvim')
@@ -121,7 +125,6 @@ let g:coc_global_extensions = [
     \ 'coc-marketplace',
     \ 'coc-xml',
     \ 'coc-yank',
-    \ 'coc-json',
     \ 'coc-sh',
     \ 'coc-yaml',
     \ 'coc-git',
@@ -133,6 +136,7 @@ let g:coc_global_extensions = [
     \ 'coc-python',
     \ ]
 
+    "\ 'coc-json',
     " \ 'coc-highlight',
     " \ 'coc-python',
     " \ 'coc-rainbow-fart',
@@ -151,4 +155,3 @@ let g:coc_global_extensions = [
     "\ 'coc-lua'
     "\ 'coc-ultisnips',
     "\ 'coc-tabnine',
-

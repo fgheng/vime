@@ -1,6 +1,9 @@
 " https://zhuanlan.zhihu.com/p/61036165
 let g:tex_flavor='latex'
 
+" 80列自动换行
+" au FileType tex setl textwidth=80 | setl fo+=t | setl fo-=l
+
 if has("nvim")
     " 用于反向搜索
 	let g:vimtex_compiler_progname = 'nvr'
