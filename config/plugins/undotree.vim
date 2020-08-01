@@ -1,6 +1,6 @@
 
 set undofile
-set undodir = $HOME.'/.cache/vim/undo'
+set undodir = g:undo_dir
 if !exists('g:undotree_WindowLayout')
     let g:undotree_WindowLayout = 3
 endif

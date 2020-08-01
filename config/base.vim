@@ -1,5 +1,6 @@
 " 基本配置
 set nocompatible                                            " 不要兼容vi
+syntax on                                           " vimwiki 和 anyfold需要 pyplot也要
 filetype plugin indent on
 
 set encoding=utf-8                                          " 编码
@@ -54,17 +55,18 @@ set shortmess+=c
 set mouse=n                                         " 允许使用鼠标, normal生效，a则是全模式生效
 set cmdheight=1
 set conceallevel=0                                  " json文件不显示引号
-
 set laststatus=2                                    " 状态栏, lightline中更改了
 set showtabline=2                                   " 总是显示tab标签栏
-
 set re=1
-syntax on                                           " vimwiki 和 anyfold需要 pyplot也要
-
 set cursorline                                      " 高亮当前行
 set cursorcolumn                                    " 高亮当前列
-set colorcolumn=81                                  " 高亮第81列
 set guicursor=
+set textwidth=80
+set colorcolumn=+1                      " 高亮textwidth后的列
+
+if has('nvim') == 0 && has('patch-8.1.2020')
+    set cursorlineopt=number cursorline
+endif
 
 if has('nvim')
     " set signcolumn=auto:2

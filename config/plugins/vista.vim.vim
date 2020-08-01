@@ -2,9 +2,9 @@
 function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
-
 set statusline+=%{NearestMethodOrFunction()}
 
+let g:vista#renderer#enable_icon = 1
 let g:vista_ctags_cmd = {
       \ 'haskell': 'hasktags -x -o - -c',
       \ }

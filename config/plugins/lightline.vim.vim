@@ -3,7 +3,6 @@ if &laststatus < 2
     set laststatus=2
 endif
 
-    " \ 'colorscheme': 'one',
 let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
@@ -21,7 +20,6 @@ let g:lightline = {
     \ },
     \ 'component_function': {
     \   'cocstatus': 'coc#status',
-    \   'method': 'NearestMethodOrFunction',
     \   'lineinfo': 'LightlineLineinfo',
     \   'readonly': 'LightLineReadonly',
     \   'gitinfo': 'LightLineGit',
@@ -31,18 +29,18 @@ let g:lightline = {
     \ },
     \ 'component_expand': {
     \ },
-    \ 'separator': { 'left': "\ue0b8", 'right': "\ue0ba"},
-    \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0bb"}
 \ }
+    " 斜线作为分隔符，将下面两行放入上面的字典中即可更改lightline的外观，注意该行注释不要放入
+    "\ 'separator': { 'left': "\ue0b8", 'right': "\ue0ba"},
+    "\ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0bb"}
 
 function! s:lightline_is_lean() abort
     return &filetype =~? '\v^defx|mundo(diff)?$'
 endfunction
 
 function! s:lightline_is_plain() abort
-    return &buftype ==? 'terminal' || &filetype =~? '\v^help|denite|defx|vista_kind|vista|tagbar$'
+    return &buftype ==? 'terminal' || &filetype =~? '\v^help|coc-explorer|denite|defx|vista_kind|vista|tagbar$'
 endfunction
-
 
 function! LightlineLineinfo() abort
     return &filetype ==? 'help'             ? ''  :
@@ -85,7 +83,7 @@ function! LightLineGit()abort
 endfunction
 
 function! LightLineCocError()
-    let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'hhhE')
+    let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
     let info = get(b:, 'coc_diagnostic_info', {})
     if empty(info)
         return ''

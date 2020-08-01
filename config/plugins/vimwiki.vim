@@ -12,3 +12,4 @@ let g:vimwiki_list = [
 			\ }
 			\ ]
 
+au FileType markdown setl colorcolumn=0

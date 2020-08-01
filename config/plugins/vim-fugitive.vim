@@ -87,8 +87,8 @@ function! GclogToogle() abort
     endif
 endfunction
 
-nmap <leader>gs <esc>:call GitVDiffToggle()<cr>
-nmap <leader>gb <esc>:call GitBlameToggle()<cr>
+nmap <leader>gd <esc>:call GitVDiffToggle()<cr>
+" nmap <leader>gb <esc>:call GitBlameToggle()<cr>
 nmap <leader>gc <esc>:Gcommit<cr>
 nmap <leader>gw <esc>:Gw<cr>
 

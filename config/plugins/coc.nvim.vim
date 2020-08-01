@@ -51,7 +51,11 @@ nmap <silent> gy <plug>(coc-type-definition)
 " 跳转到实现
 nmap <silent> gi <plug>(coc-implementation)
 " 跳转到引用
-nmap <silent> gr <plug>(coc-references)
+if g:HasPlug('fzf-preview.vim') && g:HasCocPlug('coc-fzf-preview')
+    nmap <silent> gr :<c-u>CocCommand fzf-preview.CocReferences<cr>
+else
+    nmap <silent> gr <plug>(coc-references)
+endif
 
 " 使用K悬浮显示定义
 function! s:show_documentation()
@@ -80,7 +84,12 @@ au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 if !g:HasPlug('coc-fzf')
     " Show all diagnostics
-    nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
+    if g:HasPlug('fzf-preview.vim')
+        nnoremap <silent> <space>a  :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<cr>
+        nnoremap <silent> <space>A  :<C-u>CocCommand fzf-preview.CocDiagnostics<cr>
+    else
+        nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
+    endif
     " Manage extensions
     " nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
     nnoremap <silent> <space>o  :<C-u>CocList --auto-preview outline<cr>
@@ -92,6 +101,22 @@ if !g:HasPlug('coc-fzf')
     " nnoremap <silent> <space>s  :<C-u>CocList services<CR>
     " show coclist 早晚要放进去的
     nnoremap <silent> <space>l  :<C-u>CocList<CR>
+else
+    nnoremap <silent> <space>A  :<C-u>CocFzfList diagnostics<CR>
+    nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics --current-buf<CR>
+    nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
+    nnoremap <silent> <space>e  :<C-u>CocFzfList extensions<CR>
+    nnoremap <silent> <space>l  :<C-u>CocFzfList<CR>
+    " nnoremap <silent> <space>l  :<C-u>CocFzfList location<CR>
+    nnoremap <silent> <space>o  :<C-u>CocFzfList outline<CR>
+    nnoremap <silent> <space>O  :<C-u>CocFzfList symbols<CR>
+    nnoremap <silent> <space>s  :<C-u>CocFzfList services<CR>
+    nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
+
+    if g:HasCocPlug('coc-yank')
+        nnoremap <silent> <space>y  :<C-u>CocFzfList yank<CR>
+    endif
+
 endif
 
 " 重构refactor,需要lsp支持
@@ -164,11 +189,11 @@ endif
 
 if g:HasCocPlug('coc-yank')
     " nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
-    if !g:HasPlug('vim-clap')
+    if !g:HasPlug('vim-clap') && !g:HasPlug('fzf')
         nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
-        call coc#config('yank.highlight.duration', 200)
-        call coc#config('yank.enableCompletion', v:false)
     endif
+    call coc#config('yank.highlight.duration', 200)
+    call coc#config('yank.enableCompletion', v:false)
 endif
 
 if g:HasCocPlug('coc-translator')

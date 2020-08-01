@@ -1,32 +1,36 @@
-" 快捷键配置
-
-" 窗口
+" 窗口相关快捷键
 noremap <c-h> <C-w>h
 noremap <c-j> <C-w>j
 noremap <c-k> <C-w>k
 noremap <c-l> <C-w>l
-noremap <M-H> <C-w>h
-noremap <M-J> <C-w>j
-noremap <M-K> <C-w>k
-noremap <M-L> <C-w>l
 tnoremap <c-h> <c-\><c-n><c-w>h
 tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 tnoremap <c-l> <c-\><c-n><c-w>l
-tnoremap <M-H> <c-\><c-n><C-w>h
-tnoremap <M-J> <c-\><c-n><C-w>j
-tnoremap <M-K> <c-\><c-n><C-w>k
-tnoremap <M-L> <c-\><c-n><C-w>l
-
+" 更改窗口垂直大小
+nnoremap <M--> :resize +3<CR>
+nnoremap <M-_> :resize -3<CR>
+" 更改窗口水平大小
+nnoremap <M-(> :vertical resize -3<CR>
+nnoremap <M-)> :vertical resize +3<CR>
+" 分割窗口
+nnoremap <c-w>k :abo split <cr>
+nnoremap <c-w>h :abo vsplit <cr>
+nnoremap <c-w>j :rightbelow split <cr>
+nnoremap <c-w>l :rightbelow vsplit <cr>
+" 关闭窗口
 nnoremap q <esc>:close<cr>
 vnoremap q <esc>:close<cr>
+
+" 关闭搜索颜色
 nnoremap <BackSpace> :nohl<cr>
 
-" alt q执行宏录制功能
-nnoremap <M-q> q
-" esc
+" 使用alt q执行宏录制功能
+nnoremap <m-q> q
+" jk表示esc
 inoremap jk <esc>
 
+" 使用esc退出终端
 if has('nvim')
     au TermOpen term://* tnoremap <buffer> <Esc> <c-\><c-n> | startinsert
     au BufEnter term://* startinsert
@@ -38,26 +42,13 @@ endif
 " 新建终端
 nnoremap <leader>tt :terminal<cr>
 
-" 更改窗口垂直大小
-nnoremap <M-_> :resize +3<CR>
-nnoremap <M--> :resize -3<CR>
-" 更改窗口水平大小
-nnoremap <M-(> :vertical resize -3<CR>
-nnoremap <M-)> :vertical resize +3<CR>
-
-" 分割窗口
-nnoremap <c-w>k :abo split <cr>
-nnoremap <c-w>h :abo vsplit <cr>
-nnoremap <c-w>j :rightbelow split <cr>
-nnoremap <c-w>l :rightbelow vsplit <cr>
-
 " 插入模式下的一些快捷键
 inoremap <M-o> <esc>o
 inoremap <M-O> <esc>O
 inoremap <M-h> <esc>I
 inoremap <M-l> <esc>A
 
-" 保存
+" 两个连续的space保存所有需要保存的文件
 function! s:Wall() abort
     " 记录当前的tab以及window
     let tab = tabpagenr()
@@ -84,14 +75,13 @@ vnoremap k gk
 " 复制到末尾
 nnoremap Y y$
 
+" tab相关
 if !g:HasPlug('vim-airline')
     nnoremap  <M-l> :tabnext<cr>
     nnoremap  <M-h> :tabprevious<CR>
     tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
     tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
 endif
-
-" 在后面新建一个tab
 nnoremap <silent> <leader>tn :tabnew<cr>
 nnoremap <silent> <leader>tc :tabclose<cr>
 nnoremap <silent> <M-L> :tabmove +1<cr>
@@ -107,4 +97,4 @@ function! s:SystemExecuteCurrentFile(f)
     endif
 endfunction
 " 使用系统应用打开当前buffer文件
-noremap <silent> <c-x> :call <SID>SystemExecuteCurrentFile(expand('%:p'))<cr>
+noremap <silent> <M-o> :call <SID>SystemExecuteCurrentFile(expand('%:p'))<cr>

@@ -188,14 +188,17 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | alt-f | 1. 搜索工程目录下的文件<br>2. 搜索wiki笔记目录下的文件       | fzf/leaderf/clap/coc |
 | alt-F | 搜索HOME下的所有文件                                         | fzf/leaderf/clap/coc |
 | alt-w | 显示打开的窗口                                               | fzf/leaderf/clap/coc |
-| alt-m | 显示所有的标记                                               | fzf/clap/coc         |
+| alt-m | 显示所有的标记，即marks                                      | fzf/clap/coc         |
 | alt-M | 显示所有映射                                                 | fzf/clap/coc         |
 | alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 如果正在编辑wiki目录下的笔记，那么使用rg会搜索wiki笔记目录下的内容 | fzf/leaderf/clap/coc |
 | alt-c | 显示所有命令                                                 | fzf/leaderf/clap/coc |
 | ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/clap/coc |
 | alt-y | 显示复制内容                                                 | clap/coc             |
-| alt-g | 显示未提交的file列表                                         | fzf/clap             |
-| alt-G | 显示所有提交的file列表                                       | fzf/clap/coc         |
+| alt-J | 显示跳转                                                     | fzf                  |
+| alt-o | 使用系统默认应用打开检索到的文件                             | fzf                  |
+| \<F8> | quickfix                                                     | fzf                  |
+| \<F9> | locationList                                                 | fzf                  |
+|       |                                                              |                      |
 
 
 
@@ -482,9 +485,9 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 #### 7.20 其他
 
 | 按键             | 模式   | 描述                                                       |
-| ------           | ------ | ---------------------------------------------------------- |
+| ---------------- | ------ | ---------------------------------------------------------- |
 | alt q            | normal | 进入宏录制，因为q映射为了关闭窗口，所以使用alt q作为宏录制 |
-| ctrl x           | normal | 使用系统默认应用打开当前buffer文件                         |
+| alt o            | normal | 使用系统默认应用打开当前buffer文件                         |
 | \<space>\<space> | normal | 保存所有的buffer，不包括terminal，目录树等                 |
 |                  |        |                                                            |
 |                  |        |                                                            |

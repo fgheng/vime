@@ -16,10 +16,12 @@ if has('termguicolors')
     set termguicolors
 endif
 
-let g:srcery_bold=1
-let g:srcety_italic=1
-let g:srcery_transparent_background=1
-colorscheme srcery
+if g:HasPlug('srcery-vim')
+    let g:srcery_bold=1
+    let g:srcety_italic=1
+    let g:srcery_transparent_background=1
+    colorscheme srcery
+endif
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#ff0033 guibg=NONE

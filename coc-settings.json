@@ -1,9 +1,8 @@
 {
-    // preferences
-    "coc.preferences.extensionUpdateCheck": "daily", // 插件更新周期
-    // suggest
+    "coc.preferences.extensionUpdateCheck": "daily",
+
     "suggest.acceptSuggestionOnCommitCharacter": true,
-    "suggest.timeout": 5000, // 超过500ms就停止
+    "suggest.timeout": 5000,
     "suggest.noselect": true, // 选中第一个
     "suggest.completionItemKindLabels": {
         "class": "",
@@ -33,7 +32,6 @@
         "variable": ""
     },
 
-    // diagnostic
     "diagnostic.signOffset": 9999,
     "diagnostic.errorSign": "■",
     "diagnostic.warningSign": "■",

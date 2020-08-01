@@ -167,3 +167,5 @@ else
     Plug 'RRethy/vim-hexokinase',  { 'do': 'make hexokinase' }
 endif
 Plug 'francoiscabrol/ranger.vim'
+" 颜色编辑器
+Plug 'rbtnn/vim-coloredit'

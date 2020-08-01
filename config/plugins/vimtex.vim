@@ -1,3 +1,4 @@
+let g:vimtex_cache_root='~/.cache/vim/vimtex'
 " https://zhuanlan.zhihu.com/p/61036165
 let g:tex_flavor='latex'
 
@@ -5,7 +6,7 @@ let g:tex_flavor='latex'
 " au FileType tex setl textwidth=80 | setl fo+=t | setl fo-=l
 
 if has("nvim")
-    " 用于反向搜索
+    " 用于反向定位
 	let g:vimtex_compiler_progname = 'nvr'
 endif
 
@@ -37,3 +38,5 @@ let g:tex_conceal='abdmg'
 
 " \li查看latex项目信息，按Esc或q退出
 " \lm查看内置的imaps
+"
+au FileType tex setl tw=80 | setl fo+=t | setl fo-=l | setl fo+=mM
