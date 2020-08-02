@@ -181,6 +181,8 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 该操作主要由[junegunn/*fzf*.vim](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)、[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)、[liuchengxu/*vim*-*clap*](https://github.com/liuchengxu/vim-clap)中的一个完成，快捷键基本一致，主要看`plug.vim`中选择的是哪一个插件，其中[neoclide/*coc*.*nvim*](https://github.com/neoclide/coc.nvim)优先级最低，有其他插件，那么就会覆盖掉coc的操作。
 
+fzf的彩色预览依赖`bat`，如果没有安装bat，那么自动使用sed进行预览。
+
 | 按键  | 描述                                                         | 提供者               |
 | ----- | ------------------------------------------------------------ | -------------------- |
 | alt-r | 最近打开的文件                                               | fzf/leaderf/clap/coc |
@@ -193,14 +195,12 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 | alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 如果正在编辑wiki目录下的笔记，那么使用rg会搜索wiki笔记目录下的内容 | fzf/leaderf/clap/coc |
 | alt-c | 显示所有命令                                                 | fzf/leaderf/clap/coc |
 | ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/clap/coc |
-| alt-y | 显示复制内容                                                 | clap/coc             |
+| alt-y | 显示复制内容                                                 | fzf/clap/coc         |
 | alt-J | 显示跳转                                                     | fzf                  |
 | alt-o | 使用系统默认应用打开检索到的文件                             | fzf                  |
 | \<F8> | quickfix                                                     | fzf                  |
 | \<F9> | locationList                                                 | fzf                  |
 |       |                                                              |                      |
-
-
 
 #### 7.5 多光标
 
