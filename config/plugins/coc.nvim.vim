@@ -1,3 +1,4 @@
+
 " 卸载不在列表中的插件
 function! s:uninstall_unused_coc_extensions() abort
     for e in keys(json_decode(join(readfile(expand(g:coc_data_home . '/extensions/package.json')), "\n"))['dependencies'])
@@ -34,24 +35,25 @@ inoremap <silent><expr> <M-k>
     \ pumvisible() ? "\<C-p>" : return
 
 " 回车选中或者扩展选中的补全内容
-if has('patch8.1.1068')
+if exists('*complete_info')
     " 如果您的（Neo）Vim版本支持，则使用`complete_info`
     inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-    imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " diagnostic 跳转
 nmap <silent> <M-j> <Plug>(coc-diagnostic-next)
 nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
 
+" 跳转到定义
 nmap <silent> gd :<c-u>call CocActionAsync('jumpDefinition')<cr>
 " 跳转到类型定义
 nmap <silent> gy <plug>(coc-type-definition)
 " 跳转到实现
 nmap <silent> gi <plug>(coc-implementation)
 " 跳转到引用
-if g:HasPlug('fzf-preview.vim') && g:HasCocPlug('coc-fzf-preview')
+if g:HasCocPlug('coc-fzf-preview')
     nmap <silent> gr :<c-u>CocCommand fzf-preview.CocReferences<cr>
 else
     nmap <silent> gr <plug>(coc-references)
@@ -82,7 +84,39 @@ augroup end
 command! -nargs=0 Format :call CocAction('format')
 au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
-if !g:HasPlug('coc-fzf')
+" 文档块支持，比如删除条件，函数等
+" 功能不如treesitter，使用treesitter
+if !g:HasPlug('nvim-treesitter')
+    xmap if <Plug>(coc-funcobj-i)
+    omap if <Plug>(coc-funcobj-i)
+    xmap af <Plug>(coc-funcobj-a)
+    omap af <Plug>(coc-funcobj-a)
+    xmap ic <Plug>(coc-classobj-i)
+    omap ic <Plug>(coc-classobj-i)
+    xmap ac <Plug>(coc-classobj-a)
+    omap ac <Plug>(coc-classobj-a)
+endif
+
+"""""""""""""""""""""""
+" coc-plug config
+"""""""""""""""""""""""
+
+if g:HasPlug('coc-fzf')
+    nnoremap <silent> <space>A  :<C-u>CocFzfList diagnostics<CR>
+    nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics --current-buf<CR>
+    nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
+    nnoremap <silent> <space>e  :<C-u>CocFzfList extensions<CR>
+    nnoremap <silent> <space>l  :<C-u>CocFzfList<CR>
+    " nnoremap <silent> <space>l  :<C-u>CocFzfList location<CR>
+    nnoremap <silent> <space>o  :<C-u>CocFzfList outline<CR>
+    nnoremap <silent> <space>O  :<C-u>CocFzfList symbols<CR>
+    nnoremap <silent> <space>s  :<C-u>CocFzfList services<CR>
+    nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
+
+    if g:HasCocPlug('coc-yank')
+        nnoremap <silent> <space>y  :<C-u>CocFzfList yank<CR>
+    endif
+else
     " Show all diagnostics
     if g:HasPlug('fzf-preview.vim')
         nnoremap <silent> <space>a  :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<cr>
@@ -101,22 +135,6 @@ if !g:HasPlug('coc-fzf')
     " nnoremap <silent> <space>s  :<C-u>CocList services<CR>
     " show coclist 早晚要放进去的
     nnoremap <silent> <space>l  :<C-u>CocList<CR>
-else
-    nnoremap <silent> <space>A  :<C-u>CocFzfList diagnostics<CR>
-    nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics --current-buf<CR>
-    nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
-    nnoremap <silent> <space>e  :<C-u>CocFzfList extensions<CR>
-    nnoremap <silent> <space>l  :<C-u>CocFzfList<CR>
-    " nnoremap <silent> <space>l  :<C-u>CocFzfList location<CR>
-    nnoremap <silent> <space>o  :<C-u>CocFzfList outline<CR>
-    nnoremap <silent> <space>O  :<C-u>CocFzfList symbols<CR>
-    nnoremap <silent> <space>s  :<C-u>CocFzfList services<CR>
-    nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
-
-    if g:HasCocPlug('coc-yank')
-        nnoremap <silent> <space>y  :<C-u>CocFzfList yank<CR>
-    endif
-
 endif
 
 " 重构refactor,需要lsp支持

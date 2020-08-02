@@ -13,6 +13,7 @@ let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 
 if has('nvim')
+    " coc-fzf也使用这个变量
     let g:fzf_layout = {
         \ 'window': {
             \ 'up': '~90%', 'width': 0.6, 'height': 0.8, 'yoffset':0.5,
@@ -42,15 +43,12 @@ let s:preview_window_config = 'up:40%:wrap'
 " 总是开启预览
 let g:fzf_preview_window = s:preview_window_config
 let s:preview_window = '--preview-window=' . s:preview_window_config
+" 自定义窗口预览程序
+let s:preview_program = g:config_root_path . "/scripts/preview.sh"
 
 let g:fzf_buffers_jump = 1
 " [Commands] --expect expression for directly executing the command
 " let g:fzf_commands_expect = 'alt-enter,ctrl-x'
-
-" 自定义窗口预览程序
-" g:config_path 在init.vim中定义，是配置的根目录
-if executable('bat') | let s:preview_program = g:config_root_path . "/scripts/preview.sh "
-else | let s:preview_program = 'cat ' | endif
 
 au FileType fzf tnoremap <buffer> <C-j> <Down>
 au FileType fzf tnoremap <buffer> <C-k> <Up>
@@ -114,42 +112,6 @@ function! s:FilesWithWiki(query, fullscreen)
     endif
 endfunction
 command! -bang -nargs=? -complete=dir FWW call s:FilesWithWiki(<q-args>, <bang>0)
-
-" 复制列表检索，依赖vim-yoink插件
-" TODO 需要去掉末尾的^M
-" TODO 需要自己写一个，增加历史选项，不需要插件
-" TODO 需要预览，复制之后，简短的不需要预览，长的需要预览
-" 不能记录很长的内容，不能粘贴很长的内容
-if g:HasPlug('vim-yoink')
-    function! s:yank_list()
-        " redir => ys
-        " silent Yanks
-        " redir END
-        let l:ys = execute('Yanks')
-        return split(ys, '\n')[1:]
-    endfunction
-
-    function! s:yank_handler(reg)
-        if empty(a:reg) | echo "aborted register paste"
-        else
-            let token = a:reg[4:-3]
-            echom token
-            let @" = token
-            execute 'normal p'
-        endif
-    endfunction
-
-    command! FzfYank call fzf#run(fzf#wrap({
-        \ 'source': <sid>yank_list(),
-        \ 'sink': function('<sid>yank_handler'),
-        \ 'options': [
-        \   '--prompt=Yank',
-        \   '--info=inline',
-        \   '--preview', s:preview_program . ' {}',
-        \   s:preview_window
-        \ ],
-        \ }))
-endif
 
 " quickfix 与 locallist
 " copied from fzf_quickfix
@@ -418,9 +380,6 @@ nnoremap <M-M> :Maps<CR>
 nnoremap <M-w> :Windows<CR>
 if g:HasPlug('coc-fzf')
     nnoremap <M-y> :<c-u>CocFzfList yank<CR>
-elseif g:HasPlug('vim-yoink')
-    " 不如coc-fzf好用
-    nnoremap <M-y> :<c-u>FzfYank<CR>
 endif
 " TODO 编写高亮
 nnoremap <M-J> :FzfJumps<CR>

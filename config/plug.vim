@@ -12,9 +12,9 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
-\ | Plug 'svermeulen/vim-yoink'
 \ | Plug 'antoinemadec/coc-fzf'
 \ | Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"\ | Plug 'svermeulen/vim-yoink'
 " 注释插件
 Plug 'tyru/caw.vim'
 " 生成注释文档
@@ -155,9 +155,11 @@ let g:coc_global_extensions = [
     \ 'coc-explorer',
     \ 'coc-python',
     \ 'coc-json',
-    \ 'coc-fzf-preview',
+    \ 'coc-lists',
+    \ 'coc-word',
     \ ]
 
+    "\ 'coc-fzf-preview',
     "\ 'coc-bookmark',
     "\ 'coc-rainbow-fart',
     " \ 'coc-lists',

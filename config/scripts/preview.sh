@@ -57,6 +57,9 @@ if [ -z "$FZF_PREVIEW_COMMAND" ] && command -v bat > /dev/null; then
   bat --style="${BAT_STYLE:-numbers}" --color=always --pager=never \
       --line-range=$FIRST:$LAST --highlight-line=$CENTER "$FILE"
   exit $?
+else
+  sed -n "${FIRST},${LAST}p" "$FILE"
+  exit $?
 fi
 
 DEFAULT_COMMAND="highlight -O ansi -l {} || coderay {} || rougify {} || cat {}"
