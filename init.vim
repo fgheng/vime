@@ -53,6 +53,18 @@ if g:HasPlug('coc.nvim')
     endfunc
 endif
 
+" 除非把快捷键全部集中到keymap中
+" for [plug_name, spec] in items(g:plugs)
+"     let config_path = s:plugin_config_home . "/" . plug_name . ".vim"
+"     if has_key(spec, 'on') || has_key(spec, 'for')
+"        execute "autocmd! User " . plug_name . "if filereadable(" . config_path . ") | source " . fnameescape(config_path) . " | echom load " . plug_name ." | endif"
+"     else
+"         if filereadable(config_path)
+"             exec 'source' fnameescape(config_path)
+"         endif
+"     endif
+" endfor
+
 for s:plugin_name in g:plugs_order
     " 如果已经安装了插件，那么载入插件配置
     if g:HasInstall(s:plugin_name)
@@ -63,15 +75,15 @@ for s:plugin_name in g:plugs_order
     endif
 endfor
 
+" 载入custom目录下的自定义配置
+let s:custom_files = split(glob(s:custom_config_home . '/*.vim'), '\n')
+for s:custom_file in s:custom_files
+    exec 'source ' . fnameescape(s:custom_file)
+endfor
+
 " 加载基础配置
 LoadScript base.vim
 " 加载按键映射配置
 LoadScript keymap.vim
 " 加载主题配置
 LoadScript theme.vim
-
-" 载入custom目录下的自定义配置
-let s:custom_files = split(glob(s:custom_config_home . '/*.vim'), '\n')
-for s:custom_file in s:custom_files
-    exec 'source ' . fnameescape(s:custom_file)
-endfor

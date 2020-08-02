@@ -51,6 +51,7 @@ if g:HasPlug('coc.nvim')
 
     if g:HasCocPlug('coc-explorer')
         " coc-explorer
-        hi CocExplorerNormalFloat guibg=NONE
+        " hi CocExplorerNormalFloatBorder guifg=#00ff00 guibg=#ff0000
+        " hi CocExplorerNormalFloat guibg=None
     endif
 endif

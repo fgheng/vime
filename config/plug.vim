@@ -5,7 +5,6 @@ Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
 \ | Plug 'antoinemadec/coc-fzf'
-\ | Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " 注释插件
 Plug 'tyru/caw.vim'
 " 生成注释文档
@@ -23,12 +22,11 @@ Plug 'w0ng/vim-hybrid'
 Plug 'altercation/vim-colors-solarized'
 Plug 'hardcoreplayers/oceanic-material'
 " 底栏
-" Plug 'hardcoreplayers/spaceline.vim' | Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 函数列表
-Plug 'liuchengxu/vista.vim' ", {'on': ['Vista!!', 'Vista']}
+Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
 " 快速包围
@@ -50,7 +48,7 @@ Plug 'easymotion/vim-easymotion', {'on':
         \ '<Plug>(easymotion-overwin-w)'
         \ ]}
 " 对齐
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
 " 对齐线
 Plug 'Yggdroot/indentLine' ", {'on': 'IndentLinesEnable'}
 " 多光标
@@ -58,9 +56,9 @@ Plug 'mg979/vim-visual-multi'
 " csv插件
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 悬浮终端
-Plug 'voldikss/vim-floaterm'
+Plug 'voldikss/vim-floaterm', {'on': ['FloatermNe', 'FloatermToggle']}
 " 笔记插件，支持markdown
-Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki', {'on': ['VimwikiIndex', 'VimwikiTabIndex', 'VimwikiDiaryIndex']}
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
 " 起始界面
