@@ -8,7 +8,7 @@ let g:coc_data_home = g:root_path . '/coc'
 " 配置所在根目录
 let g:config_root_path = expand('<sfile>:p:h') . '/config'
 " session保存目录
-let g:session_dir = $HOME.'/.cache/vim/sessions'
+let g:session_dir = $HOME.'/.cache/vim/sessions/'
 " 撤销记录文件
 let g:undo_dir = g:root_path . '/undo'
 " 操作系统判别

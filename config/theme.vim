@@ -22,6 +22,8 @@ if g:HasPlug('srcery-vim')
     let g:srcery_transparent_background=1
     colorscheme srcery
 endif
+" let g:oceanic_material_transparent_background=1
+" colorscheme oceanic_material
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#ff0033 guibg=NONE

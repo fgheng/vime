@@ -7,6 +7,13 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' } |
     \ Plug 'vn-ki/coc-clap' |
     \ Plug 'liuchengxu/vista.vim'
+" 检索类插件 下面的是fzf-preview.vim，
+" 当然也可以选择fzf.vim
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' } \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
+\ | Plug 'tpope/vim-fugitive'
+\ | Plug 'LeafCage/yankround.vim'
+\ | Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+\ | Plug 'lambdalisue/gina.vim'
 Plug 'Yggdroot/LeaderF'
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'}
@@ -77,6 +84,8 @@ Plug 'haishanh/night-owl.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'dunstontc/vim-vscode-theme'
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" 起始界面
+Plug 'hardcoreplayers/dashboard-nvim'
 Plug 'mhinz/vim-startify', {'on': 'Startify'}
 " 底栏
 Plug 'itchyny/lightline.vim'
@@ -107,7 +116,7 @@ Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 Plug 'ntpeters/vim-better-whitespace'
 " 代码段
 Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips' " 快捷键跳转到下一处要填写的地方,使用coc代替
+Plug 'SirVer/ultisnips'
 " 快速跳转窗口
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 二进制

@@ -15,4 +15,5 @@ let g:indentLine_fileTypeExclude = [
             \ 'vimfiler',
             \ 'markdown',
             \ 'minimap',
+            \ 'dashboard',
             \]

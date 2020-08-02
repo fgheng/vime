@@ -29,10 +29,9 @@ let g:lightline = {
     \ },
     \ 'component_expand': {
     \ },
+    \ 'separator': { 'left': "\ue0b8", 'right': "\ue0ba"},
+    \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0bb"}
 \ }
-    " 斜线作为分隔符，将下面两行放入上面的字典中即可更改lightline的外观，注意该行注释不要放入
-    "\ 'separator': { 'left': "\ue0b8", 'right': "\ue0ba"},
-    "\ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0bb"}
 
 function! s:lightline_is_lean() abort
     return &filetype =~? '\v^defx|mundo(diff)?$'
@@ -45,10 +44,11 @@ endfunction
 function! LightlineLineinfo() abort
     return &filetype ==? 'help'             ? ''  :
     \      &filetype ==? 'defx'             ? ' ' :
+    \      &filetype ==? 'coc-explorer'     ? ' ' :
     \      &filetype ==? 'denite'           ? ' ' :
-    \      &filetype ==? 'tagbar'           ? ' ' :
-    \      &filetype ==? 'vista_kind'       ? ' ' :
-    \      &filetype ==? 'vista'            ? ' ' :
+    \      &filetype ==? 'tagbar'           ? ' ' :
+    \      &filetype ==? 'vista_kind'       ? ' ' :
+    \      &filetype ==? 'vista'            ? ' ' :
     \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
     \      s:lightline_is_lean() || s:lightline_is_plain() ? ' '  :
     \      printf(' %d%% ☰ %d:%d', 100*line('.')/line('$'),  line('.'), col('.'))

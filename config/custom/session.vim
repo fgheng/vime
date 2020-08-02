@@ -1,3 +1,7 @@
+if g:HasCocPlug('coc-lists') || g:HasPlug('dashboard-nvim')
+    finish
+endif
+
 " 退出vim的时候自动保存session
 " session包括三个，session0，session1，session2
 " 其中session0表示最近一次的session，而1则表示上上一次，2表示上上上一次

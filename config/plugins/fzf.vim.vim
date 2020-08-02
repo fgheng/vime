@@ -24,19 +24,19 @@ endif
 
 " 配色与主题同色
 let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Folded'],
-   \ 'bg':      ['bg', 'Normal'],
-   \ 'hl':      ['fg', 'Number'],
-   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-   \ 'hl+':     ['fg', 'Statement'],
-   \ 'info':    ['fg', 'PreProc'],
-   \ 'border':  ['fg', 'Ignore'],
-   \ 'prompt':  ['fg', 'Conditional'],
-   \ 'pointer': ['fg', 'Exception'],
-   \ 'marker':  ['fg', 'Keyword'],
-   \ 'spinner': ['fg', 'Label'],
-   \ 'header':  ['fg', 'Comment'] }
+    \ 'fg':      ['fg', 'Folded'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Number'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'border':  ['fg', 'Ignore'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
 
 " 预览窗口配置
 let s:preview_window_config = 'up:40%:wrap'
@@ -374,8 +374,9 @@ nnoremap ? :BLines<CR>
 nnoremap <M-r> :History<CR>
 " TODO 增加changes 需要自定义
 " nnoremap <M-c> :Commands<CR>
-" nnoremap <M-m> :Marks<CR>
+" 如果coc-fzf支持marks的话就用coc-fzf+coc-bookmarks
 nnoremap <M-m> :FzfMarks<CR>
+" nnoremap <M-m> :Marks<CR>
 nnoremap <M-M> :Maps<CR>
 nnoremap <M-w> :Windows<CR>
 if g:HasPlug('coc-fzf')

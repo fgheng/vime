@@ -47,17 +47,14 @@ nmap <silent> <M-j> <Plug>(coc-diagnostic-next)
 nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
 
 " 跳转到定义
-nmap <silent> gd :<c-u>call CocActionAsync('jumpDefinition')<cr>
+" nmap <silent> gd :<c-u>call CocActionAsync('jumpDefinition')<cr>
+nmap <silent> gd <plug>(coc-definition)
 " 跳转到类型定义
 nmap <silent> gy <plug>(coc-type-definition)
 " 跳转到实现
 nmap <silent> gi <plug>(coc-implementation)
 " 跳转到引用
-if g:HasCocPlug('coc-fzf-preview')
-    nmap <silent> gr :<c-u>CocCommand fzf-preview.CocReferences<cr>
-else
-    nmap <silent> gr <plug>(coc-references)
-endif
+nmap <silent> gr <plug>(coc-references)
 
 " 使用K悬浮显示定义
 function! s:show_documentation()
@@ -100,7 +97,6 @@ endif
 """""""""""""""""""""""
 " coc-plug config
 """""""""""""""""""""""
-
 if g:HasPlug('coc-fzf')
     nnoremap <silent> <space>A  :<C-u>CocFzfList diagnostics<CR>
     nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics --current-buf<CR>
@@ -254,7 +250,10 @@ endif
 if g:HasCocPlug("coc-lists")
     " session 保存目录
     call coc#config('session.directory', g:session_dir)
-    call coc#config('session.saveOnVimLeave', v:false)
+    if !g:HasPlug('dashboard-nvim')
+        " 退出时自动保存session
+        call coc#config('session.saveOnVimLeave', v:true)
+    endif
 
     call coc#config('list.maxHeight', 10)
     call coc#config('list.maxPreviewHeight', 8)
@@ -351,27 +350,40 @@ if g:HasCocPlug('coc-explorer')
         \   },
         \   'floating': {
         \      'position': 'floating',
+        \      'floating-position': 'center',
+        \      'floating-width': 100,
+        \      'open-action-strategy': 'sourceWindow',
         \   },
         \   'floatingTop': {
         \     'position': 'floating',
         \     'floating-position': 'center-top',
+        \     'open-action-strategy': 'sourceWindow',
         \   },
         \   'floatingLeftside': {
         \      'position': 'floating',
-        \      'floating-position': 'center',
+        \      'floating-position': 'left-center',
         \      'floating-width': 100,
+        \      'open-action-strategy': 'sourceWindow',
         \   },
         \   'floatingRightside': {
         \      'position': 'floating',
-        \      'floating-position': 'center',
+        \      'floating-position': 'right-center',
         \      'floating-width': 100,
+        \      'open-action-strategy': 'sourceWindow',
         \   },
         \   'simplify': {
         \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
         \   }
     \ }
 
+    " Use preset argument to open it
+    " nmap <space>rd :CocCommand explorer --preset .vim<CR>
+    nmap <F2> :CocCommand explorer<CR>
+    if !g:HasPlug('ranger.vim')
+        nmap <leader>f :CocCommand explorer --preset floating<CR>
+    endif
 
+    " config
     call coc#config("explorer.icon.enableNerdfont", v:true)
     call coc#config("explorer.bookmark.child.template", "[selection | 1] [filename] [position] - [annotation]")
     " call coc#config("explorer.file.autoReveal", v:true)
@@ -422,12 +434,4 @@ if g:HasCocPlug('coc-explorer')
       \ '<<': 'gitStage',
       \ '>>': 'gitUnstage'
     \ })
-      " \ '\.': 'toggleHidden',
-
-    " Use preset argument to open it
-    " nmap <space>rd :CocCommand explorer --preset .vim<CR>
-    nmap <F2> :CocCommand explorer<CR>
-    if !g:HasPlug('ranger.vim')
-        nmap <leader>f :CocCommand explorer --preset floating --open-action-strategy sourceWindow<CR>
-    endif
 endif

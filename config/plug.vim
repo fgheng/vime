@@ -1,20 +1,11 @@
 " 代码补全插件
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-" 检索类插件 下面的是fzf-preview.vim，
-" 当然也可以选择fzf.vim
-" Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
-"\ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
-"\ | Plug 'tpope/vim-fugitive'
-"\ | Plug 'LeafCage/yankround.vim'
-"\ | Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-"\ | Plug 'lambdalisue/gina.vim'
-" 可以选择fzf.vim
+" 检索
 Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
 \ | Plug 'antoinemadec/coc-fzf'
 \ | Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"\ | Plug 'svermeulen/vim-yoink'
 " 注释插件
 Plug 'tyru/caw.vim'
 " 生成注释文档
@@ -30,7 +21,9 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'altercation/vim-colors-solarized'
+Plug 'hardcoreplayers/oceanic-material'
 " 底栏
+" Plug 'hardcoreplayers/spaceline.vim' | Plug 'ryanoasis/vim-devicons'
 Plug 'itchyny/lightline.vim'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
@@ -64,8 +57,6 @@ Plug 'Yggdroot/indentLine' ", {'on': 'IndentLinesEnable'}
 Plug 'mg979/vim-visual-multi'
 " csv插件
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
-autocmd! User csv.vim echom "hello -------csv"
-
 " 悬浮终端
 Plug 'voldikss/vim-floaterm'
 " 笔记插件，支持markdown
@@ -105,10 +96,6 @@ Plug 'davinche/DrawIt', {'on': 'DrawIt'}
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
-" 模拟机械键盘，依赖:python-pysdl2 sdl2 sdl2-mixer
-" if has('nvim')
-"     Plug 'skywind3000/vim-keysound'
-" endif
 " vim打开pdf
 Plug 'makerj/vim-pdf', {'for': 'pdf'}
 " debug
