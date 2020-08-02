@@ -256,16 +256,13 @@ function! s:jump_list() abort
 endfunction
 
 function! s:jump_handler(jp)
-    let l:jump_rel = split(a:jp, ":")
-    let l:line = l:jump_rel[1]
-    let l:col  = l:jump_rel[2]
-    let l:content = l:jump_rel[0]
+    let [l:file_name, l:line, l:col, l:content] = matchlist(a:jp, '\(.*\):\(\d\+\):\(\d\+\)\(.*\)')[1:4]
 
-    if empty(l:line) | return | endif
+    if empty(l:file_name) || empty(l:line) | return | endif
     " 判断文件是否已经存在buffer中
-    let l:bn = bufnr(l:content)
+    let l:bn = bufnr(l:file_name)
     " 未打开
-    if l:bn == -1 | if filereadable(l:content) | execute 'e ' . 'l:content' | endif
+    if l:bn == -1 | if filereadable(l:file_name) | execute 'e ' . 'l:file_name' | endif
     else | execute 'buffer ' . l:bn | endif
     call cursor(str2nr(l:line), str2nr(l:col))
     normal! zvzz
@@ -284,30 +281,38 @@ function! s:FzfJumps() abort
 endfunction
 command! -bang -nargs=* FzfJumps call s:FzfJumps()
 
+function! s:marks_list_format(val)
+    let l:l = matchlist(a:val, '\s*\(.\)\s*\(\d\+\)\s*\(\d\+\)\(.*\)')
+    let [l:mark, l:line, l:col, l:content] = l:l[1:4]
+
+    let l:file_name = bufname('%')
+    if filereadable(l:content)
+        echom l:content
+        let l:file_name = l:content
+        let l:bn = bufnr(l:file_name)
+        if l:bn > -1 && buflisted(l:bn) > 0
+            let l:content = getbufline(l:bn, l:line)[0]
+        else
+            let l:content = system("sed -n " . l:line . "p " . l:file_name)
+        endif
+    endif
+    return l:mark . ' ' . l:file_name . ':' . l:line . ':' . l:col . ' ' . l:content
+endfunction
+
 function! s:marks_list() abort
     let l:ms = execute('marks')
-    return split(l:ms, '\n')[1:]
-    " return map(split(l:ms, '\n')[1:], 's:marks_list_format(v:val)')
+    " return split(l:ms, '\n')[1:]
+    return map(split(l:ms, '\n')[1:], 's:marks_list_format(v:val)')
 endfunction
+
 function! s:marks_handler(mr) abort
-    let l:marks_rel = split(a:mr)
-
-    let l:file_name = expand('%:p')
-    let l:line = l:marks_rel[1]
-    let l:col = l:marks_rel[2]
-    let l:content = ""
-
-    if len(a:mr) > 15
-        let l:content = a:mr[15:]
-    endif
-
-    if filereadable(expand(l:content))
-        let l:file_name = expand(l:content)
-    endif
+    let l:l = matchlist(a:mr, '\(.\)\s*\(.*\):\(\d\+\):\(\d\+\)\s*\(.*\)')
+    let [l:mark, l:file_name, l:line, l:col, l:content] = l:l[1:5]
 
     let l:bn = bufnr(l:file_name)
-    if l:bn == -1 | if filereadable(l:file_name) | execute 'e ' . 'l:file_name' | endif
-    else | execute 'buffer ' . l:bn | endif
+    if l:bn == -1
+        if filereadable(l:file_name) | execute 'e ' . l:file_name | endif
+    else | execute 'buffer' . l:bn | endif
     call cursor(str2nr(l:line), str2nr(l:col))
     normal! zvzz
 endfunction
@@ -318,7 +323,7 @@ function! s:FzfMarks() abort
             \ 'sink': function('s:marks_handler'),
             \ 'options': [
                 \ '--prompt=Marks',
-                \ '--preview', s:preview_program .  ' {4}:{2}',
+                \ '--preview', s:preview_program .  ' {2}',
                 \ s:preview_window
             \ ],
             \ }))

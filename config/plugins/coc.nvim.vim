@@ -351,7 +351,7 @@ if g:HasCocPlug('coc-explorer')
         \   'floating': {
         \      'position': 'floating',
         \      'floating-position': 'center',
-        \      'floating-width': 0.6,
+        \      'floating-width': 100,
         \      'open-action-strategy': 'sourceWindow',
         \   },
         \   'floatingTop': {

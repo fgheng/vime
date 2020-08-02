@@ -41,12 +41,12 @@ Plug 'honza/vim-snippets'
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 快速移动
 Plug 'easymotion/vim-easymotion', {'on':
-        \ [
-        \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
-        \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
-        \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
-        \ '<Plug>(easymotion-overwin-w)'
-        \ ]}
+       \ [
+       \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
+       \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
+       \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
+       \ '<Plug>(easymotion-overwin-w)'
+       \ ]}
 " 对齐
 Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
 " 对齐线
@@ -56,7 +56,7 @@ Plug 'mg979/vim-visual-multi'
 " csv插件
 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 悬浮终端
-Plug 'voldikss/vim-floaterm', {'on': ['FloatermNe', 'FloatermToggle']}
+Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
 " 笔记插件，支持markdown
 Plug 'vimwiki/vimwiki', {'on': ['VimwikiIndex', 'VimwikiTabIndex', 'VimwikiDiaryIndex']}
 " 功能很强的折叠插件, zc zo
@@ -65,10 +65,10 @@ Plug 'pseewald/vim-anyfold'
 Plug 'mhinz/vim-startify'
 " 翻译插件
 Plug 'iamcco/dict.vim', {'on':
-        \ [
-        \ '<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch',
-        \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
-        \ ]}
+       \ [
+       \ '<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch',
+       \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
+       \ ]}
 " tmux相关插件
 if strlen($TMUX) && executable("tmux")
     " tmux与vim窗口间导航

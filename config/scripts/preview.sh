@@ -66,7 +66,7 @@ else
     do
         if [ ${idx} -eq ${rel_center} ]
         then
-            echo -e "\033[32;49;1m ${line} \033[39;49;0m"
+            echo -e "\033[32;49;1m → ${line} \033[39;49;0m"
         else
             echo ${line}
         fi
