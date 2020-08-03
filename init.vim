@@ -26,7 +26,6 @@ let s:custom_config_home = g:config_root_path . '/custom'
 " 定义载入配置命令
 command! -nargs=1 LoadScript exec 'source ' . g:config_root_path . '/' . '<args>'
 
-" 加载插件列表
 call plug#begin(g:plugins_path)
 LoadScript plug.vim
 call plug#end()

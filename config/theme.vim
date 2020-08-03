@@ -26,7 +26,7 @@ endif
 " colorscheme oceanic_material
 
 " 搜索高亮
-hi Search ctermfg=17 ctermbg=190 guifg=#ff0033 guibg=NONE
+hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
 
 if g:HasPlug('coc.nvim')
     if !g:HasPlug('vim-multiple-cursors.vim')
@@ -51,9 +51,10 @@ if g:HasPlug('coc.nvim')
 
     if g:HasCocPlug('coc-explorer')
         " coc-explorer
-        " hi CocExplorerNormalFloatBorder guifg=#00ff00 guibg=#ff0000
-        autocmd FileType coc-explorer set winblend=0
-        autocmd FileType coc-explorer-border set winblend=100
-        " hi CocExplorerNormalFloat guibg=NONE
+        " None 而不是NONE
+        " hi CocExplorerNormalFloatBorder guifg=None guibg=None
+        hi CocExplorerNormalFloat guibg=None
+        " autocmd FileType coc-explorer set winblend=30
+        " autocmd FileType coc-explorer-border set winblend=30
     endif
 endif

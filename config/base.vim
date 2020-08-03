@@ -75,6 +75,7 @@ else
     set scl=yes
 endif
 
+" 定位到退出位置并移动到屏幕中央
 if has("autocmd")
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif | normal! zvzz
 endif
