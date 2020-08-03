@@ -52,7 +52,7 @@ let g:fzf_buffers_jump = 1
 
 au FileType fzf tnoremap <buffer> <C-j> <Down>
 au FileType fzf tnoremap <buffer> <C-k> <Up>
-au FileType fzf tunmap <buffer> <Esc>
+au FileType fzf tnoremap <buffer> <Esc> <c-g>
 
 " ref https://github.com/junegunn/fzf.vim/issues/379
 " 使用系统应用打开文件
