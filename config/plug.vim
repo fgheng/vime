@@ -138,12 +138,13 @@ let g:coc_global_extensions = [
     \ 'coc-snippets',
     \ 'coc-clangd',
     \ 'coc-explorer',
-    \ 'coc-python',
     \ 'coc-json',
     \ 'coc-lists',
     \ 'coc-word',
+    \ 'coc-python',
     \ ]
 
+    "\ 'coc-pyright',
     "\ 'coc-fzf-preview',
     "\ 'coc-bookmark',
     "\ 'coc-rainbow-fart',

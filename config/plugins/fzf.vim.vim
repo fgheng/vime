@@ -192,12 +192,13 @@ command! FzfQuickfix  call s:FzfQuickfix(0)
 command! FzfLocationList  call s:FzfQuickfix(1)
 
 " jumps
-" TODO 思考下逻辑，是否可以化简
 " TODO 增加颜色
 " TODO 定位当前所在的位置而不是总是置顶
-" TODO 学习正则匹配内容
+" 当前jump所在的位置
+" let s:jump_current_line = 0
 function! s:jump_list_format(val) abort
-    let l:file_name = bufname('%') ? bufname('%') : 'Unknown file name'
+    let l:file_name = bufname('%')
+    let l:file_name = empty(l:file_name) ? 'Unknown file name' : l:file_name
     let l:curpos = getcurpos()
     let l:l = matchlist(a:val, '\(>\?\)\s*\(\d*\)\s*\(\d*\)\s*\(\d*\) \?\(.*\)')
     let [l:mark, l:jump, l:line, l:col, l:content] = l:l[1:5]
@@ -207,7 +208,8 @@ function! s:jump_list_format(val) abort
         let l:file_name = expand(l:content)
         let l:bn = bufnr(l:file_name)
         if l:bn > -1 && buflisted(l:bn) > 0
-            let l:content = getbufline(l:bn, l:line)[0]
+            let l:content = getbufline(l:bn, l:line)
+            let l:content = empty(l:content) ? "" : l:content[0]
         else
             let l:content = system("sed -n " . l:line . "p " . l:file_name)
         endif
@@ -217,7 +219,6 @@ function! s:jump_list_format(val) abort
         endif
         let l:content = getline(l:line, l:line)[0]
     endif
-
     return l:mark . " " . l:file_name . ":" . l:line . ":" . l:col . " " . l:content
 endfunction
 
@@ -227,7 +228,8 @@ function! s:jump_list() abort
 endfunction
 
 function! s:jump_handler(jp)
-    let [l:file_name, l:line, l:col, l:content] = matchlist(a:jp, '\(.*\):\(\d\+\):\(\d\+\)\(.*\)')[1:4]
+    let l:l = matchlist(a:jp, '\(.\)\s\(.*\):\(\d\+\):\(\d\+\)\(.*\)')
+    let [l:file_name, l:line, l:col, l:content] = l:l[2:5]
 
     if empty(l:file_name) || empty(l:line) | return | endif
     " 判断文件是否已经存在buffer中

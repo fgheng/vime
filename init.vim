@@ -30,10 +30,19 @@ call plug#begin(g:plugins_path)
 LoadScript plug.vim
 call plug#end()
 
+" 判断插件是否载入
+function! PlugLoaded(name)
+    return (
+        \ has_key(g:plugs, a:name) &&
+        \ isdirectory(g:plugs[a:name].dir) &&
+        \ stridx(&rtp, g:plugs[a:name].dir) >= 0)
+endfunction
+
 " 判断插件列表中是否含有某个插件
 fun! g:HasPlug(plugName) abort
-    if index(g:plugs_order, a:plugName) > -1 | return v:true
-    else | return v:false | endif
+    return (index(g:plugs_order, a:plugName) > -1 ? v:true : v:false)
+    " if index(g:plugs_order, a:plugName) > -1 | return v:true
+    " else | return v:false | endif
 endfunction
 
 " 判断该插件是否已经安装
