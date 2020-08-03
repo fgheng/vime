@@ -197,44 +197,11 @@ command! FzfLocationList  call s:FzfQuickfix(1)
 " TODO 定位当前所在的位置而不是总是置顶
 " TODO 学习正则匹配内容
 function! s:jump_list_format(val) abort
-    " val is a string: id line col content
-    " let l:file_name = bufname('%')
-    let l:file_name = expand("%:p")
+    let l:file_name = bufname('%') ? bufname('%') : 'Unknown file name'
     let l:curpos = getcurpos()
-    let l:content = ""
-
-    let l:val_list = split(a:val)
-    let l:length = len(l:val_list)
-
-    if l:val_list[0] ==? '>'
-        if l:length < 4
-            let l:line = l:curpos[1]
-            let l:col = l:curpos[2]
-            let l:content = getline('.')
-        elseif l:length == 4
-            let l:line = l:val_list[2]
-            let l:col = l:val_list[3]
-            let l:content = getline(l:line, l:line)[0]
-        elseif l:length > 4
-            let l:line = l:val_list[2]
-            let l:col = l:val_list[3]
-            let l:content = a:val[16:]
-        endif
-    else
-        if l:length < 4
-            let l:line = l:val_list[1]
-            let l:col = l:val_list[2]
-            let l:content = getline(l:line, l:line)[0]
-        elseif l:length == 4
-            let l:line = l:val_list[1]
-            let l:col = l:val_list[2]
-            let l:content = l:val_list[3]
-        else
-            let l:line = l:val_list[1]
-            let l:col = l:val_list[2]
-            let l:content = a:val[16:]
-        endif
-    endif
+    let l:l = matchlist(a:val, '\(>\?\)\s*\(\d*\)\s*\(\d*\)\s*\(\d*\) \?\(.*\)')
+    let [l:mark, l:jump, l:line, l:col, l:content] = l:l[1:5]
+    if empty(trim(l:mark)) | let l:mark = '-' | endif
 
     if filereadable(expand(l:content))
         let l:file_name = expand(l:content)
@@ -242,12 +209,16 @@ function! s:jump_list_format(val) abort
         if l:bn > -1 && buflisted(l:bn) > 0
             let l:content = getbufline(l:bn, l:line)[0]
         else
-            " let l:content = ""
             let l:content = system("sed -n " . l:line . "p " . l:file_name)
         endif
+    elseif empty(trim(l:content))
+        if empty(trim(l:line))
+            let [l:line, l:col] = l:curpos[1:2]
+        endif
+        let l:content = getline(l:line, l:line)[0]
     endif
-    return l:file_name . ":" . l:line . ":" . l:col . " " . l:content
 
+    return l:mark . " " . l:file_name . ":" . l:line . ":" . l:col . " " . l:content
 endfunction
 
 function! s:jump_list() abort
@@ -274,7 +245,7 @@ function! s:FzfJumps() abort
             \ 'sink': function('s:jump_handler'),
             \ 'options': [
                 \ '--prompt=Jumps',
-                \ '--preview', s:preview_program . ' {1}',
+                \ '--preview', s:preview_program . ' {2}',
                 \ s:preview_window
             \ ],
             \ }))
