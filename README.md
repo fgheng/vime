@@ -183,24 +183,28 @@ git clone https://github.com/fgheng/vime -C .config/nvim
 
 fzf的彩色预览依赖`bat`，如果没有安装bat，那么自动使用sed进行预览。
 
-| 按键  | 描述                                                         | 提供者               |
-| ----- | ------------------------------------------------------------ | -------------------- |
-| alt-r | 最近打开的文件                                               | fzf/leaderf/clap/coc |
-| alt-b | 显示当前打开的所有buffer                                     | fzf/leaderf/clap/coc |
-| alt-f | 1. 搜索工程目录下的文件<br>2. 搜索wiki笔记目录下的文件       | fzf/leaderf/clap/coc |
-| alt-F | 搜索HOME下的所有文件                                         | fzf/leaderf/clap/coc |
-| alt-w | 显示打开的窗口                                               | fzf/leaderf/clap/coc |
-| alt-m | 显示所有的标记，即marks                                      | fzf/clap/coc         |
-| alt-M | 显示所有映射                                                 | fzf/clap/coc         |
-| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 如果正在编辑wiki目录下的笔记，那么使用rg会搜索wiki笔记目录下的内容 | fzf/leaderf/clap/coc |
-| alt-c | 显示所有命令                                                 | fzf/leaderf/clap/coc |
-| ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/clap/coc |
-| alt-y | 显示复制内容                                                 | fzf/clap/coc         |
-| alt-J | 显示跳转                                                     | fzf                  |
-| alt-o | 使用系统默认应用打开检索到的文件                             | fzf                  |
-| \<F8> | quickfix                                                     | fzf                  |
-| \<F9> | locationList                                                 | fzf                  |
-|       |                                                              |                      |
+fzf增加visual模式下的检索功能，在visual模式下选中一部分文字，按下alt-s，那么就会在该文件所在的工程目录或者笔记目录下搜索选中的文字。
+
+| 按键  | 描述                                                         | 提供者                                   |
+| ----- | ------------------------------------------------------------ | ---------------------------------------- |
+| alt-r | 最近打开的文件                                               | fzf/leaderf/clap/coc                     |
+| alt-b | 显示当前打开的所有buffer                                     | fzf/leaderf/clap/coc                     |
+| alt-f | 1. 搜索工程目录下的文件<br>2. 搜索wiki笔记目录下的文件       | fzf/leaderf/clap/coc                     |
+| alt-F | 搜索HOME下的所有文件                                         | fzf<br>因为clap很慢所以只有fzf保存该功能 |
+| alt-w | 显示打开的窗口                                               | fzf/leaderf/clap/coc                     |
+| alt-m | 显示所有的标记，即marks                                      | fzf/clap/coc                             |
+| alt-M | 显示所有映射                                                 | fzf/clap/coc                             |
+| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 如果正在编辑wiki目录下的笔记，那么使用rg会搜索wiki笔记目录下的内容 | fzf/leaderf/clap/coc                     |
+| alt-c | 显示所有命令                                                 | fzf/leaderf/clap/coc                     |
+| ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/clap/coc                     |
+| alt-y | 显示复制内容                                                 | fzf/clap/coc                             |
+| alt-J | 显示跳转                                                     | fzf/clap                                 |
+| alt-o | 使用系统默认应用打开检索到的文件                             | fzf                                      |
+| \<F8> | quickfix                                                     | fzf/clap                                 |
+| \<F9> | locationList                                                 | fzf/clap                                 |
+|       |                                                              |                                          |
+
+
 
 #### 7.5 多光标
 

@@ -76,7 +76,7 @@ let g:fzf_action = {
 \ }
 
 " 内容检索
-function! s:RipgrepFzfWithWiki(query, fullscreen)
+function! s:RipgrepFzfWithWiki(query, fullscreen) abort
     let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
 
     " 这个是在安装了vimwiki插件后使用的功能，需要配置一下g:vimwiki_path路径
@@ -95,7 +95,24 @@ function! s:RipgrepFzfWithWiki(query, fullscreen)
 
     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
+function! s:get_visual_selection()
+    " Why is this not a built-in Vim script function?!
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
+endfunction
+function! s:RipgrepFzfWithWikiVisual(fullscreen) abort range
+    call s:RipgrepFzfWithWiki(s:get_visual_selection(), a:fullscreen)
+endfunction
 command! -nargs=* -bang GrepWithWiki call s:RipgrepFzfWithWiki(<q-args>, <bang>0)
+" TODO 还需要优化，尽量合并成一个函数，通过参数来操作
+command! -range=% -bang  GrepWithWikiVisual <line1>,<line2>call s:RipgrepFzfWithWikiVisual(<bang>0)
 
 " 文件检索
 function! s:FilesWithWiki(query, fullscreen)
@@ -345,13 +362,14 @@ else
     nnoremap <M-T> :Tags<CR>
 endif
 nnoremap <M-s> :GrepWithWiki<CR>
+vmap <M-s> :GrepWithWikiVisual<CR>
 " 模糊搜索所有buffer
 nnoremap ? :BLines<CR>
 "TODO *检索当前单词
 " nnoremap * :BLines expand('<cword>')<CR>
 nnoremap <M-r> :History<CR>
 " TODO 增加changes 需要自定义
-" nnoremap <M-c> :Commands<CR>
+nnoremap <M-c> :Commands<CR>
 " 如果coc-fzf支持marks的话就用coc-fzf+coc-bookmarks
 nnoremap <M-m> :FzfMarks<CR>
 " nnoremap <M-m> :Marks<CR>
@@ -366,6 +384,7 @@ nnoremap <M-J> :FzfJumps<CR>
 " TODO 编写高亮
 nnoremap <F8> :FzfQuickfix<CR>
 nnoremap <F9> :FzfLocationList<CR>
-" git
+" TODO 还需要增加一下git相关的内容
+" 前提需要学习git，看看需要哪些
 nnoremap <leader>gf :FzfGitFiles<CR>
 nnoremap <leader>gs :FzfGitStatus<CR>

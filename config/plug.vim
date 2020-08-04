@@ -1,6 +1,7 @@
 " 代码补全插件
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 检索
+" Plug 'liuchengxu/vim-clap'
 Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
@@ -24,7 +25,7 @@ Plug 'hardcoreplayers/oceanic-material'
 " 底栏
 Plug 'itchyny/lightline.vim'
 " 彩虹括号
-Plug 'luochen1990/rainbow'
+" Plug 'luochen1990/rainbow'
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
