@@ -23,13 +23,17 @@ if has('nvim')
 endif
 
 " 配色与主题同色
+" fg表示未选中行的前景色
+" hl表示搜索到的文字的颜色
+" fg+表示选中的行的前景色
+" hl+表示选中的行的搜索文字颜色
 let g:fzf_colors = {
-    \ 'fg':      ['fg', 'Folded'],
+    \ 'fg':      ['fg', 'Normal'],
     \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'Number'],
+    \ 'hl':      ['fg', 'Directory'],
     \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
     \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'hl+':     ['fg', 'Statement'],
+    \ 'hl+':     ['fg', 'WarningMsg'],
     \ 'info':    ['fg', 'PreProc'],
     \ 'border':  ['fg', 'Ignore'],
     \ 'prompt':  ['fg', 'Conditional'],
@@ -37,9 +41,12 @@ let g:fzf_colors = {
     \ 'marker':  ['fg', 'Keyword'],
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment'] }
-
 " 预览窗口配置
-let s:preview_window_config = 'up:40%:wrap'
+if has('nvim')
+    let s:preview_window_config = 'up:40%:wrap'
+else
+    let s:preview_window_config = 'right:50%:wrap'
+endif
 " 总是开启预览
 let g:fzf_preview_window = s:preview_window_config
 let s:preview_window = '--preview-window=' . s:preview_window_config
@@ -320,6 +327,37 @@ function! s:FzfMarks() abort
 endfunction
 command! -bang -nargs=* FzfMarks call s:FzfMarks()
 
+function! s:blines_handler(lines) abort
+    if len(a:lines) < 2
+        return
+    endif
+    execute split(a:lines, '\t')[0]
+    normal! zvzz
+endfunction
+function! s:blines_list() abort
+    let fmtexpr = 'printf("%4d\t%s", v:key + 1, v:val)'
+    let lines = getline(1, '$')
+    return map(lines, fmtexpr)
+endfunction
+function! s:FzfBLines() abort
+    let l:cur_buf_name = expand('%')
+    if empty(l:cur_buf_name)
+        let l:preview = 'echo please save first to preview'
+    else
+        let l:preview = s:preview_program . ' ' . l:cur_buf_name . ':{1}'
+    endif
+    call fzf#run(fzf#wrap({
+            \ 'source': <sid>blines_list(),
+            \ 'sink': function('s:blines_handler'),
+            \ 'options': [
+                \ '--prompt=BLines>',
+                \ '--preview', l:preview,
+                \ s:preview_window
+            \ ],
+            \ }))
+endfunction
+command! -bang -nargs=* FzfBLines call s:FzfBLines()
+
 " git相关
 " command! -bang -nargs=* GzgGitGrep
 "\ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>),
@@ -349,13 +387,16 @@ command! -bang -nargs=? -complete=dir FzfGitStatus
     \ ],
     \ 'sink': 'e'}, <bang>0)
 
-
 " 自定义快捷键
 nnoremap <M-f> :FWW<CR>
 nnoremap <M-F> :FWW $HOME<CR>
 nnoremap <M-b> :Buffers<CR>
 if g:HasPlug('vista.vim')
-    let g:vista_fzf_preview = ['up:40%']
+    if has('nvim')
+        let g:vista_fzf_preview = ['up:40%']
+    else
+        let g:vista_fzf_preview = ['right:40%']
+    endif
     noremap <M-t> :Vista finder<CR>
 else
     nnoremap <M-t> :BTags<CR>
@@ -363,8 +404,8 @@ else
 endif
 nnoremap <M-s> :GrepWithWiki<CR>
 vmap <M-s> :GrepWithWikiVisual<CR>
-" 模糊搜索所有buffer
-nnoremap ? :BLines<CR>
+" 模糊搜索当前buffer
+nnoremap ? :FzfBLines<CR>
 "TODO *检索当前单词
 " nnoremap * :BLines expand('<cword>')<CR>
 nnoremap <M-r> :History<CR>

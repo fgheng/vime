@@ -12,20 +12,17 @@ Plug 'tyru/caw.vim'
 Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
 " 主题theme类插件
 Plug 'ajmwagar/vim-deus'
-Plug 'crusoexia/vim-monokai'
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/forest-night'
 Plug 'srcery-colors/srcery-vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'altercation/vim-colors-solarized'
 Plug 'hardcoreplayers/oceanic-material'
+Plug 'chuling/ci_dark'
 " 底栏
 Plug 'itchyny/lightline.vim'
 " 彩虹括号
-" Plug 'luochen1990/rainbow'
+Plug 'luochen1990/rainbow'
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
@@ -42,16 +39,16 @@ Plug 'honza/vim-snippets'
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 快速移动
 Plug 'easymotion/vim-easymotion', {'on':
-     \ [
-     \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
-     \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
-     \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
-     \ '<Plug>(easymotion-overwin-w)'
-     \ ]}
+    \ [
+    \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
+    \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
+    \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
+    \ '<Plug>(easymotion-overwin-w)'
+    \ ]}
 " 对齐
 Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
 " 对齐线
-Plug 'Yggdroot/indentLine' ", {'on': 'IndentLinesEnable'}
+Plug 'Yggdroot/indentLine'
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " csv插件
@@ -120,8 +117,11 @@ endif
 Plug 'tpope/vim-apathy'
 " 查看启动时间
 Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
+" 专注阅读
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+
+Plug 'vim/killersheep'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [

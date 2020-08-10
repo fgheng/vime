@@ -53,13 +53,11 @@ fun! g:HasInstall(plugin_name) abort
     else | return v:false | endif
 endfunction
 
-if g:HasPlug('coc.nvim')
+fun! g:HasCocPlug(cocPlugName)
     " 判断是否安装了coc插件
-    fun! g:HasCocPlug(cocPlugName)
-        if index(g:coc_global_extensions, a:cocPlugName) > -1 | return v:true
-        else | return v:false | endif
-    endfunc
-endif
+    if g:HasPlug('coc.nvim') && index(g:coc_global_extensions, a:cocPlugName) > -1 | return v:true
+    else | return v:false | endif
+endfunc
 
 " 除非把快捷键全部集中到keymap中
 " for [plug_name, spec] in items(g:plugs)

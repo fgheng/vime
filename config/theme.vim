@@ -16,14 +16,7 @@ if has('termguicolors')
     set termguicolors
 endif
 
-if g:HasPlug('srcery-vim')
-    let g:srcery_bold=1
-    let g:srcety_italic=1
-    let g:srcery_transparent_background=1
-    colorscheme srcery
-endif
-" let g:oceanic_material_transparent_background=1
-" colorscheme oceanic_material
+colorscheme srcery
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
@@ -51,7 +44,7 @@ if g:HasPlug('coc.nvim')
         hi HighlightedyankRegion cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffa07a
     endif
 
-    if g:HasCocPlug('coc-explorer')
+    if g:HasCocPlug('coc-explorer') && has('nvim')
         " coc-explorer
         " None 而不是NONE
         " hi CocExplorerNormalFloatBorder guifg=None guibg=None

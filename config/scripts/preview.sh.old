@@ -57,6 +57,22 @@ if [ -z "$FZF_PREVIEW_COMMAND" ] && command -v bat > /dev/null; then
   bat --style="${BAT_STYLE:-numbers}" --color=always --pager=never \
       --line-range=$FIRST:$LAST --highlight-line=$CENTER "$FILE"
   exit $?
+else
+    rel_center=$((${CENTER} - ${FIRST}))
+    rel=$(sed -n "${FIRST},${LAST}p" "$FILE")
+    IFS="\n"; read -r -a arr <<< "$rel"
+    idx=0
+    echo $rel | while read line
+    do
+        if [ ${idx} -eq ${rel_center} ]
+        then
+            echo -e "\033[32;49;1m → ${line} \033[39;49;0m"
+        else
+            echo ${line}
+        fi
+        let idx++
+    done
+    exit $?
 fi
 
 DEFAULT_COMMAND="highlight -O ansi -l {} || coderay {} || rougify {} || cat {}"
