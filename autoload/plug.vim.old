@@ -115,6 +115,7 @@ let s:TYPE = {
 \ }
 let s:loaded = get(s:, 'loaded', {})
 let s:triggers = get(s:, 'triggers', {})
+let g:loaded = s:loaded
 
 if s:is_win
   function! s:plug_call(fn, ...)
@@ -210,11 +211,8 @@ endfunction
 
 function! s:source(from, ...)
   let found = 0
-  " 遍历参数列表, 匹配模式ftdetect/**/*.vim ...
   for pattern in a:000
-      " 遍历匹配到的文件
     for vim in s:glob(a:from, pattern)
-        " 执行载入
       execute 'source' s:esc(vim)
       let found = 1
     endfor
@@ -268,7 +266,6 @@ function! plug#end()
   if exists('g:did_load_filetypes')
     filetype off
   endif
-
   for name in g:plugs_order
     if !has_key(g:plugs, name)
       continue
@@ -281,23 +278,15 @@ function! plug#end()
 
     if has_key(plug, 'on')
       let s:triggers[name] = { 'map': [], 'cmd': [] }
-      " 遍历plug.on中的命令
       for cmd in s:to_a(plug.on)
-          " 如果命令以<Plug>开头
         if cmd =~? '^<Plug>.\+'
-            " 映射匹配，检查是否有这么一个映射
           if empty(mapcheck(cmd)) && empty(mapcheck(cmd, 'i'))
-              " 没有的话, 在lod.map中增加一个key，key为cmd，val为[name]
             call s:assoc(lod.map, cmd, name)
           endif
-          " 向对应插件的触发映射中增加命令。
           call add(s:triggers[name].map, cmd)
-          " 其他非<Plug>开头的命令
         elseif cmd =~# '^[A-Z]'
-            " 去除末尾的叹号
           let cmd = substitute(cmd, '!*$', '', '')
           if exists(':'.cmd) != 2
-              " 向lod.map中增加一个key，key为cmd，val为[name]
             call s:assoc(lod.cmd, cmd, name)
           endif
           call add(s:triggers[name].cmd, cmd)
@@ -316,8 +305,7 @@ function! plug#end()
         augroup END
       endif
       for type in types
-          " 向lod.ft中增加一个key，key为type，val为name
-          call s:assoc(lod.ft, type, name)
+        call s:assoc(lod.ft, type, name)
       endfor
     endif
   endfor
@@ -370,7 +358,6 @@ function! s:reload_plugins()
 endfunction
 
 function! s:trim(str)
-    " 去掉末尾的所有/
   return substitute(a:str, '[\/]\+$', '', '')
 endfunction
 
@@ -402,7 +389,6 @@ endfunction
 
 if s:is_win
   function! s:path(path)
-    " 替换a:path中的所有/为\
     return s:trim(substitute(a:path, '/', '\', 'g'))
   endfunction
 
@@ -455,6 +441,7 @@ endif
 
 function! s:err(msg)
   echohl ErrorMsg
+  echom '[vim-plug] '.a:msg
   echohl None
 endfunction
 
@@ -534,7 +521,6 @@ function! plug#load(...)
   if a:0 == 0
     return s:err('Argument missing: plugin name(s) required')
   endif
-
   if !exists('g:plugs')
     return s:err('plug#begin was not called')
   endif
@@ -1039,7 +1025,6 @@ function! s:finish(pull)
 endfunction
 
 function! s:retry()
-
   if empty(s:update.errors)
     return
   endif

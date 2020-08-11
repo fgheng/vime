@@ -115,7 +115,6 @@ let s:TYPE = {
 \ }
 let s:loaded = get(s:, 'loaded', {})
 let s:triggers = get(s:, 'triggers', {})
-let g:loaded = s:loaded
 
 if s:is_win
   function! s:plug_call(fn, ...)
