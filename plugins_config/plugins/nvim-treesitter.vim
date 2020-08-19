@@ -30,14 +30,14 @@ require'nvim-treesitter.configs'.setup {
         smart_rename = { -- 智能重命名
             enable = false,
             keymaps = {
-            smart_rename = "grr"            -- mapping to rename reference under cursor
+            -- smart_rename = "grr"            -- mapping to rename reference under cursor
             }
         },
         navigation = {
             enable = false,
             keymaps = {
-            goto_definition = "gnd",        -- mapping to go to definition of symbol under cursor
-            list_definitions = "gnD"        -- mapping to list all definitions in current file
+            -- goto_definition = "gnd",        -- mapping to go to definition of symbol under cursor
+            -- list_definitions = "gnD"        -- mapping to list all definitions in current file
             }
         }
     },

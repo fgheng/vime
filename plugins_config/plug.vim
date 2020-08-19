@@ -6,6 +6,8 @@ Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
 \ | Plug 'antoinemadec/coc-fzf'
+" git插件
+Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive'
 " 注释插件
 Plug 'tyru/caw.vim'
 " 生成注释文档

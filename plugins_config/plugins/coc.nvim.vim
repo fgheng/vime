@@ -1,3 +1,5 @@
+" coc插件安装目录
+let g:coc_data_home = g:cache_root_path . 'coc/'
 
 " 卸载不在列表中的插件
 function! s:uninstall_unused_coc_extensions() abort
@@ -202,7 +204,13 @@ if g:HasCocPlug('coc-snippets')
 endif
 
 if g:HasCocPlug('coc-yank')
+    " let g:coc_yank = {
+    "    \ "yank.highlight.duration": 200,
+    "    \ "yank.enableCompletion": v:true,
+    "\ }
+    " let g:coc_user_config = extend(g:coc_user_config, g:coc_yank)
     " nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
+
     if !g:HasPlug('vim-clap') && !g:HasPlug('fzf')
         nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
     endif

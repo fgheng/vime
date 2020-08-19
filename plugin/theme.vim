@@ -16,7 +16,9 @@ if has('termguicolors')
     set termguicolors
 endif
 
-colorscheme srcery
+" let g:srcery_italic = 1
+" let g:srcery_transparent_background = 1
+colorscheme ci_dark
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
@@ -47,9 +49,6 @@ if g:HasPlug('coc.nvim')
     if g:HasCocPlug('coc-explorer') && has('nvim')
         " coc-explorer
         " None 而不是NONE
-        " hi CocExplorerNormalFloatBorder guifg=None guibg=None
         hi CocExplorerNormalFloat guibg=None
-        " autocmd FileType coc-explorer set winblend=30
-        " autocmd FileType coc-explorer-border set winblend=30
     endif
 endif

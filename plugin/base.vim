@@ -33,7 +33,7 @@ set list                                                    " 只有setlist后�
 set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
 set listchars+=eol:¬
 set listchars+=trail:·                                      " 尾部空白
-" set listchars+=space:\                                     " 空白
+set listchars+=space:\                                     " 空白
 set pumheight=20                                            " 设置弹出框大小, 0 则有多少显示多少
 
 set nobackup                                                " coc
