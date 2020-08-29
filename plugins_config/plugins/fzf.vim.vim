@@ -15,15 +15,13 @@ let g:fzf_history_dir = g:fzf_dir . "/fzf-history"
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
 
-if has('nvim')
-    " coc-fzf也使用这个变量
-    let g:fzf_layout = {
-        \ 'window': {
-            \ 'up': '~90%', 'width': 0.6, 'height': 0.8, 'yoffset':0.5,
-            \ 'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp'
-        \ }
+" coc-fzf也使用这个变量
+let g:fzf_layout = {
+    \ 'window': {
+        \ 'up': '~90%', 'width': 0.6, 'height': 0.8, 'yoffset':0.5,
+        \ 'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp'
     \ }
-endif
+\ }
 
 " 预览窗口配置
 if has('nvim')
@@ -96,6 +94,19 @@ let g:fzf_action = {
     \ 'alt-o': function('s:SystemExecute'),
 \ }
 
+" visual模式下单词划线
+function! s:get_visual_selection()
+    " Why is this not a built-in Vim script function?!
+    let [line_start, column_start] = getpos("'<")[1:2]
+    let [line_end, column_end] = getpos("'>")[1:2]
+    let lines = getline(line_start, line_end)
+    if len(lines) == 0
+        return ''
+    endif
+    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][column_start - 1:]
+    return join(lines, "\n")
+endfunction
 
 "----------------------------------------------------------------
 " 内容检索
@@ -119,25 +130,13 @@ function! s:RipgrepFzfWithWiki(query, fullscreen) abort
 
     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
-function! s:get_visual_selection()
-    " Why is this not a built-in Vim script function?!
-    let [line_start, column_start] = getpos("'<")[1:2]
-    let [line_end, column_end] = getpos("'>")[1:2]
-    let lines = getline(line_start, line_end)
-    if len(lines) == 0
-        return ''
-    endif
-    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
-    let lines[0] = lines[0][column_start - 1:]
-    return join(lines, "\n")
-endfunction
+
 function! s:RipgrepFzfWithWikiVisual(fullscreen) abort range
     call s:RipgrepFzfWithWiki(s:get_visual_selection(), a:fullscreen)
 endfunction
 command! -nargs=* -bang GrepWithWiki call s:RipgrepFzfWithWiki(<q-args>, <bang>0)
 " TODO 还需要优化，尽量合并成一个函数，通过参数来操作
 command! -range=% -bang  GrepWithWikiVisual <line1>,<line2>call s:RipgrepFzfWithWikiVisual(<bang>0)
-
 
 "----------------------------------------------------------------
 " 文件检索
@@ -228,7 +227,6 @@ function! s:FzfQuickfix(...) abort
                 \ s:preview_window
             \ ],
             \ }))
-    " if !exists('g:fzf_quickfix_syntax_on') | call s:quickfix_syntax() | endif
 endfunction
 command! FzfQuickfix  call s:FzfQuickfix(0)
 command! FzfLocationList  call s:FzfQuickfix(1)
@@ -361,7 +359,7 @@ function! s:blines_list() abort
     let lines = getline(1, '$')
     return map(lines, fmtexpr)
 endfunction
-function! s:FzfBLines() abort
+function! s:FzfBLines(query) abort
     let l:cur_buf_name = expand('%')
     if empty(l:cur_buf_name)
         let l:preview = 'echo please save first to preview'
@@ -373,12 +371,18 @@ function! s:FzfBLines() abort
             \ 'sink': function('s:blines_handler'),
             \ 'options': [
                 \ '--prompt=BLines>',
+                \ '--query', a:query,
                 \ '--preview', l:preview,
                 \ s:preview_window
             \ ],
             \ }))
 endfunction
-command! -bang -nargs=* FzfBLines call s:FzfBLines()
+function s:FzfBLinesVisual() abort
+    call s:FzfBLines(s:get_visual_selection())
+endfunction
+command! -bang -nargs=* FzfBLines call s:FzfBLines("")
+" command! -bang -nargs=* FzfBLinesVisual call s:FzfBLinesVisual()
+command! -range=% -bang FzfBLinesVisual <line1>,<line2>call s:FzfBLinesVisual()
 
 "----------------------------------------------------------------
 " yank depends on coc-yank
@@ -437,6 +441,7 @@ nnoremap <M-s> :GrepWithWiki<CR>
 vmap <M-s> :GrepWithWikiVisual<CR>
 " 模糊搜索当前buffer
 nnoremap ? :FzfBLines<CR>
+vmap ? :FzfBLinesVisual<CR>
 "TODO *检索当前单词
 " nnoremap * :BLines expand('<cword>')<CR>
 nnoremap <M-r> :History<CR>

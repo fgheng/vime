@@ -249,6 +249,29 @@ function! s:lazy(plug, opt)
         \  len(s:glob(s:rtp(a:plug), 'after/plugin')))
 endfunction
 
+" 判断插件是否载入
+function! PlugLoaded(name)
+    return (
+        \ has_key(g:plugs, a:name) &&
+        \ isdirectory(g:plugs[a:name].dir) &&
+        \ stridx(&rtp, g:plugs[a:name].dir) >= 0)
+endfunction
+
+" 判断插件列表中是否含有某个插件
+fun! g:HasPlug(plugName) abort
+    return (index(g:plugs_order, a:plugName) > -1 ? v:true : v:false)
+endfunction
+
+" 判断该插件是否已经安装
+fun! g:HasInstall(plugin_name) abort
+    return (isdirectory(g:plugs[a:plugin_name].dir) ? v:true : v:false)
+endfunction
+
+" 判断是否安装了coc插件
+fun! g:HasCocPlug(cocPlugName)
+    if g:HasPlug('coc.nvim') && index(g:coc_global_extensions, a:cocPlugName) > -1 | return v:true
+    else | return v:false | endif
+endfunc
 function! plug#end()
   if !exists('g:plugs')
     return s:err('plug#end() called without calling plug#begin() first')

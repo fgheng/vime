@@ -16,9 +16,9 @@ if has('termguicolors')
     set termguicolors
 endif
 
-" let g:srcery_italic = 1
-" let g:srcery_transparent_background = 1
-colorscheme ci_dark
+let g:srcery_italic = 1
+let g:srcery_transparent_background = 1
+colorscheme srcery
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
