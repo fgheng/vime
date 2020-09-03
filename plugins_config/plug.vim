@@ -10,7 +10,7 @@ Plug 'junegunn/fzf.vim'
 " git插件
 Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive'
 " 注释插件
-Plug 'tyru/caw.vim'
+Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
 Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
 " 主题theme类插件 Plug 'ajmwagar/vim-deus'
@@ -112,7 +112,7 @@ else
 endif
 " 总是匹配tag
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'css', 'xml']}
-" 显示颜色
+" 显示代码颜色
 if has('nvim')
     Plug 'norcalli/nvim-colorizer.lua'
 else

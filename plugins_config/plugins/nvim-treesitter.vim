@@ -35,7 +35,7 @@ require'nvim-treesitter.configs'.setup {
     -- 一些重构方案
     refactor = {
         highlight_definitions = { enable = true },   -- 定义高亮
-        highlight_current_scope = { enable = true }, -- 范围高亮
+        highlight_current_scope = { enable = false }, -- 范围高亮
         smart_rename = { -- 智能重命名
             enable = false,
             keymaps = {

@@ -54,9 +54,18 @@ endif
 nmap <silent> <M-j> <Plug>(coc-diagnostic-next)
 nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
 
-" 跳转到定义
+" 跳转到定义，在新窗口打开
+function! s:definition_other_window() abort
+  if winnr('$') >= 4 || (winwidth(0) - (max([len(line('$')), &numberwidth-1]) + 1)) < 110
+    exec "normal \<Plug>(coc-definition)"
+  else
+    exec 'vsplit'
+    exec "normal \<Plug>(coc-definition)"
+  endif
+endfunction
 " nmap <silent> gd :<c-u>call CocActionAsync('jumpDefinition')<cr>
 nmap <silent> gd <plug>(coc-definition)
+" nmap <silent> gd :call <SID>definition_other_window()<cr>
 " 跳转到类型定义
 nmap <silent> gy <plug>(coc-type-definition)
 " 跳转到实现
