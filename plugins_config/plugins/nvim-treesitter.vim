@@ -1,3 +1,6 @@
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 lua <<EOF
 require "nvim-treesitter.highlight"
 local hlmap = vim.treesitter.highlighter.hl_map
@@ -14,7 +17,7 @@ require'nvim-treesitter.configs'.setup {
     -- 高亮配置
     highlight = {
         enable = true,                      -- false将禁用整个插件
-        disable = {},                       -- 不使用该插件的语言
+        disable = {},                 -- 不使用该插件的语言
         custom_captures = {                 -- mapping of user defined captures to highlight groups
           -- ["foo.bar"] = "Identifier"     -- highlight own capture @foo.bar with highlight group "Identifier", see :h nvim-treesitter-query-extensions
         },
@@ -47,6 +50,8 @@ require'nvim-treesitter.configs'.setup {
             keymaps = {
             -- goto_definition = "gnd",        -- mapping to go to definition of symbol under cursor
             -- list_definitions = "gnD"        -- mapping to list all definitions in current file
+            -- goto_next_usage = "<a-*>",
+            -- goto_previous_usage = "<a-#>",
             }
         }
     },
@@ -73,6 +78,16 @@ require'nvim-treesitter.configs'.setup {
                 ["am"] = "@call.outer",
                 ["im"] = "@call.inner"
             }
+        },
+
+        swap = {
+            enable = true,
+            swap_next = {
+                ["<leader>a"] = "@parameter.inner",
+            },
+            swap_previous = {
+                ["<leader>A"] = "@parameter.inner",
+            },
         },
 
         move = {
