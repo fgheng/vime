@@ -1,5 +1,6 @@
 # vime
 
+## update
 新建立了一个分支new_struct，该分支将master分支下的config/custom下的自定义配置以及base.vim、keymap.vim、theme.vim移动到plugin目录下了，配置目录下新建立scripts目录，用于存放一些需要的脚本。
 
 克隆新分支
@@ -7,6 +8,8 @@
 ```
 git clone -b new_struct https://github.com/fgheng/vime -C ~/.config/nvim
 ```
+
+---
 
 ## 1. About
 
