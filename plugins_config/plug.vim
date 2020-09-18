@@ -25,7 +25,8 @@ Plug 'mhartington/oceanic-next'
 Plug '986299679/space-vim-theme'
 Plug 'ayu-theme/ayu-vim'
 " 底栏
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'rbong/vim-crystalline'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 函数列表
