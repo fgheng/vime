@@ -218,7 +218,6 @@ function! CocListFilesWithWiki(query)
     endif
 endfunction
 " TODO 需要思考一下这里的逻辑
-" if !has('nvim') || !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
 if !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
     if g:HasCocPlug('coc-lists')
         nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
