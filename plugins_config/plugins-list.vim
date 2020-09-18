@@ -178,3 +178,5 @@ endif
 Plug 'francoiscabrol/ranger.vim'
 " 颜色编辑器
 Plug 'rbtnn/vim-coloredit'
+" 目录列表插件可以使用coc-explorer代替
+Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'

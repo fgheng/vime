@@ -2,7 +2,6 @@
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Plug 'metakirby5/codi.vim'
 " 检索
-" Plug 'liuchengxu/vim-clap'
 Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
@@ -61,7 +60,7 @@ Plug 'mg979/vim-visual-multi'
 " 悬浮终端
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
 " 笔记插件，支持markdown
-Plug 'vimwiki/vimwiki', {'on': ['VimwikiIndex', 'VimwikiTabIndex', 'VimwikiDiaryIndex']}
+Plug 'vimwiki/vimwiki'
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
 " 起始界面
@@ -143,21 +142,21 @@ let g:coc_global_extensions = [
     \ 'coc-cmake',
     \ 'coc-snippets',
     \ 'coc-clangd',
-    \ 'coc-explorer',
     \ 'coc-json',
     \ 'coc-lists',
     \ 'coc-word',
     \ 'coc-python',
+    \ 'coc-explorer',
     \ ]
 
     "\ 'coc-pyright',
     "\ 'coc-fzf-preview',
     "\ 'coc-bookmark',
     "\ 'coc-rainbow-fart',
-    " \ 'coc-lists',
-    " \ 'coc-rls',
-    " \ 'coc-java',
-    " \ 'coc-go',
+    "\ 'coc-lists',
+    "\ 'coc-rls',
+    "\ 'coc-java',
+    "\ 'coc-go',
     "\ 'coc-sql',
     "\ 'coc-lua'
     "\ 'coc-tabnine',

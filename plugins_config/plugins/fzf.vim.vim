@@ -24,12 +24,7 @@ let g:fzf_layout = {
 \ }
 
 " 预览窗口配置
-if has('nvim')
-    let s:preview_window_config = 'up:50%:wrap'
-else
-    let s:preview_window_config = 'right:50%:wrap'
-endif
-" 总是开启预览
+let s:preview_window_config = 'up:50%:wrap'
 let g:fzf_preview_window = s:preview_window_config
 let s:preview_window = '--preview-window=' . s:preview_window_config
 " 自定义窗口预览程序

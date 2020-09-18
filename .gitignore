@@ -5,3 +5,5 @@ pack/
 *.bak
 *.bak2
 tags
+nerdtree_selected.json
+nerdtree.json

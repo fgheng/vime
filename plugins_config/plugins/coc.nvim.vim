@@ -56,16 +56,45 @@ nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
 
 " 跳转到定义，在新窗口打开
 function! s:definition_other_window() abort
-  if winnr('$') >= 4 || (winwidth(0) - (max([len(line('$')), &numberwidth-1]) + 1)) < 110
-    exec "normal \<Plug>(coc-definition)"
-  else
-    exec 'vsplit'
-    exec "normal \<Plug>(coc-definition)"
-  endif
+    if winnr('$') >= 4 || (winwidth(0) - (max([len(line('$')), &numberwidth-1]) + 1)) < 110
+        exec "normal \<Plug>(coc-definition)"
+    else
+        exec 'vsplit'
+        exec "normal \<Plug>(coc-definition)"
+    endif
 endfunction
+
+" Remap keys for gotos
+" tagstack gotoTag
+function! s:gotoTag(tagkind) abort
+    let l:current_tag = expand('<cWORD>')
+
+    let l:current_position = getcurpos()
+    let l:current_position[0] = bufnr()
+
+    let l:current_tag_stack = gettagstack()
+    let l:current_tag_index = l:current_tag_stack['curidx']
+    let l:current_tag_items = l:current_tag_stack['items']
+
+    if CocAction('jump' . a:tagkind)
+        let l:new_tag_index = l:current_tag_index + 1
+        let l:new_tag_item = [{'tagname': l:current_tag, 'from': l:current_position}]
+        let l:new_tag_items = l:current_tag_items[:]
+        if l:current_tag_index <= len(l:current_tag_items)
+            call remove(l:new_tag_items, l:current_tag_index - 1, -1)
+        endif
+        let l:new_tag_items += l:new_tag_item
+
+        call settagstack(winnr(), {'curidx': l:new_tag_index, 'items': l:new_tag_items}, 'r')
+    endif
+endfunction
+
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gd :call CocAction('jumpDefinition', 'drop')<cr>
 " nmap <silent> gd :<c-u>call CocActionAsync('jumpDefinition')<cr>
-nmap <silent> gd <plug>(coc-definition)
+" nmap <silent> gd <plug>(coc-definition)
 " nmap <silent> gd :call <SID>definition_other_window()<cr>
+nmap <silent> gd :call <SID>gotoTag("Definition")<CR>
 " 跳转到类型定义
 nmap <silent> gy <plug>(coc-type-definition)
 " 跳转到实现
@@ -189,7 +218,8 @@ function! CocListFilesWithWiki(query)
     endif
 endfunction
 " TODO 需要思考一下这里的逻辑
-if !has('nvim') || !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
+" if !has('nvim') || !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
+if !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
     if g:HasCocPlug('coc-lists')
         nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
         nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
@@ -364,7 +394,7 @@ endif
 
 " coc-python
 if g:HasCocPlug('coc-python')
-    call coc#config("python.jediEnabled", v:false)
+    call coc#config("python.jediEnabled", v:true)
     call coc#config("python.linting.enabled", v:true)
     call coc#config("python.linting.pylintEnabled", v:true)
 endif

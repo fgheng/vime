@@ -16,6 +16,10 @@ if has('termguicolors')
     set termguicolors
 endif
 
+if has('nvim')
+    set pumblend=20 " 提示框透明
+endif
+
 let g:srcery_italic = 1
 let g:srcery_transparent_background = 1
 colorscheme srcery
