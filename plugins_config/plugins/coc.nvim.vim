@@ -1,3 +1,7 @@
+" coc插件安装目录
+let g:coc_data_home = g:cache_root_path . 'coc/'
+" coc-settings.json目录
+let g:coc_config_home = g:plugins_config_root_path
 
 " 卸载不在列表中的插件
 function! s:uninstall_unused_coc_extensions() abort
@@ -27,12 +31,16 @@ inoremap <silent><expr> <S-TAB>
     \ "\<C-h>"
 
 " alt j选择下一个补全
-inoremap <silent><expr> <M-j>
+inoremap <silent><expr> <m-j>
     \ pumvisible() ? "\<C-n>" : return
 
 " alt k选择上一个补全
-inoremap <silent><expr> <M-k>
+inoremap <silent><expr> <m-k>
     \ pumvisible() ? "\<C-p>" : return
+
+" alt j k 用于补全块的跳转，优先补全块跳转
+let g:coc_snippet_next = '<m-j>'
+let g:coc_snippet_prev = '<m-k>'
 
 " 回车选中或者扩展选中的补全内容
 if exists('*complete_info')
@@ -46,9 +54,47 @@ endif
 nmap <silent> <M-j> <Plug>(coc-diagnostic-next)
 nmap <silent> <M-k> <Plug>(coc-diagnostic-prev)
 
-" 跳转到定义
+" 跳转到定义，在新窗口打开
+function! s:definition_other_window() abort
+    if winnr('$') >= 4 || (winwidth(0) - (max([len(line('$')), &numberwidth-1]) + 1)) < 110
+        exec "normal \<Plug>(coc-definition)"
+    else
+        exec 'vsplit'
+        exec "normal \<Plug>(coc-definition)"
+    endif
+endfunction
+
+" Remap keys for gotos
+" tagstack gotoTag
+function! s:gotoTag(tagkind) abort
+    let l:current_tag = expand('<cWORD>')
+
+    let l:current_position = getcurpos()
+    let l:current_position[0] = bufnr()
+
+    let l:current_tag_stack = gettagstack()
+    let l:current_tag_index = l:current_tag_stack['curidx']
+    let l:current_tag_items = l:current_tag_stack['items']
+
+    if CocAction('jump' . a:tagkind)
+        let l:new_tag_index = l:current_tag_index + 1
+        let l:new_tag_item = [{'tagname': l:current_tag, 'from': l:current_position}]
+        let l:new_tag_items = l:current_tag_items[:]
+        if l:current_tag_index <= len(l:current_tag_items)
+            call remove(l:new_tag_items, l:current_tag_index - 1, -1)
+        endif
+        let l:new_tag_items += l:new_tag_item
+
+        call settagstack(winnr(), {'curidx': l:new_tag_index, 'items': l:new_tag_items}, 'r')
+    endif
+endfunction
+
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gd :call CocAction('jumpDefinition', 'drop')<cr>
 " nmap <silent> gd :<c-u>call CocActionAsync('jumpDefinition')<cr>
-nmap <silent> gd <plug>(coc-definition)
+" nmap <silent> gd <plug>(coc-definition)
+" nmap <silent> gd :call <SID>definition_other_window()<cr>
+nmap <silent> gd :call <SID>gotoTag("Definition")<CR>
 " 跳转到类型定义
 nmap <silent> gy <plug>(coc-type-definition)
 " 跳转到实现
@@ -69,13 +115,13 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " 函数参数的文档
 nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
 
-augroup mygroup
-    autocmd!
-    " Setup formatexpr specified filetype(s).
-    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-    " Update signature help on jump placeholder
-    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+" augroup mygroup
+"     autocmd!
+"     " Setup formatexpr specified filetype(s).
+"     autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+"     " Update signature help on jump placeholder
+"     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+" augroup end
 
 " 格式化代码
 command! -nargs=0 Format :call CocAction('format')
@@ -172,7 +218,8 @@ function! CocListFilesWithWiki(query)
     endif
 endfunction
 " TODO 需要思考一下这里的逻辑
-if !has('nvim') || !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
+" if !has('nvim') || !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
+if !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
     if g:HasCocPlug('coc-lists')
         nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
         nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
@@ -195,14 +242,29 @@ if !has('nvim') || !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug(
     endif
 endif
 
-if g:HasCocPlug('coc-snippets')
-    " alt j k 用于补全块的跳转
-    let g:coc_snippet_next = '<m-j>'
-    let g:coc_snippet_prev = '<m-k>'
-endif
+" if g:HasCocPlug('coc-snippets')
+    " alt j k 用于补全块的跳转，优先补全块跳转
+    " let g:coc_snippet_next = '<m-j>'
+    " let g:coc_snippet_prev = '<m-k>'
+
+    " inoremap <buffer><silent><nowait><expr> <m-j>
+    "            \ pumvisible() ? "\<c-n>" : "<C-R>=coc#rpc#request('snippetNext', [])<cr>"
+    " inoremap <buffer><silent><nowait><expr> <m-k>
+    "            \ pumvisible() ? "\<c-p>" : "<C-R>=coc#rpc#request('snippetPrev', [])<cr>"
+    " snoremap <buffer><silent><nowait><expr> <m-j>
+    "            \ pumvisible() ? "\<c-n>" : "<Esc>:call coc#rpc#request('snippetNext', [])<cr>"
+    " snoremap <buffer><silent><nowait><expr> <m-k>
+    "            \ pumvisible() ? "\<c-p>" : "<Esc>:call coc#rpc#request('snippetPrev', [])<cr>"
+" endif
 
 if g:HasCocPlug('coc-yank')
+    " let g:coc_yank = {
+    "    \ "yank.highlight.duration": 200,
+    "    \ "yank.enableCompletion": v:true,
+    "\ }
+    " let g:coc_user_config = extend(g:coc_user_config, g:coc_yank)
     " nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
+
     if !g:HasPlug('vim-clap') && !g:HasPlug('fzf')
         nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
     endif
@@ -353,7 +415,10 @@ if g:HasCocPlug('coc-explorer')
         \      'floating-position': 'center',
         \      'floating-width': 100,
         \      'open-action-strategy': 'sourceWindow',
-        \      'file-child-template': '[git | 2] [selection | clip | 1] [indent] [icon | 1] [diagnosticError & 1] [filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1] [timeCreated | 8] [size]'
+        \      'file-child-template': '[git | 2] [selection | clip | 1]
+                    \ [indent] [icon | 1] [diagnosticError & 1]
+                    \ [filename omitCenter 1][modified][readonly]
+                    \ [linkIcon & 1][link growRight 1] [timeCreated | 8] [size]'
         \   },
         \   'floatingTop': {
         \     'position': 'floating',
@@ -387,9 +452,6 @@ if g:HasCocPlug('coc-explorer')
     " config
     call coc#config("explorer.icon.enableNerdfont", v:true)
     call coc#config("explorer.bookmark.child.template", "[selection | 1] [filename] [position] - [annotation]")
-    " call coc#config("explorer.file.autoReveal", v:true)
-    " call coc#config("explorer.keyMappingMode", "none")
-      " "\ 'a': v:false,
     call coc#config("explorer.keyMappings", {
       \ 'k': 'nodePrev',
       \ 'j': 'nodeNext',

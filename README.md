@@ -70,7 +70,7 @@ git clone -b new_struct https://github.com/fgheng/vime -C ~/.config/nvim
 ### 5. 安装
 
 ```bash
-git clone https://github.com/fgheng/vime -C ~/.config/nvim
+git clone -b new_struct https://github.com/fgheng/vime -C ~/.config/nvim
 ```
 
 然后打开neovim，执行`:PlugInstall`等待插件安装完毕即可！
@@ -177,8 +177,8 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 | P     | 粘贴文件                                      |
 | R     | 重命名文件                                    |
 | N     | 添加文件或者目录，如果最后有`/`则表示添加目录 |
-| yy    | 复制文件路径                                  |
-| y     | 复制文件名称                                  |
+| yp    | 复制文件路径                                  |
+| yn    | 复制文件名称                                  |
 | .     | 显示/关闭隐藏文件                             |
 |       |                                               |
 | x     | 使用系统默认应用打开文件                      |

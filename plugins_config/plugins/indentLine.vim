@@ -16,4 +16,5 @@ let g:indentLine_fileTypeExclude = [
             \ 'markdown',
             \ 'minimap',
             \ 'dashboard',
+            \ 'tex',
             \]

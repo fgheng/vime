@@ -10,9 +10,9 @@ function! s:goyo_enter()
 	set noshowmode
 	set noshowcmd
 	set scrolloff=999
-	delcommand ZoomWin
-	delcommand <Plug>ZoomWin
-	Limelight
+    if g:HasPlug('limelight.vim')
+        Limelight
+    endif
 endfunction
 
 function! s:goyo_leave()
@@ -23,12 +23,17 @@ function! s:goyo_leave()
 	set showmode
 	set showcmd
 	set scrolloff=5
-	command! ZoomWin call ZoomWin()
-	command! <Plug>ZoomWin call ZoomWin()
-	Limelight!
+    if g:HasPlug('limelight.vim')
+        Limelight!
+    endif
 endfunction
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+augroup user_plugin_goyo
+	autocmd!
+	autocmd! User GoyoEnter
+	autocmd! User GoyoLeave
+	autocmd  User GoyoEnter nested call <SID>goyo_enter()
+	autocmd  User GoyoLeave nested call <SID>goyo_leave()
+augroup END
 
 nnoremap <F7> <esc>:Goyo<cr>

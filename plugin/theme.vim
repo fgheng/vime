@@ -16,6 +16,12 @@ if has('termguicolors')
     set termguicolors
 endif
 
+if has('nvim')
+    set pumblend=20 " 提示框透明
+endif
+
+let g:srcery_italic = 1
+let g:srcery_transparent_background = 1
 colorscheme srcery
 
 " 搜索高亮
@@ -47,9 +53,6 @@ if g:HasPlug('coc.nvim')
     if g:HasCocPlug('coc-explorer') && has('nvim')
         " coc-explorer
         " None 而不是NONE
-        " hi CocExplorerNormalFloatBorder guifg=None guibg=None
         hi CocExplorerNormalFloat guibg=None
-        " autocmd FileType coc-explorer set winblend=30
-        " autocmd FileType coc-explorer-border set winblend=30
     endif
 endif

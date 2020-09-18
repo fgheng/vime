@@ -3,7 +3,8 @@
 
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.timeout": 5000,
-  "suggest.noselect": true, // 选中第一个
+  "suggest.noselect": true,
+  "suggest.snippetIndicator": "  ❄",
   "suggest.completionItemKindLabels": {
     "class": "",
     "color": "",
@@ -34,7 +35,7 @@
 
   "diagnostic.signOffset": 9999,
   "diagnostic.errorSign": "■",
-  "diagnostic.warningSign": "■",
+  "diagnostic.warningSign": "▲",
   "diagnostic.infoSign": "●",
   "diagnostic.hintSign": "●",
   "diagnostic.displayByAle": false,

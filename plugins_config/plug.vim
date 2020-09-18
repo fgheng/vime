@@ -1,17 +1,18 @@
 " 代码补全插件
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'metakirby5/codi.vim'
 " 检索
-" Plug 'liuchengxu/vim-clap'
 Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
-\ | Plug 'antoinemadec/coc-fzf'
+\ | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
+" git插件
+Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive'
 " 注释插件
-Plug 'tyru/caw.vim'
+Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
 Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
-" 主题theme类插件
-Plug 'ajmwagar/vim-deus'
+" 主题theme类插件 Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
@@ -19,6 +20,10 @@ Plug 'sainnhe/forest-night'
 Plug 'srcery-colors/srcery-vim'
 Plug 'hardcoreplayers/oceanic-material'
 Plug 'chuling/ci_dark'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'mhartington/oceanic-next'
+Plug '986299679/space-vim-theme'
+Plug 'ayu-theme/ayu-vim'
 " 底栏
 Plug 'itchyny/lightline.vim'
 " 彩虹括号
@@ -39,34 +44,33 @@ Plug 'honza/vim-snippets'
 Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
 " 快速移动
 Plug 'easymotion/vim-easymotion', {'on':
-    \ [
-    \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
-    \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
-    \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
-    \ '<Plug>(easymotion-overwin-w)'
-    \ ]}
+   \ [
+   \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
+   \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
+   \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
+   \ '<Plug>(easymotion-overwin-w)'
+   \ ]}
 " 对齐
-Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign']}
+Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign', '<Plug>(EasyAlign)']}
 " 对齐线
-Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine', {'for': ['c', 'h', 'cpp', 'py', 'go', 'java', 'vim']}
 " 多光标
 Plug 'mg979/vim-visual-multi'
-" csv插件
-Plug 'chrisbra/csv.vim', {'for': 'csv'}
+" csv插件 Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 悬浮终端
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
 " 笔记插件，支持markdown
-Plug 'vimwiki/vimwiki', {'on': ['VimwikiIndex', 'VimwikiTabIndex', 'VimwikiDiaryIndex']}
+Plug 'vimwiki/vimwiki'
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
 " 起始界面
 Plug 'mhinz/vim-startify'
 " 翻译插件
 Plug 'iamcco/dict.vim', {'on':
-     \ [
-     \ '<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch',
-     \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
-     \ ]}
+    \ [
+    \ '<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch',
+    \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
+    \ ]}
 " tmux相关插件
 if strlen($TMUX) && executable("tmux")
     " tmux与vim窗口间导航
@@ -107,7 +111,7 @@ else
 endif
 " 总是匹配tag
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'css', 'xml']}
-" 显示颜色
+" 显示代码颜色
 if has('nvim')
     Plug 'norcalli/nvim-colorizer.lua'
 else
@@ -121,7 +125,7 @@ Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 
-Plug 'vim/killersheep'
+autocmd! User goyo.vim
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
@@ -138,21 +142,21 @@ let g:coc_global_extensions = [
     \ 'coc-cmake',
     \ 'coc-snippets',
     \ 'coc-clangd',
-    \ 'coc-explorer',
     \ 'coc-json',
     \ 'coc-lists',
     \ 'coc-word',
     \ 'coc-python',
+    \ 'coc-explorer',
     \ ]
 
     "\ 'coc-pyright',
     "\ 'coc-fzf-preview',
     "\ 'coc-bookmark',
     "\ 'coc-rainbow-fart',
-    " \ 'coc-lists',
-    " \ 'coc-rls',
-    " \ 'coc-java',
-    " \ 'coc-go',
+    "\ 'coc-lists',
+    "\ 'coc-rls',
+    "\ 'coc-java',
+    "\ 'coc-go',
     "\ 'coc-sql',
     "\ 'coc-lua'
     "\ 'coc-tabnine',

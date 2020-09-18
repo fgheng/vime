@@ -4,7 +4,6 @@ if &laststatus < 2
 endif
 
 let g:lightline = {
-    \ 'colorscheme': 'srcery',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'readonly', 'filename', 'modified'],
@@ -33,6 +32,7 @@ let g:lightline = {
     \ 'separator': { 'left': "\ue0b8", 'right': "\ue0ba"},
     \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0bb"}
 \ }
+"\ 'colorscheme': 'srcery',
 
 function! s:lightline_is_lean() abort
     return &filetype =~? '\v^defx|mundo(diff)?$'

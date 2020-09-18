@@ -1,0 +1,1 @@
+setl colorcolumn=0
