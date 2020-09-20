@@ -59,7 +59,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#right_sep('', 'Fill') . ' %{fugitive#head()}'
     endif
 
-    " let l:s .= crystalline#right_sep('', 'Fill') . '%{coc#status()}'
+    let l:s .= '%{coc#status()}'
 
     let l:s .= '%='
     if a:current

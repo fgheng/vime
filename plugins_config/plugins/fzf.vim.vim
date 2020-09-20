@@ -110,11 +110,14 @@ function! s:RipgrepFzfWithWiki(query, fullscreen) abort
     let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
 
     " 这个是在安装了vimwiki插件后使用的功能，需要配置一下g:vimwiki_path路径
-    if &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1 | let wiki_path = g:vimwiki_path
-    else | let wiki_path = "" | endif
+    if &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
+        let l:path = g:vimwiki_path
+    else
+        let l:path = ""
+    endif
 
-    let initial_command = printf(command_fmt, shellescape(a:query), wiki_path)
-    let reload_command = printf(command_fmt, '{q}', wiki_path)
+    let initial_command = printf(command_fmt, shellescape(a:query), l:path)
+    let reload_command = printf(command_fmt, '{q}', l:path)
     let spec = {'options': [
                 \ '--phony',
                 \ '--query', a:query,
@@ -144,10 +147,13 @@ function! s:FilesWithWiki(query, fullscreen)
                 \ ]}
 
     if empty(a:query) && &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
-        call fzf#vim#files(g:vimwiki_path, spec, a:fullscreen)
+        let l:path = g:vimwiki_path
+    elseif a:query == ''
+        let l:path = getcwd()
     else
-        call fzf#vim#files(a:query, spec, a:fullscreen)
+        let l:path = a:query
     endif
+    call fzf#vim#files(l:path, spec, a:fullscreen)
 endfunction
 command! -bang -nargs=? -complete=dir FWW call s:FilesWithWiki(<q-args>, <bang>0)
 
