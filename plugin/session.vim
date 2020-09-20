@@ -1,9 +1,6 @@
 if g:HasCocPlug('coc-lists') || g:HasPlug('dashboard-nvim')
     finish
 endif
-echom "sessions"
-echom "sessions"
-echom "sessions"
 
 " 退出vim的时候自动保存session
 " session包括三个，session0，session1，session2
