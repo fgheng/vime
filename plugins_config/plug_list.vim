@@ -1,6 +1,5 @@
 " 代码补全插件
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-" Plug 'metakirby5/codi.vim'
 " 检索
 Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }

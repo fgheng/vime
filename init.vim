@@ -18,7 +18,7 @@ let g:undo_dir = g:cache_root_path . 'undo/'
 command! -nargs=1 LoadScript exec 'source ' . g:plugins_config_root_path . '/' . '<args>'
 
 call plug#begin(g:plugins_path)
-LoadScript plug.vim
+LoadScript plug_list.vim
 call plug#end()
 
 " 判断插件是否载入
