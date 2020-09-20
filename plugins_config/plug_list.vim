@@ -11,7 +11,8 @@ Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
 Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
-" 主题theme类插件 Plug 'ajmwagar/vim-deus'
+" 主题theme类插件
+Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
@@ -55,7 +56,8 @@ Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign', '<Plug>(EasyAlign)']}
 Plug 'Yggdroot/indentLine', {'for': ['c', 'h', 'cpp', 'py', 'go', 'java', 'vim']}
 " 多光标
 Plug 'mg979/vim-visual-multi'
-" csv插件 Plug 'chrisbra/csv.vim', {'for': 'csv'}
+" csv插件
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 悬浮终端
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
 " 笔记插件，支持markdown
@@ -71,15 +73,13 @@ Plug 'iamcco/dict.vim', {'on':
     \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
     \ ]}
 " tmux相关插件
-if strlen($TMUX) && executable("tmux")
+if  executable("tmux") && strlen($TMUX)
     " tmux与vim窗口间导航
     Plug 'christoomey/vim-tmux-navigator'
     " tmux.conf set -g focus-events on
     Plug 'tmux-plugins/vim-tmux-focus-events'
     " 在tmux和vim之间进行复制与粘贴
     Plug 'roxma/vim-tmux-clipboard'
-    " 使用vim的主题配置tmux主题
-    Plug 'edkolev/tmuxline.vim', {'on': 'Tmuxline'}
 endif
 " 关闭buffer而不关闭窗口
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
@@ -97,15 +97,9 @@ Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 Plug 'yianwillis/vimcdoc'
 " vim打开pdf
 Plug 'makerj/vim-pdf', {'for': 'pdf'}
-" debug
-" Plug 'puremourning/vimspector'
-" 运行代码
-" plug 'skywind3000/asynctasks.vim', {'on': ['asynctask','asynctaskedit','asynctasklist','asynctaskmarco', 'asynctaskprofile']}
-" plug 'skywind3000/asyncrun.vim', {'on': ['asyncrun', 'asyncstop']}
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter'
 else
-    " 语法高亮包，使用treesitter代替
     Plug 'sheerun/vim-polyglot'
 endif
 " 总是匹配tag
@@ -144,6 +138,7 @@ let g:coc_global_extensions = [
     \ 'coc-word',
     \ 'coc-python',
     \ 'coc-explorer',
+    \ 'coc-tabnine',
     \ ]
 
     "\ 'coc-pyright',
@@ -156,4 +151,3 @@ let g:coc_global_extensions = [
     "\ 'coc-go',
     "\ 'coc-sql',
     "\ 'coc-lua'
-    "\ 'coc-tabnine',
