@@ -58,11 +58,4 @@ for [plugin_name, plugin_config] in items(g:plugs)
     if g:HasInstall(plugin_name)
         call s:source_config(plugin_name)
     endif
-    " if has_key(plugin_config, 'on') || has_key(plugin_config, 'for')
-    "     exec "autocmd! User " . plugin_name . " call s:source_config('" . plugin_name . "')"
-    " else
-    "     if g:HasInstall(plugin_name)
-    "         call s:source_config(plugin_name)
-    "     endif
-    " endif
 endfor

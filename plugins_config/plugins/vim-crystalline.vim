@@ -90,7 +90,7 @@ endfunction
 let g:crystalline_enable_sep = 1
 let g:crystalline_statusline_fn = 'StatusLine'
 let g:crystalline_tabline_fn = 'TabLine'
-let g:crystalline_theme = 'hybrid'
+let g:crystalline_theme = 'badwolf'
 
 set showtabline=2
 set guioptions-=e
