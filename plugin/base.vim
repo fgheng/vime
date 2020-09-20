@@ -55,8 +55,8 @@ set shortmess+=c
 set mouse=n                                         " 允许使用鼠标, normal生效，a则是全模式生效
 set cmdheight=1
 set conceallevel=0                                  " json文件不显示引号
-" set laststatus=2                                    " 状态栏, lightline中更改了
-" set showtabline=2                                   " 总是显示tab标签栏
+set laststatus=2                                    " 状态栏, lightline中更改了
+set showtabline=2                                   " 总是显示tab标签栏
 set re=1
 set cursorline                                      " 高亮当前行
 set cursorcolumn                                    " 高亮当前列

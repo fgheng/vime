@@ -76,7 +76,7 @@ vnoremap k gk
 nnoremap Y y$
 
 " tab相关
-if !g:HasPlug('vim-airline')
+if !g:HasPlug('vim-airline') && !g:HasPlug('vim-crystalline')
     nnoremap  <M-l> :tabnext<cr>
     nnoremap  <M-h> :tabprevious<CR>
     tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
