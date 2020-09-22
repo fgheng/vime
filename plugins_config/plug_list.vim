@@ -24,6 +24,8 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'mhartington/oceanic-next'
 Plug '986299679/space-vim-theme'
 Plug 'ayu-theme/ayu-vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'NLKNguyen/papercolor-theme'
 " 底栏
 Plug 'rbong/vim-crystalline'
 " 彩虹括号

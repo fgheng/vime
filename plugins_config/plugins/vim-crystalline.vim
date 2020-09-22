@@ -59,7 +59,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#right_sep('', 'Fill') . ' %{fugitive#head()}'
     endif
 
-    let l:s .= '%{coc#status()}'
+    let l:s .= ' %{coc#status()}'
 
     let l:s .= '%='
     if a:current
@@ -90,13 +90,17 @@ endfunction
 let g:crystalline_enable_sep = 1
 let g:crystalline_statusline_fn = 'StatusLine'
 let g:crystalline_tabline_fn = 'TabLine'
-let g:crystalline_theme = 'badwolf'
+let g:crystalline_theme = 'onedark'
 
 set showtabline=2
 set guioptions-=e
 set laststatus=2
 
 function s:nextBufOrTab()
+    let l:buffers_num = len(getbufinfo({'buflisted':1}))
+    if l:buffers_num <= 1
+        return
+    endif
     if tabpagenr('$') > 1
         exec "tabnext"
     else
@@ -105,6 +109,10 @@ function s:nextBufOrTab()
 endfunction
 
 function s:prevBufOrTab()
+    let l:buffers_num = len(getbufinfo({'buflisted':1}))
+    if l:buffers_num <= 1
+        return
+    endif
     if tabpagenr('$') > 1
         exec "tabprevious"
     else
