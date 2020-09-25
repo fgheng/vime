@@ -9,7 +9,7 @@ set number
 set relativenumber                                          " 设置相对行号
 set incsearch                                               " 搜索时即高亮
 set hlsearch                                                " 高亮匹配内容
-set wrap
+set nowrap                                                  " 不要自动换行
 set smartindent                                             " 智能缩进
 set autoindent                                              " 自动换行缩进
 set linebreak                                               " 软折行
@@ -63,6 +63,11 @@ set cursorcolumn                                    " 高亮当前列
 set guicursor=
 set textwidth=80
 set colorcolumn=+1                      " 高亮textwidth后的列
+
+if exists('+t_TI') && exists('+t_TE')
+    let &t_TI = ''
+    let &t_TE = ''
+endif
 
 if has('nvim') == 0 && has('patch-8.1.2020')
     set cursorlineopt=number cursorline

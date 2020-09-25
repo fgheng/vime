@@ -112,3 +112,10 @@ require'nvim-treesitter.configs'.setup {
     },
 }
 EOF
+
+" treesitter经常在进行一些操作之后丢失渲染，比如撤销操作等
+" 使用下面的命令可以恢复
+function s:render() abort
+    exec "write | edit | TSBufEnable highlight"
+endfunc
+nmap <silent> <F4> :call <SID>render()<cr>

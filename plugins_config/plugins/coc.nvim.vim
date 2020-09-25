@@ -39,8 +39,10 @@ inoremap <silent><expr> <m-k>
     \ pumvisible() ? "\<C-p>" : return
 
 " alt j k 用于补全块的跳转，优先补全块跳转
-let g:coc_snippet_next = '<m-j>'
-let g:coc_snippet_prev = '<m-k>'
+if g:HasCocPlug('coc-snippets')
+    let g:coc_snippet_next = '<m-j>'
+    let g:coc_snippet_prev = '<m-k>'
+endif
 
 " 回车选中或者扩展选中的补全内容
 if exists('*complete_info')

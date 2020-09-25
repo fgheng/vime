@@ -94,4 +94,4 @@ function! s:SystemExecuteCurrentFile(f)
     exec 'silent !xdg-open ' . fnameescape(a:f) . ' > /dev/null'
 endfunction
 " 使用系统应用打开当前buffer文件
-noremap <silent> <M-o> :call <SID>SystemExecuteCurrentFile(expand('%:p'))<cr>
+noremap <silent> <M-x> :call <SID>SystemExecuteCurrentFile(expand('%:p'))<cr>
