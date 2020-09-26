@@ -20,4 +20,4 @@ let g:indentLine_fileTypeExclude = [
             \ 'vimwiki',
             \]
 
-autocmd FileType markdown,vimwiki,tex let g:indentLine_enabled=0
+" autocmd FileType markdown,vimwiki,tex let g:indentLine_enabled=0

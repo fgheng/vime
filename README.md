@@ -93,8 +93,8 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 3. neovim-remote：可选，vimtex会用到，但是也可以不用，安装体验更好，`pip install neovim-remote`
 4. xdotool：可选，用于vimtex
 5. zathura：可选，用于vimtex的预览
-6. clangd：可选，用于c系补全，如果不需要，可以在`config/plug.vim`中去掉`coc-clangd`
-7. python-pysdl2 sdl2 sdl2-mixer: 可选，这是模拟机械键盘声音用到的，如果不需要可以在`config/plug.vim`中去掉keysound这个插件。
+6. clangd：可选，用于c系补全，如果不需要，可以在`plugins_config/plug_list.vim`中去掉`coc-clangd`
+7. python-pysdl2 sdl2 sdl2-mixer: 可选，这是模拟机械键盘声音用到的，如果不需要可以在`plugins_config/plug_list.vim`中去掉keysound这个插件。
 
 
 
@@ -110,7 +110,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 
 ### 6. 插件列表
 
-这个直接查看`config/plug.vim`文件，里面是当前要加载的所有插件，当然你可以自己添加新的插件。
+这个直接查看`plugins_config/plug_list.vim`文件，里面是当前要加载的所有插件，当然你可以自己添加新的插件。
 
 比如你要增加[clever-f.vim](https://github.com/rhysd/clever-f.vim)这个插件。在`config/plug.vim`文件中加上`Plug 'rhysd/clever-f.vim'`，然后在`config/plugins/`目录下新建`clever-f.vim.vim`文件（注意命名，原插件为`username/plugin_name`，我们对应的配置文件需要命名为`plugin_name.vim`），接下来你就可以在新建的配置文件`clever-f.vim.vim`中进行相应的配置。
 
