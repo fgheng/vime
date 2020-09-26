@@ -34,6 +34,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 ├── README.md
 ├── scripts/
 └── vimrc -> ./init.vim
+└── global.vim
 
 # 下面是原始的目录结构，所有的配置都在config目录下
 ├── coc-settings.json
@@ -64,7 +65,9 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
    - `plug_list.vim`：该文件主要用来描述安装哪些插件，插件只有在这里面，vim/nvim在启动的时候才会到`plugins_config/plugins/`下面寻找对应的配置文件并加载。
    - 以及一些其他的配置，比如`coc-settings.json`是coc插件的json配置文件，`onestatus.json`是onestatus插件的json配置文件等等。
 4. `scripts`：该目录主要存储一些常用的脚本文件
-
+5. `init.vim`： neovim初始化时要读取的文件
+6. `vimrc`：vim初始化时要读取的文件，链接到init.vim
+7. `global.vim`：存放一些全局配置
 
 
 **下面是旧的目录结构：**
