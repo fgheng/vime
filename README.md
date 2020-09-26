@@ -101,7 +101,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 ### 5. 安装
 
 ```bash
-git clone -b new_struct https://github.com/fgheng/vime -C ~/.config/nvim
+git clone https://github.com/fgheng/vime -C ~/.config/nvim
 ```
 
 然后打开neovim，执行`:PlugInstall`等待插件安装完毕即可！
