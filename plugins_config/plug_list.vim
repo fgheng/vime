@@ -27,7 +27,6 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'NLKNguyen/papercolor-theme'
 " 底栏
-" Plug 'rbong/vim-crystalline'
 if  executable("tmux") && strlen($TMUX)
     " vim与tmux共享一个底栏
     Plug 'narajaon/onestatus'
