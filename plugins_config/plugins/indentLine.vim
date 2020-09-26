@@ -17,4 +17,7 @@ let g:indentLine_fileTypeExclude = [
             \ 'minimap',
             \ 'dashboard',
             \ 'tex',
+            \ 'vimwiki',
             \]
+
+autocmd FileType markdown,vimwiki,tex let g:indentLine_enabled=0

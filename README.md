@@ -3,13 +3,14 @@
 ## update
 将new_struct分支与master合并了，直接克隆master即可。
 
+```bash
+git clone https://github.com/fgheng/vime -C ~/.config/nvim
+```
+
 ~~新建立了一个分支new_struct，该分支将master分支下的config/custom下的自定义配置以及base.vim、keymap.vim、theme.vim移动到plugin目录下了，配置目录下新建立scripts目录，用于存放一些需要的脚本。~~
 
-~~克隆new_struct分支~~
+~~克隆new_struct分支~~ ~~`git clone -b new_struct https://github.com/fgheng/vime -C ~/.config/nvim`~~
 
-```
-git clone -b new_struct https://github.com/fgheng/vime -C ~/.config/nvim
-```
 ---
 
 ## 1. About
@@ -21,6 +22,20 @@ git clone -b new_struct https://github.com/fgheng/vime -C ~/.config/nvim
 ### 2. 整体结构
 
 ```bash
+# 下面是新的目录结构，结合vim/nvim的目录结构特征重新划分的
+├── after
+│   └── ftplugin/
+├── init.vim
+├── plugin/
+├── plugins_config/
+│   ├── coc-settings.json
+│   ├── plugins/
+│   └── plug_list.vim
+├── README.md
+├── scripts/
+└── vimrc -> ./init.vim
+
+# 下面是原始的目录结构，所有的配置都在config目录下
 ├── coc-settings.json
 ├── config/
    ├── custom/
@@ -34,9 +49,25 @@ git clone -b new_struct https://github.com/fgheng/vime -C ~/.config/nvim
 └── vimrc -> ./init.vim
 ```
 
-简单了解下整个结构，我用的插件管理器是[junegunn/*vim*-*plug*](https://github.com/junegunn/vim-plug)。
+简单了解下整个结构，我用的插件管理器是[junegunn/*vim*-*plug*](https://github.com/junegunn/vim-plug)。 该插件存放在autoload目录下
 
-目录结构：
+**下面是新的目录结构：**
+
+1. `after`：该目录是vim的目录，用于懒加载，该目录下我主要存放有关文件类型的配置，比如`.md` `.tex`相关的配置等
+2. `plugin`：该目录是vim的目录，该目录主要存储一些启动的时候自动加载的配置，我主要用于存放:
+   - `base.vim`：基础配置
+   - `keymap.vim`：快捷键相关配置，一般与插件无关，插件的快捷键一般在自定义的插件配置文件中
+   - `theme.vim`：主题配置，主题相关的配置都放到了这里
+   - 其他配置就是一些辅助用的了，比如`alt.vim`是让vim可以使用alt键等等，当然你也可以在这里增加自己的配置
+3. `plugins_config`：目录是我自定义的目录，这里主要存储的是插件的配置：
+   - `plugins`：`plugins_config/plugins/`目录下面就是所有插件的配置了，一个插件一个文件，文件的名称与插件的名称相同，然后后缀`.vim`
+   - `plug_list.vim`：该文件主要用来描述安装哪些插件，插件只有在这里面，vim/nvim在启动的时候才会到`plugins_config/plugins/`下面寻找对应的配置文件并加载。
+   - 以及一些其他的配置，比如`coc-settings.json`是coc插件的json配置文件，`onestatus.json`是onestatus插件的json配置文件等等。
+4. `scripts`：该目录主要存储一些常用的脚本文件
+
+
+
+**下面是旧的目录结构：**
 
 1. `plug.vim`文件就是`vim-plug`的插件配置文件，里面是我们需要的插件列表，写在这里面的插件在vim启动的时候会加载其对应的配置文件。插件的配置在`config/plugins`目录下，vim/nvim启动的时候会自行判断是否需要加载该目录下的插件配置。
 2. `plugs-list.vim`该文件是一些插件列表，不会加载，只是用来保存下都用过哪些插件，后期想更改插件的时候来这里先找。
@@ -45,10 +76,6 @@ git clone -b new_struct https://github.com/fgheng/vime -C ~/.config/nvim
 5. `theme.vim`用于主题配置
 6. `plugins`目录下是所有插件的配置文件，一个插件一个配置文件，只会加载`plug.vim`中安装的插件的配置。
 7. `custom`该目录是用户自己定义的简单脚本，该目录下的所有`.vim`脚本都会在启动的时候加载
-8. ~~`config.vim`为了便于移植，取消了这种全局性的变量，一些需要配置文件路径的插件罗列如下，如果你需要某个插件的配置，直接复制这个插件的配置的话，需要将一些路径更改为自己的路径。~~
-   - ~~`config/plug.vim`:  `g:plugins_path`这是插件的安装目录~~
-   - ~~`config/plugins/fzf.vim.vim`: `g:fzf_dir`这是fzf用到的目录，`g:fzf_history_dir`这是fzf的历史文件所在的目录~~
-   - ~~`config/plugins/coc.nvim.vim`: `g:coc_data_home` 这是coc插件的安装目录~~
 
 
 
@@ -509,4 +536,3 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 |                  |        |                                                            |
 |                  |        |                                                            |
 |                  |        |                                                            |
-

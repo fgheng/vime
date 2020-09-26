@@ -61,8 +61,8 @@ set re=1
 set cursorline                                      " 高亮当前行
 set cursorcolumn                                    " 高亮当前列
 set guicursor=
-set textwidth=80
-set colorcolumn=+1                      " 高亮textwidth后的列
+set textwidth=0
+set colorcolumn=+1                                  " 高亮textwidth后的列
 
 if exists('+t_TI') && exists('+t_TE')
     let &t_TI = ''

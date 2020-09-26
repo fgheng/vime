@@ -15,4 +15,3 @@ let g:vimwiki_list = [
 nmap <leader>ww <esc>:<c-u>VimwikiIndex<cr>
 nmap <leader>wt <esc>:<c-u>VimwikiTabIndex<cr>
 nmap <leader>wi <esc>:<c-u>VimwikiDiaryIndex<cr>
-
