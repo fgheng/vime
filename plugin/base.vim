@@ -48,8 +48,6 @@ set ttimeoutlen=10
 set updatetime=100                                  " 更新时间100ms 默认4000ms 写入swap的时间
 
 set mouse=n                                         " 允许使用鼠标, normal生效，a则是全模式生效
-set laststatus=2                                    " 状态栏, lightline中更改了
-set showtabline=2                                   " 总是显示tab标签栏
 set re=1
 set cursorline                                      " 高亮当前行
 set cursorcolumn                                    " 高亮当前列

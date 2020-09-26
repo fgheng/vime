@@ -1,3 +1,6 @@
+set laststatus=2                                    " 状态栏, lightline中更改了
+set showtabline=2                                   " 总是显示tab标签栏
+
 function! CryCocError()
     if !g:HasPlug('coc.nvim')
         return ""
