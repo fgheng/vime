@@ -8,7 +8,9 @@
     "status-right": [
         { "fg": "#ffd167", "bg": "default", "label": "" },
         { "fg": "#218380", "bg": "#ffd167", "labelFunc": "s:getCWD" },
-        { "fg": "#218380", "bg": "#ffd167", "label": "" },
+        { "fg": "#328fff", "bg": "#ffd167", "label": "" },
+        { "fg": "#fcfcfc", "bg": "#328fff", "labelFunc": "LineNow" },
+        { "fg": "#218380", "bg": "#328fff", "label": "" },
         { "fg": "#fcfcfc", "bg": "#218380", "labelFunc": "s:getHead" }
     ],
     "status-style": "s:getDefaultColor",
