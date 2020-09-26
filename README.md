@@ -112,9 +112,9 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 
 这个直接查看`plugins_config/plug_list.vim`文件，里面是当前要加载的所有插件，当然你可以自己添加新的插件。
 
-比如你要增加[clever-f.vim](https://github.com/rhysd/clever-f.vim)这个插件。在`config/plug.vim`文件中加上`Plug 'rhysd/clever-f.vim'`，然后在`config/plugins/`目录下新建`clever-f.vim.vim`文件（注意命名，原插件为`username/plugin_name`，我们对应的配置文件需要命名为`plugin_name.vim`），接下来你就可以在新建的配置文件`clever-f.vim.vim`中进行相应的配置。
+比如你要增加[clever-f.vim](https://github.com/rhysd/clever-f.vim)这个插件。在`config/plug.vim`文件中加上`Plug 'rhysd/clever-f.vim'`，然后在`plugins_config/plugins/`目录下新建`clever-f.vim.vim`文件（注意命名，原插件为`username/plugin_name`，我们对应的配置文件需要命名为`plugin_name.vim`），接下来你就可以在新建的配置文件`clever-f.vim.vim`中进行相应的配置。
 
-如果不想使用该插件了，那么直接在`config/plug.vim`文件中删除`Plug 'rhysd/clever-f.vim'`，而其对应的配置文件`clever-f.vim.vim`无需删除，下次打开vim/nvim的时候不会再加载对应的配置。如果某天你又像用该插件了，那么只需要添加`Plug 'rhysd/clever-f.vim'`，启动vim/nvim的时候会自动加载相应的配置，十分方便。
+如果不想使用该插件了，那么直接在`plugins_config/plug_list.vim`文件中删除`Plug 'rhysd/clever-f.vim'`，而其对应的配置文件`clever-f.vim.vim`无需删除，下次打开vim/nvim的时候不会再加载对应的配置。如果某天你又想用该插件了，那么只需要添加`Plug 'rhysd/clever-f.vim'`，启动vim/nvim的时候会自动加载相应的配置，十分方便。
 
 
 

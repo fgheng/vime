@@ -9,7 +9,6 @@ set number
 set relativenumber                                          " 设置相对行号
 set incsearch                                               " 搜索时即高亮
 set hlsearch                                                " 高亮匹配内容
-set nowrap                                                  " 不要自动换行
 set smartindent                                             " 智能缩进
 set autoindent                                              " 自动换行缩进
 set linebreak                                               " 软折行
