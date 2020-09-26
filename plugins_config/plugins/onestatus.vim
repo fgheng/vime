@@ -9,6 +9,9 @@ fun g:LineNow()
   return l:lineCur . "/" . l:lineTotal
 endfunc
 
-au BufEnter * :OneStatus
-au CursorMoved * :OneStatus
-au ExitPre * :!tmux source ~/.tmux.conf
+augroup CustomOneStatus
+    au!
+    au BufEnter * :OneStatus
+    au CursorMoved * :OneStatus
+    exec 'au ExitPre * :!tmux source ' . g:tmux_config_path
+augroup END

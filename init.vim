@@ -1,18 +1,4 @@
-"""
-" vim配置文件所在根目录
-let g:vim_root_path = expand('<sfile>:p:h') . '/'
-" vim要插件、缓存等数据根目录
-let g:cache_root_path = $HOME . '/.cache/vim/'
-" 插件配置所在根目录
-let g:plugins_config_root_path = g:vim_root_path . 'plugins_config/'
-
-" vim 插件安装目录
-let g:plugins_path = g:cache_root_path . 'plugins/'
-" session 保存目录
-let g:session_dir = g:cache_root_path . 'sessions/'
-" 撤销记录目录
-let g:undo_dir = g:cache_root_path . 'undo/'
-"""
+exec 'source ./global.vim'
 
 " 定义载入配置命令
 command! -nargs=1 LoadScript exec 'source ' . g:plugins_config_root_path . '/' . '<args>'
