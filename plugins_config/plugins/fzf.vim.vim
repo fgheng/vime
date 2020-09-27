@@ -28,7 +28,7 @@ let s:preview_window_config = 'up:50%:wrap'
 let g:fzf_preview_window = s:preview_window_config
 let s:preview_window = '--preview-window=' . s:preview_window_config
 " 自定义窗口预览程序
-let s:preview_program = g:vim_root_path . "/scripts/preview.sh"
+let s:preview_program = g:scripts_path . "/preview.sh"
 
 let g:fzf_buffers_jump = 1
 " [Commands] --expect expression for directly executing the command

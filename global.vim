@@ -18,3 +18,6 @@ let g:undo_dir = g:cache_root_path . 'undo/'
 
 " tmux配置文件目录
 let g:tmux_config_path = $HOME . '/.tmux.conf'
+
+" 脚本目录
+let g:scripts_path = g:vim_root_path . "/scripts"
