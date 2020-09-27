@@ -82,6 +82,8 @@ if  executable("tmux") && strlen($TMUX)
     Plug 'tmux-plugins/vim-tmux-focus-events'
     " 在tmux和vim之间进行复制与粘贴
     Plug 'roxma/vim-tmux-clipboard'
+    " tmux补全插件
+    Plug 'wellle/tmux-complete.vim'
 endif
 " 关闭buffer而不关闭窗口
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
