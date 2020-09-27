@@ -110,3 +110,7 @@ function! s:NERDTreeCustomMapsOpenAClose()
         endif
     endif
 endfunction
+
+" 另两种方法
+" autocmd FileType nerdtree nmap <buffer> y go
+" let g:NERDTreeMapPreview = "<CR>"

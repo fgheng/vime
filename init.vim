@@ -1,4 +1,4 @@
-exec 'source ./global.vim'
+exe "source " . expand('<sfile>:p:h') . "/global.vim"
 
 " 定义载入配置命令
 command! -nargs=1 LoadScript exec 'source ' . g:plugins_config_root_path . '/' . '<args>'
