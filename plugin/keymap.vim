@@ -77,9 +77,21 @@ vnoremap k gk
 nnoremap Y y$
 
 " tab相关
+function! s:tabOrBuf(direction) abort
+    " 0 <- 1 ->
+    if tabpagenr('$') > 1
+        if a:direction == 0 | exec 'tabprevious'
+        elseif a:direction == 1 | exec 'tabnext'
+        endif
+    else
+        if a:direction == 0 | exec 'bprevious'
+        elseif a:direction == 1 | exec 'bnext'
+        endif
+    endif
+endfunction
 if !g:HasPlug('vim-airline') && !g:HasPlug('vim-crystalline')
-    nnoremap  <M-l> :tabnext<cr>
-    nnoremap  <M-h> :tabprevious<CR>
+    nnoremap  <M-l> :call <SID>tabOrBuf(1)<cr>
+    nnoremap  <M-h> :call <SID>tabOrBuf(0)<CR>
     tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
     tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
 endif

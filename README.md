@@ -124,7 +124,23 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 
 #### 7.1 补全行为
 
-补全使用的[neoclide/*coc.nvim*](https://github.com/neoclide/coc.nvim)插件，该项目中也有[ycm-core/*YouCompleteMe*](https://github.com/ycm-core/YouCompleteMe)的配置，但最近主要使用coc，故ycm的配置已经很久不更新了。
+补全插件主要是下面两个，然后最近主要使用coc，ycm很久没有使用了。这两个插件选择一个在`plugins_config/plug_list.vim`中加上即可启用。
+
+1. [neoclide/coc](https://github.com/neoclide/coc.nvim) 
+
+   ```viml
+   " plugins_config/plug_list.vim
+   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+   ```
+
+2. [ycm-core/*YouCompleteMe*](https://github.com/ycm-core/YouCompleteMe)
+
+   ```viml
+   " plugins_config/plug_list.vim
+   Plug 'ycm-core/YouCompleteMe'
+   ```
+
+   
 
 | 按键       | 描述                                                         | 提供者 |
 | ---------- | ------------------------------------------------------------ | ------ |
@@ -162,7 +178,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 | ctrl-h/j/k/l   | 分别移动光标到当前窗口的左/下/上/右侧窗口                    |
 | alt-H/J/K/L    | 分别移动光标到当前窗口的左/下/上/右侧窗口                    |
 | ctrl-w-o       | 最大化当前窗口，再按一次恢复                                 |
-| -              | 选择窗口<br>交换窗口                                         |
+| -              | 选择窗口<br>交换窗口（按下-后在按s即可交换窗口）             |
 | q              | 关闭窗口                                                     |
 | alt+(          | 窗口左右方向变小                                             |
 | alt+)          | 窗口左右方向变大                                             |
@@ -172,51 +188,76 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 | \<leader>tn    | 在后面新建一个tab                                            |
 | \<leader>tc    | 关闭一个tab                                                  |
 | alt-H/L        | 将当前的tab移动到左侧/右侧                                   |
-| alt-h/l        | 切换到上一个/下一个tab<br>如果存在浮动终端，则切换为上一个或下一个浮动终端 |
+| alt-h/l        | 切换到上一个/下一个tab<br>如果存在浮动终端，则切换为上一个或下一个浮动终端<br>如果不存在多个tab，那么切换上一个或下一个buffer |
 
 
 
 #### 7.3 文件管理
 
-文件管理使用的插件是[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)、[Shougo/*defx*.nvim](https://github.com/Shougo/defx.nvim)、[nerdtree](https://github.com/preservim/nerdtree)、[ms-jpq/*chadtree*](https://github.com/ms-jpq/chadtree)之一，需要在`plug_list.vim`中选择，快捷键行为基本一致。
+文件管理使用的插件是[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)、[Shougo/*defx*.nvim](https://github.com/Shougo/defx.nvim)、[nerdtree](https://github.com/preservim/nerdtree)、[ms-jpq/*chadtree*](https://github.com/ms-jpq/chadtree)之一，用哪个就在`plugins_config/plug_list.vim`中写上哪个。
 
-~~同时可以使用\<leader>f打开ranger。~~ 因为coc-explorer开始支持浮动窗口，因此将\<leader>f映射为了浮动模式的[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)，不再使用[ranger.vim](https://github.com/francoiscabrol/ranger.vim)，如果希望使用[ranger.vim](https://github.com/francoiscabrol/ranger.vim)，那么可以在plug.vim中加入[ranger.vim](https://github.com/francoiscabrol/ranger.vim)即可。
+1. coc-explorer
+
+   ```viml
+   " plugins_config/plug_list.vim
+   let g:coc_global_extension = ['coc-explorer']
+   ```
+
+2. defx
+
+   ```viml
+   " plugins_config/plug_list.vim
+   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } | Plug 'kristijanhusak/defx-icons' | Plug 'kristijanhusak/defx-git'
+   ```
+
+3. nerdtree
+
+   ```viml
+   Plug 'preservim/nerdtree'
+   ```
+
+4. chadtree
+
+   ```viml
+   Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+   ```
 
 | 按键       | 描述                                          | 提供者                              |
 | ---------- | --------------------------------------------- | ----------------------------------- |
-| j          | 下一个                                        | coc-explorer/nerdtree/defx/chadtree |
-| k          | 上一个                                        | coc-explorer/nerdtree/defx/chadtree |
-| h          | 收起目录                                      | coc-explorer/nerdtree/defx/chadtree |
-| l          | 展开目录/打开文件                             | coc-explorer/nerdtree/defx/chadtree |
-| H          | 递归收起目录                                  | coc-explorer/nerdtree/defx/chadtree |
-| L          | 递归打开目录                                  | coc-explorer/nerdtree/defx/chadtree |
-| J          | 跳到下一个可以展开的地方                      | coc-explorer/nerdtree/defx/chadtree |
-| K          | 跳到上一个可以展开的地方                      | coc-explorer/nerdtree/defx/chadtree |
-| enter      | 进入目录并切换工作目录为进入的目录            | coc-explorer/nerdtree/defx/chadtree |
-| back       | 跳到上一级目并切换工作目录为切换的目录        | coc-explorer/nerdtree/defx/chadtree |
-| r          | 刷新目录                                      | coc-explorer/nerdtree/defx/chadtree |
-| v          | 选中/取消选中，并向下移动                     | coc-explorer/nerdtree/defx/chadtree |
-| V          | 选中/取消选中，并向上移动                     | coc-explorer/nerdtree/defx/chadtree |
-| *          | 选中/取消选中                                 | coc-explorer/nerdtree/defx/chadtree |
-| sh         | 水平打开                                      | coc-explorer/nerdtree/defx/chadtree |
-| sv         | 垂直打开                                      | coc-explorer/nerdtree/defx/chadtree |
-| st         | 新tab中打开                                   | coc-explorer/nerdtree/defx/chadtree |
-|            |                                               | coc-explorer/nerdtree/defx/chadtree |
-| dd         | 剪切文件                                      | coc-explorer/nerdtree/defx/chadtree |
-| Y          | 复制文件                                      | coc-explorer/nerdtree/defx/chadtree |
-| D          | 删除文件                                      | coc-explorer/nerdtree/defx/chadtree |
-| P          | 粘贴文件                                      | coc-explorer/nerdtree/defx/chadtree |
-| R          | 重命名文件                                    | coc-explorer/nerdtree/defx/chadtree |
-| N          | 添加文件或者目录，如果最后有`/`则表示添加目录 | coc-explorer/nerdtree/defx/chadtree |
-| yp         | 复制文件路径                                  | coc-explorer/nerdtree/defx/chadtree |
-| yn         | 复制文件名称                                  | coc-explorer/nerdtree/defx/chadtree |
-| .          | 显示/关闭隐藏文件                             | coc-explorer/nerdtree/defx/chadtree |
-|            |                                               | coc-explorer/nerdtree/defx/chadtree |
-| x          | 使用系统默认应用打开文件                      | coc-explorer/nerdtree/defx/chadtree |
-| f          | 搜索文件                                      | coc-explorer/nerdtree/defx/chadtree |
-| F          | 递归搜索文件                                  | coc-explorer/nerdtree/defx/chadtree |
+| j          | 下一个                                        | coc-explorer/nerdtree/defx          |
+| k          | 上一个                                        | coc-explorer/nerdtree/defx          |
+| h          | 收起目录或跳到上级目录                        | coc-explorer/nerdtree/defx/         |
+| l          | 展开目录/打开文件                             | coc-explorer/nerdtree/defx/         |
+| H          | 递归收起目录                                  | coc-explorer                        |
+| L          | 递归打开目录                                  | coc-explorer/nerdtree/defx/         |
+| J          | 跳到下一个可以展开的地方                      | coc-explorer/                       |
+| K          | 跳到上一个可以展开的地方                      | coc-explorer/                       |
+| enter      | 进入目录并切换工作目录为进入的目录            | coc-explorer/nerdtree/defx/         |
+| backspace  | 跳到上一级目并切换工作目录为切换的目录        | coc-explorer/nerdtree/defx/         |
+| r          | 刷新目录                                      | coc-explorer/nerdtree/defx/         |
+| v          | 选中/取消选中，并向下移动                     | coc-explorer/defx/                  |
+| V          | 选中/取消选中，并向上移动                     | coc-explorer/defx/                  |
+| *          | 选中/取消选中                                 | coc-explorer/defx/                  |
+| w          | 水平打开                                      | coc-explorer/nerdtree/defx/         |
+| W          | 垂直打开                                      | coc-explorer/nerdtree/defx/         |
+| t          | 新tab中打开                                   | coc-explorer/nerdtree/defx/         |
+|            |                                               | |
+| dd         | 剪切文件                                      | coc-explorer/defx/         |
+| Y          | 复制文件                                      | coc-explorer/defx/         |
+| D          | 删除文件                                      | coc-explorer/defx/         |
+| P          | 粘贴文件                                      | coc-explorer/defx/         |
+| R          | 重命名文件                                    | coc-explorer/defx/         |
+| N          | 添加文件或者目录，如果最后有`/`则表示添加目录 | coc-explorer/defx/         |
+| yp         | 复制文件路径                                  | coc-explorer/defx/         |
+| yn         | 复制文件名称                                  | coc-explorer/         |
+| .          | 显示/关闭隐藏文件                             | coc-explorer/nerdtree/defx/         |
+|            |                                               | coc-explorer/nerdtree/defx/         |
+| x          | 使用系统默认应用打开文件                      | coc-explorer/defx/         |
+| f          | 搜索文件                                      | coc-explorer         |
+| F          | 递归搜索文件                                  | coc-explorer         |
 |            |                                               |                                     |
-| \<leader>f | 悬浮或者在当前窗口打开                        | coc-explorer/nerdtree/defx/chadtree |
+| \<leader>f | 悬浮或者在当前窗口打开                        | coc-explorer/defx/         |
+|            |                                               |                                     |
 
 
 
@@ -237,7 +278,7 @@ fzf增加visual模式下的检索功能，在visual模式下选中一部分文�
 | alt-w | 显示打开的窗口                                               | fzf/leaderf/clap/coc                     |
 | alt-m | 显示所有的标记，即marks                                      | fzf/clap/coc                             |
 | alt-M | 显示所有映射                                                 | fzf/clap/coc                             |
-| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 如果正在编辑wiki目录下的笔记，那么使用rg会搜索wiki笔记目录下的内容 | fzf/leaderf/clap/coc                     |
+| alt-s | 1. 使用rg搜索当前工程下的文件内容<br>2. 如果正在编辑wiki目录下的笔记，那么使用rg会搜索wiki笔记目录下的内容<br>3.visural模式下选中内容之后会自动搜索选中的内容 | fzf/leaderf/clap/coc                     |
 | alt-c | 显示所有命令                                                 | fzf/leaderf/clap/coc                     |
 | ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/clap/coc                     |
 | alt-y | 显示复制内容                                                 | fzf/clap/coc                             |
