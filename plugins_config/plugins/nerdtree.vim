@@ -34,83 +34,59 @@ let NERDTreeAutoDeleteBuffer = 1
 " 进入目录自动将workspace更改为此目录
 let g:NERDTreeChDirMode = 2
 
-map <F2> :NERDTreeToggle<CR>
+map <F2> :NERDTreeFocus<CR>
 
-" 自定义快捷键
+" 水平或者垂直窗口打开
+let g:NERDTreeMapOpenSplit = "w"
+let g:NERDTreeMapOpenVSplit = "W"
+" 展开与关闭节点或者打开文件
+let g:NERDTreeMapActivateNode = 'l'
+let g:NERDTreeMapOpenRecursively = 'L'
+let g:NERDTreeMapCloseDir = 'h'
+" 显示隐藏文件
+let g:NERDTreeMapToggleHidden = '.'
+" 回到上一级目录
+let g:NERDTreeMapUpdirKeepOpen = '<backspace>'
+" 在新的tab打开
+let g:NERDTreeMapOpenInTab = 't'
+" 在节点之间跳转，无效
+let g:NERDTreeMapJumpNextSibling = 'J'
+let g:NERDTreeMapJumpPrevSibling = 'K'
+
+" 自定义打开目录操作
+" TODO 如何直接定义<CR>作为快捷键?
 autocmd VimEnter * call NERDTreeAddKeyMap({
-        \ 'key': 'foo',
-        \ 'callback': 'NERDTreeEchoPathHandler',
-        \ 'quickhelpText': 'echo full path of current node',
-        \ 'override': 1,
-        \ 'scope': 'DirNode' })
+       \ 'key': 'bb',
+       \ 'callback': function('<SID>NERDTreeCustomCROpen'),
+       \ 'quickhelpText': 'go to dir and change cwd to it or open a file',
+       \ 'scope': 'Node',
+       \ 'override': 1,
+       \ })
 
-function! NERDTreeEchoPathHandler(dirnode)
-    echo a:dirnode.path.str()
+function! s:NERDTreeCustomCROpen(node) abort
+    let l:newRoot = a:node.GetSelected()
+
+    if l:newRoot.path.isDirectory
+        call b:NERDTree.changeRoot(l:newRoot)
+    else
+        call l:newRoot.activate({'reuse': 'all', 'where': 'p'})
+    endif
 endfunction
-
-autocmd VimEnter * call NERDTreeAddKeyMap({
-\                       'key': '<cr>',
-\                       'callback': {-> feedkeys("o", 'int')},
-\                      })
+autocmd FileType nerdtree nmap <buffer> <CR> bb
 
 " 复制路径
 autocmd VimEnter * call NERDTreeAddKeyMap({
-        \ 'key': 'foo',
-        \ 'callback': function('<SID>NERDTreeCustomMapsCopyFilePath'),
-        \ 'quickhelpText': 'echo full path of current node',
+        \ 'key': 'yp',
+        \ 'callback': 'NERDTreeYankCurrentNode',
+        \ 'quickhelpText': 'put full path of current node into the default register',
+        \ 'scope': 'Node',
         \ 'override': 1,
-        \ 'scope': 'DirNode' })
-function! s:NERDTreeCustomMapsCopyFilePath()
-endfunction
+        \ })
 
-autocmd VimEnter * call NERDTreeAddKeyMap({
-        \ 'key': 'l',
-        \ 'callback': function('<SID>NERDTreeCustomMapsExpandOrOpenFile'),
-        \ 'quickhelpText': 'open dir or open file',
-        \ 'override': 1,
-        \ 'scope': 'Node' })
-
-function! s:NERDTreeCustomMapsExpandOrOpenFile(node)
-    let s = a:node.GetSelected()
-
-    if s.path.isDirectory
-        echom "yes is a directory"
-    endif
+function! NERDTreeYankCurrentNode(node)
     " let n = g:NERDTreeFileNode.GetSelected()
-    " let d = g:NERDTreeDirNode.GetSelected()
-
-    " if n != {}
-        " if !n.path.isDirectory
-            " call n.open()
-        " else
-            " call n.activate(0)
-        " endif
-    " endif
-
-    " if d != {}
-
-    " endif
-endfunction
-
-
-autocmd VimEnter * call NERDTreeAddKeyMap({
-       \ 'key': 'o',
-       \ 'callback': "NERDTreeCustomMapsOpenAClose",
-       \ 'quickhelpText': 'open current file and close tree' })
-
-function! s:NERDTreeCustomMapsOpenAClose()
-    let n = g:NERDTreeFileNode.GetSelected()
-    if n != {}
-        if !n.path.isDirectory
-            call n.open()
-            NERDTreeClose
-        else
-            " if the node is a dir then just activate it as norm
-            call n.activate(0)
-        endif
+    let l:s = a:node.GetSelected()
+    if l:s != {}
+        call setreg('"', l:s.path.str())
     endif
 endfunction
-
-" 另两种方法
-" autocmd FileType nerdtree nmap <buffer> y go
-" let g:NERDTreeMapPreview = "<CR>"

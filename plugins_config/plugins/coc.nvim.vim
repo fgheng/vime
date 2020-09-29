@@ -395,7 +395,7 @@ endif
 
 " coc-python
 if g:HasCocPlug('coc-python')
-    call coc#config("python.jediEnabled", v:true)
+    call coc#config("python.jediEnabled", v:false)
     call coc#config("python.linting.enabled", v:true)
     call coc#config("python.linting.pylintEnabled", v:true)
 endif
@@ -465,12 +465,12 @@ if g:HasCocPlug('coc-explorer')
       \ '<cr>': ['expandable?', 'cd', 'open'],
       \ '<bs>': 'gotoParent',
       \ 'r': 'refresh',
-      \ 't': ['toggleSelection', 'normal:j'],
-      \ 'T': ['toggleSelection', 'normal:k'],
+      \ 'v': ['toggleSelection', 'normal:j'],
+      \ 'V': ['toggleSelection', 'normal:k'],
       \ '*': 'toggleSelection',
-      \ 'os': 'open:split',
-      \ 'ov': 'open:vsplit',
-      \ 'ot': 'open:tab',
+      \ 'w': 'open:split',
+      \ 'W': 'open:vsplit',
+      \ 't': 'open:tab',
       \ 'dd': 'cutFile',
       \ 'Y': 'copyFile',
       \ 'D': 'delete',

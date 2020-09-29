@@ -5,6 +5,8 @@ Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
 \ | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
+Plug 'preservim/nerdtree' " | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 " git插件
 Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive'
 " 注释插件
@@ -14,6 +16,7 @@ Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
 " 主题theme类插件
 Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-one'
+Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/forest-night'

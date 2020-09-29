@@ -65,7 +65,8 @@ function! s:Wall() abort
     execute 'tabnext '.tab
     execute win.'wincmd w'
 endfunction
-noremap <silent> <space><space> <esc>:call <SID>Wall()<cr>
+" noremap <silent> <space><space> <esc>:call <SID>Wall()<cr>
+noremap <silent> <space><space> <esc>:write<cr>
 
 nnoremap j gj
 nnoremap k gk
