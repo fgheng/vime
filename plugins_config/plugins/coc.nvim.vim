@@ -450,6 +450,12 @@ if g:HasCocPlug('coc-explorer')
         nmap <leader>f :CocCommand explorer --preset floating<CR>
     endif
 
+    augroup coc_explorer_group
+        autocmd!
+        autocmd WinEnter * if &filetype == 'coc-explorer' && winnr('$') == 1 | q | endif
+        autocmd TabLeave * if &filetype == 'coc-explorer' | wincmd w | endif
+    augroup END
+
     " config
     call coc#config("explorer.icon.enableNerdfont", v:true)
     call coc#config("explorer.bookmark.child.template", "[selection | 1] [filename] [position] - [annotation]")

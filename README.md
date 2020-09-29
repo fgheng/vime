@@ -178,44 +178,45 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 
 #### 7.3 文件管理
 
-文件管理使用的插件是[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)、[Shougo/*defx*.nvim](https://github.com/Shougo/defx.nvim)，两者之一，需要在`plug.vim`中选择，快捷键行为基本一致。支持浮动窗口。
+文件管理使用的插件是[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)、[Shougo/*defx*.nvim](https://github.com/Shougo/defx.nvim)、[nerdtree](https://github.com/preservim/nerdtree)、[ms-jpq/*chadtree*](https://github.com/ms-jpq/chadtree)之一，需要在`plug_list.vim`中选择，快捷键行为基本一致。
 
 ~~同时可以使用\<leader>f打开ranger。~~ 因为coc-explorer开始支持浮动窗口，因此将\<leader>f映射为了浮动模式的[weirongxu/*coc*-*explorer*](https://github.com/weirongxu/coc-explorer)，不再使用[ranger.vim](https://github.com/francoiscabrol/ranger.vim)，如果希望使用[ranger.vim](https://github.com/francoiscabrol/ranger.vim)，那么可以在plug.vim中加入[ranger.vim](https://github.com/francoiscabrol/ranger.vim)即可。
 
-| 按键  | 描述                                          |
-| ----- | --------------------------------------------- |
-| j     | 下一个                                        |
-| k     | 上一个                                        |
-| h     | 收起目录                                      |
-| l     | 展开目录/打开文件                             |
-| H     | 递归收起目录                                  |
-| L     | 递归打开目录                                  |
-| J     | 跳到下一个可以展开的地方                      |
-| K     | 跳到上一个可以展开的地方                      |
-| enter | 进入目录并切换工作目录为进入的目录            |
-| back  | 跳到上一级目并切换工作目录为切换的目录        |
-| r     | 刷新目录                                      |
-| v     | 选中/取消选中，并向下移动                     |
-| V     | 选中/取消选中，并向上移动                     |
-| *     | 选中/取消选中                                 |
-| sh    | 水平打开                                      |
-| sv    | 垂直打开                                      |
-| st    | 新tab中打开                                   |
-|       |                                               |
-| dd    | 剪切文件                                      |
-| Y     | 复制文件                                      |
-| D     | 删除文件                                      |
-| P     | 粘贴文件                                      |
-| R     | 重命名文件                                    |
-| N     | 添加文件或者目录，如果最后有`/`则表示添加目录 |
-| yp    | 复制文件路径                                  |
-| yn    | 复制文件名称                                  |
-| .     | 显示/关闭隐藏文件                             |
-|       |                                               |
-| x     | 使用系统默认应用打开文件                      |
-| f     | 搜索文件                                      |
-| F     | 递归搜索文件                                  |
-|       |                                               |
+| 按键       | 描述                                          | 提供者                              |
+| ---------- | --------------------------------------------- | ----------------------------------- |
+| j          | 下一个                                        | coc-explorer/nerdtree/defx/chadtree |
+| k          | 上一个                                        | coc-explorer/nerdtree/defx/chadtree |
+| h          | 收起目录                                      | coc-explorer/nerdtree/defx/chadtree |
+| l          | 展开目录/打开文件                             | coc-explorer/nerdtree/defx/chadtree |
+| H          | 递归收起目录                                  | coc-explorer/nerdtree/defx/chadtree |
+| L          | 递归打开目录                                  | coc-explorer/nerdtree/defx/chadtree |
+| J          | 跳到下一个可以展开的地方                      | coc-explorer/nerdtree/defx/chadtree |
+| K          | 跳到上一个可以展开的地方                      | coc-explorer/nerdtree/defx/chadtree |
+| enter      | 进入目录并切换工作目录为进入的目录            | coc-explorer/nerdtree/defx/chadtree |
+| back       | 跳到上一级目并切换工作目录为切换的目录        | coc-explorer/nerdtree/defx/chadtree |
+| r          | 刷新目录                                      | coc-explorer/nerdtree/defx/chadtree |
+| v          | 选中/取消选中，并向下移动                     | coc-explorer/nerdtree/defx/chadtree |
+| V          | 选中/取消选中，并向上移动                     | coc-explorer/nerdtree/defx/chadtree |
+| *          | 选中/取消选中                                 | coc-explorer/nerdtree/defx/chadtree |
+| sh         | 水平打开                                      | coc-explorer/nerdtree/defx/chadtree |
+| sv         | 垂直打开                                      | coc-explorer/nerdtree/defx/chadtree |
+| st         | 新tab中打开                                   | coc-explorer/nerdtree/defx/chadtree |
+|            |                                               | coc-explorer/nerdtree/defx/chadtree |
+| dd         | 剪切文件                                      | coc-explorer/nerdtree/defx/chadtree |
+| Y          | 复制文件                                      | coc-explorer/nerdtree/defx/chadtree |
+| D          | 删除文件                                      | coc-explorer/nerdtree/defx/chadtree |
+| P          | 粘贴文件                                      | coc-explorer/nerdtree/defx/chadtree |
+| R          | 重命名文件                                    | coc-explorer/nerdtree/defx/chadtree |
+| N          | 添加文件或者目录，如果最后有`/`则表示添加目录 | coc-explorer/nerdtree/defx/chadtree |
+| yp         | 复制文件路径                                  | coc-explorer/nerdtree/defx/chadtree |
+| yn         | 复制文件名称                                  | coc-explorer/nerdtree/defx/chadtree |
+| .          | 显示/关闭隐藏文件                             | coc-explorer/nerdtree/defx/chadtree |
+|            |                                               | coc-explorer/nerdtree/defx/chadtree |
+| x          | 使用系统默认应用打开文件                      | coc-explorer/nerdtree/defx/chadtree |
+| f          | 搜索文件                                      | coc-explorer/nerdtree/defx/chadtree |
+| F          | 递归搜索文件                                  | coc-explorer/nerdtree/defx/chadtree |
+|            |                                               |                                     |
+| \<leader>f | 悬浮或者在当前窗口打开                        | coc-explorer/nerdtree/defx/chadtree |
 
 
 
@@ -276,11 +277,11 @@ fzf增加visual模式下的检索功能，在visual模式下选中一部分文�
 
 快速跳转使用的是[vim-easymotion](https://github.com/easymotion/vim-easymotion)或者[clever-f](https://github.com/rhysd/clever-f.vim)，easymotion中只使用了两个功能，一个是使用char进行跳转，另一个是跳转到行。
 
-| 按键 | 模式   | 描述                                                         |
-| ---- | ------ | ------------------------------------------------------------ |
-| f    | normal | 根据输入的char进行跳转，按下f后会提示要跳转到哪个char，<br>需要再输入一个char然后回车确认 |
-| gl   | normal | 跳转到行                                                     |
-|      |        |                                                              |
+| 按键 | 模式   | 描述                                                         | 提供者                  |
+| ---- | ------ | ------------------------------------------------------------ | ----------------------- |
+| f    | normal | 根据输入的char进行跳转，按下f后会提示要跳转到哪个char，<br>需要再输入一个char然后回车确认 | clever-f/vim-easymotion |
+| gl   | normal | 跳转到行                                                     | vim-easymotion          |
+|      |        |                                                              |                         |
 
 
 

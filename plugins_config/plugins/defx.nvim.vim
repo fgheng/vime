@@ -1,275 +1,8 @@
-if g:HasPlug('defx.nvim')
+let g:defx_icons_enable_syntax_highlight = 1
+let g:defx_icons_column_length = 2
 
-    let s:DefxWinNr = -1
-    let s:beforWinnr = -1
-
-    let s:openfloat = 0
-    let s:openleft = 0
-
-    function! OpenDefx() abort
-        if winwidth(0) <= 120
-            call OpenDefxCurWin()
-        else
-            call OpenDefxLeft()
-        endif
-    endf
-
-    function! OpenDefxCurWin()
-        let s:openfloat = 1
-
-        exec 'wal'
-        let s:beforWinnr = getwininfo(win_getid())[0]['winnr']
-        "let a:wincol = getwininfo(win_getid())[0]['wincol']
-        "let a:winrow = getwininfo(win_getid())[0]['winrow']
-        call defx#custom#option('_', {
-                \ 'split': 'floating',
-                \ 'wincol': 0,
-                \ 'winrow': 0,
-                \ 'winrelative': 'win',
-                \ 'winwidth': winwidth(0),
-                \ 'winheight': winheight(0)+1,
-                \ 'show_ignored_files': 0,
-                \ 'buffer_name': '',
-                \ 'toggle': 1,
-                \ 'resume': 1,
-                \ 'columns': "mark:icons:indent:icon:filename:type"
-                \ })
-
-        "if winwidth(0) <= 120
-        "    let a:wincol = getwininfo(win_getid())[0]['wincol']
-        "    let a:winrow = getwininfo(win_getid())[0]['winrow']
-        "    call defx#custom#option('_', {
-        "            \ 'direction': 'leftabove',
-        "            \ 'split': 'floating',
-        "            \ 'wincol': a:wincol,
-        "            \ 'winrow': a:winrow,
-        "            \ 'winwidth': winwidth(0),
-        "            \ 'winheight': winheight(0),
-        "            \ 'show_ignored_files': 0,
-        "            \ 'buffer_name': '',
-        "            \ 'toggle': 1,
-        "            \ 'resume': 1,
-        "            \ 'columns': "git:mark:indent:icon:icons:filename:size"
-        "            \ })
-
-        "    "exec "Defx -winwidth=`winwidth(0)` -winheight=`winheight(0)`"
-        "    "exec "Defx -winwidth=50 -winheight=`winheight(0)`"
-        "    "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
-        "else
-        "    call defx#custom#option('_', {
-        "            \ 'direction': 'leftabove',
-        "            \ 'split': 'vertical',
-        "            \ 'winwidth': 35,
-        "            \ 'show_ignored_files': 0,
-        "            \ 'buffer_name': '',
-        "            \ 'toggle': 1,
-        "            \ 'resume': 1,
-        "            \ 'columns': "git:mark:indent:icon:icons:filename:size"
-        "            \ })
-
-        "endif
-
-        let a:absPath = expand('%:p:h')
-        exec "Defx ".a:absPath
-        "highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=#93a1a1 guibg=#002931
-        highlight NormalFloat cterm=NONE ctermfg=14 ctermbg=0 gui=NONE guifg=None guibg=None
-        let s:DefxWinNr = winnr()
-    endfunction
-
-    function! OpenDefxLeft()
-        let s:openleft = 1
-        exec 'wal'
-        call defx#custom#option('_', {
-                \ 'direction': 'topleft',
-                \ 'winwidth': 30,
-                \ 'split': 'vertical',
-                \ 'listed': 1,
-                \ 'show_ignored_files': 0,
-                \ 'buffer_name': 'defx',
-                \ 'toggle': 1,
-                \ 'resume': 1,
-                \ 'columns': "mark:icons:indent:icon:filename:size"
-                \ })
-                "\ 'direction': 'leftabove',
-        "╰─▸
-        call defx#custom#column('icon', {
-                    \ 'directory_icon': '├─▸',
-                    \ 'opened_icon': '╰─▸',
-                    \ 'root_icon': '─▸',
-                    \ 'file_icon': '╰─▸',
-                    \ })
-        call defx#custom#column('mark', {
-                    \ 'selected_icon': '✓',
-                    \ 'readonly_icon': '',
-                    \ })
-        let s:absPath = expand('%:p:h')
-        exec "Defx ".s:absPath
-
-    endfunction
-
-    " nnoremap <silent> <F2> <esc>:call OpenDefxCurWin()<cr>
-    nnoremap <silent> <F2> <esc>:call OpenDefxLeft()<cr>
-
-    autocmd FileType defx call s:defx_custom_settings()
-
-    " defx快捷键
-    function! s:defx_custom_settings() abort
-        nnoremap <silent><buffer><expr> N       defx#do_action('new_file')              " 新建文件/文件夹
-        nnoremap <silent><buffer><expr> D       defx#do_action('remove_trash')          " 删除
-        nnoremap <silent><buffer><expr> Y       defx#do_action('copy')                  " 复制
-        nnoremap <silent><buffer><expr> P       defx#do_action('paste')                 " 粘贴
-        nnoremap <silent><buffer><expr> dd      defx#do_action('move')                  " 移动即剪切
-        nnoremap <silent><buffer><expr> R       defx#do_action('rename')                " 重命名
-        nnoremap <silent><buffer><expr> v       defx#do_action('toggle_select') . 'j'   " 选择
-        nnoremap <silent><buffer><expr> V       defx#do_action('toggle_select') . 'k'   " 选择
-        nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')     " 选择
-        nnoremap <silent><buffer><expr> x       defx#do_action('execute_system')        " 执行
-        nnoremap <silent><buffer><expr> yy      defx#do_action('yank_path')             " 复制路径
-        nnoremap <silent><buffer><expr> q       defx#do_action('quit')
-        nnoremap <silent><buffer><expr> h       defx#do_action('call', 'DefxSmartH')
-        nnoremap <silent><buffer><expr> l       defx#do_action('call', 'DefxSmartL')
-        nnoremap <silent><buffer><expr> L       defx#do_action('call', 'DefxSmartBigL')
-        nnoremap <silent><buffer><expr> o       defx#do_action('call', 'DefxSmartO')
-        nnoremap <silent><buffer><expr> <Cr>    defx#do_action('call', 'DefxSmartCr')
-        if s:openleft
-            nnoremap <silent><buffer><expr> sv      defx#do_action('drop', 'vsplit')
-            nnoremap <silent><buffer><expr> sh      defx#do_action('drop', 'split')
-            nnoremap <silent><buffer><expr> st      defx#do_action('drop', 'tabedit')
-        endif
-        nnoremap <silent><buffer><expr> S       defx#do_action('toggle_sort')           " 排序
-        nnoremap <silent><buffer><expr> .       defx#do_action('toggle_ignored_files')  " 显示隐藏文件
-        nnoremap <silent><buffer><expr> ~       defx#do_action('cd')
-        nnoremap <silent><buffer><expr> !       defx#do_action('execute_command')
-        nnoremap <silent><buffer><expr> j       line('.') == line('$') ? 'gg' : 'j'
-        nnoremap <silent><buffer><expr> k       line('.') == 1 ? 'hhhG' : 'k'
-        nnoremap <silent><buffer><expr> r       defx#do_action('redraw')
-        nnoremap <silent><buffer><expr> `       defx#do_action('cd', getcwd())          " 回到工作目录
-        nnoremap <silent><buffer><expr> cd      defx#do_action('change_vim_cwd')        " 将当前目录设置为工作目录
-        nnoremap <silent><buffer><expr> s       defx#do_action('search', getcwd())
-    endfunction
-
-    function! DefxSmartCr(_)
-        if defx#is_directory()
-            call defx#call_action('open_directory')
-            call defx#call_action('change_vim_cwd')
-        else
-            call defx#call_action('drop')
-            " let a:filepath = defx#get_candidate()['action__path']
-            " if s:openleft
-            "     call defx#call_action('drop')
-            " elseif s:openleft
-            "     exec "close " . s:DefxWinNr
-            "     exec s:beforWinnr . "wincmd w"
-            "     exec 'e'. a:filepath
-            " endif
-        endif
-    endfunction
-
-    function! DefxSmartO(_)
-        if s:openfloat
-            if defx#is_directory()
-                call defx#call_action('open_directory')
-            else
-                call defx#call_action('drop')
-                exec "close " . s:DefxWinNr
-            endif
-        endif
-    endfunction
-
-    function! DefxSmartL(_)
-        if defx#is_directory()
-            call defx#call_action('open_tree')
-            normal! j
-        else
-            let a:filepath = defx#get_candidate()['action__path']
-            if s:openfloat
-                exec "close " . s:DefxWinNr
-            endif
-            if tabpagewinnr(tabpagenr(), '$') >= 2    " if there are more than 2 normal windows
-                if exists(':ChooseWin') == 2
-                    ChooseWin
-                else
-                    if has('nvim')
-                        let input = input({
-                                    \ 'prompt'      : 'ChooseWin No.: ',
-                                    \ 'cancelreturn': 0,
-                                    \ })
-                        if input == 0 | return | endif
-                    else
-                        let input = input('ChooseWin No.: ')
-                    endif
-                    if input == winnr() | return | endif
-                    exec input . 'wincmd w'
-                endif
-
-                if &ft == 'defx'
-                    return
-                else
-                    exec 'e' a:filepath
-                endif
-
-            else
-                exec 'wincmd w'
-                exec 'e' a:filepath
-            endif
-        endif
-    endfunction
-
-    function! DefxSmartBigL(_)
-        " exec 'wal'
-        if defx#is_directory()
-            call defx#call_action('open_tree_recursive')
-            normal! j
-        else
-            let a:filepath = defx#get_candidate()['action__path']
-            if s:openfloat
-                exec "close " . s:DefxWinNr
-            endif
-            if tabpagewinnr(tabpagenr(), '$') >= 2    " if there are more than 2 normal windows
-                if exists(':ChooseWin') == 2
-                    ChooseWin
-                else
-                    if has('nvim')
-                        let input = input({
-                                    \ 'prompt'      : 'ChooseWin No.: ',
-                                    \ 'cancelreturn': 0,
-                                    \ })
-                        if input == 0 | return | endif
-                    else
-                        let input = input('ChooseWin No.: ')
-                    endif
-                    if input == winnr() | return | endif
-                    exec input . 'wincmd w'
-                endif
-
-                if &ft == 'defx'
-                    return
-                else
-                    exec 'e' a:filepath
-                endif
-
-            else
-                exec 'wincmd w'
-                exec 'e' a:filepath
-            endif
-        endif
-    endfunction
-
-    function! DefxSmartH(_)
-        " if cursor line is first line, or in empty dir
-        if line('.') ==# 1 || line('$') ==# 1
-            return defx#call_action('cd', ['..'])
-        endif
-
-        " candidate is opend tree?
-        " if defx#is_opened_tree()
-        "     return defx#call_action('close_tree')
-        " endif
-
-        " if you want close_tree immediately, enable below line.
-        " call defx#call_action('close_tree')
-    endfunction
-
+let s:columns = ""
+if g:HasPlug('defx-git')
     call defx#custom#column('git', {
         \   'indicators': {
         \     'Modified'  : '•',
@@ -282,51 +15,203 @@ if g:HasPlug('defx.nvim')
         \     'Unknown'   : '⁇'
         \   }
         \ })
-
-    let g:defx_icons_enable_syntax_highlight = 1
-    let g:defx_icons_column_length = 2
-    let g:defx_icons_directory_icon = ''
-    let g:defx_icons_mark_icon = '*'
-    let g:defx_icons_parent_icon = ''
-    let g:defx_icons_default_icon = ''
-    let g:defx_icons_directory_symlink_icon = ''
-    " Options below are applicable only when using "tree" feature
-    let g:defx_icons_root_opened_tree_icon = ''
-    let g:defx_icons_nested_opened_tree_icon = ''
-    let g:defx_icons_nested_closed_tree_icon = ''
-
-    augroup user_plugin_defx
-        autocmd!
-
-        " FIXME
-        " autocmd DirChanged * call s:defx_refresh_cwd(v:event)
-
-        " Delete defx if it's the only buffer left in the window
-        autocmd WinEnter * if &filetype == 'defx' && winnr('$') == 1 | q | endif
-
-        " Move focus to the next window if current buffer is defx
-        autocmd TabLeave * if &filetype == 'defx' | wincmd w | endif
-
-        autocmd TabClosed * call s:defx_close_tab(expand('<afile>'))
-
-        " Define defx window mappings
-        "autocmd FileType defx call s:defx_mappings()
-
-    augroup END
-
-    function! s:defx_close_tab(tabnr)
-        " When a tab is closed, find and delete any associated defx buffers
-        for l:nr in range(1, bufnr('$'))
-            let l:defx = getbufvar(l:nr, 'defx')
-            if empty(l:defx)
-                continue
-            endif
-            let l:context = get(l:defx, 'context', {})
-            if get(l:context, 'buffer_name', '') ==# 'tab' . a:tabnr
-                silent! execute 'bdelete '.l:nr
-                break
-            endif
-        endfor
-    endfunction
+    let s:columns = "indent:mark:git:icon:icons:filename:type"
+else
+    let s:columns = "indent:mark:icon:icons:filename:type"
 endif
 
+call defx#custom#column('icon', {
+        \ 'directory_icon': '▸',
+        \ 'opened_icon': '▾',
+        \ 'root_icon': '/',
+        \ })
+call defx#custom#column('mark', {
+            \ 'selected_icon': '✓',
+            \ 'readonly_icon': '🔒',
+            \ })
+
+function! DefxOpen(where) abort
+    if a:where
+        let s:before_winnr = winnr()
+        call defx#custom#option('_', {
+                \ 'split': 'floating',
+                \ 'wincol': 0,
+                \ 'winrow': 0,
+                \ 'winrelative': 'win',
+                \ 'winwidth': winwidth(0),
+                \ 'winheight': winheight(0)+1,
+                \ 'show_ignored_files': 0,
+                \ 'buffer_name': '',
+                \ 'toggle': 1,
+                \ 'resume': 1,
+                \ 'columns': s:columns,
+                \ })
+    else
+        call defx#custom#option('_', {
+                \ 'split': 'vertical',
+                \ 'direction': 'topleft',
+                \ 'winwidth': 30,
+                \ 'listed': 1,
+                \ 'show_ignored_files': 0,
+                \ 'buffer_name': 'defx',
+                \ 'toggle': 1,
+                \ 'resume': 1,
+                \ 'columns': s:columns
+                \ })
+    endif
+    exec "Defx "
+endf
+
+" 自定义快捷键函数
+function! s:selectWindow(filepath)
+    if tabpagewinnr(tabpagenr(), '$') > 2
+        if exists(':ChooseWin') == 2
+            ChooseWin
+        else
+            if has('nvim')
+                let input = input({
+                            \ 'prompt'      : 'ChooseWin No.: ',
+                            \ 'cancelreturn': 0,
+                            \ })
+                if input == 0 | return | endif
+            else
+                let input = input('ChooseWin No.: ')
+            endif
+            if input == winnr() | return | endif
+            exec input . 'wincmd w'
+        endif
+
+        if &ft == 'defx'
+            return
+        else
+            exec 'e' a:filepath
+        endif
+
+    else
+        exec 'wincmd w'
+        exec 'e' a:filepath
+    endif
+endfunction
+
+function! DefxSmartCr(_)
+    " 悬浮和非悬浮行为不一样
+    " 进入目录或者打开文件
+    let l:split = a:_['split']
+
+    if defx#is_directory()
+        call defx#call_action('open_directory')
+        " 如果是悬浮窗口，不应该更改cwd
+        if l:split !=? 'floating'
+            call defx#call_action('change_vim_cwd')
+        endif
+    else
+        let l:filepath = defx#get_candidate()['action__path']
+        if l:split ==? 'floating'
+            exec s:before_winnr . 'wincmd w'
+            exec 'e' l:filepath
+            exec "Defx -close"
+        else
+            call s:selectWindow(l:filepath)
+        endif
+    endif
+
+endfunction
+
+function! DefxSmartL(_) abort
+    " 展开树或者打开文件
+    if defx#is_directory()
+        call defx#call_action('open_tree')
+        normal! j
+    else
+        " return defx#call_action('drop')
+        let l:filepath = defx#get_candidate()['action__path']
+
+        let l:split = a:_['split']
+        if l:split ==? 'floating'
+            " 先关闭悬浮窗口
+            exec "Defx -close"
+        endif
+
+        call s:selectWindow(l:filepath)
+    endif
+endfunction
+
+function! DefxSmartH(_) abort
+    " 第一行或者没有行，那么返回上一级目录
+    if line('.') ==# 1 || line('$') ==# 1
+        return defx#call_action('cd', ['..'])
+    endif
+
+    return defx#call_action('close_tree')
+endfunction
+
+function! DefxSmartBackSpace(_) abort
+    " 回到上一级并将上一级设置为工作目录
+    call defx#call_action('cd', ['..'])
+    call defx#call_action('change_vim_cwd')
+endfunction
+
+function! s:defx_close_tab(tabnr)
+    " When a tab is closed, find and delete any associated defx buffers
+    for l:nr in range(1, bufnr('$'))
+        let l:defx = getbufvar(l:nr, 'defx')
+        if empty(l:defx)
+            continue
+        endif
+        let l:context = get(l:defx, 'context', {})
+        if get(l:context, 'buffer_name', '') ==# 'tab' . a:tabnr
+            silent! execute 'bdelete '.l:nr
+            break
+        endif
+    endfor
+endfunction
+
+" 自定义快捷键
+" nnoremap <silent> <F2> <esc>:call OpenDefxCurWin()<cr>
+" nnoremap <silent> <F2> <esc>:call OpenDefxLeft()<cr>
+nnoremap <silent> <F2> <esc>:call DefxOpen(v:false)<cr>
+nnoremap <silent> <leader>f <esc>:call DefxOpen(v:true)<cr>
+
+function! s:defx_custom_settings() abort
+    nnoremap <silent><buffer><expr> N       defx#do_action('new_file')              " 新建文件/文件夹
+    nnoremap <silent><buffer><expr> D       defx#do_action('remove_trash')          " 删除
+    nnoremap <silent><buffer><expr> Y       defx#do_action('copy')                  " 复制
+    nnoremap <silent><buffer><expr> P       defx#do_action('paste')                 " 粘贴
+    nnoremap <silent><buffer><expr> dd      defx#do_action('move')                  " 剪切
+    nnoremap <silent><buffer><expr> R       defx#do_action('rename')                " 重命名
+    nnoremap <silent><buffer><expr> v       defx#do_action('toggle_select') . 'j'   " 选择
+    nnoremap <silent><buffer><expr> V       defx#do_action('toggle_select') . 'k'   " 选择
+    nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select')         " 选择但不移动
+    nnoremap <silent><buffer><expr> x       defx#do_action('execute_system')        " 执行
+    nnoremap <silent><buffer><expr> yp      defx#do_action('yank_path')             " 复制路径
+    nnoremap <silent><buffer><expr> h       defx#do_action('call', 'DefxSmartH')    " 关闭节点或者返回上一层目录，但不设置cwd
+    nnoremap <silent><buffer><expr> l       defx#do_action('call', 'DefxSmartL')    " 展开或者打开文件
+    nnoremap <silent><buffer><expr> L       defx#do_action('open_tree_recursive')   " 递归展开
+    nnoremap <silent><buffer><expr> q       defx#do_action('quit')                  " 关闭的defx
+    nnoremap <silent><buffer><expr> r       defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> <Cr>    defx#do_action('call', 'DefxSmartCr')   " 打开文件或者进入目录
+    nnoremap <silent><buffer><expr> <backspace>    defx#do_action('call', 'DefxSmartBackSpace') " 返回上一级目录并设置cwd
+    nnoremap <silent><buffer><expr> W      defx#do_action('drop', 'vsplit')
+    nnoremap <silent><buffer><expr> w      defx#do_action('drop', 'split')
+    nnoremap <silent><buffer><expr> t      defx#do_action('drop', 'tabedit')
+    nnoremap <silent><buffer><expr> .       defx#do_action('toggle_ignored_files')  " 显示隐藏文件
+    nnoremap <silent><buffer><expr> s       defx#do_action('toggle_sort')           " 排序
+    nnoremap <silent><buffer><expr> ~       defx#do_action('cd')
+    " nnoremap <silent><buffer><expr> !       defx#do_action('execute_command')
+    nnoremap <silent><buffer><expr> `       defx#do_action('cd', getcwd())          " 回到工作目录
+    nnoremap <silent><buffer><expr> cd      defx#do_action('change_vim_cwd')        " 将当前目录设置为工作目录
+    nnoremap <silent><buffer><expr> f       defx#do_action('search')
+endfunction
+
+augroup defx_group
+    autocmd!
+    " Delete defx if it's the only buffer left in the window
+    autocmd WinEnter * if &filetype == 'defx' && winnr('$') == 1 | q | endif
+    " Move focus to the next window if current buffer is defx
+    autocmd TabLeave * if &filetype == 'defx' | wincmd w | endif
+    autocmd TabClosed * call s:defx_close_tab(expand('<afile>'))
+    " Define defx window mappings
+    autocmd FileType defx call s:defx_custom_settings()
+
+    autocmd FileType defx setlocal nobuflisted
+augroup END
