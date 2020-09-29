@@ -5,7 +5,6 @@ Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
 \ | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
-Plug 'preservim/nerdtree' " | Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 " git插件
 Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive'
