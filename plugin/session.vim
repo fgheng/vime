@@ -24,7 +24,7 @@ function! s:SaveSession() abort
     exec "mksession! " . l:sessions[0]
 endfunction
 
-augroup BASE
+augroup session_group
     autocmd!
     autocmd VimLeavePre * call s:SaveSession()
 augroup END

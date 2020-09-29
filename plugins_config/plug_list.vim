@@ -5,7 +5,6 @@ Plug 'junegunn/fzf.vim'
 \ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 \ | Plug 'tpope/vim-fugitive'
 \ | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } | Plug 'kristijanhusak/defx-icons' | Plug 'kristijanhusak/defx-git'
 " git插件
 Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive'
 " 注释插件
@@ -144,9 +143,9 @@ let g:coc_global_extensions = [
     \ 'coc-word',
     \ 'coc-python',
     \ 'coc-tabnine',
+    \ 'coc-explorer',
     \ ]
 
-    "\ 'coc-explorer',
     "\ 'coc-pyright',
     "\ 'coc-fzf-preview',
     "\ 'coc-bookmark',

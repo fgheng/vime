@@ -1,6 +1,6 @@
 " coc插件安装目录
 let g:coc_data_home = g:cache_root_path . 'coc/'
-" coc-settings.json目录
+" coc-settings.json所在目录
 let g:coc_config_home = g:plugins_config_root_path
 
 " 卸载不在列表中的插件
@@ -66,8 +66,6 @@ function! s:definition_other_window() abort
     endif
 endfunction
 
-" Remap keys for gotos
-" tagstack gotoTag
 function! s:gotoTag(tagkind) abort
     let l:current_tag = expand('<cWORD>')
 
@@ -92,10 +90,6 @@ function! s:gotoTag(tagkind) abort
 endfunction
 
 "nmap <silent> gd <Plug>(coc-definition)
-"nmap <silent> gd :call CocAction('jumpDefinition', 'drop')<cr>
-" nmap <silent> gd :<c-u>call CocActionAsync('jumpDefinition')<cr>
-" nmap <silent> gd <plug>(coc-definition)
-" nmap <silent> gd :call <SID>definition_other_window()<cr>
 nmap <silent> gd :call <SID>gotoTag("Definition")<CR>
 " 跳转到类型定义
 nmap <silent> gy <plug>(coc-type-definition)
@@ -116,21 +110,13 @@ endfunction
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 " 函数参数的文档
 nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
-
-" augroup mygroup
-"     autocmd!
-"     " Setup formatexpr specified filetype(s).
-"     autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-"     " Update signature help on jump placeholder
-"     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-" augroup end
+au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 " 格式化代码
 command! -nargs=0 Format :call CocAction('format')
-au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 " 文档块支持，比如删除条件，函数等
-" 功能不如treesitter，使用treesitter
+" 功能不如treesitter，如果不存在treesitter才使用coc
 if !g:HasPlug('nvim-treesitter')
     xmap if <Plug>(coc-funcobj-i)
     omap if <Plug>(coc-funcobj-i)
@@ -142,9 +128,6 @@ if !g:HasPlug('nvim-treesitter')
     omap ac <Plug>(coc-classobj-a)
 endif
 
-"""""""""""""""""""""""
-" coc-plug config
-"""""""""""""""""""""""
 if g:HasPlug('coc-fzf')
     nnoremap <silent> <space>A  :<C-u>CocFzfList diagnostics<CR>
     nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics --current-buf<CR>
@@ -156,10 +139,6 @@ if g:HasPlug('coc-fzf')
     nnoremap <silent> <space>O  :<C-u>CocFzfList symbols<CR>
     nnoremap <silent> <space>s  :<C-u>CocFzfList services<CR>
     nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
-
-    if g:HasCocPlug('coc-yank')
-        nnoremap <silent> <space>y  :<C-u>CocFzfList yank<CR>
-    endif
 else
     " Show all diagnostics
     if g:HasPlug('fzf-preview.vim')
@@ -188,6 +167,10 @@ nmap <space>f  <Plug>(coc-fix-current)
 " 变量重命名
 nmap <space>rn <Plug>(coc-rename)
 
+" 多光标支持，但是coc的多光标不如
+" vim-visual-multi，因此在没有
+" vim-visual-multi的时候才使用
+" coc
 if !g:HasPlug("vim-visual-multi")
     " ctrl n下一个，ctrl p上一个
     " ctrl c 添加一个光标再按一次取消，
@@ -207,6 +190,10 @@ if !g:HasPlug("vim-visual-multi")
     nmap <leader>x  <Plug>(coc-cursors-operator)
 endif
 
+"""""""""""""""""""""""
+" coc-plug config
+" 下面是coc插件的配置
+"""""""""""""""""""""""
 if g:HasCocPlug('coc-highlight')
     " 高亮当前光标下的所有单词
     au CursorHold * silent call CocActionAsync('highlight')
@@ -219,6 +206,7 @@ function! CocListFilesWithWiki(query)
         exec "CocList --no-sort files " . a:query
     endif
 endfunction
+
 " TODO 需要思考一下这里的逻辑
 if !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
     if g:HasCocPlug('coc-lists')
@@ -243,28 +231,8 @@ if !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
     endif
 endif
 
-" if g:HasCocPlug('coc-snippets')
-    " alt j k 用于补全块的跳转，优先补全块跳转
-    " let g:coc_snippet_next = '<m-j>'
-    " let g:coc_snippet_prev = '<m-k>'
-
-    " inoremap <buffer><silent><nowait><expr> <m-j>
-    "            \ pumvisible() ? "\<c-n>" : "<C-R>=coc#rpc#request('snippetNext', [])<cr>"
-    " inoremap <buffer><silent><nowait><expr> <m-k>
-    "            \ pumvisible() ? "\<c-p>" : "<C-R>=coc#rpc#request('snippetPrev', [])<cr>"
-    " snoremap <buffer><silent><nowait><expr> <m-j>
-    "            \ pumvisible() ? "\<c-n>" : "<Esc>:call coc#rpc#request('snippetNext', [])<cr>"
-    " snoremap <buffer><silent><nowait><expr> <m-k>
-    "            \ pumvisible() ? "\<c-p>" : "<Esc>:call coc#rpc#request('snippetPrev', [])<cr>"
-" endif
-
 if g:HasCocPlug('coc-yank')
-    " let g:coc_yank = {
-    "    \ "yank.highlight.duration": 200,
-    "    \ "yank.enableCompletion": v:true,
-    "\ }
-    " let g:coc_user_config = extend(g:coc_user_config, g:coc_yank)
-    " nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
+    nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
     if !g:HasPlug('vim-clap') && !g:HasPlug('fzf')
         nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
@@ -274,20 +242,18 @@ if g:HasCocPlug('coc-yank')
 endif
 
 if g:HasCocPlug('coc-translator')
-    nmap  <M-e> <Plug>(coc-translator-e)
-    nmap  <M-d> <Plug>(coc-translator-p)
+    nmap  <leader>e <Plug>(coc-translator-e)
+    nmap  <leader>d <Plug>(coc-translator-p)
 endif
 
-if g:HasCocPlug('coc-bookmark')
-    if !g:HasPlug('vim-bookmarks')
-        call coc#config("bookmark.sign", "♥")
-        nmap <silent> ma <Plug>(coc-bookmark-annotate)
-        nmap <silent> mm <Plug>(coc-bookmark-toggle)
-        nmap <silent> mj <Plug>(coc-bookmark-next)
-        nmap <silent> mk <Plug>(coc-bookmark-prev)
-        nmap <silent> mc :CocCommand bookmark.clearForCurrentFile<cr>
-        nmap <silent> ml :CocList bookmark<cr>
-    endif
+if g:HasCocPlug('coc-bookmark') && !g:HasPlug('vim-bookmarks')
+    call coc#config("bookmark.sign", "♥")
+    nmap <silent> ma <Plug>(coc-bookmark-annotate)
+    nmap <silent> mm <Plug>(coc-bookmark-toggle)
+    nmap <silent> mj <Plug>(coc-bookmark-next)
+    nmap <silent> mk <Plug>(coc-bookmark-prev)
+    nmap <silent> mc :CocCommand bookmark.clearForCurrentFile<cr>
+    nmap <silent> ml :CocList bookmark<cr>
 endif
 
 if g:HasCocPlug('coc-todolist')
@@ -304,12 +270,12 @@ if g:HasCocPlug('coc-git')
     nmap <leader>gu <esc>:CocCommand git.chunkUndo<cr>
 endif
 
-"--------------------------------- 自定义命令
-" call coc#add_command('call CocAction("pickColor")', 'MundoToggle', '显示撤回列表')
 
-"--------------------------------- 配置json文件
-
-" coc-lists
+"""""""""""""""""""""""
+" 下面是coc-settings.json的一些配置
+" 原本这些配置是可以直接写到coc-settings.json中的
+" 现在我写在vim中了
+"""""""""""""""""""""""
 if g:HasCocPlug("coc-lists")
     " session 保存目录
     call coc#config('session.directory', g:session_dir)
@@ -386,7 +352,6 @@ if g:HasCocPlug('coc-snippets')
                 \ 'typescript': ['javascript']
             \ })
 endif
-
 
 " coc-highlight
 if g:HasCocPlug('coc-highlight')
