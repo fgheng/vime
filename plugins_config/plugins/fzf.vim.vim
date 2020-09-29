@@ -15,6 +15,7 @@ let g:fzf_history_dir = g:fzf_dir . "/fzf-history"
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
 let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
 
+" fzf外观
 " coc-fzf也使用这个变量
 let g:fzf_layout = {
     \ 'window': {
@@ -25,11 +26,12 @@ let g:fzf_layout = {
 
 " 预览窗口配置
 let s:preview_window_config = 'up:50%:wrap'
-let g:fzf_preview_window = s:preview_window_config
 let s:preview_window = '--preview-window=' . s:preview_window_config
+let g:fzf_preview_window = s:preview_window_config
 " 自定义窗口预览程序
 let s:preview_program = g:scripts_path . "/preview.sh"
 
+" 如果存在buffer，那么跳转过去
 let g:fzf_buffers_jump = 1
 " [Commands] --expect expression for directly executing the command
 " let g:fzf_commands_expect = 'alt-enter,ctrl-x'
@@ -64,7 +66,6 @@ au FileType fzf tnoremap <buffer> <C-j> <Down>
 au FileType fzf tnoremap <buffer> <C-k> <Up>
 au FileType fzf tnoremap <buffer> <Esc> <c-g>
 
-
 "----------------------------------------------------------------
 " 一些函数
 "----------------------------------------------------------------
@@ -86,7 +87,7 @@ let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-x': 'split',
     \ 'ctrl-v': 'vsplit',
-    \ 'alt-o': function('s:SystemExecute'),
+    \ 'alt-x': function('s:SystemExecute'),
 \ }
 
 " visual模式下单词划线
