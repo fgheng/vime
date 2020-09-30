@@ -25,8 +25,8 @@ vnoremap q <esc>:close<cr>
 " 关闭搜索颜色
 nnoremap <BackSpace> :nohl<cr>
 
-" 使用alt q执行宏录制功能
-nnoremap <m-q> q
+" 使用leader q执行宏录制功能
+nnoremap <leader>q q
 " jk表示esc
 inoremap jk <esc>
 
@@ -65,8 +65,12 @@ function! s:Wall() abort
     execute 'tabnext '.tab
     execute win.'wincmd w'
 endfunction
+
+function! s:writeCurrent() abort
+    if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# '' | silent write | endif
+endfunction
 " noremap <silent> <space><space> <esc>:call <SID>Wall()<cr>
-noremap <silent> <space><space> <esc>:write<cr>
+noremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
 
 nnoremap j gj
 nnoremap k gk

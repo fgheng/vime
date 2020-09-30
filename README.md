@@ -126,7 +126,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 
 补全插件主要是下面两个，然后最近主要使用coc，ycm很久没有使用了。这两个插件选择一个在`plugins_config/plug_list.vim`中加上即可启用。
 
-1. [neoclide/coc](https://github.com/neoclide/coc.nvim) 
+1. [neoclide/coc](https://github.com/neoclide/coc.nvim)
 
    ```viml
    " plugins_config/plug_list.vim
@@ -140,7 +140,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
    Plug 'ycm-core/YouCompleteMe'
    ```
 
-   
+
 
 | 按键       | 描述                                                         | 提供者 |
 | ---------- | ------------------------------------------------------------ | ------ |
@@ -572,12 +572,9 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 
 #### 7.20 其他
 
-| 按键             | 模式   | 描述                                                       |
-| ---------------- | ------ | ---------------------------------------------------------- |
-| alt q            | normal | 进入宏录制，因为q映射为了关闭窗口，所以使用alt q作为宏录制 |
-| alt o            | normal | 使用系统默认应用打开当前buffer文件                         |
-| \<space>\<space> | normal | 保存所有的buffer，不包括terminal，目录树等                 |
-|                  |        |                                                            |
-|                  |        |                                                            |
-|                  |        |                                                            |
-|                  |        |                                                            |
+| 按键             | 模式   | 描述                                                          |
+| ---------------- | ------ | ----------------------------------------------------------    |
+| leader q         | normal | 进入宏录制，因为q映射为了关闭窗口，所以使用leader q作为宏录制 |
+| alt x            | normal | 使用系统默认应用打开当前buffer文件                            |
+| \<space>\<space> | normal | 保存当前的buffer，不包括terminal，目录树等                    |
+|                  |        |                                                               |

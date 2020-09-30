@@ -1,6 +1,6 @@
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " 全局配置
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 if exists('g:loaded_config_fzf_vim_vim')
     finish
 endif
@@ -33,12 +33,10 @@ let s:preview_program = g:scripts_path . "/preview.sh"
 
 " 如果存在buffer，那么跳转过去
 let g:fzf_buffers_jump = 1
-" [Commands] --expect expression for directly executing the command
-" let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " 主题配置
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " 配色与主题同色
 " fg表示未选中行的前景色
 " hl表示搜索到的文字的颜色
@@ -59,16 +57,16 @@ let g:fzf_colors = {
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment'] }
 
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " 使用ctrl jk上下移动选项
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 au FileType fzf tnoremap <buffer> <C-j> <Down>
 au FileType fzf tnoremap <buffer> <C-k> <Up>
 au FileType fzf tnoremap <buffer> <Esc> <c-g>
 
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " 一些函数
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " ref https://github.com/junegunn/fzf.vim/issues/379
 " 使用系统应用打开文件
 function! s:SystemExecute(lines)
@@ -104,9 +102,9 @@ function! s:get_visual_selection()
     return join(lines, "\n")
 endfunction
 
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " 内容检索
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 function! s:RipgrepFzfWithWiki(query, fullscreen) abort
     let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case %s %s || true'
 
@@ -133,13 +131,13 @@ endfunction
 function! s:RipgrepFzfWithWikiVisual(fullscreen) abort range
     call s:RipgrepFzfWithWiki(s:get_visual_selection(), a:fullscreen)
 endfunction
-command! -nargs=* -bang GrepWithWiki call s:RipgrepFzfWithWiki(<q-args>, <bang>0)
 " TODO 还需要优化，尽量合并成一个函数，通过参数来操作
+command! -nargs=* -bang GrepWithWiki call s:RipgrepFzfWithWiki(<q-args>, <bang>0)
 command! -range=% -bang  GrepWithWikiVisual <line1>,<line2>call s:RipgrepFzfWithWikiVisual(<bang>0)
 
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " 文件检索
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 function! s:FilesWithWiki(query, fullscreen)
     let spec = {'options': [
                 \ '--info=inline',
@@ -158,10 +156,9 @@ function! s:FilesWithWiki(query, fullscreen)
 endfunction
 command! -bang -nargs=? -complete=dir FWW call s:FilesWithWiki(<q-args>, <bang>0)
 
-
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " quickfix 与 locallist
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 function! s:error_type(type, nr) abort
     if a:type ==? 'W' | let l:msg = ' warning'
     elseif a:type ==? 'I' | let l:msg = ' info'
@@ -173,28 +170,16 @@ function! s:error_type(type, nr) abort
 
     return printf('%s %3d', l:msg, a:nr)
 endfunction
-function! s:format_error(item) abort
+
+function! s:formatError(item) abort
     return (a:item.bufnr ? bufname(a:item.bufnr) : '')
             \ . ':' . (a:item.lnum  ? a:item.lnum : '')
             \ . ':' . (a:item.col ? ' col ' . a:item.col : '')
             \ . ' | ' . s:error_type(a:item.type, a:item.nr)
             \ . ' | ' . substitute(a:item.text, '\v^\s*', ' ', '')
 endfunction
-function! s:quickfix_syntax() abort
-    if has('syntax') && exists('g:syntax_on')
-        " syntax match fzfQfFileName '^[^|]*' nextgroup=fzfQfSeparator
-        " syntax match fzfQfSeparator '|' nextgroup=fzfQfLineNr contained
-        " syntax match fzfQfLineNr '[^|]*' contained contains=fzfQfError,fzfQfWarning
-        syntax match fzfQfError 'error' contained
-        syntax match fzfQfWarning 'warning' contained
 
-        " highlight default link fzfQfFileName Directory
-        " highlight default link fzfQfLineNr LineNr
-        highlight default link fzfQfError Error
-        highlight default link fzfQfWarning WarningMsg
-    endif
-endfunction
-function! s:quickfix_handler(err) abort
+function! s:quickfixOrLocalListHandler(err) abort
     let l:err_list = split(a:err, '|')
     let l:fn_ln = split(l:err_list[0], ':')
     let l:file_name = l:fn_ln[0]
@@ -217,11 +202,12 @@ function! s:quickfix_handler(err) abort
     normal! zvzz
     return
 endfunction
+
 " TODO 编写高亮
-function! s:FzfQuickfix(...) abort
+function! s:FzfQuickfixOrLocalList(...) abort
     call fzf#run(fzf#wrap({
-            \ 'source': map(a:1 ? getloclist(0) : getqflist(), 's:format_error(v:val)'),
-            \ 'sink': function('s:quickfix_handler'),
+            \ 'source': map(a:1 ? getloclist(0) : getqflist(), 's:formatError(v:val)'),
+            \ 'sink': function('<SID>quickfixOrLocalListHandler'),
             \ 'options': [
                 \ (a:1 ? '--prompt=LocList' : '--prompt=QfList'),
                 \ '--info=inline',
@@ -230,17 +216,17 @@ function! s:FzfQuickfix(...) abort
             \ ],
             \ }))
 endfunction
-command! FzfQuickfix  call s:FzfQuickfix(0)
-command! FzfLocationList  call s:FzfQuickfix(1)
+command! FzfQuickfix  call <SID>FzfQuickfixOrLocalList(0)
+command! FzfLocationList  call <SID>FzfQuickfixOrLocalList(1)
 
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " jumps
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " TODO 增加颜色
 " TODO 定位当前所在的位置而不是总是置顶
 " 当前jump所在的位置
 " let s:jump_current_line = 0
-function! s:jump_list_format(val) abort
+function! s:jumpListFormat(val) abort
     let l:file_name = bufname('%')
     let l:file_name = empty(l:file_name) ? 'Unknown file name' : l:file_name
     let l:curpos = getcurpos()
@@ -248,7 +234,7 @@ function! s:jump_list_format(val) abort
     let [l:mark, l:jump, l:line, l:col, l:content] = l:l[1:5]
     if empty(trim(l:mark)) | let l:mark = '-' | endif
 
-    if filereadable(expand(l:content))
+    if filereadable(expand(fnameescape(l:content)))
         let l:file_name = expand(l:content)
         let l:bn = bufnr(l:file_name)
         if l:bn > -1 && buflisted(l:bn) > 0
@@ -265,11 +251,13 @@ function! s:jump_list_format(val) abort
     endif
     return l:mark . " " . l:file_name . ":" . l:line . ":" . l:col . " " . l:content
 endfunction
-function! s:jump_list() abort
-    let l:js = execute('jumps')
-    return map(reverse(split(l:js, '\n')[1:]), 's:jump_list_format(v:val)')
+
+function! s:jumpList() abort
+    let l:jl = execute('jumps')
+    return map(reverse(split(l:jl, '\n')[1:]), 's:jumpListFormat(v:val)')
 endfunction
-function! s:jump_handler(jp)
+
+function! s:jumpHandler(jp)
     let l:l = matchlist(a:jp, '\(.\)\s\(.*\):\(\d\+\):\(\d\+\)\(.*\)')
     let [l:file_name, l:line, l:col, l:content] = l:l[2:5]
 
@@ -282,10 +270,11 @@ function! s:jump_handler(jp)
     call cursor(str2nr(l:line), str2nr(l:col))
     normal! zvzz
 endfunction
+
 function! s:FzfJumps() abort
     call fzf#run(fzf#wrap({
-            \ 'source': <sid>jump_list(),
-            \ 'sink': function('s:jump_handler'),
+            \ 'source': s:jumpList(),
+            \ 'sink': function('<SID>jumpHandler'),
             \ 'options': [
                 \ '--prompt=Jumps',
                 \ '--preview', s:preview_program . ' {2}',
@@ -296,16 +285,15 @@ endfunction
 command! -bang -nargs=* FzfJumps call s:FzfJumps()
 
 
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " marks
-"----------------------------------------------------------------
-function! s:marks_list_format(val)
+"-----------------------------------------------------------------------------
+function! s:marksListFormat(val)
     let l:l = matchlist(a:val, '\s*\(.\)\s*\(\d\+\)\s*\(\d\+\)\(.*\)')
     let [l:mark, l:line, l:col, l:content] = l:l[1:4]
 
     let l:file_name = bufname('%')
     if filereadable(l:content)
-        echom l:content
         let l:file_name = l:content
         let l:bn = bufnr(l:file_name)
         if l:bn > -1 && buflisted(l:bn) > 0
@@ -316,12 +304,13 @@ function! s:marks_list_format(val)
     endif
     return l:mark . ' ' . l:file_name . ':' . l:line . ':' . l:col . ' ' . l:content
 endfunction
-function! s:marks_list() abort
+
+function! s:marksList() abort
     let l:ms = execute('marks')
-    " return split(l:ms, '\n')[1:]
-    return map(split(l:ms, '\n')[1:], 's:marks_list_format(v:val)')
+    return map(split(l:ms, '\n')[1:], '<SID>marksListFormat(v:val)')
 endfunction
-function! s:marks_handler(mr) abort
+
+function! s:marksHandler(mr) abort
     let l:l = matchlist(a:mr, '\(.\)\s*\(.*\):\(\d\+\):\(\d\+\)\s*\(.*\)')
     let [l:mark, l:file_name, l:line, l:col, l:content] = l:l[1:5]
 
@@ -332,10 +321,11 @@ function! s:marks_handler(mr) abort
     call cursor(str2nr(l:line), str2nr(l:col))
     normal! zvzz
 endfunction
+
 function! s:FzfMarks() abort
     call fzf#run(fzf#wrap({
-            \ 'source': <sid>marks_list(),
-            \ 'sink': function('s:marks_handler'),
+            \ 'source': s:marksList(),
+            \ 'sink': function('<SID>marksHandler'),
             \ 'options': [
                 \ '--prompt=Marks',
                 \ '--preview', s:preview_program .  ' {2}',
@@ -346,22 +336,30 @@ endfunction
 command! -bang -nargs=* FzfMarks call s:FzfMarks()
 
 
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " buffer lines
-"----------------------------------------------------------------
-function! s:blines_handler(lines) abort
+"-----------------------------------------------------------------------------
+function! s:blinesHandler(lines) abort
     if len(a:lines) < 2
         return
     endif
     execute split(a:lines, '\t')[0]
     normal! zvzz
 endfunction
-function! s:blines_list() abort
+
+function! s:blinesList() abort
     let fmtexpr = 'printf("%4d\t%s", v:key + 1, v:val)'
     let lines = getline(1, '$')
     return map(lines, fmtexpr)
 endfunction
-function! s:FzfBLines(query) abort
+
+function! s:FzfBLines(...) abort
+    if a:0 == 0
+        let l:query = ""
+    else
+        let l:query = a:1
+    endif
+
     let l:cur_buf_name = expand('%')
     if empty(l:cur_buf_name)
         let l:preview = 'echo please save first to preview'
@@ -369,11 +367,11 @@ function! s:FzfBLines(query) abort
         let l:preview = s:preview_program . ' ' . l:cur_buf_name . ':{1}'
     endif
     call fzf#run(fzf#wrap({
-            \ 'source': <sid>blines_list(),
-            \ 'sink': function('s:blines_handler'),
+            \ 'source': s:blinesList(),
+            \ 'sink': function('<SID>blinesHandler'),
             \ 'options': [
                 \ '--prompt=BLines>',
-                \ '--query', a:query,
+                \ '--query', l:query,
                 \ '--preview', l:preview,
                 \ s:preview_window
             \ ],
@@ -382,49 +380,16 @@ endfunction
 function s:FzfBLinesVisual() abort
     call s:FzfBLines(s:get_visual_selection())
 endfunction
-command! -bang -nargs=* FzfBLines call s:FzfBLines("")
-" command! -bang -nargs=* FzfBLinesVisual call s:FzfBLinesVisual()
+command! -bang -nargs=* FzfBLines call s:FzfBLines()
 command! -range=% -bang FzfBLinesVisual <line1>,<line2>call s:FzfBLinesVisual()
 
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " yank depends on coc-yank
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 
-"----------------------------------------------------------------
-" git相关
-"----------------------------------------------------------------
-" command! -bang -nargs=* GzgGitGrep
-"\ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>),
-"    \ 0,
-"    \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0],
-command! -bang -nargs=? -complete=dir FzfGitFiles
-\ call fzf#vim#grep('git ls-files --exclude-standard',
-    \ 1,
-    \ {'dir': systemlist('git rev-parse --show-toplevel')[0],
-    \ 'options': [
-        \ '--info=inline',
-        \ '--preview', s:preview_program . ' {}',
-        \ s:preview_window
-    \ ],
-    \ 'sink': 'e'}, <bang>0)
-
-let s:FzfGitStatusPreviewCommand =
-    \ '[[ $(git diff -- {-1}) != "" ]] && git diff --color=always -- {-1} || ' .
-    \ '[[ $(git diff --cached -- {-1}) != "" ]] && git diff --cached --color=always -- {-1} || '
-command! -bang -nargs=? -complete=dir FzfGitStatus
-\ call fzf#vim#grep('git -c color.status=always status --short --untracked-files=all',
-    \ 1,
-    \ {'options': [
-        \ '--info=inline',
-        \ '--preview', s:FzfGitStatusPreviewCommand . ' {}',
-        \ s:preview_window
-    \ ],
-    \ 'sink': 'e'}, <bang>0)
-
-
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " 自定义快捷键
-"----------------------------------------------------------------
+"-----------------------------------------------------------------------------
 nnoremap <M-f> :FWW<CR>
 nnoremap <M-F> :FWW $HOME<CR>
 nnoremap <M-b> :Buffers<CR>
@@ -437,13 +402,13 @@ if g:HasPlug('vista.vim')
     noremap <M-t> :Vista finder<CR>
 else
     nnoremap <M-t> :BTags<CR>
-    nnoremap <M-T> :Tags<CR>
 endif
+nnoremap <M-T> :Tags<CR>
 nnoremap <M-s> :GrepWithWiki<CR>
-vmap <M-s> :GrepWithWikiVisual<CR>
+vnoremap <M-s> :GrepWithWikiVisual<CR>
 " 模糊搜索当前buffer
 nnoremap ? :FzfBLines<CR>
-vmap ? :FzfBLinesVisual<CR>
+vnoremap ? :FzfBLinesVisual<CR>
 "TODO *检索当前单词
 " nnoremap * :BLines expand('<cword>')<CR>
 nnoremap <M-r> :History<CR>
@@ -459,11 +424,8 @@ if g:HasPlug('coc-fzf')
 endif
 " TODO 编写高亮
 nnoremap <M-J> :FzfJumps<CR>
-" quickfix与locationlist
+
 " TODO 编写高亮
+" quickfix与locationlist
 nnoremap <F8> :FzfQuickfix<CR>
 nnoremap <F9> :FzfLocationList<CR>
-" TODO 还需要增加一下git相关的内容
-" 前提需要学习git，看看需要哪些
-nnoremap <leader>gf :FzfGitFiles<CR>
-nnoremap <leader>gs :FzfGitStatus<CR>

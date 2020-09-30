@@ -3,42 +3,52 @@ set showtabline=2                                   " 总是显示tab标签栏
 
 function! CryCocError()
     if !g:HasPlug('coc.nvim')
-        return ""
+        let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
+        let info = get(b:, 'coc_diagnostic_info', {})
+        if empty(info)
+            return ''
+        endif
+        let errmsgs = []
+        if get(info, 'error', 0)
+            call add(errmsgs, error_sign . info['error'])
+        endif
+        return join(errmsgs, ' ')
     endif
-    let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
-    let info = get(b:, 'coc_diagnostic_info', {})
-    if empty(info)
-        return ''
-    endif
-    let errmsgs = []
-    if get(info, 'error', 0)
-        call add(errmsgs, error_sign . info['error'])
-    endif
-    return join(errmsgs, ' ')
+    return ""
 endfunction
 
 function! CryCocWarn() abort
     if !g:HasPlug('coc.nvim')
-        return ""
+        let warning_sign = get(g:, 'coc_status_warning_sign')
+        let info = get(b:, 'coc_diagnostic_info', {})
+        if empty(info)
+            return ''
+        endif
+        let warnmsgs = []
+        if get(info, 'warning', 0)
+            call add(warnmsgs, warning_sign . info['warning'])
+        endif
+        return join(warnmsgs, ' ')
     endif
-    let warning_sign = get(g:, 'coc_status_warning_sign')
-    let info = get(b:, 'coc_diagnostic_info', {})
-    if empty(info)
-        return ''
-    endif
-    let warnmsgs = []
-    if get(info, 'warning', 0)
-        call add(warnmsgs, warning_sign . info['warning'])
-    endif
-    return join(warnmsgs, ' ')
+
+    return ""
 endfunction
 
 function! CryCocFixes() abort
-    if !g:HasPlug('coc.nvim')
-        return ""
+    if g:HasPlug('coc.nvim')
+        let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
+        return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
     endif
-    let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
-    return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
+    return ""
+endfunction
+
+function! CryVista() abort
+    " vista
+    if g:HasPlug('vista.vim')
+        return get(b:, 'vista_nearest_method_or_function', '')
+    endif
+
+    return ""
 endfunction
 
 function! StatusLine(current, width)

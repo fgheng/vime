@@ -222,12 +222,6 @@ if !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
         nnoremap <silent> <M-m> :CocList marks<CR>
         nnoremap <silent> <M-M> :CocList maps<CR>
         nnoremap <silent> <M-w> :CocList windows<CR>
-
-    endif
-
-    if g:HasCocPlug('coc-git')
-        nnoremap <silent> <leader>gm :CocList bcommits<CR>
-        nnoremap <silent> <leader>gM :CocList commits<CR>
     endif
 endif
 
@@ -263,11 +257,13 @@ endif
 
 if g:HasCocPlug('coc-git')
     " 导航到修改块
-    nmap <leader>gk <Plug>(coc-git-prevchunk)
-    nmap <leader>gj <Plug>(coc-git-nextchunk)
+    nnoremap <silent> <leader>gk <Plug>(coc-git-prevchunk)
+    nnoremap <silent> <leader>gj <Plug>(coc-git-nextchunk)
     " 显示光标处的修改信息
-    nmap <leader>gp <Plug>(coc-git-chunkinfo)
-    nmap <leader>gu <esc>:CocCommand git.chunkUndo<cr>
+    nnoremap <silent> <leader>gp <Plug>(coc-git-chunkinfo)
+    nnoremap <silent> <leader>gu <esc>:CocCommand git.chunkUndo<cr>
+    nnoremap <silent> <leader>gm :CocList bcommits<CR>
+    nnoremap <silent> <leader>gM :CocList commits<CR>
 endif
 
 
