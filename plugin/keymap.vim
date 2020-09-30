@@ -92,8 +92,8 @@ endfunction
 if !g:HasPlug('vim-airline') && !g:HasPlug('vim-crystalline')
     nnoremap  <M-l> :call <SID>tabOrBuf(1)<cr>
     nnoremap  <M-h> :call <SID>tabOrBuf(0)<CR>
-    tnoremap  <M-l> <c-\><c-n>:tabnext<cr>
-    tnoremap  <M-h> <c-\><c-n>:tabprevious<CR>
+    tnoremap  <M-l> <c-\><c-n>:<SID>tabOrBuf(1)<cr>
+    tnoremap  <M-h> <c-\><c-n>:<SID>tabOrBuf(0)<CR>
 endif
 nnoremap <silent> <leader>tn :tabnew<cr>
 nnoremap <silent> <leader>tc :tabclose<cr>

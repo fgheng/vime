@@ -99,31 +99,20 @@ set showtabline=2
 set guioptions-=e
 set laststatus=2
 
-function s:nextBufOrTab()
-    let l:buffers_num = len(getbufinfo({'buflisted':1}))
-    if l:buffers_num <= 1
-        return
-    endif
+function! s:tabOrBuf(direction) abort
+    " 0 <- 1 ->
     if tabpagenr('$') > 1
-        exec "tabnext"
+        if a:direction == 0 | exec 'tabprevious'
+        elseif a:direction == 1 | exec 'tabnext'
+        endif
     else
-        exec "bnext"
+        if a:direction == 0 | exec 'bprevious'
+        elseif a:direction == 1 | exec 'bnext'
+        endif
     endif
 endfunction
 
-function s:prevBufOrTab()
-    let l:buffers_num = len(getbufinfo({'buflisted':1}))
-    if l:buffers_num <= 1
-        return
-    endif
-    if tabpagenr('$') > 1
-        exec "tabprevious"
-    else
-        exec "bprevious"
-    endif
-endfunction
-
-nnoremap <silent> <M-l> :call <SID>nextBufOrTab()<cr>
-nnoremap <silent> <M-h> :call <SID>prevBufOrTab()<cr>
-tnoremap <silent> <M-l> <c-\><c-n>:call <SID>nextBufOrTab()<cr>
-tnoremap <silent> <M-h> <c-\><c-n>:call <SID>prevBufOrTab()<cr>
+nnoremap <silent> <M-l> :call <SID>tabOrBuf(1)<cr>
+nnoremap <silent> <M-h> :call <SID>tabOrBuf(0)<cr>
+tnoremap <silent> <M-l> <c-\><c-n>:call <SID>tabOrBuf(1)<cr>
+tnoremap <silent> <M-h> <c-\><c-n>:call <SID>tabOrBuf(0)<CR>
