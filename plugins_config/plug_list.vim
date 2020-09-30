@@ -60,7 +60,7 @@ Plug 'Yggdroot/indentLine', {'for': ['c', 'h', 'cpp', 'py', 'go', 'java', 'vim']
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " csv插件
-Plug 'chrisbra/csv.vim', {'for': 'csv'}
+" Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 悬浮终端
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
 " 笔记插件，支持markdown
@@ -76,7 +76,8 @@ Plug 'iamcco/dict.vim', {'on':
     \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
     \ ]}
 " tmux相关插件
-if  executable("tmux") && strlen($TMUX)
+" if  executable("tmux") && strlen($TMUX)
+if  strlen($TMUX)
     " tmux与vim窗口间导航
     Plug 'christoomey/vim-tmux-navigator'
     " tmux.conf set -g focus-events on
@@ -94,14 +95,10 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 Plug 'psliwka/vim-smoothie'
 " 在命令行使用linux命令新建文件文件夹重命名当前buffer等
 Plug 'tpope/vim-eunuch', {'on': ['Mkdir', 'Rename', 'Unlink', 'Delete', 'Move', 'Chmod', 'Cfind', 'Clocate', 'Lfine', 'Llocate', 'SudoEdit', 'SudoWrite', 'Wall', 'W']}
-" 绘图插件
-Plug 'davinche/DrawIt', {'on': 'DrawIt'}
 " 最大化窗口，ctrl w o
 Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
-" vim打开pdf
-Plug 'makerj/vim-pdf', {'for': 'pdf'}
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter'
 else
