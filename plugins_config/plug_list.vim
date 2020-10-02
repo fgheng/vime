@@ -27,6 +27,8 @@ Plug '986299679/space-vim-theme'
 Plug 'ayu-theme/ayu-vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'flrnd/candid.vim'
+Plug 'jaredgorski/spacecamp'
 " 底栏
 Plug 'rbong/vim-crystalline'
 " 彩虹括号
@@ -119,6 +121,7 @@ Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 " 专注阅读
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+Plug 'markonm/traces.vim'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
