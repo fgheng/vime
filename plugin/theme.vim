@@ -23,6 +23,9 @@ endif
 " let g:srcery_italic = 1
 " let g:srcery_transparent_background = 1
 " colorscheme srcery
+" let g:forest_night_enable_italic = 1
+" let g:forest_night_transparent_background = 1
+" colorscheme forest-night
 colorscheme one
 
 " 搜索高亮
