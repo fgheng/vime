@@ -122,6 +122,7 @@ Plug 'dstein64/vim-startuptime', {'on':'StartupTime'}
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 \ | Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
 Plug 'markonm/traces.vim'
+Plug 'rhysd/vim-grammarous', {'for': ['markdown', 'vimwiki', 'md', 'tex']}
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
