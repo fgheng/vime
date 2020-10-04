@@ -89,8 +89,9 @@ function! s:gotoTag(tagkind) abort
     endif
 endfunction
 
-"nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gd :call <SID>gotoTag("Definition")<CR>
+" 跳转到定义
+nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gd :call <SID>gotoTag("Definition")<CR>
 " 跳转到类型定义
 nmap <silent> gy <plug>(coc-type-definition)
 " 跳转到实现
