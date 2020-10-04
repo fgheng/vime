@@ -101,6 +101,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 
 然后打开neovim，执行`:PlugInstall`等待插件安装完毕即可！
 
+注：因为列表中有关于tmux的插件，而这些插件只有在tmux中打开neovim的时候才回加入到插件列表中，所以，如果没有启动tmux，那么这些插件不会安装，要安装这些插件需要在tmux中打开vim/neovim后重新执行PlugInstall命令。
 
 
 ### 6. 插件列表
