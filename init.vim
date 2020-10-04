@@ -5,7 +5,7 @@ exe "source " . expand('<sfile>:p:h') . "/global.vim"
 command! -nargs=1 LoadScript exec 'source ' . g:plugins_config_root_path . '/' . '<args>'
 
 " vim-plug 载入插件
-call plug#begin(g:plugins_path)
+call plug#begin(g:plugins_install_path)
 LoadScript plug_list.vim
 call plug#end()
 
