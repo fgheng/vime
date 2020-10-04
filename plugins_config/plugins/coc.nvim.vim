@@ -46,10 +46,18 @@ endif
 
 " 回车选中或者扩展选中的补全内容
 if exists('*complete_info')
-    " 如果您的（Neo）Vim版本支持，则使用`complete_info`
-    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    " 如果您的(Neo)Vim版本支持，则使用`complete_info`
+    if g:HasPlug('ultisnips')
+        inoremap <expr> <cr> complete_info()["selected"] != "-1" ? len(UltiSnips#SnippetsInCurrentScope()) ? "\<C-R>=UltiSnips#ExpandSnippet()\<CR>" : "\<C-y>" : "\<C-g>u\<CR>"
+    else
+        inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    endif
 else
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    if g:HasPlug('ultisnips')
+        inoremap <expr> <cr> pumvisible() ? len(UltiSnips#SnippetsInCurrentScope()) ? "\<C-R>=UltiSnips#ExpandSnippet()\<CR>" : "\<C-y>" : "\<C-g>u\<CR>"
+    else
+        inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    endif
 endif
 
 " diagnostic 跳转
@@ -345,7 +353,7 @@ if g:HasCocPlug('coc-snippets')
                 \ 'gosnippets/UltiSnips'
             \ ])
     call coc#config("snippets.extends", {
-                \ 'cpp': ['c'],
+                \ 'cpp': ['c', 'cpp'],
                 \ 'typescript': ['javascript']
             \ })
 endif
