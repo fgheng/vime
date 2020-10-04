@@ -199,7 +199,7 @@ function! s:defx_custom_settings() abort
     nnoremap <silent><buffer><expr> .                   defx#do_action('toggle_ignored_files')          " 显示隐藏文件
     nnoremap <silent><buffer><expr> s                   defx#do_action('toggle_sort')                   " 排序
     nnoremap <silent><buffer><expr> ~                   defx#do_action('cd')
-    " nnoremap <silent><buffer><expr> !                   defx#do_action('execute_command')
+    nnoremap <silent><buffer><expr> x                   defx#do_action('execute_command')
     nnoremap <silent><buffer><expr> `                   defx#do_action('cd', getcwd())                  " 回到工作目录
     nnoremap <silent><buffer><expr> cd                  defx#do_action('change_vim_cwd')                " 将当前目录设置为工作目录
     nnoremap <silent><buffer><expr> f                   defx#do_action('search')
