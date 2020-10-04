@@ -26,7 +26,8 @@ endif
 " let g:forest_night_enable_italic = 1
 " let g:forest_night_transparent_background = 1
 " colorscheme forest-night
-colorscheme one
+" colorscheme one
+colorscheme ci_dark
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
