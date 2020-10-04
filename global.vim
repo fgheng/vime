@@ -10,7 +10,7 @@ let g:cache_root_path = $HOME . '/.cache/vim/'
 let g:plugins_config_root_path = g:vim_root_path . 'plugins_config/'
 
 " vim 插件安装目录
-let g:plugins_path = g:cache_root_path . 'plugins/'
+let g:plugins_install_path = g:cache_root_path . 'plugins/'
 " session 保存目录
 let g:session_dir = g:cache_root_path . 'sessions/'
 " 撤销记录目录
