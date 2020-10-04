@@ -175,34 +175,34 @@ if !g:HasPlug('ranger.vim')
 endif
 
 function! s:defx_custom_settings() abort
-    nnoremap <silent><buffer><expr> N       defx#do_action('new_file')              " 新建文件/文件夹
-    nnoremap <silent><buffer><expr> D       defx#do_action('remove_trash')          " 删除
-    nnoremap <silent><buffer><expr> Y       defx#do_action('copy')                  " 复制
-    nnoremap <silent><buffer><expr> P       defx#do_action('paste')                 " 粘贴
-    nnoremap <silent><buffer><expr> dd      defx#do_action('move')                  " 剪切
-    nnoremap <silent><buffer><expr> R       defx#do_action('rename')                " 重命名
-    nnoremap <silent><buffer><expr> v       defx#do_action('toggle_select') . 'j'   " 选择
-    nnoremap <silent><buffer><expr> V       defx#do_action('toggle_select') . 'k'   " 选择
-    nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select')         " 选择但不移动
-    nnoremap <silent><buffer><expr> x       defx#do_action('execute_system')        " 执行
-    nnoremap <silent><buffer><expr> yp      defx#do_action('yank_path')             " 复制路径
-    nnoremap <silent><buffer><expr> h       defx#do_action('call', 'DefxSmartH')    " 关闭节点或者返回上一层目录，但不设置cwd
-    nnoremap <silent><buffer><expr> l       defx#do_action('call', 'DefxSmartL')    " 展开或者打开文件
-    nnoremap <silent><buffer><expr> L       defx#do_action('open_tree_recursive')   " 递归展开
-    nnoremap <silent><buffer><expr> q       defx#do_action('quit')                  " 关闭的defx
-    nnoremap <silent><buffer><expr> r       defx#do_action('redraw')
-    nnoremap <silent><buffer><expr> <Cr>    defx#do_action('call', 'DefxSmartCr')   " 打开文件或者进入目录
-    nnoremap <silent><buffer><expr> <backspace>    defx#do_action('call', 'DefxSmartBackSpace') " 返回上一级目录并设置cwd
-    nnoremap <silent><buffer><expr> W      defx#do_action('drop', 'vsplit')
-    nnoremap <silent><buffer><expr> w      defx#do_action('drop', 'split')
-    nnoremap <silent><buffer><expr> t      defx#do_action('drop', 'tabedit')
-    nnoremap <silent><buffer><expr> .       defx#do_action('toggle_ignored_files')  " 显示隐藏文件
-    nnoremap <silent><buffer><expr> s       defx#do_action('toggle_sort')           " 排序
-    nnoremap <silent><buffer><expr> ~       defx#do_action('cd')
-    " nnoremap <silent><buffer><expr> !       defx#do_action('execute_command')
-    nnoremap <silent><buffer><expr> `       defx#do_action('cd', getcwd())          " 回到工作目录
-    nnoremap <silent><buffer><expr> cd      defx#do_action('change_vim_cwd')        " 将当前目录设置为工作目录
-    nnoremap <silent><buffer><expr> f       defx#do_action('search')
+    nnoremap <silent><buffer><expr> N                   defx#do_action('new_file')                      " 新建文件/文件夹
+    nnoremap <silent><buffer><expr> D                   defx#do_action('remove_trash')                  " 删除
+    nnoremap <silent><buffer><expr> Y                   defx#do_action('copy')                          " 复制
+    nnoremap <silent><buffer><expr> P                   defx#do_action('paste')                         " 粘贴
+    nnoremap <silent><buffer><expr> dd                  defx#do_action('move')                          " 剪切
+    nnoremap <silent><buffer><expr> R                   defx#do_action('rename')                        " 重命名
+    nnoremap <silent><buffer><expr> v                   defx#do_action('toggle_select') . 'j'           " 选择
+    nnoremap <silent><buffer><expr> V                   defx#do_action('toggle_select') . 'k'           " 选择
+    nnoremap <silent><buffer><expr> *                   defx#do_action('toggle_select')                 " 选择但不移动
+    nnoremap <silent><buffer><expr> x                   defx#do_action('execute_system')                " 执行
+    nnoremap <silent><buffer><expr> yp                  defx#do_action('yank_path')                     " 复制路径
+    nnoremap <silent><buffer><expr> h                   defx#do_action('call', 'DefxSmartH')            " 关闭节点或者返回上一层目录，但不设置cwd
+    nnoremap <silent><buffer><expr> l                   defx#do_action('call', 'DefxSmartL')            " 展开或者打开文件
+    nnoremap <silent><buffer><expr> L                   defx#do_action('open_tree_recursive')           " 递归展开
+    nnoremap <silent><buffer><expr> q                   defx#do_action('quit')                          " 关闭的defx
+    nnoremap <silent><buffer><expr> r                   defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> <Cr>                defx#do_action('call', 'DefxSmartCr')           " 打开文件或者进入目录
+    nnoremap <silent><buffer><expr> <backspace>         defx#do_action('call', 'DefxSmartBackSpace')    " 返回上一级目录并设置cwd
+    nnoremap <silent><buffer><expr> W                   defx#do_action('drop', 'vsplit')
+    nnoremap <silent><buffer><expr> w                   defx#do_action('drop', 'split')
+    nnoremap <silent><buffer><expr> t                   defx#do_action('drop', 'tabedit')
+    nnoremap <silent><buffer><expr> .                   defx#do_action('toggle_ignored_files')          " 显示隐藏文件
+    nnoremap <silent><buffer><expr> s                   defx#do_action('toggle_sort')                   " 排序
+    nnoremap <silent><buffer><expr> ~                   defx#do_action('cd')
+    " nnoremap <silent><buffer><expr> !                   defx#do_action('execute_command')
+    nnoremap <silent><buffer><expr> `                   defx#do_action('cd', getcwd())                  " 回到工作目录
+    nnoremap <silent><buffer><expr> cd                  defx#do_action('change_vim_cwd')                " 将当前目录设置为工作目录
+    nnoremap <silent><buffer><expr> f                   defx#do_action('search')
 endfunction
 
 augroup defx_group
