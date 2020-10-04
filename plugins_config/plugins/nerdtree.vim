@@ -34,6 +34,7 @@ let NERDTreeAutoDeleteBuffer = 1
 " 进入目录自动将workspace更改为此目录
 let g:NERDTreeChDirMode = 2
 
+" 自定义快捷键
 map <F2> :NERDTreeFocus<CR>
 
 " 水平或者垂直窗口打开
