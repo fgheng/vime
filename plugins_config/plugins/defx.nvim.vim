@@ -170,7 +170,9 @@ endfunction
 " nnoremap <silent> <F2> <esc>:call OpenDefxCurWin()<cr>
 " nnoremap <silent> <F2> <esc>:call OpenDefxLeft()<cr>
 nnoremap <silent> <F2> <esc>:call DefxOpen(v:false)<cr>
-nnoremap <silent> <leader>f <esc>:call DefxOpen(v:true)<cr>
+if !g:HasPlug('ranger.vim')
+    nnoremap <silent> <leader>f <esc>:call DefxOpen(v:true)<cr>
+endif
 
 function! s:defx_custom_settings() abort
     nnoremap <silent><buffer><expr> N       defx#do_action('new_file')              " 新建文件/文件夹
