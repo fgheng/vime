@@ -103,6 +103,7 @@ function! DefxSmartCr(_)
         " 如果是悬浮窗口，不应该更改cwd
         if l:split !=? 'floating'
             call defx#call_action('change_vim_cwd')
+            echom "Tab's CWD is: " . getcwd()
         endif
     else
         let l:filepath = defx#get_candidate()['action__path']
@@ -149,6 +150,7 @@ function! DefxSmartBackSpace(_) abort
     " 回到上一级并将上一级设置为工作目录
     call defx#call_action('cd', ['..'])
     call defx#call_action('change_vim_cwd')
+    echom "Tab's CWD is: " . getcwd()
 endfunction
 
 function! s:defx_close_tab(tabnr)
