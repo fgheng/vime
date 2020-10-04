@@ -33,9 +33,9 @@ set listchars+=trail:·                                      " 尾部空白
 set listchars+=space:\                                      " 空白
 set pumheight=20                                            " 设置弹出框大小, 0 则有多少显示多少
 
+set nobackup                                                " coc
 set nowritebackup                                           " coc
 set shortmess+=c                                            " coc
-set signcolumn=yes                                          " coc
 set sessionoptions+=globals                                 " coc
 set autoread                                                " 文件在外部被修改过，重新读入
 set autowrite                                               " 自动写回
@@ -62,11 +62,11 @@ if has('nvim') == 0 && has('patch-8.1.2020')
     set cursorlineopt=number cursorline
 endif
 
-if has('nvim')
-    " set signcolumn=auto:2
+if has('patch-8.1.1564')
     set signcolumn=yes
+    " set signcolumn=number
 else
-    set scl=yes
+    set signcolumn=yes
 endif
 
 " 定位到退出位置并移动到屏幕中央
