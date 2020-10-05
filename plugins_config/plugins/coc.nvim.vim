@@ -32,11 +32,21 @@ inoremap <silent><expr> <S-TAB>
 
 " alt j选择下一个补全
 inoremap <silent><expr> <m-j>
-    \ pumvisible() ? "\<C-n>" : return
+    \ pumvisible() ? "\<C-n>" : "\<C-R>=coc#rpc#request('snippetNext', [])\<cr>"
+    " \ pumvisible() ? "\<C-n>" : return
 
 " alt k选择上一个补全
 inoremap <silent><expr> <m-k>
-    \ pumvisible() ? "\<C-p>" : return
+    \ pumvisible() ? "\<C-p>" : "\<C-R>=coc#rpc#request('snippetPrev', [])\<cr>"
+    " \ pumvisible() ? "\<C-p>" : return
+
+" down 选择下一个补全
+inoremap <silent><expr> <down>
+    \ pumvisible() ? "\<C-n>" : "\<down>"
+
+" up 选择上一个补全
+inoremap <silent><expr> <up>
+    \ pumvisible() ? "\<C-p>" : "\<up>"
 
 " alt j k 用于补全块的跳转，优先补全块跳转
 if g:HasCocPlug('coc-snippets')
@@ -47,6 +57,12 @@ endif
 " 回车选中或者扩展选中的补全内容
 if exists('*complete_info')
     " 如果您的(Neo)Vim版本支持，则使用`complete_info`
+    " if g:HasPlug('ultisnips')
+        " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? complete_info()["items"][complete_info()["selected"]]["user_data"]["source"] ==? "ul" len(UltiSnips#SnippetsInCurrentScope()) ? "\<C-R>=UltiSnips#ExpandSnippet()\<CR>" : "\<C-y>" : "\<C-g>u\<CR>"
+    " else
+        " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    " endif
+
     if g:HasPlug('ultisnips')
         inoremap <expr> <cr> complete_info()["selected"] != "-1" ? len(UltiSnips#SnippetsInCurrentScope()) ? "\<C-R>=UltiSnips#ExpandSnippet()\<CR>" : "\<C-y>" : "\<C-g>u\<CR>"
     else
