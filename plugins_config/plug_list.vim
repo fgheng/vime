@@ -30,6 +30,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'flrnd/candid.vim'
 Plug 'jaredgorski/spacecamp'
 Plug 'bluz71/vim-moonfly-colors'
+Plug 'cormacrelf/vim-colors-github'
 " 底栏
 Plug 'rbong/vim-crystalline'
 " 彩虹括号
