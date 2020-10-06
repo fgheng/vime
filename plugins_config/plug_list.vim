@@ -11,6 +11,8 @@ Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
 Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
+" 全局替换插件
+Plug 'brooth/far.vim'
 " 主题theme类插件
 Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-one'
