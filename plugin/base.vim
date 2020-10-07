@@ -53,11 +53,6 @@ set cursorcolumn                                    " 高亮当前列
 set guicursor=
 set colorcolumn=+1                                  " 高亮textwidth后的列
 
-if exists('+t_TI') && exists('+t_TE')
-    let &t_TI = ''
-    let &t_TE = ''
-endif
-
 if has('nvim') == 0 && has('patch-8.1.2020')
     set cursorlineopt=number cursorline
 endif
