@@ -394,11 +394,7 @@ nnoremap <M-f> :FWW<CR>
 nnoremap <M-F> :FWW $HOME<CR>
 nnoremap <M-b> :Buffers<CR>
 if g:HasPlug('vista.vim')
-    if has('nvim')
-        let g:vista_fzf_preview = ['up:50%:wrap']
-    else
-        let g:vista_fzf_preview = ['right:50%:wrap']
-    endif
+    let g:vista_fzf_preview = ['up:50%:wrap']
     noremap <M-t> :Vista finder<CR>
 else
     nnoremap <M-t> :BTags<CR>
