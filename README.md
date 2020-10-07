@@ -20,16 +20,15 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 # 下面是新的目录结构，结合vim/nvim的目录结构特征重新划分的
 ├── after
 │   └── ftplugin/
-├── init.vim
 ├── plugin/
 ├── plugins_config/
-│   ├── coc-settings.json
 │   ├── plugins/
+│   ├── coc-settings.json
 │   └── plug_list.vim
-├── README.md
 ├── scripts/
-└── vimrc -> ./init.vim
+├── init.vim
 └── global.vim
+└── vimrc -> ./init.vim
 
 # 下面是原始的目录结构，所有的配置都在config目录下
 ├── coc-settings.json
