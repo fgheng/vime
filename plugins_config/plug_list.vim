@@ -154,13 +154,6 @@ let g:coc_global_extensions = [
     \ 'coc-explorer',
     \ ]
 
-    "\ 'coc-pyright',
-    "\ 'coc-fzf-preview',
     "\ 'coc-bookmark',
     "\ 'coc-rainbow-fart',
     "\ 'coc-lists',
-    "\ 'coc-rls',
-    "\ 'coc-java',
-    "\ 'coc-go',
-    "\ 'coc-sql',
-    "\ 'coc-lua'
