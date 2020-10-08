@@ -58,7 +58,7 @@ Plug 'easymotion/vim-easymotion', {'on':
    \ '<Plug>(easymotion-bd-f)', '<Plug>(easymotion-overwin-f)',
    \ '<Plug>(easymotion-overwin-f2)', '<Plug>(easymotion-bd-jk)',
    \ '<Plug>(easymotion-overwin-line)', '<Plug>(easymotion-bd-w)',
-   \ '<Plug>(easymotion-overwin-w)'
+   \ '<Plug>(easymotion-overwin-w)', '<Plug>(easymotion-s)',
    \ ]}
 " 对齐
 Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign', '<Plug>(EasyAlign)']}
