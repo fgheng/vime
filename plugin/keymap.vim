@@ -71,7 +71,9 @@ function! s:Wall() abort
 endfunction
 
 function! s:writeCurrent() abort
-    if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# '' | silent write | endif
+    if !&readonly && &buftype =~# '^\%(acwrite\)\=$' && expand('%') !=# ''
+        silent write
+    endif
 endfunction
 " noremap <silent> <space><space> <esc>:call <SID>Wall()<cr>
 noremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
