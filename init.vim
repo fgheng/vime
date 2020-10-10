@@ -1,9 +1,3 @@
-" 清除t_TI和t_TE，避免vim中出现奇怪字符
-if exists('+t_TI') && exists('+t_TE')
-    let &t_TI = ''
-    let &t_TE = ''
-endif
-
 " vimrc所在根目录
 let g:vim_root_path = expand('<sfile>:p:h') . '/'
 
