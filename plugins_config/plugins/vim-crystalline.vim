@@ -72,7 +72,9 @@ function! StatusLine(current, width)
         let l:s .= crystalline#right_sep('', 'Fill') . ' %{fugitive#head()}'
     endif
 
-    let l:s .= " %{coc#status()}%{get(b:, 'coc_current_function', '')}"
+    if g:HasPlug("coc.nvim")
+        let l:s .= " %{coc#status()}%{get(b:, 'coc_current_function', '')}"
+    endif
 
     let l:s .= '%='
     if a:current
