@@ -113,6 +113,7 @@ if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter'
 else
     Plug 'sheerun/vim-polyglot'
+    Plug 'octol/vim-cpp-enhanced-highlight'
 endif
 " 总是匹配tag
 Plug 'valloric/MatchTagAlways', {'for': ['html', 'css', 'xml']}
