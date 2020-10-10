@@ -586,4 +586,5 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 - [ ] 更新clap，leaderf配置，使其与fzf行为一致
 - [ ] 重新规划一下目录结构
 - [ ] 重新编写readme，每个部分都应该加上所使用的插件，例：`Plug 'user/plug_name'`
+- [ ] 将一些通用函数写到一个文件中
 
