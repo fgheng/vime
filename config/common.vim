@@ -51,3 +51,18 @@ fun! g:HasCocPlug(cocPlugName)
         return v:false
     endif
 endfunc
+
+" " 移动切换buf还是切换tab
+" " crystalline插件以及自定义快捷键用到了该函数
+" function! g:SwitchTabOrBuf(direction) abort
+    " " 0 <- 1 ->
+    " if tabpagenr('$') > 1
+        " if a:direction == 0 | exec 'tabprevious'
+        " elseif a:direction == 1 | exec 'tabnext'
+        " endif
+    " else
+        " if a:direction == 0 | exec 'bprevious'
+        " elseif a:direction == 1 | exec 'bnext'
+        " endif
+    " endif
+" endfunction
