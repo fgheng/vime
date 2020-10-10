@@ -90,6 +90,7 @@ endif
 
 " 自定义状态栏和tab栏
 if !g:HasPlug('vim-crystalline') && !g:HasPlug('vim-airline') && !g:HasPlug('lightline.vim')
+    set guioptions-=e
     set statusline=2
     set showtabline=2                                   " 总是显示tab标签栏
 

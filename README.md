@@ -28,7 +28,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 │   ├── theme.vim
 │   ├── keymap.vim
 │   ├── common.vim
-│   └── plug_list.vim
+│   └── plugin_list.vim
 ├── scripts/
 ├── init.vim
 └── vimrc -> ./init.vim
@@ -56,7 +56,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 3. `config/`：目录是我自定义的目录，这里是主要的配置目录：
    - `plugins/`：目录下面就是所有插件的配置了，一个插件一个文件，文件的名称与插件的名称相同，然后后缀是`.vim`
    - `other/`：存放一些插件需要用到的配置，比如coc-settings.json等
-   - `plug_list.vim`：该文件主要用来描述安装哪些插件，插件只有在这里面，(neo)vim在启动的时候才会到`plugins_config/plugins/`下面寻找对应的配置文件并加载。
+   - `plugin_list.vim`：该文件主要用来描述安装哪些插件，插件只有在这里面，(neo)vim在启动的时候才会到`plugins_config/plugins/`下面寻找对应的配置文件并加载。
    - `base.vim`：基础配置
    - `keymap.vim`：快捷键相关配置，一般与插件无关，插件的快捷键一般在自定义的插件配置文件中
    - `theme.vim`：主题配置，主题相关的配置都放到了这里
