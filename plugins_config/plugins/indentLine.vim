@@ -1,7 +1,7 @@
 " let g:indentLine_char_list = ['|', '┆', '┊', '│']
 let g:indentLine_color_term = 239
 let g:indentLine_leadingSpaceEanbled = 1
-let g:indentLine_leadingSpaceChar = ' '
+let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_char = '│'
 let g:indentLine_first_char = '│'
 let g:indentLine_concealcursor = 'inc'
