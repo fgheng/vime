@@ -17,10 +17,6 @@ if has('termguicolors')
     set termguicolors
 endif
 
-if has('nvim')
-    set pumblend=20 " 提示框透明
-endif
-
 " 美化相关基本配置
 " 高亮当前行列
 set cursorline
@@ -49,6 +45,9 @@ set listchars+=space:\
 
 " 设置弹出框大小, 0 则有多少显示多少
 set pumheight=20
+if has('nvim')
+    set pumblend=20 " 提示框透明
+endif
 
 " 主题选择
 " let g:srcery_italic = 1
