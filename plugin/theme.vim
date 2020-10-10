@@ -21,24 +21,36 @@ if has('nvim')
     set pumblend=20 " 提示框透明
 endif
 
+" 美化相关基本配置
 " 高亮当前行列
 set cursorline
 set cursorcolumn
 " 高亮textwidth后的一列
 set colorcolumn=+1
+
 " 光标
 set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20
+
 " 搜索高亮
 set incsearch
 " 高亮匹配内容
 set hlsearch
-" list设置
-set nolist                                                  " 只有setlist后面的才会起作用
+" 搜索高亮颜色
+hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
+
+" 只有setlist后面的才会起作用
+set nolist
 set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
 set listchars+=eol:¬
-set listchars+=trail:·                                      " 尾部空白
-set listchars+=space:\                                      " 空白
+" 尾部空白
+set listchars+=trail:·
+" 空白
+set listchars+=space:\
 
+" 设置弹出框大小, 0 则有多少显示多少
+set pumheight=20
+
+" 主题选择
 " let g:srcery_italic = 1
 " let g:srcery_transparent_background = 1
 " colorscheme srcery
@@ -48,9 +60,7 @@ set listchars+=space:\                                      " 空白
 " colorscheme one
 colorscheme ci_dark
 
-" 搜索高亮
-hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
-
+" coc 美化
 if g:HasPlug('coc.nvim')
     if !g:HasPlug('vim-multiple-cursors.vim')
         " coc多光标颜色
@@ -79,7 +89,7 @@ if g:HasPlug('coc.nvim')
     endif
 endif
 
-" statusline and tabline
+" 自定义状态栏和tab栏
 if !g:HasPlug('vim-crystalline') && !g:HasPlug('vim-airline') && !g:HasPlug('lightline.vim')
     set statusline=2
     set showtabline=2                                   " 总是显示tab标签栏
