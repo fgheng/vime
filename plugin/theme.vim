@@ -1,3 +1,4 @@
+" TODO 需要整理，同时要区分一下gui与非gui
 if &term =~ '256color' && $TMUX != ''
     " disable Background Color Erase (BCE) so that color schemes
     " render properly when inside 256-color tmux and GNU screen.
