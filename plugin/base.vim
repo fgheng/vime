@@ -1,6 +1,7 @@
 " 基本配置
 set nocompatible                                            " 不要兼容vi
-syntax on                                                   " vimwiki 和 anyfold需要 pyplot也要
+syntax enable
+syntax on
 filetype plugin indent on
 
 set encoding=utf-8                                          " 编码
@@ -19,17 +20,18 @@ set history=500                                             " 历史命令
 set splitbelow                                              " 在下方分割
 set expandtab                                               " tab扩展为空格
 set tabstop=4
-set softtabstop=4
+set softtabstop=4                                           " 连续数量的空格看作一个制表符
 set shiftwidth=4
 set smarttab
 set shiftround
-"set foldmethod=indent
-set pumheight=20                                            " 设置弹出框大小, 0 则有多少显示多少
+" set foldmethod=indent                                     " 基于缩进的折叠
+" set foldmethod=syntax                                     " 基于语法的折叠
+" set nofoldenable                                          " 启动vim时，关闭折叠
 
-set nobackup                                                " coc
-set nowritebackup                                           " coc
-set shortmess+=c                                            " coc
-set sessionoptions+=globals                                 " coc
+set nobackup
+set nowritebackup
+set shortmess+=c
+set sessionoptions+=globals
 set autoread                                                " 文件在外部被修改过，重新读入
 set autowrite                                               " 自动写回
 set confirm                                                 " 显示确认对话框
