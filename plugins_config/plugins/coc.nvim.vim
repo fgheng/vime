@@ -122,6 +122,12 @@ nmap <silent> gy <plug>(coc-type-definition)
 nmap <silent> gi <plug>(coc-implementation)
 " 跳转到引用
 nmap <silent> gr <plug>(coc-references)
+" 重构refactor,需要lsp支持
+nmap <silent> <space>rf <Plug>(coc-refactor)
+" 修复代码
+nmap <silent> <space>f  <Plug>(coc-fix-current)
+" 变量重命名
+nmap <silent> <space>rn <Plug>(coc-rename)
 
 " 使用K悬浮显示定义
 function! s:show_documentation()
@@ -184,13 +190,6 @@ else
     " show coclist 早晚要放进去的
     nnoremap <silent> <space>l  :<C-u>CocList<CR>
 endif
-
-" 重构refactor,需要lsp支持
-nmap <space>rf <Plug>(coc-refactor)
-" 修复代码
-nmap <space>f  <Plug>(coc-fix-current)
-" 变量重命名
-nmap <space>rn <Plug>(coc-rename)
 
 " 多光标支持，但是coc的多光标不如
 " vim-visual-multi，因此在没有
