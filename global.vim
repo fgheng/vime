@@ -7,7 +7,7 @@ let g:vim_root_path = expand('<sfile>:p:h') . '/'
 " vim插件、缓存等数据根目录
 let g:cache_root_path = $HOME . '/.cache/vim/'
 " 插件配置所在根目录
-let g:plugins_config_root_path = g:vim_root_path . 'plugins_config/'
+let g:plugins_config_root_path = g:vim_root_path . 'config/'
 
 " vim 插件安装目录
 let g:plugins_install_path = g:cache_root_path . 'plugins/'
