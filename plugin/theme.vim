@@ -34,14 +34,14 @@ set hlsearch
 " 搜索高亮颜色
 hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
 
-" 只有setlist后面的才会起作用
+" 只有set list后面的才会起作用
 set nolist
-set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
-set listchars+=eol:¬
-" 尾部空白
-set listchars+=trail:·
-" 空白
-set listchars+=space:\
+if &list
+    set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
+    set listchars+=eol:¬
+    set listchars+=trail:·
+    " set listchars+=space:␣
+endif
 
 " 设置弹出框大小, 0 则有多少显示多少
 set pumheight=20
