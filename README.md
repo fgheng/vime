@@ -175,10 +175,11 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 | ctrl-w-o       | 最大化当前窗口，再按一次恢复                                 |
 | -              | 选择窗口<br>交换窗口（按下-后在按s即可交换窗口）             |
 | q              | 关闭窗口                                                     |
-| alt+(          | 窗口左右方向变小                                             |
-| alt+)          | 窗口左右方向变大                                             |
-| alt+-          | 窗口上下方向变小                                             |
-| alt+_          | 窗口上下方向变大                                             |
+| alt (          | 窗口左右方向变小                                             |
+| alt )          | 窗口左右方向变大                                             |
+| alt -          | 窗口上下方向变小，注意是减号                                 |
+| alt _          | 窗口上下方向变大，注意是下划线                               |
+|                |                                                              |
 | ==>tab<==      |                                                              |
 | \<leader>tn    | 在后面新建一个tab                                            |
 | \<leader>tc    | 关闭一个tab                                                  |
@@ -278,7 +279,7 @@ fzf增加visual模式下的检索功能，在visual模式下选中一部分文�
 | ？    | 模糊搜索所有打开的buffer的内容                               | fzf/leaderf/clap/coc                     |
 | alt-y | 显示复制内容                                                 | fzf/clap/coc                             |
 | alt-J | 显示跳转                                                     | fzf/clap                                 |
-| alt-o | 使用系统默认应用打开检索到的文件                             | fzf                                      |
+| alt-x | 使用系统默认应用打开检索到的文件                             | fzf                                      |
 | \<F8> | quickfix                                                     | fzf/clap                                 |
 | \<F9> | locationList                                                 | fzf/clap                                 |
 |       |                                                              |                                          |
