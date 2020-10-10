@@ -20,6 +20,24 @@ if has('nvim')
     set pumblend=20 " 提示框透明
 endif
 
+" 高亮当前行列
+set cursorline
+set cursorcolumn
+" 高亮textwidth后的一列
+set colorcolumn=+1
+" 光标
+set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20
+" 搜索高亮
+set incsearch
+" 高亮匹配内容
+set hlsearch
+" list设置
+set nolist                                                  " 只有setlist后面的才会起作用
+set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
+set listchars+=eol:¬
+set listchars+=trail:·                                      " 尾部空白
+set listchars+=space:\                                      " 空白
+
 " let g:srcery_italic = 1
 " let g:srcery_transparent_background = 1
 " colorscheme srcery
@@ -31,9 +49,6 @@ colorscheme ci_dark
 
 " 搜索高亮
 hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
-
-" 光标
-set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20
 
 if g:HasPlug('coc.nvim')
     if !g:HasPlug('vim-multiple-cursors.vim')
