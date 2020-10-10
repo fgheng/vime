@@ -15,7 +15,7 @@ LoadScript common.vim
 
 " vim-plug 载入插件
 call plug#begin(g:plugins_install_path)
-LoadScript plug_list.vim
+LoadScript plugin_list.vim
 call plug#end()
 
 LoadScript base.vim
