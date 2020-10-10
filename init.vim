@@ -18,6 +18,7 @@ call plug#begin(g:plugins_install_path)
 LoadScript plugin_list.vim
 call plug#end()
 
+" 载入基础配置
 LoadScript base.vim
 LoadScript theme.vim
 LoadScript keymap.vim
