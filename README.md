@@ -134,7 +134,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 
    ```viml
    " plugins_config/plug_list.vim
-   Plug 'ycm-core/YouCompleteMe'
+   Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --all'}
    ```
 
 
