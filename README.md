@@ -574,3 +574,16 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 | alt x            | normal | 使用系统默认应用打开当前buffer文件                            |
 | \<space>\<space> | normal | 保存当前的buffer，不包括terminal，目录树等                    |
 |                  |        |                                                               |
+
+
+
+## TODO
+
+- [ ] 更新ycm的配置，使其与coc行为一致
+- [ ] 更新nerdtree的配置（已更新部分），使其与defx, coc-explorer行为一致
+- [ ] 录制GIF放到issue中
+- [ ] 更新tagbar的配置
+- [ ] 更新clap，leaderf配置，使其与fzf行为一致
+- [ ] 重新规划一下目录结构
+- [ ] 重新编写readme，每个部分都应该加上所使用的插件，例：`Plug 'user/plug_name'`
+
