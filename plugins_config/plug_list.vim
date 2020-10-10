@@ -1,4 +1,5 @@
 " 代码补全插件
+" Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --all'}
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 检索
 Plug 'junegunn/fzf.vim'
