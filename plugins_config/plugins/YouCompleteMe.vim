@@ -1,12 +1,12 @@
 " 不使用clangd
 let g:ycm_use_clangd = 2
 " .ycm_extra_conf.py的路径
-let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf='~/.config/nvim/.ycm_extra_conf.py'
 "打开加载.ycm_extra_conf.py提示
 let g:ycm_confirm_extra_conf=3
 " 错误和警告标志
-let g:ycm_error_symbol = '●'
-let g:ycm_warning_symbol = '●'
+let g:ycm_error_symbol = '■'
+let g:ycm_warning_symbol = '▲'
 " 开启语法检查
 let g:ycm_show_diagnostics_ui = 3
 let g:ycm_enable_diagnostic_highlighting = 2
@@ -44,33 +44,66 @@ let g:ycm_goto_buffer_command = 'vertical-split'
 let g:ycm_semantic_triggers = {'python': ['re!from\s+\S+\s+import\s']}
 " 可以同时安装clang和clangd，默认启动clangd除非设置下面
 let g:ycm_use_clangd = 0
-let g:ycm_filetype_whitelist = {
-			\ "c":1,
-			\ 'h': 1,
-			\ 'hpp': 1,
-			\ "cpp":1,
-			\ "go":1,
-			\ }
-			" \ "java":1,
-			" \ "ts":1,
-			" \ "python":1,
-			" \ "javascript":1,
-			" \ "javascript.jsx":1,
-" 触发语义补全条件
-	let g:ycm_semantic_triggers =  {
-	\   'c' : ['->', '.'],
-	\   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-	\             're!\[.*\]\s'],
-	\   'ocaml' : ['.', '#'],
-	\   'cpp,objcpp' : ['->', '.', '::'],
-	\   'perl' : ['->'],
-	\   'php' : ['->', '::'],
-	\   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-	\   'ruby' : ['.', '::'],
-	\   'lua' : ['.', ':'],
-	\   'erlang' : [':'],
-\ }
-" ------- 快捷键
-nmap gt :YcmCompleter GoTo<cr>
-nmap gd :YcmCompleter GoToDefinition<cr>
-nmap gi :YcmCompleter GoToImprecise<cr>
+" 黑名单，不启用ycm
+let g:ycm_filetype_blacklist = {
+            \ 'tagbar': 1,
+            \ 'netrw': 1,
+            \ 'unite': 1,
+            \ 'pandoc': 1,
+            \ 'infolog': 1,
+            \ 'coc-explorer': 1,
+            \ 'vista': 1,
+            \ 'leaderf': 1,
+            \ 'startify': 1
+            \ }
+" 仅关闭语义补全不关闭标识符补全
+let g:ycm_filetype_specific_completion_to_disable = {
+            \ 'gitcommit': 1,
+            \ 'markdown': 1,
+            \ 'mail': 1,
+            \ 'text': 1,
+            \ 'vimwiki': 1,
+            \ 'notes': 1,
+            \ }
+
+" " 触发语义补全条件
+" let g:ycm_semantic_triggers =  {
+	" \   'c' : ['->', '.'],
+	" \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+	" \             're!\[.*\]\s'],
+	" \   'ocaml' : ['.', '#'],
+	" \   'cpp,objcpp' : ['->', '.', '::'],
+	" \   'perl' : ['->'],
+	" \   'php' : ['->', '::'],
+	" \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+	" \   'ruby' : ['.', '::'],
+	" \   'lua' : ['.', ':'],
+	" \   'erlang' : [':'],
+" \ }
+
+nmap <silent> gd :YcmCompleter GoToDefinition<cr>
+nmap <silent> gy :YcmCompleter GoToType<cr>
+nmap <silent> gi :YcmCompleter GoToImplementation<cr>
+nmap <silent> gr :YcmCompleter GoToReference<cr>
+
+nmap <silent> <space>f    :YcmCompleter FixIt<cr>
+nmap <silent> <space>rn   :YcmCompleter RefactorRename<cr>
+nmap <silent> <space>a    :YcmDiags<cr>
+nmap <silent> <space>A    :YcmShowDetailedDiagnostic<cr>
+
+let s:ycm_hover_popup = -1
+function s:Hover()
+  let response = youcompleteme#GetCommandResponse( 'GetDoc' )
+  if response == ''
+    return
+  endif
+
+  call popup_hide( s:ycm_hover_popup )
+  let s:ycm_hover_popup = popup_atcursor( balloon_split( response ), {} )
+endfunction
+
+" CursorHold triggers in normal mode after a delay
+autocmd CursorHold * call s:Hover()
+" Or, if you prefer, a mapping:
+nnoremap <silent> K :call <SID>Hover()<CR>
+nmap <leader>D <plug>(YCMHover)
