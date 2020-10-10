@@ -7,8 +7,6 @@ set encoding=utf-8                                          " 编码
 set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1        " 编码猜测
 set number
 set relativenumber                                          " 设置相对行号
-set incsearch                                               " 搜索时即高亮
-set hlsearch                                                " 高亮匹配内容
 set smartindent                                             " 智能缩进
 set autoindent                                              " 自动换行缩进
 set linebreak                                               " 软折行
@@ -26,11 +24,6 @@ set shiftwidth=4
 set smarttab
 set shiftround
 "set foldmethod=indent
-set nolist                                                  " 只有setlist后面的才会起作用
-set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
-set listchars+=eol:¬
-set listchars+=trail:·                                      " 尾部空白
-set listchars+=space:\                                      " 空白
 set pumheight=20                                            " 设置弹出框大小, 0 则有多少显示多少
 
 set nobackup                                                " coc
@@ -48,10 +41,6 @@ set updatetime=100                                  " 更新时间100ms 默认40
 
 set mouse=n                                         " 允许使用鼠标, normal生效，a则是全模式生效
 set re=1
-set cursorline                                      " 高亮当前行
-set cursorcolumn                                    " 高亮当前列
-set guicursor=
-set colorcolumn=+1                                  " 高亮textwidth后的列
 
 if has('nvim') == 0 && has('patch-8.1.2020')
     set cursorlineopt=number cursorline
