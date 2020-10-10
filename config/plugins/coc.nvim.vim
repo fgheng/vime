@@ -1,7 +1,7 @@
 " coc插件安装目录
 let g:coc_data_home = g:cache_root_path . 'coc/'
 " coc-settings.json所在目录
-let g:coc_config_home = g:plugins_config_root_path
+let g:coc_config_home = g:other_config_root_path
 
 " 卸载不在列表中的插件
 function! s:uninstall_unused_coc_extensions() abort
