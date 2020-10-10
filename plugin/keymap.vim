@@ -45,8 +45,12 @@ nnoremap <leader>tt :terminal<cr>
 " 插入模式下的一些快捷键
 inoremap <M-o> <esc>o
 inoremap <M-O> <esc>O
-inoremap <M-h> <esc>I
-inoremap <M-l> <esc>A
+inoremap <M-h> <HOME>
+inoremap <M-l> <END>
+inoremap <c-h> <left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
 
 " 两个连续的space保存所有需要保存的文件
 function! s:Wall() abort
