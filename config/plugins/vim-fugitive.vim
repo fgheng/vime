@@ -8,5 +8,3 @@ nnoremap <leader>gr <esc>:Gread<cr>
 nnoremap <leader>gf <esc>:Gdiff<cr>
 "
 nnoremap <leader>gb <esc>:Gblame<cr>
-nnoremap <leader>gp <esc>:Gpush<cr>
-nnoremap <leader>gP <esc>:Gpull<cr>
