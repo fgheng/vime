@@ -355,8 +355,8 @@ if g:HasCocPlug('coc-git')
     nnoremap <silent> <leader>gp <esc>:CocCommand git.chunkInfo<cr>
     nnoremap <silent> <leader>gu <esc>:CocCommand git.chunkUndo<cr>
     nnoremap <silent> <leader>gh <esc>:CocCommand git.chunkStage<cr>
-    nnoremap <silent> <leader>gm :CocList bcommits<CR>
-    nnoremap <silent> <leader>gM :CocList commits<CR>
+    " nnoremap <silent> <leader>gm :CocList bcommits<CR>
+    " nnoremap <silent> <leader>gM :CocList commits<CR>
 endif
 
 " coc-snippets
