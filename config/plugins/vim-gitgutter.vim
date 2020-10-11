@@ -1,3 +1,7 @@
+if g:HasPlug('coc.nvim') || g:HasCocPlug('coc-git')
+	finish
+endif
+
 " 开启gitgutter
 let g:gigutter_enable = 0
 " 关闭符号
@@ -12,6 +16,7 @@ let g:gitgutter_map_keys = 0
 " set foldtext=gitgutter#fold#foldtext()
 " 文件更改数量超过500将会压缩显示
 let g:gitgutter_max_signs = 500
+let g:gitgutter_preview_win_floating = 1
 
 let g:gitgutter_sign_added = '▎'
 let g:gitgutter_sign_modified = '▎'
@@ -24,4 +29,8 @@ highlight link GitGutterChangeLineNr SignifySignChange
 highlight link GitGutterDeleteLineNr SignifySignDelete
 highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 
-" nmap <leader>gf <esc>:GitGutterFold<cr>
+nmap <leader>gj <Plug>(GitGutterNextHunk)
+nmap <leader>gk <Plug>(GitGutterPrevHunk)]
+nmap <leader>gh <Plug>(GitGutterStageHunk)
+nmap <leader>gu <Plug>(GitGutterUndoHunk)
+nmap <leader>gp <Plug>(GitGutterPreviewHunk)
