@@ -19,8 +19,8 @@ nnoremap <c-w>h :abo vsplit <cr>
 nnoremap <c-w>j :rightbelow split <cr>
 nnoremap <c-w>l :rightbelow vsplit <cr>
 " 关闭窗口
-nnoremap q <esc>:close<cr>
-vnoremap q <esc>:close<cr>
+nnoremap <silent> q <esc>:close<cr>
+vnoremap <silent> q <esc>:close<cr>
 
 " 关闭搜索颜色
 nnoremap <BackSpace> :nohl<cr>
