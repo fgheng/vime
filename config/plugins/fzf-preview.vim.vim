@@ -10,9 +10,13 @@ let g:fzf_preview_grep_cmd = 'rg --column --line-number --no-heading --color=alw
 let g:fzf_preview_cache_directory = expand('~/.cache/vim/fzf_preview')
 " let g:fzf_preview_preview_key_bindings = 'ctrl-f:preview-page-down,ctrl-b:preview-page-up,?:toggle-preview,ctrl-d:'
 
-au FileType fzf tnoremap <buffer> <C-j> <Down>
-au FileType fzf tnoremap <buffer> <C-k> <Up>
-au FileType fzf tunmap <buffer> <Esc>
+
+augroup fzf_preview_group
+    autocmd!
+    au FileType fzf tnoremap <buffer> <C-j> <Down>
+    au FileType fzf tnoremap <buffer> <C-k> <Up>
+    au FileType fzf tunmap <buffer> <Esc>
+augroup END
 
 function! s:RipgrepFzfWithWiki(query, fullscreen)
     " 这个是在安装了vimwiki插件后使用的功能，需要配置一下g:vimwiki_path路径
