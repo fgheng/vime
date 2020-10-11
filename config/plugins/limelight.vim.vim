@@ -16,6 +16,8 @@ let g:limelight_eop = '\ze\n^\s'
 " 默认10，设置成-1灰色部分也高亮显示
 let g:limelight_priority = -1
 
-" 启动goyo的时候自动启动limelight
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+augroup limelight_group
+    " 启动goyo的时候自动启动limelight
+    autocmd! User GoyoEnter Limelight
+    autocmd! User GoyoLeave Limelight!
+augroup END
