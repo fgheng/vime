@@ -10,8 +10,11 @@
 " 避免冲突
 let g:AutoPairsMapCh = 0
 
-au FileType php  let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?>'})
-au FileType rust let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>'})
-" add <!-- --> pair and remove '{' for html file
-au FileType html let b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['{'])
-au FileType md   let b:AutoPairs = AutoPairsDefine({'```:```'})
+augroup auto_paris_group
+    autocmd!
+    au FileType php  let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?>'})
+    au FileType rust let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>'})
+    " add <!-- --> pair and remove '{' for html file
+    au FileType html let b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['{'])
+    au FileType md   let b:AutoPairs = AutoPairsDefine({'```:```'})
+augroup END
