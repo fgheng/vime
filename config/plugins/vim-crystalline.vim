@@ -51,6 +51,23 @@ function! CryVista() abort
     return ""
 endfunction
 
+function! CryFugitive()
+    " fugitive
+    if g:HasPlug('vim-fugitive')
+        return fugitive#head()
+    endif
+    return ""
+endfunction
+
+function! CryGitGutterStatus()
+    " gitgutter
+    if g:HasPlug('vim-gitgutter')
+      let [a,m,r] = GitGutterGetHunkSummary()
+        return printf('+%d ~%d -%d', a, m, r)
+    endif
+    return ""
+endfunction
+
 function! StatusLine(current, width)
 
     let l:f_list = ["coc-explorer", "defx", "vista", "nerdtree"]
@@ -69,7 +86,7 @@ function! StatusLine(current, width)
 
     let l:s .= ' %f%h%w%m%r '
     if a:current
-        let l:s .= crystalline#right_sep('', 'Fill') . ' %{fugitive#head()}'
+        let l:s .= crystalline#right_sep('', 'Fill') . ' %{CryFugitive()} %{CryGitGutterStatus()}'
     endif
 
     if g:HasPlug("coc.nvim")
