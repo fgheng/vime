@@ -30,14 +30,17 @@ nnoremap <leader>q q
 " jk表示esc
 inoremap jk <esc>
 
-" 使用esc退出终端
-if has('nvim')
-    au TermOpen term://* tnoremap <buffer> <Esc> <c-\><c-n> | startinsert
-    au BufEnter term://* startinsert
-else
-    au TerminalOpen term://* tnoremap <buffer> <Esc> <C-\><C-n> | startinsert
-    " au BufEnter term://* startinsert
-endif
+augroup keymap_group
+    autocmd!
+    " 使用esc退出终端
+    if has('nvim')
+            au TermOpen term://* tnoremap <buffer> <Esc> <c-\><c-n> | startinsert
+            au BufEnter term://* startinsert
+    else
+        au TerminalOpen term://* tnoremap <buffer> <Esc> <C-\><C-n> | startinsert
+        " au BufEnter term://* startinsert
+    endif
+augroup END
 
 " 新建终端
 nnoremap <leader>tt :terminal<cr>
