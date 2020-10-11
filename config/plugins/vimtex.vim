@@ -2,9 +2,6 @@ let g:vimtex_cache_root = g:cache_root_path . '/vim/vimtex'
 " https://zhuanlan.zhihu.com/p/61036165
 let g:tex_flavor='latex'
 
-" 80列自动换行
-" au FileType tex setl textwidth=80 | setl fo+=t | setl fo-=l
-
 if has("nvim")
     " 用于反向定位
 	let g:vimtex_compiler_progname = 'nvr'
@@ -18,12 +15,6 @@ let g:tex_conceal='abdmg'
 " let g:latex_view_general_viewer = 'zathura'
 " let g:latex_view_general_options = shellescape('--synctex-forward "' . exepath(v:progpath) . ' --servername ' . v:servername . ' +{%lline} {%ffile}"')
 " let g:latex_view_general_options = shellescape('--synctex-forward "' . v:progname . ' --servername ' . v:servername . ' +{%line} {%file}"')
-
-" if &ft == 'latex' || &ft == 'tex'
-"     setlocal spell
-"     set spelllang=nl,en_gb
-"     inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-" endif
 
 " \ll编译tex文件 (注意：\ll执行后，表示进入continuous mode，每次编辑过后，:w保存文档，对应的pdf就会自动更新)
 " \lk(或\ll)停止编译 (注意：当执行\lk或再次执行\ll后，表示退出continuous mode，:w保存文档，对应的pdf就不会自动更新)
@@ -39,4 +30,14 @@ let g:tex_conceal='abdmg'
 " \li查看latex项目信息，按Esc或q退出
 " \lm查看内置的imaps
 "
-" au FileType tex setl tw=80 | setl fo+=t | setl fo-=l | setl fo+=mM
+
+augroup vimtex_group
+    autocmd!
+    autocmd FileType tex setl tw=80
+    autocmd FileType tex setl fo+=t
+    autocmd FileType tex setl fo-=l
+    autocmd FileType tex setl fo+=mM
+    autocmd FileType tex setl spell
+    autocmd FileType tex setl spelllang=nl,en_gb
+    " autocmd FileType tex setl conceallevel=0
+augroup END
