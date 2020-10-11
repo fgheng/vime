@@ -57,7 +57,22 @@ endif
 " let g:forest_night_transparent_background = 1
 " colorscheme forest-night
 " colorscheme one
-colorscheme ci_dark
+" colorscheme ci_dark
+
+let g:signify_sign_add    = '┃'
+let g:signify_sign_change = '┃'
+let g:signify_sign_delete = '•'
+let g:signify_sign_show_count = 0
+colorscheme xcodewwdc
+augroup vim-colors-xcode
+    autocmd!
+    autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
+    autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
+    autocmd User SignifySetup
+                \ execute 'autocmd! signify' |
+                \ autocmd signify TextChanged,TextChangedI * call sy#start()
+augroup END
+
 
 " coc 美化
 if g:HasPlug('coc.nvim')
