@@ -1,8 +1,3 @@
-" coc-git优先
-if g:HasPlug('coc.nvim') || g:HasCocPlug('coc-git')
-	finish
-endif
-
 " 开启gitgutter
 let g:gigutter_enable = 0
 " 关闭符号
@@ -30,8 +25,11 @@ highlight link GitGutterChangeLineNr SignifySignChange
 highlight link GitGutterDeleteLineNr SignifySignDelete
 highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 
-nnoremap <leader>gj <Plug>(GitGutterNextHunk)
-nnoremap <leader>gk <Plug>(GitGutterPrevHunk)
-nnoremap <leader>gh <Plug>(GitGutterStageHunk)
-nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
-nnoremap <leader>gp <Plug>(GitGutterPreviewHunk)
+" coc-git优先
+if !g:HasCocPlug('coc-git')
+    nnoremap <leader>gj <Plug>(GitGutterNextHunk)
+    nnoremap <leader>gk <Plug>(GitGutterPrevHunk)
+    nnoremap <leader>gh <Plug>(GitGutterStageHunk)
+    nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
+    nnoremap <leader>gp <Plug>(GitGutterPreviewHunk)
+endif
