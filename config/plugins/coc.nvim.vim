@@ -352,8 +352,9 @@ if g:HasCocPlug('coc-git')
     nnoremap <silent> <leader>gk <Plug>(coc-git-prevchunk)
     nnoremap <silent> <leader>gj <Plug>(coc-git-nextchunk)
     " 显示光标处的修改信息
-    nnoremap <silent> <leader>gp <Plug>(coc-git-chunkinfo)
+    nnoremap <silent> <leader>gp <esc>:CocCommand git.chunkInfo<cr>
     nnoremap <silent> <leader>gu <esc>:CocCommand git.chunkUndo<cr>
+    nnoremap <silent> <leader>gh <esc>:CocCommand git.chunkStage<cr>
     nnoremap <silent> <leader>gm :CocList bcommits<CR>
     nnoremap <silent> <leader>gM :CocList commits<CR>
 endif
