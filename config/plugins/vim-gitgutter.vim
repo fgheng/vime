@@ -30,7 +30,7 @@ highlight link GitGutterDeleteLineNr SignifySignDelete
 highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 
 nmap <leader>gj <Plug>(GitGutterNextHunk)
-nmap <leader>gk <Plug>(GitGutterPrevHunk)]
+nmap <leader>gk <Plug>(GitGutterPrevHunk)
 nmap <leader>gh <Plug>(GitGutterStageHunk)
 nmap <leader>gu <Plug>(GitGutterUndoHunk)
 nmap <leader>gp <Plug>(GitGutterPreviewHunk)
