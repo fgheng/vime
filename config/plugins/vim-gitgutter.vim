@@ -12,6 +12,8 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 500
 let g:gitgutter_preview_win_floating = 1
 
+" 关闭column的提示符号
+let g:gitgutter_signs = 0
 let g:gitgutter_sign_added = '▎'
 let g:gitgutter_sign_modified = '▎'
 let g:gitgutter_sign_removed = '▎'
@@ -24,13 +26,7 @@ highlight link GitGutterDeleteLineNr SignifySignDelete
 highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 
 " coc-git优先
-if g:HasCocPlug('coc-git')
-    " 关闭column的提示符号
-    let g:gitgutter_signs = 0
-else
-    " 打开符号提示
-    let g:gitgutter_signs = 1
-
+if !g:HasCocPlug('coc-git')
     nnoremap <leader>gj <Plug>(GitGutterNextHunk)
     nnoremap <leader>gk <Plug>(GitGutterPrevHunk)
     nnoremap <leader>gh <Plug>(GitGutterStageHunk)
