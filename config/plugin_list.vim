@@ -36,6 +36,7 @@ Plug 'flrnd/candid.vim'
 Plug 'jaredgorski/spacecamp'
 Plug 'bluz71/vim-moonfly-colors'
 Plug 'cormacrelf/vim-colors-github'
+Plug 'arzg/vim-colors-xcode'
 " 底栏
 Plug 'rbong/vim-crystalline'
 " 彩虹括号
