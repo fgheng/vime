@@ -218,4 +218,6 @@ augroup defx_group
     autocmd FileType defx call s:defx_custom_settings()
 
     autocmd FileType defx setlocal nobuflisted
+    autocmd FileType defx setlocal nonumber
+    autocmd FileType defx setlocal norelativenumber
 augroup END
