@@ -6,16 +6,18 @@ command! -nargs=1 LoadScript exec 'source ' . g:vim_root_path . '/config/' . '<a
 
 " 载入通用配置
 LoadScript common.vim
+" 载入基础配置
+LoadScript base.vim
 
 " vim-plug 载入插件
 call plug#begin(g:plugins_install_path)
 LoadScript plugin_list.vim
 call plug#end()
 
-" 载入基础配置
-LoadScript base.vim
-LoadScript theme.vim
+" 载入快捷键配置
 LoadScript keymap.vim
+" 载入主题配置
+LoadScript theme.vim
 
 " 依据插件名字载入对应的插件配置
 function s:source_config(plugin_name) abort
