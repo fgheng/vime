@@ -88,8 +88,7 @@ Plug 'iamcco/dict.vim', {'on':
     \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
     \ ]}
 " tmux相关插件
-" if  executable("tmux") && strlen($TMUX)
-if  strlen($TMUX)
+if  executable("tmux") && strlen($TMUX)
     " tmux与vim窗口间导航
     Plug 'christoomey/vim-tmux-navigator'
     " tmux.conf set -g focus-events on
