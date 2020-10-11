@@ -1,3 +1,4 @@
+" coc-git优先
 if g:HasPlug('coc.nvim') || g:HasCocPlug('coc-git')
 	finish
 endif
