@@ -103,6 +103,7 @@ endif
 Plug 'rbgrouleff/bclose.vim', {'on': 'Bclose'}
 " latex插件
 Plug 'lervag/vimtex', {'for': 'tex'}
+Plug 'KeitaNakamura/tex-conceal.vim', {'for': 'tex'}
 " 平滑滚动
 Plug 'psliwka/vim-smoothie'
 " 在命令行使用linux命令新建文件文件夹重命名当前buffer等
