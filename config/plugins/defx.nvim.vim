@@ -8,7 +8,7 @@ if g:HasPlug('defx-git')
         \     'Modified'  : '•',
         \     'Staged'    : '✚',
         \     'Untracked' : 'ᵁ',
-        \     'Renamed'   : '≫',
+        \     'Renamed'   : 'R',
         \     'Unmerged'  : '≠',
         \     'Ignored'   : 'ⁱ',
         \     'Deleted'   : '✖',
