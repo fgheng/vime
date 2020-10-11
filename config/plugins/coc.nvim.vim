@@ -191,10 +191,8 @@ else
     nnoremap <silent> <space>l  :<C-u>CocList<CR>
 endif
 
-" 多光标支持，但是coc的多光标不如
-" vim-visual-multi，因此在没有
-" vim-visual-multi的时候才使用
-" coc
+" 多光标支持，但是coc的多光标不如 vim-visual-multi，因此在没有
+" vim-visual-multi的时候才使用 coc
 if !g:HasPlug("vim-visual-multi")
     " ctrl n下一个，ctrl p上一个
     " ctrl c 添加一个光标再按一次取消，
