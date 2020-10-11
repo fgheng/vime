@@ -279,17 +279,6 @@ if g:HasCocPlug('coc-todolist')
     nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
 endif
 
-if g:HasCocPlug('coc-git')
-    " 导航到修改块
-    nnoremap <silent> <leader>gk <Plug>(coc-git-prevchunk)
-    nnoremap <silent> <leader>gj <Plug>(coc-git-nextchunk)
-    " 显示光标处的修改信息
-    nnoremap <silent> <leader>gp <Plug>(coc-git-chunkinfo)
-    nnoremap <silent> <leader>gu <esc>:CocCommand git.chunkUndo<cr>
-    nnoremap <silent> <leader>gm :CocList bcommits<CR>
-    nnoremap <silent> <leader>gM :CocList commits<CR>
-endif
-
 
 """""""""""""""""""""""
 " 下面是coc-settings.json的一些配置
@@ -358,6 +347,15 @@ if g:HasCocPlug('coc-git')
     call coc#config('git.removedSign.text', '▎')
     call coc#config('git.topRemovedSign.text', '▔')
     call coc#config('git.changeRemovedSign.text', '▋')
+
+    " 导航到修改块
+    nnoremap <silent> <leader>gk <Plug>(coc-git-prevchunk)
+    nnoremap <silent> <leader>gj <Plug>(coc-git-nextchunk)
+    " 显示光标处的修改信息
+    nnoremap <silent> <leader>gp <Plug>(coc-git-chunkinfo)
+    nnoremap <silent> <leader>gu <esc>:CocCommand git.chunkUndo<cr>
+    nnoremap <silent> <leader>gm :CocList bcommits<CR>
+    nnoremap <silent> <leader>gM :CocList commits<CR>
 endif
 
 " coc-snippets
