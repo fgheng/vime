@@ -1,5 +1,5 @@
 " 代码补全插件
-" Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --all'}
+" Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --all'} | Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 检索
 Plug 'junegunn/fzf.vim'
@@ -7,7 +7,7 @@ Plug 'junegunn/fzf.vim'
 \ | Plug 'tpope/vim-fugitive'
 \ | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 " git插件
-Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive'
+Plug 'rbong/vim-flog' | Plug 'tpope/vim-fugitive' | Plug 'airblade/vim-gitgutter'
 " 注释插件
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
@@ -144,7 +144,6 @@ let g:coc_global_extensions = [
     \ 'coc-yank',
     \ 'coc-sh',
     \ 'coc-yaml',
-    \ 'coc-git',
     \ 'coc-cmake',
     \ 'coc-snippets',
     \ 'coc-clangd',
@@ -159,3 +158,4 @@ let g:coc_global_extensions = [
     "\ 'coc-bookmark',
     "\ 'coc-rainbow-fart',
     "\ 'coc-lists',
+    "\ 'coc-git',
