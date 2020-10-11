@@ -220,4 +220,5 @@ augroup defx_group
     autocmd FileType defx setlocal nobuflisted
     autocmd FileType defx setlocal nonumber
     autocmd FileType defx setlocal norelativenumber
+    " autocmd FileType defx setlocal laststatus=0
 augroup END
