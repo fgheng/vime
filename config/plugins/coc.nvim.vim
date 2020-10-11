@@ -441,6 +441,12 @@ if g:HasCocPlug('coc-explorer')
     " config
     call coc#config("explorer.icon.enableNerdfont", v:true)
     call coc#config("explorer.bookmark.child.template", "[selection | 1] [filename] [position] - [annotation]")
+    call coc#config("explorer.file.column.icon.modified", "•")
+    call coc#config("explorer.file.column.icon.deleted", "✖")
+    call coc#config("explorer.file.column.icon.untracked", "ᵁ")
+    call coc#config("explorer.file.column.icon.renamed", "R")
+    call coc#config("explorer.file.column.icon.unmerged", "≠")
+    call coc#config("explorer.file.column.icon.ignored", "ⁱ")
     call coc#config("explorer.keyMappings", {
       \ 'k': 'nodePrev',
       \ 'j': 'nodeNext',
