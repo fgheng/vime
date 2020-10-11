@@ -30,8 +30,8 @@ highlight link GitGutterChangeLineNr SignifySignChange
 highlight link GitGutterDeleteLineNr SignifySignDelete
 highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 
-nmap <leader>gj <Plug>(GitGutterNextHunk)
-nmap <leader>gk <Plug>(GitGutterPrevHunk)
-nmap <leader>gh <Plug>(GitGutterStageHunk)
-nmap <leader>gu <Plug>(GitGutterUndoHunk)
-nmap <leader>gp <Plug>(GitGutterPreviewHunk)
+nnoremap <leader>gj <Plug>(GitGutterNextHunk)
+nnoremap <leader>gk <Plug>(GitGutterPrevHunk)
+nnoremap <leader>gh <Plug>(GitGutterStageHunk)
+nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
+nnoremap <leader>gp <Plug>(GitGutterPreviewHunk)
