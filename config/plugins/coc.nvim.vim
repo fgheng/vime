@@ -188,29 +188,31 @@ if common#functions#HasCocPlug('coc-highlight')
 endif
 
 " TODO 需要思考一下这里的逻辑
-if !common#functions#HasPlug('fzf.vim') && !common#functions#HasPlug('LeaderF') && !common#functions#HasPlug('vim-clap')
-    if common#functions#HasCocPlug('coc-lists')
-        function! s:cocListFilesWithWiki(query)
-            if empty(a:query) && &ft ==? 'vimwiki'
-                exec "CocList --no-sort files " . g:vimwiki_path
-            else
-                exec "CocList --no-sort files " . a:query
-            endif
-        endfunction
+if !common#functions#HasPlug('fzf.vim')
+    \ && !common#functions#HasPlug('LeaderF')
+    \ && !common#functions#HasPlug('vim-clap')
+    \ && common#functions#HasCocPlug('coc-lists')
 
-        nnoremap <silent> <M-f> :call <SID>cocListFilesWithWiki("")<CR>
-        nnoremap <silent> <M-F> :call <SID>cocListFilesWithWiki($HOME)<CR>
-        nnoremap <silent> <M-b> :CocList buffers<CR>
-        nnoremap <silent> <M-c> :CocList vimcommands<CR>
-        " tags, 需要先generate tags
-        nnoremap <silent> <M-t> :CocList tags<cr>
-        nnoremap <silent> <M-s> :CocList --auto-preview --interactive grep<cr>
-        nnoremap <silent> ? :CocList --auto-preview --interactive lines<cr>
-        nnoremap <silent> <M-r> :CocList mru -A<CR>
-        nnoremap <silent> <M-m> :CocList marks<CR>
-        nnoremap <silent> <M-M> :CocList maps<CR>
-        nnoremap <silent> <M-w> :CocList windows<CR>
-    endif
+    function! s:cocListFilesWithWiki(query)
+        if empty(a:query) && &ft ==? 'vimwiki'
+            exec "CocList --no-sort files " . g:vimwiki_path
+        else
+            exec "CocList --no-sort files " . a:query
+        endif
+    endfunction
+
+    nnoremap <silent> <M-f> :call <SID>cocListFilesWithWiki("")<CR>
+    nnoremap <silent> <M-F> :call <SID>cocListFilesWithWiki($HOME)<CR>
+    nnoremap <silent> <M-b> :CocList buffers<CR>
+    nnoremap <silent> <M-c> :CocList vimcommands<CR>
+    " tags, 需要先generate tags
+    nnoremap <silent> <M-t> :CocList tags<cr>
+    nnoremap <silent> <M-s> :CocList --auto-preview --interactive grep<cr>
+    nnoremap <silent> ? :CocList --auto-preview --interactive lines<cr>
+    nnoremap <silent> <M-r> :CocList mru -A<CR>
+    nnoremap <silent> <M-m> :CocList marks<CR>
+    nnoremap <silent> <M-M> :CocList maps<CR>
+    nnoremap <silent> <M-w> :CocList windows<CR>
 endif
 
 if common#functions#HasCocPlug('coc-yank')
