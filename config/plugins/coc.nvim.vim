@@ -57,23 +57,9 @@ endif
 " 回车选中或者扩展选中的补全内容
 if exists('*complete_info')
     " 如果您的(Neo)Vim版本支持，则使用`complete_info`
-    " if g:HasPlug('ultisnips')
-        " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? complete_info()["items"][complete_info()["selected"]]["user_data"]["source"] ==? "ul" len(UltiSnips#SnippetsInCurrentScope()) ? "\<C-R>=UltiSnips#ExpandSnippet()\<CR>" : "\<C-y>" : "\<C-g>u\<CR>"
-    " else
-        " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-    " endif
-
-    if common#functions#HasPlug('ultisnips')
-        inoremap <expr> <cr> complete_info()["selected"] != "-1" ? len(UltiSnips#SnippetsInCurrentScope()) ? "\<C-R>=UltiSnips#ExpandSnippet()\<CR>" : "\<C-y>" : "\<C-g>u\<CR>"
-    else
-        inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-    endif
+    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-    if common#functions#HasPlug('ultisnips')
-        inoremap <expr> <cr> pumvisible() ? len(UltiSnips#SnippetsInCurrentScope()) ? "\<C-R>=UltiSnips#ExpandSnippet()\<CR>" : "\<C-y>" : "\<C-g>u\<CR>"
-    else
-        inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-    endif
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " diagnostic 跳转
@@ -182,6 +168,10 @@ endif
 " coc-plug config
 " 下面是coc插件的配置
 """""""""""""""""""""""
+let s:coc_plugin_config = {
+            \ 'coc-highlight': ''
+            \ }
+
 if common#functions#HasCocPlug('coc-highlight')
     " 高亮当前光标下的所有单词
     au CursorHold * silent call CocActionAsync('highlight')
