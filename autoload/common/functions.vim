@@ -100,8 +100,25 @@ function! common#functions#ModeLabel() abort
     endif
 endfunction
 
+function! common#functions#ModeLabelWithColor() abort
+    " 获得模式的标签，带颜色
+    " 如NORMAL INSERT VISUAL等
+    let l:mode = common#functions#ModeType()
+    if l:mode ==? 'n'
+        return 'NORMAL'
+    elseif l:mode ==? 'i'
+        return 'INSERT'
+    elseif l:mode ==? 'v'
+        return 'VISUAL'
+    elseif l:mode ==? 'R'
+        return 'REPLACE'
+    else
+        return ''
+    endif
+endfunction
+
 function! common#functions#FileType() abort
-    " 获得文件类型
+    " 获得一些特殊文件的类型
     return &filetype ==? 'help'             ? ''  :
     \      &filetype ==? 'defx'             ? ' ' :
     \      &filetype ==? 'coc-explorer'     ? ' ' :
@@ -109,7 +126,8 @@ function! common#functions#FileType() abort
     \      &filetype ==? 'tagbar'           ? ' ' :
     \      &filetype ==? 'vista_kind'       ? ' ' :
     \      &filetype ==? 'vista'            ? ' ' :
-    \      &filetype =~? '\v^mundo(diff)?$' ? ' ' : ''
+    \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
+    \      &filetype
 endfunction
 
 function! common#functions#ReadOnly() abort
@@ -117,7 +135,7 @@ function! common#functions#ReadOnly() abort
     if &filetype == "help"
         return ""
     elseif &readonly
-        return ""
+        return "  "
     else
         return ""
     endif
@@ -126,10 +144,10 @@ endfunction
 function! common#functions#GitBranch() abort
     " 获取git分支
     let l:git_branch=get(g:, 'coc_git_status', '')
-    if empty(gitbranch)
+    if empty(l:git_branch)
         return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
     else
-        return l:git_branch
+        return strlen(l:git_branch) > 0 ? l:git_branch : ''
     endif
 endfunction
 
@@ -153,10 +171,9 @@ function! common#functions#MethodOrFunction() abort
     if common#functions#HasPlug('vista.vim')
         return get(b:, 'vista_nearest_method_or_function', '')
     endif
-    return ""
 endfunction
 
-function! common#functions#BufLineInfo() abort
+function! common#functions#BufLineAndColInfo() abort
     " 获得当前buffer的行，列等信息
     return printf(' %d%% ☰ %d:%d', 100*line('.')/line('$'),  line('.'), col('.'))
 endfunction
