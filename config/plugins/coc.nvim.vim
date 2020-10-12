@@ -187,17 +187,17 @@ if common#functions#HasCocPlug('coc-highlight')
     au CursorHold * silent call CocActionAsync('highlight')
 endif
 
-function! s:cocListFilesWithWiki(query)
-    if empty(a:query) && &ft ==? 'vimwiki'
-        exec "CocList --no-sort files " . g:vimwiki_path
-    else
-        exec "CocList --no-sort files " . a:query
-    endif
-endfunction
-
 " TODO 需要思考一下这里的逻辑
 if !common#functions#HasPlug('fzf.vim') && !common#functions#HasPlug('LeaderF') && !common#functions#HasPlug('vim-clap')
     if common#functions#HasCocPlug('coc-lists')
+        function! s:cocListFilesWithWiki(query)
+            if empty(a:query) && &ft ==? 'vimwiki'
+                exec "CocList --no-sort files " . g:vimwiki_path
+            else
+                exec "CocList --no-sort files " . a:query
+            endif
+        endfunction
+
         nnoremap <silent> <M-f> :call <SID>cocListFilesWithWiki("")<CR>
         nnoremap <silent> <M-F> :call <SID>cocListFilesWithWiki($HOME)<CR>
         nnoremap <silent> <M-b> :CocList buffers<CR>
