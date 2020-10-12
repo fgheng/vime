@@ -108,7 +108,7 @@ if !common#functions#HasPlug('vim-crystalline') && !common#functions#HasPlug('vi
     set statusline=
     set statusline+=%#ToolbarButton#
     set statusline+=%{common#functions#ModeLabel()}
-    set statusline+=\ %#Substitute#
+    set statusline+=\%#Substitute#
     set statusline+=\ %f
     set statusline+=\%#IncSearch#
     set statusline+=\%{common#functions#ReadOnly()}
