@@ -42,32 +42,6 @@ function! CryCocFixes() abort
     return ""
 endfunction
 
-function! CryVista() abort
-    " vista
-    if common#functions#HasPlug('vista.vim')
-        return get(b:, 'vista_nearest_method_or_function', '')
-    endif
-
-    return ""
-endfunction
-
-function! CryFugitive()
-    " fugitive
-    if common#functions#HasPlug('vim-fugitive')
-        return fugitive#head()
-    endif
-    return ""
-endfunction
-
-function! CryGitGutterStatus()
-    " gitgutter
-    if common#functions#HasPlug('vim-gitgutter')
-      let [a,m,r] = GitGutterGetHunkSummary()
-        return printf('+%d ~%d -%d', a, m, r)
-    endif
-    return ""
-endfunction
-
 function! StatusLine(current, width)
 
     let l:f_list = ["coc-explorer", "defx", "vista", "nerdtree"]
@@ -86,7 +60,7 @@ function! StatusLine(current, width)
 
     let l:s .= ' %f%h%w%m%r '
     if a:current
-        let l:s .= crystalline#right_sep('', 'Fill') . ' %{CryFugitive()} %{CryGitGutterStatus()}'
+        let l:s .= crystalline#right_sep('', 'Fill') . ' %{common#functions#GitBranch()} %{common#functions#GitCount()}'
     endif
 
     if common#functions#HasPlug("coc.nvim")
