@@ -49,7 +49,7 @@ inoremap <silent><expr> <up>
     \ pumvisible() ? "\<C-p>" : "\<up>"
 
 " alt j k 用于补全块的跳转，优先补全块跳转
-if g:HasCocPlug('coc-snippets')
+if common#functions#HasCocPlug('coc-snippets')
     let g:coc_snippet_next = '<m-j>'
     let g:coc_snippet_prev = '<m-k>'
 endif
@@ -63,13 +63,13 @@ if exists('*complete_info')
         " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
     " endif
 
-    if g:HasPlug('ultisnips')
+    if common#functions#HasPlug('ultisnips')
         inoremap <expr> <cr> complete_info()["selected"] != "-1" ? len(UltiSnips#SnippetsInCurrentScope()) ? "\<C-R>=UltiSnips#ExpandSnippet()\<CR>" : "\<C-y>" : "\<C-g>u\<CR>"
     else
         inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
     endif
 else
-    if g:HasPlug('ultisnips')
+    if common#functions#HasPlug('ultisnips')
         inoremap <expr> <cr> pumvisible() ? len(UltiSnips#SnippetsInCurrentScope()) ? "\<C-R>=UltiSnips#ExpandSnippet()\<CR>" : "\<C-y>" : "\<C-g>u\<CR>"
     else
         inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -148,7 +148,7 @@ command! -nargs=0 Format :call CocAction('format')
 
 " 文档块支持，比如删除条件，函数等
 " 功能不如treesitter，如果不存在treesitter才使用coc
-if !g:HasPlug('nvim-treesitter')
+if !common#functions#HasPlug('nvim-treesitter')
     xmap if <Plug>(coc-funcobj-i)
     omap if <Plug>(coc-funcobj-i)
     xmap af <Plug>(coc-funcobj-a)
@@ -159,7 +159,7 @@ if !g:HasPlug('nvim-treesitter')
     omap ac <Plug>(coc-classobj-a)
 endif
 
-if g:HasPlug('coc-fzf')
+if common#functions#HasPlug('coc-fzf')
     nnoremap <silent> <space>A  :<C-u>CocFzfList diagnostics<CR>
     nnoremap <silent> <space>a  :<C-u>CocFzfList diagnostics --current-buf<CR>
     nnoremap <silent> <space>c  :<C-u>CocFzfList commands<CR>
@@ -172,7 +172,7 @@ if g:HasPlug('coc-fzf')
     nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
 else
     " Show all diagnostics
-    if g:HasPlug('fzf-preview.vim')
+    if common#functions#HasPlug('fzf-preview.vim')
         nnoremap <silent> <space>a  :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<cr>
         nnoremap <silent> <space>A  :<C-u>CocCommand fzf-preview.CocDiagnostics<cr>
     else
@@ -193,7 +193,7 @@ endif
 
 " 多光标支持，但是coc的多光标不如 vim-visual-multi，因此在没有
 " vim-visual-multi的时候才使用 coc
-if !g:HasPlug("vim-visual-multi")
+if !common#functions#HasPlug("vim-visual-multi")
     " ctrl n下一个，ctrl p上一个
     " ctrl c 添加一个光标再按一次取消，
     nmap <silent> <C-c> <Plug>(coc-cursors-position)
@@ -216,7 +216,7 @@ endif
 " coc-plug config
 " 下面是coc插件的配置
 """""""""""""""""""""""
-if g:HasCocPlug('coc-highlight')
+if common#functions#HasCocPlug('coc-highlight')
     " 高亮当前光标下的所有单词
     au CursorHold * silent call CocActionAsync('highlight')
 endif
@@ -230,8 +230,8 @@ function! CocListFilesWithWiki(query)
 endfunction
 
 " TODO 需要思考一下这里的逻辑
-if !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
-    if g:HasCocPlug('coc-lists')
+if !common#functions#HasPlug('fzf.vim') && !common#functions#HasPlug('LeaderF') && !common#functions#HasPlug('vim-clap')
+    if common#functions#HasCocPlug('coc-lists')
         nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
         nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
         nnoremap <silent> <M-b> :CocList buffers<CR>
@@ -247,22 +247,22 @@ if !g:HasPlug('fzf.vim') && !g:HasPlug('LeaderF') && !g:HasPlug('vim-clap')
     endif
 endif
 
-if g:HasCocPlug('coc-yank')
+if common#functions#HasCocPlug('coc-yank')
     nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
 
-    if !g:HasPlug('vim-clap') && !g:HasPlug('fzf')
+    if !common#functions#HasPlug('vim-clap') && !common#functions#HasPlug('fzf')
         nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
     endif
     call coc#config('yank.highlight.duration', 200)
     call coc#config('yank.enableCompletion', v:false)
 endif
 
-if g:HasCocPlug('coc-translator')
+if common#functions#HasCocPlug('coc-translator')
     nmap  <leader>e <Plug>(coc-translator-e)
     nmap  <leader>d <Plug>(coc-translator-p)
 endif
 
-if g:HasCocPlug('coc-bookmark') && !g:HasPlug('vim-bookmarks')
+if common#functions#HasCocPlug('coc-bookmark') && !common#functions#HasPlug('vim-bookmarks')
     call coc#config("bookmark.sign", "♥")
     nmap <silent> ma <Plug>(coc-bookmark-annotate)
     nmap <silent> mm <Plug>(coc-bookmark-toggle)
@@ -272,7 +272,7 @@ if g:HasCocPlug('coc-bookmark') && !g:HasPlug('vim-bookmarks')
     nmap <silent> ml :CocList bookmark<cr>
 endif
 
-if g:HasCocPlug('coc-todolist')
+if common#functions#HasCocPlug('coc-todolist')
     nmap <silent> <space>tl :<C-u>CocList todolist<cr>
     nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
 endif
@@ -283,10 +283,10 @@ endif
 " 原本这些配置是可以直接写到coc-settings.json中的
 " 现在我写在vim中了
 """""""""""""""""""""""
-if g:HasCocPlug("coc-lists")
+if common#functions#HasCocPlug("coc-lists")
     " session 保存目录
     call coc#config('session.directory', g:session_dir)
-    if !g:HasPlug('dashboard-nvim')
+    if !common#functions#HasPlug('dashboard-nvim')
         " 退出时自动保存session
         call coc#config('session.saveOnVimLeave', v:true)
     endif
@@ -310,28 +310,28 @@ if g:HasCocPlug("coc-lists")
 endif
 
 " coc-clangd
-if g:HasCocPlug('coc-clangd')
+if common#functions#HasCocPlug('coc-clangd')
     " 配合插件vim-lsp-cxx-highlight实现高亮
     call coc#config('clangd.semanticHighlighting', v:true)
 endif
 
 " coc-kite
-if g:HasCocPlug('coc-kite')
+if common#functions#HasCocPlug('coc-kite')
     call coc#config('kite.pollingInterval', 1000)
 endif
 
 " coc-xml
-if g:HasCocPlug('coc-xml')
+if common#functions#HasCocPlug('coc-xml')
     call coc#config('xml.java.home', '/usr/lib/jvm/default/')
 endif
 
 " coc-prettier
-if g:HasCocPlug('coc-prettier')
+if common#functions#HasCocPlug('coc-prettier')
     call coc#config('prettier.tabWidth', 4)
 endif
 
 " coc-git
-if g:HasCocPlug('coc-git')
+if common#functions#HasCocPlug('coc-git')
     call coc#config('git.addGBlameToBufferVar', v:true)
     call coc#config('git.addGBlameToVirtualText', v:true)
     call coc#config('git.virtualTextPrefix', '  ➤  ')
@@ -356,7 +356,7 @@ if g:HasCocPlug('coc-git')
 endif
 
 " coc-snippets
-if g:HasCocPlug('coc-snippets')
+if common#functions#HasCocPlug('coc-snippets')
     call coc#config("snippets.ultisnips.enable", v:true)
     call coc#config("snippets.ultisnips.directories", [
                 \ 'UltiSnips',
@@ -369,29 +369,29 @@ if g:HasCocPlug('coc-snippets')
 endif
 
 " coc-highlight
-if g:HasCocPlug('coc-highlight')
+if common#functions#HasCocPlug('coc-highlight')
     call coc#config("highlight.disableLanguages", ["csv"])
 endif
 
 " coc-python
-if g:HasCocPlug('coc-python')
+if common#functions#HasCocPlug('coc-python')
     call coc#config("python.jediEnabled", v:false)
     call coc#config("python.linting.enabled", v:true)
     call coc#config("python.linting.pylintEnabled", v:true)
 endif
 
-if g:HasCocPlug('coc-ci')
+if common#functions#HasCocPlug('coc-ci')
     nmap <silent> w <Plug>(coc-ci-w)
     nmap <silent> b <Plug>(coc-ci-b)
 endif
 
 " coc-rainbow-fart
-if g:HasCocPlug('coc-rainbow-fart')
+if common#functions#HasCocPlug('coc-rainbow-fart')
     call coc#config("rainbow-fart.ffplay", "ffplay")
 endif
 
 " coc-explorer
-if g:HasCocPlug('coc-explorer')
+if common#functions#HasCocPlug('coc-explorer')
     let g:coc_explorer_global_presets = {
         \   '.vim': {
         \      'root-uri': '~/.vim',
@@ -431,7 +431,7 @@ if g:HasCocPlug('coc-explorer')
     " Use preset argument to open it
     " nmap <space>rd :CocCommand explorer --preset .vim<CR>
     nmap <F2> :CocCommand explorer<CR>
-    if !g:HasPlug('ranger.vim')
+    if !common#functions#HasPlug('ranger.vim')
         nmap <leader>f :CocCommand explorer --preset floating<CR>
     endif
 

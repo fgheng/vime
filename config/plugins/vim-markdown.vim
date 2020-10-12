@@ -10,6 +10,6 @@ let g:vim_markdown_toc_autofit=1    " toc自动修复
 
 let g:vim_markdown_new_list_item_indent = 2
 
-if g:HasPlug('markdown-preview.nvim')
+if common#functions#HasPlug('markdown-preview.nvim')
     command! -nargs=0 Mp :MarkdownPreview<cr>
 endif

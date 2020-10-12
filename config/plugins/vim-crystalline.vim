@@ -2,7 +2,7 @@ set laststatus=2
 set showtabline=2
 
 function! CryCocError()
-    if !g:HasPlug('coc.nvim')
+    if !common#functions#HasPlug('coc.nvim')
         let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
         let info = get(b:, 'coc_diagnostic_info', {})
         if empty(info)
@@ -18,7 +18,7 @@ function! CryCocError()
 endfunction
 
 function! CryCocWarn() abort
-    if !g:HasPlug('coc.nvim')
+    if !common#functions#HasPlug('coc.nvim')
         let warning_sign = get(g:, 'coc_status_warning_sign')
         let info = get(b:, 'coc_diagnostic_info', {})
         if empty(info)
@@ -35,7 +35,7 @@ function! CryCocWarn() abort
 endfunction
 
 function! CryCocFixes() abort
-    if g:HasPlug('coc.nvim')
+    if common#functions#HasPlug('coc.nvim')
         let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
         return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
     endif
@@ -44,7 +44,7 @@ endfunction
 
 function! CryVista() abort
     " vista
-    if g:HasPlug('vista.vim')
+    if common#functions#HasPlug('vista.vim')
         return get(b:, 'vista_nearest_method_or_function', '')
     endif
 
@@ -53,7 +53,7 @@ endfunction
 
 function! CryFugitive()
     " fugitive
-    if g:HasPlug('vim-fugitive')
+    if common#functions#HasPlug('vim-fugitive')
         return fugitive#head()
     endif
     return ""
@@ -61,7 +61,7 @@ endfunction
 
 function! CryGitGutterStatus()
     " gitgutter
-    if g:HasPlug('vim-gitgutter')
+    if common#functions#HasPlug('vim-gitgutter')
       let [a,m,r] = GitGutterGetHunkSummary()
         return printf('+%d ~%d -%d', a, m, r)
     endif
@@ -89,7 +89,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#right_sep('', 'Fill') . ' %{CryFugitive()} %{CryGitGutterStatus()}'
     endif
 
-    if g:HasPlug("coc.nvim")
+    if common#functions#HasPlug("coc.nvim")
         let l:s .= " %{coc#status()}%{get(b:, 'coc_current_function', '')}"
     endif
 
@@ -124,21 +124,7 @@ let g:crystalline_statusline_fn = 'StatusLine'
 let g:crystalline_tabline_fn = 'TabLine'
 let g:crystalline_theme = 'onedark'
 
-
-function! s:tabOrBuf(direction) abort
-    " 0 <- 1 ->
-    if tabpagenr('$') > 1
-        if a:direction == 0 | exec 'tabprevious'
-        elseif a:direction == 1 | exec 'tabnext'
-        endif
-    else
-        if a:direction == 0 | exec 'bprevious'
-        elseif a:direction == 1 | exec 'bnext'
-        endif
-    endif
-endfunction
-
-nnoremap <silent> <M-l> :call <SID>tabOrBuf(1)<cr>
-nnoremap <silent> <M-h> :call <SID>tabOrBuf(0)<cr>
-tnoremap <silent> <M-l> <c-\><c-n>:call <SID>tabOrBuf(1)<cr>
-tnoremap <silent> <M-h> <c-\><c-n>:call <SID>tabOrBuf(0)<CR>
+nnoremap <silent> <M-l> :call common#functions#MoveTabOrBuf(1)<cr>
+nnoremap <silent> <M-h> :call common#functions#MoveTabOrBuf(0)<cr>
+tnoremap <silent> <M-l> <c-\><c-n>:call common#functions#MoveTabOrBuf(1)<cr>
+tnoremap <silent> <M-h> <c-\><c-n>:call common#functions#MoveTabOrBuf(0)<CR>

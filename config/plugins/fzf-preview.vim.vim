@@ -20,7 +20,7 @@ augroup END
 
 function! s:RipgrepFzfWithWiki(query, fullscreen)
     " 这个是在安装了vimwiki插件后使用的功能，需要配置一下g:vimwiki_path路径
-    if g:HasPlug('vimwiki') && &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
+    if common#functions#HasPlug('vimwiki') && &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
         let wiki_path = g:vimwiki_path
     else
         let wiki_path = ""
@@ -31,7 +31,7 @@ command! -nargs=* -bang GrepWithWiki call s:RipgrepFzfWithWiki(<q-args>, <bang>0
 
 function! s:FilesWithWiki(query, fullscreen)
     let l:q=a:query
-    if empty(l:q) && g:HasPlug('vimwiki') && &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
+    if empty(l:q) && common#functions#HasPlug('vimwiki') && &ft ==? 'vimwiki' && match(expand('%:p'), expand(g:vimwiki_path)) > -1
         let l:q=g:vimwiki_path
     endif
     exec 'FzfPreviewDirectoryFiles' . ' ' . l:q
@@ -41,7 +41,7 @@ command! -bang -nargs=? -complete=dir FWW call s:FilesWithWiki(<q-args>, <bang>0
 nnoremap <M-f> :<c-u>FWW<CR>
 nnoremap <M-F> :<c-u>FWW $HOME<CR>
 nnoremap <M-b> :<c-u>FzfPreviewAllBuffers<CR>
-if g:HasPlug('vista.vim')
+if common#functions#HasPlug('vista.vim')
     nnoremap <M-t> :<c-u>FzfPreviewVistaBufferCtags<CR>
     nnoremap <M-T> :<c-u>FzfPreviewVistaCtags<CR>
 else
@@ -57,12 +57,12 @@ if executable('bat')
 endif
 nnoremap <M-r> :<c-u>FzfPreviewMruFiles<CR>
 nnoremap <M-c> :<c-u>FzfPreviewChanges<CR>
-if g:HasPlug('vim-bookmarks')
+if common#functions#HasPlug('vim-bookmarks')
     nnoremap <M-m> :<c-u>FzfPreviewBookmarks<CR>
 else
     nnoremap <M-m> :<c-u>FzfPreviewMarks<CR>
 endif
-if g:HasPlug('yankround.vim')
+if common#functions#HasPlug('yankround.vim')
     nnoremap <M-y> :<c-u>FzfPreviewYankround<CR>
 endif
 nnoremap <M-J> :<c-u>FzfPreviewJumps<CR>

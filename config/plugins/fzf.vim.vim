@@ -396,7 +396,7 @@ command! -range=% -bang FzfBLinesVisual <line1>,<line2>call s:FzfBLinesVisual()
 nnoremap <M-f> :FWW<CR>
 nnoremap <M-F> :FWW $HOME<CR>
 nnoremap <M-b> :Buffers<CR>
-if g:HasPlug('vista.vim')
+if common#functions#HasPlug('vista.vim')
     let g:vista_fzf_preview = ['up:50%:wrap']
     noremap <M-t> :Vista finder<CR>
 else
@@ -418,7 +418,7 @@ nnoremap <M-m> :FzfMarks<CR>
 " nnoremap <M-m> :Marks<CR>
 nnoremap <M-M> :Maps<CR>
 nnoremap <M-w> :Windows<CR>
-if g:HasPlug('coc-fzf')
+if common#functions#HasPlug('coc-fzf')
     nnoremap <M-y> :<c-u>CocFzfList yank<CR>
 endif
 " TODO 编写高亮

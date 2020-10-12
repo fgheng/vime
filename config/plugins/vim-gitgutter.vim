@@ -26,7 +26,7 @@ highlight link GitGutterDeleteLineNr SignifySignDelete
 highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 
 " coc-git优先
-if !g:HasCocPlug('coc-git')
+if !common#functions#HasCocPlug('coc-git')
     nnoremap <leader>gj <Plug>(GitGutterNextHunk)
     nnoremap <leader>gk <Plug>(GitGutterPrevHunk)
     nnoremap <leader>gh <Plug>(GitGutterStageHunk)

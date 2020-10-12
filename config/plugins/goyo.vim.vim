@@ -10,7 +10,7 @@ function! s:goyo_enter()
 	set noshowmode
 	set noshowcmd
 	set scrolloff=999
-    if g:HasPlug('limelight.vim')
+    if common#functions#HasPlug('limelight.vim')
         Limelight
     endif
 endfunction
@@ -23,7 +23,7 @@ function! s:goyo_leave()
 	set showmode
 	set showcmd
 	set scrolloff=5
-    if g:HasPlug('limelight.vim')
+    if common#functions#HasPlug('limelight.vim')
         Limelight!
     endif
 endfunction

@@ -75,8 +75,8 @@ endif
 colorscheme sonokai
 
 " coc 美化
-if g:HasPlug('coc.nvim')
-    if !g:HasPlug('vim-multiple-cursors.vim')
+if common#functions#HasPlug('coc.nvim')
+    if !common#functions#HasPlug('vim-multiple-cursors.vim')
         " coc多光标颜色
         hi CocCursorRange cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffff00
     endif
@@ -86,17 +86,17 @@ if g:HasPlug('coc.nvim')
     hi link CocInfoSign green
     hi link CocHintSign blue
 
-    if g:HasCocPlug('coc-highlight')
+    if common#functions#HasCocPlug('coc-highlight')
         " coc 高亮单词
         au VimEnter * hi CocHighlightText guifg=#ffb6c1
     endif
 
-    if g:HasCocPlug('coc-yank')
+    if common#functions#HasCocPlug('coc-yank')
         " coc yank背景颜色
         hi HighlightedyankRegion cterm=bold ctermfg=238 ctermbg=226 gui=bold guifg=#444444 guibg=#ffa07a
     endif
 
-    if g:HasCocPlug('coc-explorer') && has('nvim')
+    if common#functions#HasCocPlug('coc-explorer') && has('nvim')
         " coc-explorer
         " None 而不是NONE
         hi CocExplorerNormalFloat guibg=None
@@ -104,7 +104,7 @@ if g:HasPlug('coc.nvim')
 endif
 
 " 自定义状态栏和tab栏
-if !g:HasPlug('vim-crystalline') && !g:HasPlug('vim-airline') && !g:HasPlug('lightline.vim')
+if !common#functions#HasPlug('vim-crystalline') && !common#functions#HasPlug('vim-airline') && !common#functions#HasPlug('lightline.vim')
     set statusline=2
     set showtabline=2                                   " 总是显示tab标签栏
 
@@ -123,7 +123,7 @@ if !g:HasPlug('vim-crystalline') && !g:HasPlug('vim-airline') && !g:HasPlug('lig
     set statusline+=%#LineNr#
     set statusline+=\ %f
     set statusline+=%m
-    if g:HasPlug('coc.nvim')
+    if common#functions#HasPlug('coc.nvim')
         set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
     endif
     set statusline+=%=

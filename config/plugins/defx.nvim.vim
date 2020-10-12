@@ -2,7 +2,7 @@ let g:defx_icons_enable_syntax_highlight = 1
 let g:defx_icons_column_length = 2
 
 let s:columns = ""
-if g:HasPlug('defx-git')
+if common#functions#HasPlug('defx-git')
     call defx#custom#column('git', {
         \   'indicators': {
         \     'Modified'  : '•',
@@ -172,7 +172,7 @@ endfunction
 " nnoremap <silent> <F2> <esc>:call OpenDefxCurWin()<cr>
 " nnoremap <silent> <F2> <esc>:call OpenDefxLeft()<cr>
 nnoremap <silent> <F2> <esc>:call DefxOpen(v:false)<cr>
-if !g:HasPlug('ranger.vim')
+if !common#functions#HasPlug('ranger.vim')
     nnoremap <silent> <leader>f <esc>:call DefxOpen(v:true)<cr>
 endif
 

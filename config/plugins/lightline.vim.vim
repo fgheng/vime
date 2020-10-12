@@ -85,7 +85,7 @@ function! LightLineGit()abort
 endfunction
 
 function! LightLineCocError()
-    if !g:HasPlug('coc.nvim')
+    if !common#functions#HasPlug('coc.nvim')
         return ""
     endif
     let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
@@ -101,7 +101,7 @@ function! LightLineCocError()
 endfunction
 
 function! LightLineCocWarn() abort
-    if !g:HasPlug('coc.nvim')
+    if !common#functions#HasPlug('coc.nvim')
         return ""
     endif
     let warning_sign = get(g:, 'coc_status_warning_sign')
@@ -117,7 +117,7 @@ function! LightLineCocWarn() abort
 endfunction
 
 function! LightlineCocFixes() abort
-    if !g:HasPlug('coc.nvim')
+    if !common#functions#HasPlug('coc.nvim')
         return ""
     endif
     let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)

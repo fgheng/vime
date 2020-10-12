@@ -1,11 +1,10 @@
-" vimrc所在根目录
-let g:vim_root_path = expand('<sfile>:p:h') . '/'
+call common#common#init()
 
 " 定义载入配置命令
-command! -nargs=1 LoadScript exec 'source ' . g:vim_root_path . '/config/' . '<args>'
+command! -nargs=1 LoadScript exec 'source ' . g:config_root_path . '<args>'
 
 " 载入通用配置
-LoadScript common.vim
+" LoadScript common.vim
 " 载入基础配置
 LoadScript base.vim
 
@@ -20,8 +19,8 @@ LoadScript keymap.vim
 LoadScript theme.vim
 
 " 依据插件名字载入对应的插件配置
-function s:source_config(plugin_name) abort
-    let l:config_path = g:plugins_config_root_path . a:plugin_name . ".vim"
+function s:source_config(pluginName) abort
+    let l:config_path = g:plugins_config_root_path . a:pluginName . ".vim"
     if filereadable(l:config_path)
         exec 'source' fnameescape(l:config_path)
     endif
@@ -29,8 +28,8 @@ endfunction
 
 " TODO 从plug.vim中寻找何时载入插件
 " 载入插件配置
-for [plugin_name, plugin_config] in items(g:plugs)
-    if g:HasInstall(plugin_name)
-        call s:source_config(plugin_name)
+for [pluginName, _] in items(g:plugs)
+    if common#functions#HasInstall(pluginName)
+        call s:source_config(pluginName)
     endif
 endfor

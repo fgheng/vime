@@ -3,7 +3,7 @@ let NERDTreeDirArrows = 1
 let NERDChristmasTree = 1
 
 " nerdtree的git插件
-if g:HasPlug('nerdtree-git-plugin')
+if common#functions#HasPlug('nerdtree-git-plugin')
     let g:NERDTreeGitStatusIndicatorMapCustom = {
         \ "Modified"  : "✹",
         \ "Staged"    : "✚",
