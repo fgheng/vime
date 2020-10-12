@@ -40,7 +40,7 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
 Plug 'sainnhe/sonokai'
-" 底栏
+" 顶栏和底栏
 Plug 'rbong/vim-crystalline'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
