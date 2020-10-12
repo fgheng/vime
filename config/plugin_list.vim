@@ -79,7 +79,7 @@ Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
 " 笔记插件，支持markdown
 Plug 'vimwiki/vimwiki'
 " markdown 预览插件
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
 " 起始界面
@@ -159,9 +159,9 @@ let g:coc_global_extensions = [
     \ 'coc-tabnine',
     \ 'coc-explorer',
     \ 'coc-ci',
+    \ 'coc-git',
     \ ]
 
-    " \ 'coc-git',
     "\ 'coc-bookmark',
     "\ 'coc-rainbow-fart',
     "\ 'coc-lists',
