@@ -373,7 +373,7 @@ function! s:lc_coc_explorer() abort
 
     augroup coc_explorer_group
         autocmd!
-        autocmd WinEnter * if &filetype == 'coc-explorer' && winnr('$') == 1 | q | endif
+        " autocmd WinEnter * if &filetype == 'coc-explorer' && winnr('$') == 1 | q | endif
         autocmd TabLeave * if &filetype == 'coc-explorer' | wincmd w | endif
     augroup END
 
