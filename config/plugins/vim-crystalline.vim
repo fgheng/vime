@@ -1,5 +1,5 @@
-set laststatus=2                                    " 状态栏, lightline中更改了
-set showtabline=2                                   " 总是显示tab标签栏
+set laststatus=2
+set showtabline=2
 
 function! CryCocError()
     if !g:HasPlug('coc.nvim')
@@ -124,9 +124,6 @@ let g:crystalline_statusline_fn = 'StatusLine'
 let g:crystalline_tabline_fn = 'TabLine'
 let g:crystalline_theme = 'onedark'
 
-set showtabline=2
-set guioptions-=e
-set laststatus=2
 
 function! s:tabOrBuf(direction) abort
     " 0 <- 1 ->
