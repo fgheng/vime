@@ -110,6 +110,8 @@ if !common#functions#HasPlug('vim-crystalline') && !common#functions#HasPlug('vi
     set statusline+=%{common#functions#ModeLabel()}
     set statusline+=\ %#Substitute#
     set statusline+=\ %f
+    set statusline+=\%#IncSearch#
+    set statusline+=\%{common#functions#ReadOnly()}
     set statusline+=\ %#PmenuSel#
     set statusline+=\ %{common#functions#GitBranch()}
     set statusline+=%{common#functions#GitCount()}
@@ -118,6 +120,8 @@ if !common#functions#HasPlug('vim-crystalline') && !common#functions#HasPlug('vi
         set statusline+=\ %{coc#status()}%{get(b:,'coc_current_function','')}
     endif
     set statusline+=%#black#
+    set statusline+=\ %{common#functions#MethodOrFunction()}
+    set statusline+=
     set statusline+=%=
 
     set statusline+=\ %#PmenuSel#
