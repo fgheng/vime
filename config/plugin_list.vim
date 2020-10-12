@@ -158,7 +158,7 @@ let g:coc_global_extensions = [
     \ 'coc-tabnine',
     \ 'coc-explorer',
     \ 'coc-git',
-    \ 'cco-ci',
+    \ 'coc-ci',
     \ ]
 
     "\ 'coc-bookmark',
