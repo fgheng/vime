@@ -168,20 +168,19 @@ endif
 " coc-plug config
 " 下面是coc插件的配置
 """""""""""""""""""""""
-let s:coc_plugin_config = {
-            \ 'coc-highlight': ''
-            \ }
 
-if common#functions#HasCocPlug('coc-highlight')
+function! s:lc_coc_highlight() abort
+    call coc#config("highlight.disableLanguages", ["csv"])
     " 高亮当前光标下的所有单词
     au CursorHold * silent call CocActionAsync('highlight')
-endif
+endfunction
 
-" TODO 需要思考一下这里的逻辑
-if !common#functions#HasPlug('fzf.vim')
-    \ && !common#functions#HasPlug('LeaderF')
-    \ && !common#functions#HasPlug('vim-clap')
-    \ && common#functions#HasCocPlug('coc-lists')
+function! s:lc_coc_lists() abort
+    if common#functions#HasPlug('fzf.vim')
+        \ || common#functions#HasPlug('LeaderF')
+        \ || common#functions#HasPlug('vim-clap')
+        return
+    endif
 
     function! s:cocListFilesWithWiki(query)
         if empty(a:query) && &ft ==? 'vimwiki'
@@ -227,24 +226,28 @@ if !common#functions#HasPlug('fzf.vim')
     nnoremap <silent> <M-m> :CocList marks<CR>
     nnoremap <silent> <M-M> :CocList maps<CR>
     nnoremap <silent> <M-w> :CocList windows<CR>
-endif
+endfunction
 
-if common#functions#HasCocPlug('coc-yank')
-    nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
+function! s:lc_coc_yank() abort
+    call coc#config('yank.highlight.duration', 200)
+    call coc#config('yank.enableCompletion', v:false)
 
     if !common#functions#HasPlug('vim-clap') && !common#functions#HasPlug('fzf')
         nnoremap <silent> <M-y>  :<C-u>CocList yank<cr>
     endif
-    call coc#config('yank.highlight.duration', 200)
-    call coc#config('yank.enableCompletion', v:false)
-endif
+    nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
+endfunction
 
-if common#functions#HasCocPlug('coc-translator')
+function! s:lc_coc_translator() abort
     nmap  <leader>e <Plug>(coc-translator-e)
     nmap  <leader>d <Plug>(coc-translator-p)
-endif
+endfunction
 
-if common#functions#HasCocPlug('coc-bookmark') && !common#functions#HasPlug('vim-bookmarks')
+function! s:lc_coc_bookmark() abort
+    if common#functions#HasPlug('vim-bookmarks')
+        return
+    endif
+
     call coc#config("bookmark.sign", "♥")
     nmap <silent> ma <Plug>(coc-bookmark-annotate)
     nmap <silent> mm <Plug>(coc-bookmark-toggle)
@@ -252,36 +255,30 @@ if common#functions#HasCocPlug('coc-bookmark') && !common#functions#HasPlug('vim
     nmap <silent> mk <Plug>(coc-bookmark-prev)
     nmap <silent> mc :CocCommand bookmark.clearForCurrentFile<cr>
     nmap <silent> ml :CocList bookmark<cr>
-endif
+endfunction
 
-if common#functions#HasCocPlug('coc-todolist')
+function! s:lc_coc_todolist() abort
     nmap <silent> <space>tl :<C-u>CocList todolist<cr>
     nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
-endif
+endfunction
 
-" coc-clangd
-if common#functions#HasCocPlug('coc-clangd')
-    " 配合插件vim-lsp-cxx-highlight实现高亮
+function! s:lc_coc_clangd() abort
     call coc#config('clangd.semanticHighlighting', v:true)
-endif
+endfunction
 
-" coc-kite
-if common#functions#HasCocPlug('coc-kite')
+function! s:lc_coc_kite() abort
     call coc#config('kite.pollingInterval', 1000)
-endif
+endfunction
 
-" coc-xml
-if common#functions#HasCocPlug('coc-xml')
+function! s:lc_coc_xml() abort
     call coc#config('xml.java.home', '/usr/lib/jvm/default/')
-endif
+endfunction
 
-" coc-prettier
-if common#functions#HasCocPlug('coc-prettier')
+function! s:lc_coc_prettier() abort
     call coc#config('prettier.tabWidth', 4)
-endif
+endfunction
 
-" coc-git
-if common#functions#HasCocPlug('coc-git')
+function! s:lc_coc_git() abort
     call coc#config('git.addGBlameToBufferVar', v:true)
     call coc#config('git.addGBlameToVirtualText', v:true)
     call coc#config('git.virtualTextPrefix', '  ➤  ')
@@ -303,10 +300,9 @@ if common#functions#HasCocPlug('coc-git')
     nnoremap <silent> <leader>gp <esc>:CocCommand git.chunkInfo<cr>
     nnoremap <silent> <leader>gu <esc>:CocCommand git.chunkUndo<cr>
     nnoremap <silent> <leader>gh <esc>:CocCommand git.chunkStage<cr>
-endif
+endfunction
 
-" coc-snippets
-if common#functions#HasCocPlug('coc-snippets')
+function! s:lc_coc_snippets() abort
     call coc#config("snippets.ultisnips.enable", v:true)
     call coc#config("snippets.ultisnips.directories", [
                 \ 'UltiSnips',
@@ -316,32 +312,22 @@ if common#functions#HasCocPlug('coc-snippets')
                 \ 'cpp': ['c', 'cpp'],
                 \ 'typescript': ['javascript']
             \ })
-endif
+endfunction
 
-" coc-highlight
-if common#functions#HasCocPlug('coc-highlight')
-    call coc#config("highlight.disableLanguages", ["csv"])
-endif
-
-" coc-python
-if common#functions#HasCocPlug('coc-python')
-    call coc#config("python.jediEnabled", v:false)
-    call coc#config("python.linting.enabled", v:true)
+function! s:lc_coc_python() abort
     call coc#config("python.linting.pylintEnabled", v:true)
-endif
+endfunction
 
-if common#functions#HasCocPlug('coc-ci')
+function! s:lc_coc_python() abort
     nmap <silent> w <Plug>(coc-ci-w)
     nmap <silent> b <Plug>(coc-ci-b)
-endif
+endfunction
 
-" coc-rainbow-fart
-if common#functions#HasCocPlug('coc-rainbow-fart')
+function! s:lc_coc_rainbow_fart() abort
     call coc#config("rainbow-fart.ffplay", "ffplay")
-endif
+endfunction
 
-" coc-explorer
-if common#functions#HasCocPlug('coc-explorer')
+function! s:lc_coc_explorer() abort
     let g:coc_explorer_global_presets = {
         \   '.vim': {
         \      'root-uri': '~/.vim',
@@ -445,4 +431,31 @@ if common#functions#HasCocPlug('coc-explorer')
       \ '<<': 'gitStage',
       \ '>>': 'gitUnstage'
     \ })
-endif
+endfunction
+
+function! s:tmp() abort
+endfunction
+
+" 遍历coc插件列表，载入插件配置
+let s:coc_config_functions = {
+            \ 'coc-highlight': function('<SID>lc_coc_highlight'),
+            \ 'coc-lists': function('<SID>lc_coc_lists'),
+            \ 'coc-yank': function('<SID>lc_coc_yank'),
+            \ 'coc-translator': function('<SID>lc_coc_translator'),
+            \ 'coc-bookmark': function('<SID>lc_coc_bookmark'),
+            \ 'coc-todolist': function('<SID>lc_coc_todolist'),
+            \ 'coc-clangd': function('<SID>lc_coc_clangd'),
+            \ 'coc-kite': function('<SID>lc_coc_kite'),
+            \ 'coc-xml': function('<SID>lc_coc_xml'),
+            \ 'coc-prettier': function('<SID>lc_coc_prettier'),
+            \ 'coc-git': function('<SID>lc_coc_git'),
+            \ 'coc-snippets': function('<SID>lc_coc_snippets'),
+            \ 'coc-python': function('<SID>lc_coc_python'),
+            \ 'coc-rainbow-fart': function('<SID>lc_coc_rainbow_fart'),
+            \ 'coc-explorer': function('<SID>lc_coc_explorer'),
+            \ }
+
+" TODO 更改调用方式
+for extension in g:coc_global_extensions
+    call get(s:coc_config_functions, extension, function('<SID>tmp'))()
+endfor
