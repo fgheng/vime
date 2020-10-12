@@ -13,14 +13,12 @@ endfunction
 " TODO 应该先判断g:plugs_order是否存在
 function! common#functions#HasPlug(plugName) abort
     " 插件列表中是否存在该插件
-    return (index(g:plugs_order, a:plugName) > -1
-                \ ? v:true : v:false)
+    return (index(g:plugs_order, a:plugName) > -1 ? v:true : v:false)
 endfunction
 
 function! common#functions#HasInstall(plugName) abort
     " 判断插件是否已经安装在本地
-    return (isdirectory(g:plugs[a:plugName].dir)
-                \ ? v:true : v:false)
+    return (isdirectory(g:plugs[a:plugName].dir) ? v:true : v:false)
 endfunction
 
 function! common#functions#HasCocPlug(plugName) abort
