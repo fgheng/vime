@@ -4,36 +4,6 @@ if &laststatus < 2
     set showtabline=2
 endif
 
-let g:lightline = {
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'readonly', 'filename', 'modified'],
-    \             [ 'gitinfo', 'method', 'cocstatus']
-    \           ],
-    \   'right': [
-    \       ['cocerror'], ['cocwarn'], ['cocfix'],
-    \       [ 'filetype', 'fileencoding', 'fileformat', 'hex', 'asc', 'lineinfo'],
-    \   ]
-    \ },
-    \ 'component': {
-    \   'asc': '%03.3b',
-    \   'hex': '0x%hhhB',
-    \ },
-    \ 'component_function': {
-    \   'cocstatus': 'coc#status',
-    \   'lineinfo': 'LightlineLineinfo',
-    \   'readonly': 'LightLineReadonly',
-    \   'gitinfo': 'LightLineGit',
-    \   'cocerror': 'LightLineCocError',
-    \   'cocwarn' : 'LightLineCocWarn',
-    \   'cocfix': 'LightLineCocFixes',
-    \ },
-    \ 'component_expand': {
-    \ },
-    \ 'separator': { 'left': "\ue0b8", 'right': "\ue0ba"},
-    \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0bb"}
-\ }
-"\ 'colorscheme': 'srcery',
 
 function! s:lightline_is_lean() abort
     return &filetype =~? '\v^defx|mundo(diff)?$'
@@ -54,16 +24,6 @@ function! LightlineLineinfo() abort
     \      &filetype =~? '\v^mundo(diff)?$' ? ' ' :
     \      s:lightline_is_lean() || s:lightline_is_plain() ? ' '  :
     \      printf(' %d%% ☰ %d:%d', 100*line('.')/line('$'),  line('.'), col('.'))
-endfunction
-
-function! LightLineReadonly()
-    if &filetype == "help"
-        return ""
-    elseif &readonly
-        return ""
-    else
-        return ""
-    endif
 endfunction
 
 function! LightLineGit()abort
@@ -123,3 +83,34 @@ function! LightlineCocFixes() abort
     let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
     return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
 endfunction
+
+let g:lightline = {
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'filename', 'modified'],
+    \             [ 'gitinfo', 'method', 'cocstatus']
+    \           ],
+    \   'right': [
+    \       ['cocerror'], ['cocwarn'], ['cocfix'],
+    \       [ 'filetype', 'fileencoding', 'fileformat', 'hex', 'asc', 'lineinfo'],
+    \   ]
+    \ },
+    \ 'component': {
+    \   'asc': '%03.3b',
+    \   'hex': '0x%hhhB',
+    \ },
+    \ 'component_function': {
+    \   'cocstatus': 'coc#status',
+    \   'lineinfo': 'LightlineLineinfo',
+    \   'readonly': 'common#functions#ReadOnly',
+    \   'gitinfo': 'LightLineGit',
+    \   'cocerror': 'LightLineCocError',
+    \   'cocwarn' : 'LightLineCocWarn',
+    \   'cocfix': 'LightLineCocFixes',
+    \ },
+    \ 'component_expand': {
+    \ },
+    \ 'separator': { 'left': "\ue0b8", 'right': "\ue0ba"},
+    \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0bb"}
+\ }
+"\ 'colorscheme': 'srcery',
