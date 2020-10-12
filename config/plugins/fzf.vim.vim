@@ -408,8 +408,6 @@ vnoremap <M-s> :GrepWithWikiVisual<CR>
 " 模糊搜索当前buffer
 nnoremap ? :FzfBLines<CR>
 vnoremap ? :FzfBLinesVisual<CR>
-"TODO *检索当前单词
-" nnoremap * :BLines expand('<cword>')<CR>
 nnoremap <M-r> :History<CR>
 " TODO 增加changes 需要自定义
 nnoremap <M-c> :Commands<CR>
