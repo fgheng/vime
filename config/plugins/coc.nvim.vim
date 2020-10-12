@@ -187,7 +187,7 @@ if common#functions#HasCocPlug('coc-highlight')
     au CursorHold * silent call CocActionAsync('highlight')
 endif
 
-function! CocListFilesWithWiki(query)
+function! s:cocListFilesWithWiki(query)
     if empty(a:query) && &ft ==? 'vimwiki'
         exec "CocList --no-sort files " . g:vimwiki_path
     else
@@ -198,8 +198,8 @@ endfunction
 " TODO 需要思考一下这里的逻辑
 if !common#functions#HasPlug('fzf.vim') && !common#functions#HasPlug('LeaderF') && !common#functions#HasPlug('vim-clap')
     if common#functions#HasCocPlug('coc-lists')
-        nnoremap <silent> <M-f> :call CocListFilesWithWiki("")<CR>
-        nnoremap <silent> <M-F> :call CocListFilesWithWiki($HOME)<CR>
+        nnoremap <silent> <M-f> :call <SID>cocListFilesWithWiki("")<CR>
+        nnoremap <silent> <M-F> :call <SID>cocListFilesWithWiki($HOME)<CR>
         nnoremap <silent> <M-b> :CocList buffers<CR>
         nnoremap <silent> <M-c> :CocList vimcommands<CR>
         " tags, 需要先generate tags
