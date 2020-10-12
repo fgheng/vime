@@ -155,7 +155,7 @@ function! common#functions#GitCount() abort
     " Git修改计数
     let l:git_count=get(b:, 'coc_git_status', '')
     if empty(l:git_count)
-        if common#functions#HasPlug('vim-gitgutter')
+        if exists('*GitGutterGetHunkSummary')
             let [a,m,r] = GitGutterGetHunkSummary()
                 return printf('+%d ~%d -%d', a, m, r)
         else
