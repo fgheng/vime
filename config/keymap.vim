@@ -70,6 +70,7 @@ vnoremap k gk
 
 " 复制到末尾
 nnoremap Y y$
+nnoremap vv ^vg_
 
 if !common#functions#HasPlug('vim-airline') && !common#functions#HasPlug('vim-crystalline')
     nnoremap  <M-l> :call common#functions#MoveTabOrBuf(1)<cr>
