@@ -3,8 +3,6 @@ call common#common#init()
 " 定义载入配置命令
 command! -nargs=1 LoadScript exec 'source ' . g:config_root_path . '<args>'
 
-" 载入通用配置
-" LoadScript common.vim
 " 载入基础配置
 LoadScript base.vim
 
@@ -28,8 +26,8 @@ endfunction
 
 " TODO 从plug.vim中寻找何时载入插件
 " 载入插件配置
-for [pluginName, _] in items(g:plugs)
-    if common#functions#HasInstall(pluginName)
-        call s:source_config(pluginName)
+for [plugName, _] in items(g:plugs)
+    if common#functions#HasInstall(plugName)
+        call s:source_config(plugName)
     endif
 endfor
