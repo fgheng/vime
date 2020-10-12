@@ -14,6 +14,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
 Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
+" 数据库
+Plug 'tpope/vim-dadbod'
 " 全局替换插件
 Plug 'brooth/far.vim'
 " 主题theme类插件
