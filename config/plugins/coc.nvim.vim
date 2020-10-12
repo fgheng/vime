@@ -201,6 +201,30 @@ if !common#functions#HasPlug('fzf.vim')
         endif
     endfunction
 
+    " session 保存目录
+    call coc#config('session.directory', g:session_dir)
+    if !common#functions#HasPlug('dashboard-nvim')
+        " 退出时自动保存session
+        call coc#config('session.saveOnVimLeave', v:true)
+    endif
+
+    call coc#config('list.maxHeight', 10)
+    call coc#config('list.maxPreviewHeight', 8)
+    call coc#config('list.autoResize', v:false)
+    call coc#config('list.source.grep.command', 'rg')
+    call coc#config('list.source.grep.defaultArgs', [
+                \ '--column',
+                \ '--line-number',
+                \ '--no-heading',
+                \ '--color=always',
+                \ '--smart-case'
+            \ ])
+    call coc#config('list.source.lines.defaultArgs', ['-e'])
+    call coc#config('list.source.words.defaultArgs', ['-e'])
+    call coc#config('list.source.files.command', 'rg')
+    call coc#config('list.source.files.args', ['--files'])
+    call coc#config('list.source.files.excludePatterns', ['.git'])
+
     nnoremap <silent> <M-f> :call <SID>cocListFilesWithWiki("")<CR>
     nnoremap <silent> <M-F> :call <SID>cocListFilesWithWiki($HOME)<CR>
     nnoremap <silent> <M-b> :CocList buffers<CR>
@@ -243,38 +267,6 @@ endif
 if common#functions#HasCocPlug('coc-todolist')
     nmap <silent> <space>tl :<C-u>CocList todolist<cr>
     nmap <silent> <space>ta :<C-u>CocCommand todolist.create<cr>
-endif
-
-
-"""""""""""""""""""""""
-" 下面是coc-settings.json的一些配置
-" 原本这些配置是可以直接写到coc-settings.json中的
-" 现在我写在vim中了
-"""""""""""""""""""""""
-if common#functions#HasCocPlug("coc-lists")
-    " session 保存目录
-    call coc#config('session.directory', g:session_dir)
-    if !common#functions#HasPlug('dashboard-nvim')
-        " 退出时自动保存session
-        call coc#config('session.saveOnVimLeave', v:true)
-    endif
-
-    call coc#config('list.maxHeight', 10)
-    call coc#config('list.maxPreviewHeight', 8)
-    call coc#config('list.autoResize', v:false)
-    call coc#config('list.source.grep.command', 'rg')
-    call coc#config('list.source.grep.defaultArgs', [
-                \ '--column',
-                \ '--line-number',
-                \ '--no-heading',
-                \ '--color=always',
-                \ '--smart-case'
-            \ ])
-    call coc#config('list.source.lines.defaultArgs', ['-e'])
-    call coc#config('list.source.words.defaultArgs', ['-e'])
-    call coc#config('list.source.files.command', 'rg')
-    call coc#config('list.source.files.args', ['--files'])
-    call coc#config('list.source.files.excludePatterns', ['.git'])
 endif
 
 " coc-clangd
