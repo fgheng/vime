@@ -380,6 +380,11 @@ if g:HasCocPlug('coc-python')
     call coc#config("python.linting.pylintEnabled", v:true)
 endif
 
+if g:HasCocPlug('coc-ci')
+    nmap <silent> w <Plug>(coc-ci-w)
+    nmap <silent> b <Plug>(coc-ci-b)
+endif
+
 " coc-rainbow-fart
 if g:HasCocPlug('coc-rainbow-fart')
     call coc#config("rainbow-fart.ffplay", "ffplay")
