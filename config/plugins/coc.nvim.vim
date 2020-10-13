@@ -315,10 +315,12 @@ function! s:lc_coc_snippets() abort
 endfunction
 
 function! s:lc_coc_python() abort
+    call coc#config("python.jediEnabled", v:false)
+    call coc#config("python.linting.enabled", v:true)
     call coc#config("python.linting.pylintEnabled", v:true)
 endfunction
 
-function! s:lc_coc_python() abort
+function! s:lc_coc_ci() abort
     nmap <silent> w <Plug>(coc-ci-w)
     nmap <silent> b <Plug>(coc-ci-b)
 endfunction
@@ -453,6 +455,7 @@ let s:coc_config_functions = {
             \ 'coc-python': function('<SID>lc_coc_python'),
             \ 'coc-rainbow-fart': function('<SID>lc_coc_rainbow_fart'),
             \ 'coc-explorer': function('<SID>lc_coc_explorer'),
+            \ 'coc-ci': function('<SID>lc_coc_ci'),
             \ }
 
 " TODO 更改调用方式
