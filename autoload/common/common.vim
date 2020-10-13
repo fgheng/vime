@@ -25,4 +25,7 @@ function! common#common#init() abort
 
     " 脚本目录
     let g:scripts_root_path = g:vim_root_path . "/scripts"
+
+    " wiki笔记根目录
+    let g:vimwiki_path = $HOME . '/Documents/wiki'
 endfunction
