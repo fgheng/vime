@@ -53,7 +53,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 **下面是新的目录结构：**
 
 1. `autoload/`：在vim中，autoload目录用于自动加载函数，我将一些用到的全局变量以及全局函数等都放到了这个目录下的common目录下面。
-2. `plugin/`：该目录是vim的目录，该目录主要存储一些启动的时候自动加载的配置，我主要用于存放一些自定义的配置在这里
+2. `plugin/`：该目录是vim的目录，该目录主要存储一些启动的时候自动加载的配置，我主要用于存放一些自定义的配置在这里，相当于旧目录下的config/custom/目录。
 3. `config/`：目录是我自定义的目录，这里主要存储插件的配置等。
    - `plugins/`：目录下面就是所有插件的配置了，一个插件一个文件，文件的名称与插件的名称相同，然后后缀是`.vim`
    - `other/`：存放一些插件需要用到的配置，比如coc-settings.json等
@@ -73,8 +73,8 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 3. `base.vim`用于基础配置
 4. `keymap.vim`用于按键映射
 5. `theme.vim`用于主题配置
-6. `plugins`目录下是所有插件的配置文件，一个插件一个配置文件，只会加载`plug.vim`中安装的插件的配置。
-7. `custom`该目录是用户自己定义的简单脚本，该目录下的所有`.vim`脚本都会在启动的时候加载
+6. `plugins/`目录下是所有插件的配置文件，一个插件一个配置文件，只会加载`plug.vim`中安装的插件的配置。
+7. `custom/`该目录是用户自己定义的简单脚本，该目录下的所有`.vim`脚本都会在启动的时候加载
 
 
 
