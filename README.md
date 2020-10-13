@@ -35,7 +35,6 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 └── vimrc -> ./init.vim
 
 # 下面是原始的目录结构，所有的配置都在config目录下
-├── coc-settings.json
 ├── config/
    ├── custom/
    ├── plugins/
@@ -44,6 +43,7 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
    ├── plug.vim
    ├── plugs-list.vim
    └── theme.vim
+├── coc-settings.json
 ├── init.vim
 └── vimrc -> ./init.vim
 ```
