@@ -18,8 +18,6 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 
 ```bash
 # 下面是新的目录结构，结合vim/nvim的目录结构特征重新划分的
-├── after
-│   └── ftplugin/
 ├── autoload/
 │   ├── common/
 │   │   ├── common.vim
@@ -54,19 +52,18 @@ git clone https://github.com/fgheng/vime -C ~/.config/nvim
 
 **下面是新的目录结构：**
 
-1. `after/`：该目录是vim的目录，用于懒加载，该目录下我主要存放有关文件类型的配置，比如`.md` `.tex`相关的配置等
-2. `autoload/`：在vim中，autoload目录用于自动加载函数，我将一些用到的全局变量以及全局函数等都放到了这个目录下的common目录下面。
-3. `plugin/`：该目录是vim的目录，该目录主要存储一些启动的时候自动加载的配置，我主要用于存放一些自定义的配置在这里
-4. `config/`：目录是我自定义的目录，这里主要存储插件的配置等。
+1. `autoload/`：在vim中，autoload目录用于自动加载函数，我将一些用到的全局变量以及全局函数等都放到了这个目录下的common目录下面。
+2. `plugin/`：该目录是vim的目录，该目录主要存储一些启动的时候自动加载的配置，我主要用于存放一些自定义的配置在这里
+3. `config/`：目录是我自定义的目录，这里主要存储插件的配置等。
    - `plugins/`：目录下面就是所有插件的配置了，一个插件一个文件，文件的名称与插件的名称相同，然后后缀是`.vim`
    - `other/`：存放一些插件需要用到的配置，比如coc-settings.json等
    - `plugin_list.vim`：该文件主要用来描述安装哪些插件，插件只有在这里面，(neo)vim在启动的时候才会到`plugins_config/plugins/`下面寻找对应的配置文件并加载。
    - `base.vim`：基础配置
    - `keymap.vim`：快捷键相关配置，一般与插件无关，插件的快捷键一般在自定义的插件配置文件中
    - `theme.vim`：主题配置，主题相关的配置都放到了这里
-5. `scripts`：该目录主要存储一些常用的脚本文件
-6. `init.vim`： neovim初始化时要读取的文件
-7. `vimrc`：vim初始化时要读取的文件，链接到init.vim
+4. `scripts`：该目录主要存储一些常用的脚本文件
+5. `init.vim`： neovim初始化时要读取的文件
+6. `vimrc`：vim初始化时要读取的文件，链接到init.vim
 
 
 **下面是旧的目录结构：**
