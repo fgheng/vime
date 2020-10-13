@@ -39,6 +39,7 @@ Plug 'bluz71/vim-moonfly-colors'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'arzg/vim-colors-xcode'
 Plug 'sainnhe/sonokai'
+Plug 'sonph/onehalf'
 " 顶栏和底栏
 Plug 'rbong/vim-crystalline'
 " 彩虹括号
