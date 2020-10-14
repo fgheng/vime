@@ -1,6 +1,3 @@
-" vimrc所在根目录
-let g:vim_root_path = expand('<sfile>:p:h') . '/'
-
 call common#common#init()
 
 " 定义载入配置命令
