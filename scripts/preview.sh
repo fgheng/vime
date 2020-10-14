@@ -68,3 +68,4 @@ eval "$CMD" 2> /dev/null | awk "NR >= $FIRST && NR <= $LAST { \
         { gsub(/\x1b[[0-9;]*m/, \"&$REVERSE\"); printf(\"$REVERSE%s\n$RESET\", \$0); } \
     else printf(\"$RESET%s\n\", \$0); \
     }"
+
