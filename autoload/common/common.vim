@@ -4,7 +4,7 @@ endfunction
 
 function! common#common#init() abort
     " vimrc所在根目录
-    " let g:vim_root_path = expand('<sfile>:p:h') . '/'
+    let g:vim_root_path = fnamemodify($MYVIMRC, ':h') . '/'
     " 配置所在根目录
     let g:config_root_path = g:vim_root_path . 'config/'
     " 插件配置所在目录
@@ -29,3 +29,4 @@ function! common#common#init() abort
     " wiki笔记根目录
     let g:vimwiki_path = $HOME . '/Documents/wiki'
 endfunction
+
