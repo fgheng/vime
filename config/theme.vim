@@ -60,7 +60,7 @@ let g:signify_sign_add    = '┃'
 let g:signify_sign_change = '┃'
 let g:signify_sign_delete = '•'
 let g:signify_sign_show_count = 0
-colorscheme xcodewwdc
+colorscheme xcodedark
 augroup vim-colors-xcode
     autocmd!
     autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
