@@ -41,7 +41,8 @@ Plug 'arzg/vim-colors-xcode'
 Plug 'sainnhe/sonokai'
 Plug 'sonph/onehalf'
 " 顶栏和底栏
-Plug 'rbong/vim-crystalline'
+" Plug 'rbong/vim-crystalline'
+Plug 'itchyny/lightline.vim'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 函数列表
