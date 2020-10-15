@@ -105,7 +105,11 @@ if common#functions#HasPlug('coc.nvim')
 endif
 
 " 自定义状态栏和tab栏
-if !common#functions#HasPlug('vim-crystalline') && !common#functions#HasPlug('vim-airline') && !common#functions#HasPlug('lightline.vim')
+if !common#functions#HasPlug('vim-crystalline')
+    \ && !common#functions#HasPlug('vim-airline')
+    \ && !common#functions#HasPlug('lightline.vim')
+
+    " 状态栏
     set statusline=2
     set showtabline=2
 
@@ -137,4 +141,6 @@ if !common#functions#HasPlug('vim-crystalline') && !common#functions#HasPlug('vi
     set statusline+=\ %#ToolbarButton#
     set statusline+=\ %{common#functions#FileType()}
     set statusline+=
+
+    " tab 栏
 endif
