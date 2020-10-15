@@ -31,8 +31,8 @@ set incsearch
 set hlsearch
 " 搜索高亮颜色
 hi Search ctermfg=17 ctermbg=190 guifg=#000000 guibg=#ffff00
-" 只有set list后面的才会起作用
 set nolist
+" 只有set list下面的才会起作用
 if &list
     set listchars=tab:\|\→·,nbsp:⣿,extends:»,precedes:«
     set listchars+=eol:¬
