@@ -176,6 +176,7 @@ function! s:lc_coc_highlight() abort
 endfunction
 
 function! s:lc_coc_lists() abort
+    " 有这三个插件就用这三个插件不用coc-lists
     if common#functions#HasPlug('fzf.vim')
         \ || common#functions#HasPlug('LeaderF')
         \ || common#functions#HasPlug('vim-clap')
