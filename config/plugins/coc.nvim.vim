@@ -176,21 +176,6 @@ function! s:lc_coc_highlight() abort
 endfunction
 
 function! s:lc_coc_lists() abort
-    " 有这三个插件就用这三个插件不用coc-lists
-    if common#functions#HasPlug('fzf.vim')
-        \ || common#functions#HasPlug('LeaderF')
-        \ || common#functions#HasPlug('vim-clap')
-        return
-    endif
-
-    function! s:cocListFilesWithWiki(query)
-        if empty(a:query) && &ft ==? 'vimwiki'
-            exec "CocList --no-sort files " . g:vimwiki_path
-        else
-            exec "CocList --no-sort files " . a:query
-        endif
-    endfunction
-
     " session 保存目录
     call coc#config('session.directory', g:session_dir)
     if !common#functions#HasPlug('dashboard-nvim')
@@ -214,6 +199,22 @@ function! s:lc_coc_lists() abort
     call coc#config('list.source.files.command', 'rg')
     call coc#config('list.source.files.args', ['--files'])
     call coc#config('list.source.files.excludePatterns', ['.git'])
+
+    " 有这三个插件就用这三个插件
+    " 那么快捷键不调用coc-lists
+    if common#functions#HasPlug('fzf.vim')
+        \ || common#functions#HasPlug('LeaderF')
+        \ || common#functions#HasPlug('vim-clap')
+        return
+    endif
+
+    function! s:cocListFilesWithWiki(query)
+        if empty(a:query) && &ft ==? 'vimwiki'
+            exec "CocList --no-sort files " . g:vimwiki_path
+        else
+            exec "CocList --no-sort files " . a:query
+        endif
+    endfunction
 
     nnoremap <silent> <M-f> :call <SID>cocListFilesWithWiki("")<CR>
     nnoremap <silent> <M-F> :call <SID>cocListFilesWithWiki($HOME)<CR>
