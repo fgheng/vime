@@ -50,18 +50,23 @@ endif
 " let g:srcery_italic = 1
 " let g:srcery_transparent_background = 1
 " colorscheme srcery
+
 " let g:forest_night_enable_italic = 1
 " let g:forest_night_transparent_background = 1
 " colorscheme forest-night
+
 " colorscheme one
+
 " colorscheme ci_dark
+
+" colorscheme sonokai
 
 let g:signify_sign_add    = '┃'
 let g:signify_sign_change = '┃'
 let g:signify_sign_delete = '•'
 let g:signify_sign_show_count = 0
 colorscheme xcodedark
-augroup vim-colors-xcode
+augroup vim_colors_xcode_group
     autocmd!
     autocmd vim-colors-xcode ColorScheme * hi Comment        cterm=italic gui=italic
     autocmd vim-colors-xcode ColorScheme * hi SpecialComment cterm=italic gui=italic
@@ -69,7 +74,6 @@ augroup vim-colors-xcode
                 \ execute 'autocmd! signify' |
                 \ autocmd signify TextChanged,TextChangedI * call sy#start()
 augroup END
-" colorscheme sonokai
 
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
