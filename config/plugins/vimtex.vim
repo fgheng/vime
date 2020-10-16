@@ -31,13 +31,13 @@ let g:tex_conceal='abdmg'
 " \lm查看内置的imaps
 "
 
-augroup vimtex_group
+augroup vime_vimtex_group
     autocmd!
-    autocmd FileType,BufEnter *.tex setl tw=80
-    autocmd FileType,BufEnter *.tex setl fo+=t
-    autocmd FileType,BufEnter *.tex setl fo-=l
-    autocmd FileType,BufEnter *.tex setl fo+=mM
-    autocmd FileType,BufEnter *.tex setl spell
-    autocmd FileType,BufEnter *.tex setl spelllang=nl,en_gb
+    autocmd FileType tex setl tw=80
+    autocmd FileType tex setl fo+=t
+    autocmd FileType tex setl fo-=l
+    autocmd FileType tex setl fo+=mM
+    autocmd FileType tex setl spell
+    autocmd FileType tex setl spelllang=nl,en_gb
     " autocmd FileType tex setl conceallevel=0
 augroup END
