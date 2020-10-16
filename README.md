@@ -477,31 +477,65 @@ git插件可以选择使用[airblade/vim-*gitgutter*](https://github.com/airblad
 | \\\/             | normal                | 以正则匹配的方式设置多光标                                   | vim-visual-multi |
 |                  |                       |                                                              |                  |
 
-未完，待续
+#### 5.7 快速跳转
 
-#### 5.6 快速跳转
+##### 5.7.1 可选插件
 
 快速跳转使用的是[vim-easymotion](https://github.com/easymotion/vim-easymotion)或者[clever-f](https://github.com/rhysd/clever-f.vim)，easymotion中只使用了两个功能，一个是使用char进行跳转，另一个是跳转到行。
+
+1. 选择vim-easymotion
+
+   ```viml
+   Plug 'easymotion/vim-easymotion'
+   ```
+
+2. 选择clever-f
+
+   ```viml
+   Plug 'rhysd/clever-f.vim'
+   ```
+
+##### 5.7.2 快捷键
 
 | 按键 | 模式   | 描述                                                         | 提供者                  |
 | ---- | ------ | ------------------------------------------------------------ | ----------------------- |
 | f    | normal | 根据输入的char进行跳转，按下f后会提示要跳转到哪个char，<br>需要再输入一个char然后回车确认 | clever-f/vim-easymotion |
 | gl   | normal | 跳转到行                                                     | vim-easymotion          |
-|      |        |                                                              |                         |
+| F    | normal | 直接根据单词跳转                                             | vim-easymotion          |
 
 
 
-#### 5.7 注释与文档
+#### 5.8 注释与文档
 
-文档生成器使用[kkoomen/*vim*-*doge*](https://github.com/kkoomen/vim-doge)
+##### 5.8.1 可选插件
+
+文档生成器使用[kkoomen/*vim*-*doge*](https://github.com/kkoomen/vim-doge)，注释插件使用[nerdcomment](https://github.com/preservim/nerdcommenter)或者[*tyru*/*caw*.*vim*](https://github.com/tyru/caw.vim)，caw功能没有nerdcomment多，但是简洁。
+
+1. 使用vim-doge
+
+   ```viml
+   Plug 'kkoomen/vim-doge'
+   ```
+
+2. 使用nerdcomment
+
+   ```viml
+   Plug 'preservim/nerdcommenter'
+   ```
+
+3. 使用caw.vim
+
+   ```viml
+   Plug 'tyru/caw.vim'
+   ```
+
+##### 5.8.2 快捷键
 
 | 按键       | 模式   | 描述         |
 | ---------- | ------ | ------------ |
 | \<leader>d | normal | 生成函数文档 |
 
-注释插件使用[nerdcomment](https://github.com/preservim/nerdcommenter)或者[*tyru*/*caw*.*vim*](https://github.com/tyru/caw.vim)
-
-caw快捷键，功能没有nerdcomment多，但是简洁够用
+caw快捷键
 
 | 按键        | 模式         | 描述                     |
 | ----------- | ------------ | ------------------------ |
@@ -533,11 +567,21 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 |                    |               |                                            |
 | \<leader>cn        |               |                                            |
 
+##### 5.8.3 GIF
 
+#### 5.9 终端
 
-#### 5.8 终端
+##### 5.9.1 可选插件
 
 终端使用的是[voldikss/vim-*floaterm*](https://github.com/voldikss/vim-floaterm)
+
+1. 使用vim-floaterm
+
+   ```viml
+   Plug 'voldikss/vim-floaterm'
+   ```
+
+##### 5.9.2 快捷键
 
 | 按键  | 模式           | 描述                         |
 | ----- | -------------- | ---------------------------- |
@@ -546,11 +590,19 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 | alt h | tnormal        | 打开终端后，切换到上一个终端 |
 | alt l | tnormal        | 打开终端后，切换到下一个终端 |
 
+##### 5.9.3 GIF
 
+#### 5.10 代码折叠
 
-#### 5.9 代码折叠
+##### 5.10.1 可选插件
 
 代码折叠使用的插件是[pseewald/vim-*anyfold*](https://github.com/pseewald/vim-anyfold)
+
+```viml
+Plug 'pseewald/vim-anyfold'
+```
+
+##### 5.10.2 快捷键
 
 | 按键 | 模式   | 描述                 |
 | ---- | ------ | -------------------- |
@@ -565,15 +617,19 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 | zr   | normal | 减少折叠             |
 |      | normal | 打开所有折叠         |
 
+##### 5.10.3 GIF
 
+#### 5.11 笔记
 
-#### 5.10 笔记
+##### 5.11.1 可选插件
 
 笔记使用的是插件[vimwiki/*vimwiki*](https://github.com/vimwiki/vimwiki)，可以记笔记可以写日记，支持markdown。
 
 可以使用[junegunn/*fzf.vim*](https://github.com/junegunn/fzf.vim)、[Yggdroot/*LeaderF*](https://github.com/Yggdroot/LeaderF)进行笔记文件和笔记内容的搜索，这个已经配置好了可以直接使用。
 
 ![biji](https://s1.ax1x.com/2020/03/29/GE03VS.gif)
+
+##### 5.11.2 快捷键
 
 | 按键                 | 模式    | 描述                       |
 | -------------------- | ------- | -------------------------- |
@@ -611,11 +667,58 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 | gqq 或 gww           | normal  | 格式化表格                 |
 |                      |         |                            |
 
+#### 5.12 Latex
 
+##### 5.12.1 可选插件
 
-#### 5.11 书签
+latex可以选择使用[lervag/*vimtex*](https://github.com/lervag/vimtex)
 
-标记使用[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)或者[coc-bookmark](https://github.com/voldikss/coc-bookmark)，因为[coc-explorer](https://github.com/weirongxu/coc-explorer)支持显示[coc-bookmark](https://github.com/voldikss/coc-bookmark)中的书签，所以我使用[coc-bookmark](https://github.com/voldikss/coc-bookmark)，不过可以在`config/plug.vim`中加入[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)两者快捷键一致
+```viml
+Plug 'lervag/vimtex'
+```
+
+##### 5.12.2 快捷键
+
+| 按键              | 模式   | 描述                        |
+| ----------------- | ------ | --------------------------- |
+| \<leader>ll       | normal | 准备编译文档                |
+| \<leader>lv       | normal | 在pdf文档中定位到当前位置   |
+| \<leader>ll or lk | normal | 停止编译                    |
+| \<leader>le       | normal | 删除log，errors以及warnings |
+| \<leader>lc       | normal | 删除多余的文档              |
+| %                 | normal | 在定界符之间跳转            |
+|                   |        |                             |
+
+##### 5.12.3 其他
+
+关于neovim+vimtex+zathura的反向搜索，也就是在从zathura定位到vim中的代码位置，首先需要安装一些依赖，`neovim-remote`、`xdotool`，然后需要编辑zathura的配置文件`~/.config/zathura/zathurarc`，加入如下内容：
+
+```
+set synctex true
+set synctex-editor-command "gvim --remote-silent +%l %f"
+```
+
+这样在zathura中就可以使用ctrl+鼠标左键直接定位到对应的代码位置了。
+
+#### 5.13 书签
+
+##### 5.13.1 可选插件
+
+标记使用[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)或者[coc-bookmark](https://github.com/voldikss/coc-bookmark)，因为[coc-explorer](https://github.com/weirongxu/coc-explorer)支持显示[coc-bookmark](https://github.com/voldikss/coc-bookmark)中的书签，所以我使用[coc-bookmark](https://github.com/voldikss/coc-bookmark)，不过可以在`config/plug.vim`中加入[vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)两者快捷键一致。
+
+1. 使用coc-bookmark
+
+   ```viml
+   let g:coc_global_extensions = ['coc-bookmark']
+   ```
+
+2. 使用vim-bookmarks
+
+   ```viml
+   Plug 'MattesGroeger/vim-bookmarks'
+   ```
+
+##### 5.13.2 快捷键
 
 | 按键 | 模式   | 描述                   |
 | ---- | ------ | ---------------------- |
@@ -624,20 +727,26 @@ caw快捷键，功能没有nerdcomment多，但是简洁够用
 | ml   | nromal | 打开书签列表           |
 | mc   | nromal | 清除标签               |
 | mj/k | normal | 跳转标签               |
-|      |        |                        |
-|      |        |                        |
 
 
 
-#### 5.12 session
+#### 5.14 session
 
 默认使用了[vim-startify](https://github.com/mhinz/vim-startify)这个插件作为开始界面，该插件的可以自定义起始界面，配置在`./config/plugins/vim-startify.vim`下，可以自定义配置。session使用轮换方式，第一次存储一个session0，第二次还是存储session0，不过上一次的session0变为了session1，第三次存储session0，前面的session0变为session1，session1变为session2。
 
 
 
-#### 5.13 Surround
+#### 5.15 Surround
+
+##### 5.15.1 可选插件
 
 Surround是使用快捷键来给指定的字符串添加包围，比如引号等。使用的插件是[tpope/*vim*-*surround*](https://github.com/tpope/vim-surround)
+
+```viml
+Plug 'tpope/vim-surround'
+```
+
+##### 5.15.2 快捷键
 
 | 按键      | 模式   | 描述                                             |
 | --------- | ------ | ------------------------------------------------ |
@@ -654,42 +763,15 @@ Surround是使用快捷键来给指定的字符串添加包围，比如引号等
 
 
 
-#### 5.15 数据库
+#### 5.16 数据库
 
 数据库可以选择使用[tpope/vim-*dadbod*](https://github.com/tpope/vim-dadbod)
 
 
 
-#### 5.16 绘图
+#### 5.17 绘图
 
 绘图使用[vim-scripts/*DrawIt*](https://github.com/vim-scripts/DrawIt)，命令行输入`DrawIt`进入绘图模式。
-
-
-
-#### 5.17 Latex
-
-latex可以选择使用[lervag/*vimtex*](https://github.com/lervag/vimtex)
-
-vimtex的快捷键都是以\<leader>l作为开头的。
-
-| 按键        | 模式 | 描述         |
-| ----------- | ---- | ------------ |
-| \<leader>ll | normal | 准备编译文档 |
-| \<leader>lv           | normal | 在pdf文档中定位到当前位置 |
-| \<leader>ll or lk    | normal | 停止编译 |
-| \<leader>le          | normal | 删除log，errors以及warnings |
-| \<leader>lc           | normal | 删除多余的文档 |
-| %                 | normal | 在定界符之间跳转            |
-|                   |      |                             |
-
-关于neovim+vimtex+zathura的反向搜索，也就是在从zathura定位到vim中的代码位置，首先需要安装一些依赖，`neovim-remote`、`xdotool`，然后需要编辑zathura的配置文件`~/.config/zathura/zathurarc`，加入如下内容：
-
-```
-set synctex true
-set synctex-editor-command "gvim --remote-silent +%l %f"
-```
-
-这样在zathura中就可以使用ctrl+鼠标左键直接定位到对应的代码位置了。
 
 
 
