@@ -28,7 +28,7 @@ function! s:goyo_leave()
     endif
 endfunction
 
-augroup user_plugin_goyo
+augroup vime_user_plugin_goyo
 	autocmd!
 	autocmd! User GoyoEnter
 	autocmd! User GoyoLeave

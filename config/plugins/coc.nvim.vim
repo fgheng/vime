@@ -375,7 +375,7 @@ function! s:lc_coc_explorer() abort
         nmap <leader>f :CocCommand explorer --preset floating<CR>
     endif
 
-    augroup coc_explorer_group
+    augroup vime_coc_explorer_group
         autocmd!
         " autocmd WinEnter * if &filetype == 'coc-explorer' && winnr('$') == 1 | q | endif
         autocmd TabLeave * if &filetype == 'coc-explorer' | wincmd w | endif

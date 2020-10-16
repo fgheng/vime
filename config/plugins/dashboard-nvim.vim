@@ -10,7 +10,7 @@ let g:dashboard_custom_shortcut={
    \ 'book_marks'         : '',
    \ }
 
-augroup dash_group
+augroup vime_dash_group
     autocmd!
     autocmd VimLeavePre * :<c-u>SessionSave<cr>
 augroup END

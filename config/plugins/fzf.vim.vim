@@ -60,7 +60,7 @@ let g:fzf_colors = {
 "-----------------------------------------------------------------------------
 " 使用ctrl jk上下移动选项
 "-----------------------------------------------------------------------------
-augroup fzf_group
+augroup vime_fzf_group
     autocmd!
     au FileType fzf tnoremap <buffer> <C-j> <Down>
     au FileType fzf tnoremap <buffer> <C-k> <Up>

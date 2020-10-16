@@ -10,7 +10,7 @@ fun g:LineNow()
   return l:lineCur . "/" . l:lineTotal
 endfunc
 
-augroup CustomOneStatus
+augroup vime_onestatus_group
     au!
     au BufEnter * :OneStatus
     au CursorMoved * :OneStatus

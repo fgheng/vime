@@ -25,7 +25,7 @@ if exists('*HasCocPlug') && exists('*HasPlug')
         exec "mksession! " . l:sessions[0]
     endfunction
 
-    augroup session_group
+    augroup vime_session_group
         autocmd!
         autocmd VimLeavePre * call s:SaveSession()
     augroup END

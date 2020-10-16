@@ -9,7 +9,7 @@ nmap <silent> <M-=> :FloatermToggle<cr>
 tnoremap <silent> <M-+> <c-\><c-n>:FloatermNew<cr>
 tnoremap <silent> <M-=> <c-\><c-n>:FloatermToggle<cr>
 
-augroup floaterm_group
+augroup vime_floaterm_group
     autocmd!
     au FileType floaterm tnoremap <buffer> <silent> <M-h> <c-\><c-n>:FloatermPrev<CR>
     au FIleType floaterm tnoremap <buffer> <silent> <M-l> <c-\><c-n>:FloatermNext<CR>

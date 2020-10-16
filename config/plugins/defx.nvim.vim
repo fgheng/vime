@@ -207,7 +207,7 @@ function! s:defx_custom_settings() abort
     nnoremap <silent><buffer><expr> f                   defx#do_action('search')
 endfunction
 
-augroup defx_group
+augroup vime_defx_group
     autocmd!
     " Delete defx if it's the only buffer left in the window
     autocmd WinEnter * if &filetype == 'defx' && winnr('$') == 1 | q | endif

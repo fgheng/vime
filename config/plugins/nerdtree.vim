@@ -63,7 +63,7 @@ let g:NERDTreeMapOpenInTab = 't'
 let g:NERDTreeMapJumpNextSibling = 'J'
 let g:NERDTreeMapJumpPrevSibling = 'K'
 
-augroup nerdtree_group
+augroup vime_nerdtree_group
     autocmd!
     " 只有一个窗口和nerdtree的时候，退出窗口即退出vim而不保留nerdtree
     autocmd BUFENTER * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

@@ -11,7 +11,7 @@ let g:fzf_preview_cache_directory = expand('~/.cache/vim/fzf_preview')
 " let g:fzf_preview_preview_key_bindings = 'ctrl-f:preview-page-down,ctrl-b:preview-page-up,?:toggle-preview,ctrl-d:'
 
 
-augroup fzf_preview_group
+augroup vime_fzf_preview_group
     autocmd!
     au FileType fzf tnoremap <buffer> <C-j> <Down>
     au FileType fzf tnoremap <buffer> <C-k> <Up>

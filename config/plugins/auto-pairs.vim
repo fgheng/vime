@@ -10,7 +10,7 @@
 " 避免冲突
 let g:AutoPairsMapCh = 0
 
-augroup auto_paris_group
+augroup vime_auto_paris_group
     autocmd!
     au FileType php  let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?>'})
     au FileType rust let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>'})

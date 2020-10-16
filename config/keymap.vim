@@ -30,7 +30,7 @@ nnoremap <leader>q q
 " jk表示esc
 inoremap jk <esc>
 
-augroup keymap_group
+augroup vime_keymap_group
     autocmd!
     " 使用esc退出终端
     if has('nvim')
