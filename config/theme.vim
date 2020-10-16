@@ -61,19 +61,23 @@ endif
 
 " colorscheme sonokai
 
-let g:signify_sign_add    = '┃'
-let g:signify_sign_change = '┃'
-let g:signify_sign_delete = '•'
-let g:signify_sign_show_count = 0
-colorscheme xcodedark
-augroup vim_colors_xcode_group
-    autocmd!
-    autocmd vim_colors_xcode_group ColorScheme * hi Comment        cterm=italic gui=italic
-    autocmd vim_colors_xcode_group ColorScheme * hi SpecialComment cterm=italic gui=italic
-    autocmd User SignifySetup
-                \ execute 'autocmd! signify' |
-                \ autocmd signify TextChanged,TextChangedI * call sy#start()
-augroup END
+" let g:signify_sign_add    = '┃'
+" let g:signify_sign_change = '┃'
+" let g:signify_sign_delete = '•'
+" let g:signify_sign_show_count = 0
+" colorscheme xcodedark
+" augroup vim_colors_xcode_group
+    " autocmd!
+    " autocmd vim_colors_xcode_group ColorScheme * hi Comment        cterm=italic gui=italic
+    " autocmd vim_colors_xcode_group ColorScheme * hi SpecialComment cterm=italic gui=italic
+    " autocmd User SignifySetup
+                " \ execute 'autocmd! signify' |
+                " \ autocmd signify TextChanged,TextChangedI * call sy#start()
+" augroup END
+
+let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
 
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
