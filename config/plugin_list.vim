@@ -41,6 +41,7 @@ Plug 'arzg/vim-colors-xcode'
 Plug 'sainnhe/sonokai'
 Plug 'sonph/onehalf'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'sainnhe/edge'
 " 顶栏和底栏
 " Plug 'rbong/vim-crystalline'
 Plug 'itchyny/lightline.vim'
