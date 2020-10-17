@@ -26,7 +26,7 @@
 ├── init.vim
 └── vimrc -> ./init.vim
 
-# 下面是原始的目录结构，所有的配置都在config目录下
+# 下面是旧的目录结构，所有的配置都在config目录下
 ├── config/
    ├── custom/
    ├── plugins/
