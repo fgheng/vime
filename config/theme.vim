@@ -75,9 +75,10 @@ endif
                 " \ autocmd signify TextChanged,TextChangedI * call sy#start()
 " augroup END
 
-let g:tokyonight_style = 'storm' " available: night, storm
-let g:tokyonight_enable_italic = 1
-colorscheme tokyonight
+" let g:tokyonight_style = 'storm' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+" colorscheme tokyonight
+colorscheme edge
 
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
