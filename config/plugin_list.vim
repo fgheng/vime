@@ -51,8 +51,8 @@ Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
 " 快速包围
-" Plug 'tpope/vim-surround'
-Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-surround'
+" Plug 'machakann/vim-sandwich'
 " 重复上次的动作
 Plug 'tpope/vim-repeat'
 " 显示清除尾部空格
