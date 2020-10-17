@@ -168,9 +168,7 @@ endfunction
 
 function! common#functions#MethodOrFunction() abort
     " 当前的方法或者函数
-    if common#functions#HasPlug('vista.vim')
-        return get(b:, 'vista_nearest_method_or_function', '')
-    endif
+    return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
 
 function! common#functions#BufLineAndColInfo() abort
