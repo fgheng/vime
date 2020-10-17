@@ -767,6 +767,7 @@ Plug 'machakann/vim-sandwich'
 | yss)      | normal | 整行增加括号                                     |
 | ysiw\<em> | normal | 在一个单词处增加\<em>\</em>包围                  |
 
+下面是vim-sanwich的快捷键，不过我增加了与vim-surround一致的快捷键配置，可以直接使用vim-surround的快捷键。
 | 按键                                 | 模式   | 描述                                             |
 | ---------                            | ------ | ------------------------------------------------ |
 | sa{motion/textobject}{addition}      | normal | 增加，例如saiw'                                  |
