@@ -1,10 +1,5 @@
 set timeoutlen=100
 let g:mapleader = "\<Space>"
-let g:maplocalleader = ','
+let g:maplocalleader = '\<M>'
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
-" nnoremap <silent> <leader> :WhichKey '<leader>'<CR>
-
-" autocmd! FileType which_key
-" " autocmd  FileType which_key set laststatus=0 noshowmode noruler
-" \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+nnoremap <silent> <M>      :<c-u>WhichKey '<M>'<CR>
