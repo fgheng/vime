@@ -6,7 +6,7 @@
 
 该项目结构简单明了，增删配置容易，该项目中每个插件都对应一个单独的配置文件，插件列表可以控制是否载入某个插件及其配置文件，配置之间的耦合性很低，甚至每个插件对应的配置文件单独拿出来放到你自己的(neo)vim配置中就可以直接使用了。
 
-### 2. 整体结构
+## 2. 整体结构
 
 ```bash
 # 下面是新的目录结构，结合(neo)vim的目录结构特征重新划分的
@@ -740,10 +740,18 @@ set synctex-editor-command "gvim --remote-silent +%l %f"
 
 ##### 5.15.1 可选插件
 
-Surround是使用快捷键来给指定的字符串添加包围，比如引号等。使用的插件是[tpope/*vim*-*surround*](https://github.com/tpope/vim-surround)
+Surround是使用快捷键来给指定的字符串添加包围，比如引号等。使用的插件是[tpope/*vim*-*surround*](https://github.com/tpope/vim-surround)以及[vim-sanwich](https://github.com/machakann/vim-sandwich)
+
+1. 使用vim-surround
 
 ```viml
 Plug 'tpope/vim-surround'
+```
+
+2. 使用vim-sandwich
+
+```viml
+Plug 'machakann/vim-sandwich'
 ```
 
 ##### 5.15.2 快捷键
@@ -759,6 +767,11 @@ Plug 'tpope/vim-surround'
 | yss)      | normal | 整行增加括号                                     |
 | ysiw\<em> | normal | 在一个单词处增加\<em>\</em>包围                  |
 
+| 按键                                 | 模式   | 描述                                             |
+| ---------                            | ------ | ------------------------------------------------ |
+| sa{motion/textobject}{addition}      | normal | 增加，例如saiw'                                  |
+| sdb or sd{deletion}                  | normal | 删除，例如sdb sd'                                |
+| srb{addition} sr{deletion}{addition} | normal | 替换，例如srb'，sr'<                             |
 
 
 
