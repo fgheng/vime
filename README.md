@@ -4,7 +4,7 @@
 
 ![vime](./assets/readme2.png)
 
-该项目结构简单明了，增删配置容易，该项目中每个插件都对应一个单独的配置文件，插件列表可以控制是否载入某个插件及其配置文件，配置直接的耦合性很低，甚至每个单独的配置文件拿出来放到你自己的(neo)vim配置中就可以直接使用了。
+该项目结构简单明了，增删配置容易，该项目中每个插件都对应一个单独的配置文件，插件列表可以控制是否载入某个插件及其配置文件，配置之间的耦合性很低，甚至每个单独的配置文件拿出来放到你自己的(neo)vim配置中就可以直接使用了。
 
 ### 2. 整体结构
 
@@ -84,7 +84,7 @@
 
    该目录主要存储一些常用的脚本文件，如`preview.sh`等。
 
-5. `init.vim`： 
+5. `init.vim`：
 
    (neo)vim初始化时要读取的文件。
 
@@ -191,7 +191,7 @@ Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
    ```viml
    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
    ```
-   
+
 2. 使用[YouCompleteMe](https://github.com/ycm-core/YouCompleteMe)
 
    ```viml
@@ -247,7 +247,7 @@ Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 
    ```viml
    if has('nvim')
-     Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } 
+     Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
      Plug 'kristijanhusak/defx-icons'
      Plug 'kristijanhusak/defx-git'
    else
