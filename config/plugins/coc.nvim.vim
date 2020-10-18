@@ -96,7 +96,9 @@ nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
 au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 " 格式化代码
-command! -nargs=0 Format :call CocAction('format')
+if !common#functions#HasPlug('neoformat')
+    command! -nargs=0 Format :call CocAction('format')
+endif
 
 " 文档块支持，比如删除条件，函数等
 " 功能不如treesitter，如果不存在treesitter才使用coc
@@ -170,6 +172,7 @@ endif
 """""""""""""""""""""""
 
 function! s:lc_coc_highlight() abort
+    " 取消csv的高亮
     call coc#config("highlight.disableLanguages", ["csv"])
     " 高亮当前光标下的所有单词
     au CursorHold * silent call CocActionAsync('highlight')
@@ -300,6 +303,7 @@ function! s:lc_coc_git() abort
     nnoremap <silent> <leader>gj <Plug>(coc-git-nextchunk)
     " 显示光标处的修改信息
     nnoremap <silent> <leader>gp <esc>:CocCommand git.chunkInfo<cr>
+    " 撤销当前块的修改
     nnoremap <silent> <leader>gu <esc>:CocCommand git.chunkUndo<cr>
     nnoremap <silent> <leader>gh <esc>:CocCommand git.chunkStage<cr>
 endfunction

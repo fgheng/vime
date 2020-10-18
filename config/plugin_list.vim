@@ -145,7 +145,8 @@ Plug 'markonm/traces.vim'
 " 语法检查
 Plug 'rhysd/vim-grammarous', {'for': ['markdown', 'vimwiki', 'md', 'tex']}
 " 移动取消搜索高亮
-Plug 'romainl/vim-cool'
+" Plug 'romainl/vim-cool'
+Plug 'sbdchd/neoformat'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
