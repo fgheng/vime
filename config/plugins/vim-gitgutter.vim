@@ -29,7 +29,7 @@ highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 if !common#functions#HasCocPlug('coc-git')
     nnoremap <leader>gj <Plug>(GitGutterNextHunk)
     nnoremap <leader>gk <Plug>(GitGutterPrevHunk)
-    nnoremap <leader>gh <Plug>(GitGutterStageHunk)
-    nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
     nnoremap <leader>gp <Plug>(GitGutterPreviewHunk)
+    nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
+    nnoremap <leader>gh <Plug>(GitGutterStageHunk)
 endif
