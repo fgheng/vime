@@ -27,9 +27,12 @@ highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 
 " coc-git优先
 if !common#functions#HasCocPlug('coc-git')
+    " 导航到修改块
     nnoremap <leader>gj <Plug>(GitGutterNextHunk)
     nnoremap <leader>gk <Plug>(GitGutterPrevHunk)
+    " 显示光标处的修改信息
     nnoremap <leader>gp <Plug>(GitGutterPreviewHunk)
+    " 撤销当前块的修改
     nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
     nnoremap <leader>gh <Plug>(GitGutterStageHunk)
 endif
