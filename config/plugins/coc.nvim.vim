@@ -283,6 +283,13 @@ function! s:lc_coc_prettier() abort
     call coc#config('prettier.tabWidth', 4)
 endfunction
 
+function! s:lc_coc_vimlsp() abort
+    let g:markdown_fenced_languages = [
+        \ 'vim',
+        \ 'help'
+    \ ]
+endfunction
+
 function! s:lc_coc_git() abort
     call coc#config('git.addGBlameToBufferVar', v:true)
     call coc#config('git.addGBlameToVirtualText', v:true)
@@ -462,6 +469,7 @@ let s:coc_config_functions = {
             \ 'coc-rainbow-fart': function('<SID>lc_coc_rainbow_fart'),
             \ 'coc-explorer': function('<SID>lc_coc_explorer'),
             \ 'coc-ci': function('<SID>lc_coc_ci'),
+            \ 'coc-vimlsp': function('<SID>lc_coc_vimlsp'),
             \ }
 
 " TODO 更改调用方式
