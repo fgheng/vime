@@ -74,7 +74,7 @@ Plug 'easymotion/vim-easymotion', {'on':
 " 对齐
 Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign', '<Plug>(EasyAlign)']}
 " 对齐线
-Plug 'Yggdroot/indentLine', {'for': ['c', 'h', 'cpp', 'py', 'go', 'java', 'vim']}
+Plug 'Yggdroot/indentLine', {'for': ['c', 'h', 'cpp', 'python', 'go', 'java', 'vim']}
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " csv插件
