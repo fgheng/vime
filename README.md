@@ -2,6 +2,9 @@
 
 ## 1. About
 
+[截图](https://github.com/fgheng/vime/issues/7)
+[GIF](https://github.com/fgheng/vime/issues/8)
+
 ![vime](./assets/readme2.png)
 
 该项目结构简单明了，增删配置容易，该项目中每个插件都对应一个单独的配置文件，插件列表可以控制是否载入某个插件及其配置文件，配置之间的耦合性很低，甚至每个插件对应的配置文件单独拿出来放到你自己的(neo)vim配置中就可以直接使用了。
