@@ -173,7 +173,7 @@ Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 
 当需要为自己使用的插件自定义配置的时候，请按照如下的例子进行：
 
-以`Plug 'juegunn/fzf.vim'`为例，需要在`config/plugins/`目录下建立同名的文件`fzf.vim.vim`，然后在该文件中写自己的配置，这样，在(neo)vim启动的时候会自动去加载该配置文件。
+以`Plug 'juegunn/fzf.vim'`为例，首先我们要在`config/plugin_list.vim`中添加一行`Plug 'juegunn/fzf.vim'`，接下来要为该插件自定义配置，那么需要在`config/plugins/`目录下建立与插件名同名的文件`fzf.vim.vim`，注意后缀`.vim`，最后在该文件中写自己关于该插件的自定义配置即可，这样，在(neo)vim启动的时候会自动去加载该配置文件。
 
 如果不想使用该插件了，那么只需要在`config/plugin_list.vim`中注释掉该插件即可，`config/plugins/fzf.vim.vim`文件则不必删除，(neo)vim在启动的时候将不再加载该配置文件，加减插件十分方便。
 
