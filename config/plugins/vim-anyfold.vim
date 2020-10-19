@@ -1,5 +1,6 @@
-" set foldlevel=0  " close all folds or
-set foldlevel=99 " Open all folds
+" set foldlevel=0                  " close all folds or
+set foldlevel=99                   " Open all folds
+let g:anyfold_fold_comments=1
 hi Folded term=underline
 
 " 大文件
