@@ -31,14 +31,14 @@ inoremap <silent><expr> <S-TAB>
     \ "\<C-h>"
 
 " alt j选择下一个补全
-inoremap <silent><expr> <m-j>
-    \ pumvisible() ? "\<C-n>" : "\<C-R>=coc#rpc#request('snippetNext', [])\<cr>"
-    " \ pumvisible() ? "\<C-n>" : return
+" inoremap <silent><expr> <m-j>
+    " \ pumvisible() ? "\<C-n>" : "\<C-R>=coc#rpc#request('snippetNext', [])\<cr>"
+    " " \ pumvisible() ? "\<C-n>" : return
 
-" alt k选择上一个补全
-inoremap <silent><expr> <m-k>
-    \ pumvisible() ? "\<C-p>" : "\<C-R>=coc#rpc#request('snippetPrev', [])\<cr>"
-    " \ pumvisible() ? "\<C-p>" : return
+" " alt k选择上一个补全
+" inoremap <silent><expr> <m-k>
+    " \ pumvisible() ? "\<C-p>" : "\<C-R>=coc#rpc#request('snippetPrev', [])\<cr>"
+    " " \ pumvisible() ? "\<C-p>" : return
 
 " down 选择下一个补全
 inoremap <silent><expr> <down>
