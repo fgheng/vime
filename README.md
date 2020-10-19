@@ -608,18 +608,18 @@ Plug 'pseewald/vim-anyfold'
 
 ##### 5.10.2 快捷键
 
-| 按键 | 模式   | 描述                 |
-| ---- | ------ | -------------------- |
-| zc   | normal | 折叠                 |
-| zC   | normal | 循环折叠             |
-| zo   | normal | 打开折叠             |
-| zO   | normal | 循环打开折叠         |
-| zc   | normal | 打开折叠或者关闭折叠 |
-| zA   | normal | za的循环             |
-| zm   | normal | 折起更多             |
-| zM   | normal | 折起所有             |
-| zr   | normal | 减少折叠             |
-|      | normal | 打开所有折叠         |
+| 按键 | 模式   | 描述                                                   |
+| ---- | ------ | --------------------                                   |
+| zc   | normal | 关闭光标下的折叠                                       |
+| zC   | normal | 关闭光标下的折叠以及嵌套的折叠                         |
+| zo   | normal | 打开光标下的折叠                                       |
+| zO   | normal | 打开光标下的折叠以及嵌套的折叠                         |
+| za   | normal | 光标下折叠若是关闭则打开若是打开则关闭                 |
+| zA   | normal | 光标下折叠若是关闭则打开包括嵌套若是打开则关闭包括嵌套 |
+| zm   | normal | 一层一层的关闭折叠                                     |
+| zM   | normal | 关闭所有折叠                                           |
+| zr   | normal | 一层一层的打开折叠                                     |
+| zR   | normal | 打开所有折叠                                           |
 
 ##### 5.10.3 GIF
 
