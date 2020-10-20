@@ -78,7 +78,7 @@ Plug 'Yggdroot/indentLine', {'for': ['c', 'h', 'cpp', 'go', 'java', 'vim']}
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " csv插件
-" Plug 'chrisbra/csv.vim', {'for': 'csv'}
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " 悬浮终端
 Plug 'voldikss/vim-floaterm', {'on': ['FloatermNew', 'FloatermToggle']}
 " 笔记插件，支持markdown
