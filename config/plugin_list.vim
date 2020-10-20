@@ -144,9 +144,8 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 Plug 'markonm/traces.vim'
 " 语法检查
 Plug 'rhysd/vim-grammarous', {'for': ['markdown', 'vimwiki', 'md', 'tex']}
-" 移动取消搜索高亮
-" Plug 'romainl/vim-cool'
-" Plug 'sbdchd/neoformat'
+" 在config/plugin_list.vim 中写上要增加的插件
+Plug 'matze/vim-move'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
