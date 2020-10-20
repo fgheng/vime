@@ -49,23 +49,23 @@ endif
 " 主题选择
 " let g:srcery_italic = 1
 " let g:srcery_transparent_background = 1
-" colorscheme srcery
+" silent! colorscheme srcery
 
 " let g:forest_night_enable_italic = 1
 " let g:forest_night_transparent_background = 1
-" colorscheme forest-night
+" silent! colorscheme forest-night
 
-" colorscheme one
+" silent! colorscheme one
 
-" colorscheme ci_dark
+" silent! colorscheme ci_dark
 
-colorscheme sonokai
+silent! colorscheme sonokai
 
 " let g:signify_sign_add    = '┃'
 " let g:signify_sign_change = '┃'
 " let g:signify_sign_delete = '•'
 " let g:signify_sign_show_count = 0
-" colorscheme xcodedark
+" silent! colorscheme xcodedark
 " augroup vim_colors_xcode_group
     " autocmd!
     " autocmd vim_colors_xcode_group ColorScheme * hi Comment        cterm=italic gui=italic
@@ -77,8 +77,8 @@ colorscheme sonokai
 
 " let g:tokyonight_style = 'storm' " available: night, storm
 " let g:tokyonight_enable_italic = 1
-" colorscheme tokyonight
-" colorscheme edge
+" silent! colorscheme tokyonight
+" silent! colorscheme edge
 
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
