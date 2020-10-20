@@ -118,4 +118,4 @@ EOF
 function s:render() abort
     exec "write | edit | TSBufEnable highlight"
 endfunc
-nmap <silent> <F4> :call <SID>render()<cr>
+" nmap <silent> <F4> :call <SID>render()<cr>
