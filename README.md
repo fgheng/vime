@@ -2,8 +2,8 @@
 
 ## 1. About
 
-[截图](https://github.com/fgheng/vime/issues/7)
-[GIF](https://github.com/fgheng/vime/issues/8)
+[点击查看截图](https://github.com/fgheng/vime/issues/7)
+[点击查看GIF](https://github.com/fgheng/vime/issues/8)
 
 ![vime](./assets/readme2.png)
 
