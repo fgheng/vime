@@ -23,9 +23,8 @@ let g:startify_session_dir = g:session_dir
 
 " bookmarks 书签
 let g:startify_bookmarks = [
-            \ '~/Documents/wiki/草稿/todo.md',
-            \ '~/Documents/wiki/草稿/快速笔记.md',
-            \ '~/.dotfiles/nvim/config/plug.vim'
+            \ g:vimwiki_path . '/草稿/todo.md',
+            \ g:vimwiki_path . '/草稿/快速笔记.md',
             \ ]
 
 " command 命令
