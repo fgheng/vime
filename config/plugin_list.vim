@@ -86,6 +86,7 @@ Plug 'vimwiki/vimwiki'
 " Plug 'SidOfc/mkdx'
 " markdown 预览插件
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
+Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM', 'GenTocRedcarpet', 'GenTocGitLab', 'GenTocMarked']}
 " 功能很强的折叠插件, zc zo
 Plug 'pseewald/vim-anyfold'
 " 起始界面
