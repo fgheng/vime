@@ -145,7 +145,11 @@ Plug 'markonm/traces.vim'
 " 语法检查
 Plug 'rhysd/vim-grammarous', {'for': ['markdown', 'vimwiki', 'md', 'tex']}
 " 首先需要在config/plugin_list.vim中增加插件
-Plug 'matze/vim-move'
+Plug 'matze/vim-move', {'on': [
+            \ '<Plug>MoveBlockDown',
+            \ '<Plug>MoveBlockUp',
+            \ '<Plug>MoveBlockRight',
+            \ '<Plug>MoveBlockLeft']}
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
