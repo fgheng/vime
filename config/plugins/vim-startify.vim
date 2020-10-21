@@ -25,6 +25,7 @@ let g:startify_session_dir = g:session_dir
 let g:startify_bookmarks = [
             \ g:vimwiki_path . '/草稿/todo.md',
             \ g:vimwiki_path . '/草稿/快速笔记.md',
+            \ g:quicknote_file
             \ ]
 
 " command 命令
