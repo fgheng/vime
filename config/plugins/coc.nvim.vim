@@ -328,7 +328,7 @@ function! s:lc_coc_snippets() abort
 endfunction
 
 function! s:lc_coc_python() abort
-    call coc#config("python.jediEnabled", v:false)
+    call coc#config("python.jediEnabled", v:true)
     call coc#config("python.linting.enabled", v:true)
     call coc#config("python.linting.pylintEnabled", v:true)
 endfunction

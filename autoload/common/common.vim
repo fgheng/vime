@@ -28,5 +28,8 @@ function! common#common#init() abort
 
     " wiki笔记根目录
     let g:vimwiki_path = $HOME . '/Documents/wiki'
+
+    " 快速note文件
+    let g:quicknote_file = $HOME . '/Documents/wiki/quicknote.md'
 endfunction
 
