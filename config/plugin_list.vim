@@ -144,7 +144,7 @@ Plug 'junegunn/goyo.vim', { 'on': 'Goyo', 'for': 'markdown' }
 Plug 'markonm/traces.vim'
 " 语法检查
 Plug 'rhysd/vim-grammarous', {'for': ['markdown', 'vimwiki', 'md', 'tex']}
-" 在config/plugin_list.vim 中写上要增加的插件
+" 首先需要在config/plugin_list.vim中增加插件
 Plug 'matze/vim-move'
 
 " coc插件列表，可根据需要进行删减
