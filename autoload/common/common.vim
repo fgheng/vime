@@ -30,6 +30,6 @@ function! common#common#init() abort
     let g:vimwiki_path = $HOME . '/Documents/wiki'
 
     " 快速note文件
-    let g:quicknote_file = $HOME . '/Documents/wiki/quicknote.md'
+    let g:quicknote_file = g:vimwiki_path . '/quicknote.md'
 endfunction
 
