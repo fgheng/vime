@@ -154,6 +154,8 @@ endfunction
 function! common#functions#GitCount() abort
     " Git修改计数
     let l:git_count=get(b:, 'coc_git_status', '')
+    return l:git_count
+
     if empty(l:git_count)
         if exists('*GitGutterGetHunkSummary')
             let [a,m,r] = GitGutterGetHunkSummary()
