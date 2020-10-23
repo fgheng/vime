@@ -14,7 +14,7 @@ Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
 Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
 " 数据库
-" Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
+Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
 " 全局替换插件
 Plug 'brooth/far.vim'
 " 主题theme类插件
@@ -151,6 +151,7 @@ Plug 'matze/vim-move', {'on': [
             \ '<Plug>MoveBlockUp',
             \ '<Plug>MoveBlockRight',
             \ '<Plug>MoveBlockLeft']}
+Plug 'simnalamburt/vim-mundo'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
