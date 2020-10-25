@@ -51,13 +51,29 @@ endfunction
 function! common#functions#MoveTabOrBuf(direction) abort
     " 移动buffer或者tab
     " 0 <- 1 ->
+
+    " 如果在floaterm中
+    if &ft ==# "floaterm"
+        if a:direction == 0
+            exec "FloatermNext"
+        else
+            exec "FloatermPrev"
+        endif
+
+        return
+    endif
+
     if tabpagenr('$') > 1
-        if a:direction == 0 | exec 'tabprevious'
-        elseif a:direction == 1 | exec 'tabnext'
+        if a:direction == 0
+            exec 'tabprevious'
+        elseif a:direction == 1
+            exec 'tabnext'
         endif
     else
-        if a:direction == 0 | exec 'bprevious'
-        elseif a:direction == 1 | exec 'bnext'
+        if a:direction == 0
+            exec 'bprevious'
+        elseif a:direction == 1
+            exec 'bnext'
         endif
     endif
 endfunction
