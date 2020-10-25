@@ -34,10 +34,10 @@ augroup vime_keymap_group
     autocmd!
     " 使用esc退出终端
     if has('nvim')
-            au TermOpen term://* tnoremap <buffer> <Esc> <c-\><c-n> | startinsert
-            au BufEnter term://* startinsert
+        au TermOpen term://* tnoremap <buffer> <Esc> <c-\><c-n> " | startinsert
+        " au BufEnter term://* startinsert
     else
-        au TerminalOpen term://* tnoremap <buffer> <Esc> <C-\><C-n> | startinsert
+        au TerminalOpen term://* tnoremap <buffer> <Esc> <C-\><C-n> " | startinsert
         " au BufEnter term://* startinsert
     endif
 augroup END
