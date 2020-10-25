@@ -15,4 +15,11 @@ function! s:quick_note(text) abort
     endif
 endfunction
 
+function! s:quick_note_open() abort
+    let filename = get(g:, 'quicknote_file', '~/.vim/quicknote.md')
+    let realname = expand(filename)
+    exec "e " . realname
+endfunction
+
 command! -nargs=+ Note call s:quick_note(<q-args>)
+command! NoteOpen call s:quick_note_open()
