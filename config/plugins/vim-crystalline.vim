@@ -59,9 +59,9 @@ function! StatusLine(current, width)
     endif
 
     let l:s .= ' %f%h%w%m%r '
-    if a:current
-        let l:s .= crystalline#right_sep('', 'Fill') . ' %{common#functions#GitBranch()} %{common#functions#GitCount()}'
-    endif
+    " if a:current
+        " let l:s .= crystalline#right_sep('', 'Fill') . ' %{common#functions#GitBranch()} %{common#functions#GitCount()}'
+    " endif
 
     if common#functions#HasPlug("coc.nvim")
         let l:s .= " %{coc#status()}%{get(b:, 'coc_current_function', '')}"
