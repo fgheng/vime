@@ -55,12 +55,14 @@
         + [可选插件](#可选插件-10)
         + [快捷键](#快捷键-11)
         + [其他](#其他)
-    - [书签](#书签)
+    - [tmux](#tmux)
         + [可选插件](#可选插件-11)
+    - [书签](#书签)
+        + [可选插件](#可选插件-12)
         + [快捷键](#快捷键-12)
     - [session](#session)
     - [Surround](#surround)
-        + [可选插件](#可选插件-12)
+        + [可选插件](#可选插件-13)
         + [快捷键](#快捷键-13)
     - [数据库](#数据库)
     - [绘图](#绘图)
@@ -754,6 +756,30 @@ set synctex-editor-command "gvim --remote-silent +%l %f"
 ```
 
 这样在zathura中就可以使用ctrl+鼠标左键直接定位到对应的代码位置了。
+
+### tmux
+
+#### 可选插件
+
+与tmux相关的插件有如下几个：
+
+1. 窗口导航 vim-tmux-navigator
+```viml
+Plug 'christoomey/vim-tmux-navigator'
+```
+2. vim-tmux-focus-events
+```viml
+" 需要在tmux的配置文件~/.tmux.conf中添加 set -g focus-events on
+Plug 'tmux-plugins/vim-tmux-focus-events'
+```
+3. tmux与vim之间复制粘贴
+```viml
+Plug 'roxma/vim-tmux-clipboard'
+```
+4. 提示tmux终端中的内容
+```viml
+Plug 'wellle/tmux-complete.vim'
+```
 
 ### 书签
 
