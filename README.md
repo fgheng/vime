@@ -764,22 +764,22 @@ set synctex-editor-command "gvim --remote-silent +%l %f"
 与tmux相关的插件有如下几个：
 
 1. 窗口导航 vim-tmux-navigator
-  ```viml
-  Plug 'christoomey/vim-tmux-navigator'
-  ```
+   ```viml
+   Plug 'christoomey/vim-tmux-navigator'
+   ```
 2. vim-tmux-focus-events
-  ```viml
-  " 需要在tmux的配置文件~/.tmux.conf中添加 set -g focus-events on
-  Plug 'tmux-plugins/vim-tmux-focus-events'
-  ```
+   ```viml
+   " 需要在tmux的配置文件~/.tmux.conf中添加 set -g focus-events on
+   Plug 'tmux-plugins/vim-tmux-focus-events'
+   ```
 3. tmux与vim之间复制粘贴
-  ```viml
-  Plug 'roxma/vim-tmux-clipboard'
-  ```
+   ```viml
+   Plug 'roxma/vim-tmux-clipboard'
+   ```
 4. 提示tmux终端中的内容
-  ```viml
-  Plug 'wellle/tmux-complete.vim'
-  ```
+   ```viml
+   Plug 'wellle/tmux-complete.vim'
+   ```
 
 ### 书签
 
