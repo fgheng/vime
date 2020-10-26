@@ -24,13 +24,26 @@ vnoremap <silent> q <esc>:close<cr>
 
 " 使用回车打开关闭折叠
 nnoremap <CR> za
+" shift enter，为何不可以？
+nnoremap <S-Return> zMzo
 " 关闭搜索颜色
 nnoremap <BackSpace> :nohl<cr>
+
+" 命令行移动
+cnoremap <C-h> <Home>
+cnoremap <C-l> <End>
+" cnoremap <C-l> <Right>
+" cnoremap <C-j> <Left>
 
 " 使用leader q执行宏录制功能
 nnoremap <leader>q q
 " jk表示esc
 inoremap jk <esc>
+
+nmap << <<_
+nmap >> >>_
+
+nnoremap ! :!
 
 augroup vime_keymap_group
     autocmd!
@@ -64,6 +77,7 @@ function! s:writeCurrent() abort
 endfunction
 " noremap <silent> <space><space> <esc>:call common#functions#Wall()<cr>
 noremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
+xnoremap <silent> <space><space> <esc>:call <SID>writeCurrent()<cr>
 
 nnoremap j gj
 nnoremap k gk
