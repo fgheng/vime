@@ -1,4 +1,4 @@
-<div align='center' ><strong><font size='120'>vime</font></strong></div>
+<div align='center' ><strong><font size='500'>vime</font></strong></div>
 
 ---
 
