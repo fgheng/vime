@@ -91,20 +91,6 @@ let g:fzf_action = {
     \ 'alt-x': function('s:SystemExecute'),
 \ }
 
-" visual模式下单词划线
-function! s:get_visual_selection()
-    " Why is this not a built-in Vim script function?!
-    let [line_start, column_start] = getpos("'<")[1:2]
-    let [line_end, column_end] = getpos("'>")[1:2]
-    let lines = getline(line_start, line_end)
-    if len(lines) == 0
-        return ''
-    endif
-    let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
-    let lines[0] = lines[0][column_start - 1:]
-    return join(lines, "\n")
-endfunction
-
 "-----------------------------------------------------------------------------
 " 内容检索
 "-----------------------------------------------------------------------------
@@ -132,7 +118,7 @@ function! s:RipgrepFzfWithWiki(query, fullscreen) abort
 endfunction
 
 function! s:RipgrepFzfWithWikiVisual(fullscreen) abort range
-    call s:RipgrepFzfWithWiki(s:get_visual_selection(), a:fullscreen)
+    call s:RipgrepFzfWithWiki(common#functions#getVisualSelection(), a:fullscreen)
 endfunction
 " TODO 还需要优化，尽量合并成一个函数，通过参数来操作
 command! -nargs=* -bang GrepWithWiki call s:RipgrepFzfWithWiki(<q-args>, <bang>0)
@@ -381,7 +367,7 @@ function! s:FzfBLines(...) abort
             \ }))
 endfunction
 function s:FzfBLinesVisual() abort
-    call s:FzfBLines(s:get_visual_selection())
+    call s:FzfBLines(common#functions#getVisualSelection())
 endfunction
 command! -bang -nargs=* FzfBLines call s:FzfBLines()
 command! -range=% -bang FzfBLinesVisual <line1>,<line2>call s:FzfBLinesVisual()
