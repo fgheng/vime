@@ -1,11 +1,21 @@
 " 基本配置
 set nocompatible                                            " 不要兼容vi
-syntax enable
-syntax on
-filetype plugin indent on
 
-set encoding=utf-8                                          " 编码
-set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1        " 编码猜测
+if has('syntax')
+    syntax enable
+    syntax on
+endif
+
+if has('autocmd')
+    filetype plugin indent on
+endif
+
+if has('multi_byte')
+    set encoding=utf-8                                          " 编码
+    set fileencoding=utf-8
+    set fileencodings=ucs-bom,utf-8,gb18030,cp936,latin1        " 编码猜测
+endif
+
 set number
 set relativenumber                                          " 设置相对行号
 set smartindent                                             " 智能缩进
@@ -24,9 +34,11 @@ set softtabstop=4                                           " 连续数量的空
 set shiftwidth=4
 set smarttab
 set shiftround
-" set foldmethod=indent                                     " 基于缩进的折叠
-" set foldmethod=syntax                                     " 基于语法的折叠
-" set nofoldenable                                          " 启动vim时，关闭折叠
+if has('folding')
+    set foldenable
+    set foldmethod=indent                                     " 基于缩进的折叠
+    set foldlevel=99                                          " 默认打开所有缩进
+endif
 
 set nobackup
 set nowritebackup
@@ -36,11 +48,18 @@ set autoread                                                " 文件在外部被
 set autowrite                                               " 自动写回
 set confirm                                                 " 显示确认对话框
 set noshowmode
-set timeout ttimeout
+set ttimeout
 set timeoutlen=500
 set ttimeoutlen=10
 set updatetime=100                                  " 更新时间100ms 默认4000ms 写入swap的时间
 set mouse=n                                         " 允许使用鼠标, normal生效，a则是全模式生效
+
+set winaltkeys=no
+set lazyredraw                                      " 延迟绘制，提升性能
+
+set showmatch
+set matchtime=2
+set ffs=unix,dos,mac                                " 文件换行符，默认使用unix换行符
 
 if has('nvim') == 0 && has('patch-8.1.2020')
     set cursorlineopt=number cursorline
@@ -57,3 +76,24 @@ endif
 if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif | normal! zvzz
 endif
+
+" 一下内容来自韦大的配置
+" 文件搜索和补全时忽略下面的扩展名
+set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
+
+set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing
+set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
+set wildignore+=*.zip,*.7z,*.rar,*.gz,*.tar,*.gzip,*.bz2,*.tgz,*.xz    " MacOSX/Linux
+set wildignore+=*DS_Store*,*.ipch
+set wildignore+=*.gem
+set wildignore+=*.png,*.jpg,*.gif,*.bmp,*.tga,*.pcx,*.ppm,*.img,*.iso
+set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/.rbenv/**
+set wildignore+=*/.nx/**,*.app,*.git,.git
+set wildignore+=*.wav,*.mp3,*.ogg,*.pcm
+set wildignore+=*.mht,*.suo,*.sdf,*.jnlp
+set wildignore+=*.chm,*.epub,*.pdf,*.mobi,*.ttf
+set wildignore+=*.mp4,*.avi,*.flv,*.mov,*.mkv,*.swf,*.swc
+set wildignore+=*.ppt,*.pptx,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
+set wildignore+=*.msi,*.crx,*.deb,*.vfd,*.apk,*.ipa,*.bin,*.msu
+set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
+set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
