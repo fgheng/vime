@@ -20,6 +20,9 @@ function! common#common#init() abort
     " 撤销记录目录
     let g:undo_dir = g:cache_root_path . 'undo/'
 
+    let g:os = systemlist('uname -s')[0]
+    let g:arch = systemlist('uname -m')[0]
+
     " tmux配置文件目录
     let g:tmux_config_path = $HOME . '/.tmux.conf'
 
