@@ -1,3 +1,11 @@
+" 防止重复加载
+if get(s:. 'loaded', 0) != 0
+    finish
+else
+    let s:loaded = 1
+endif
+
+" 初始化一些全局变量
 call common#common#init()
 
 " 定义载入配置命令
@@ -7,7 +15,7 @@ command! -nargs=1 LoadScript exec 'source ' . g:config_root_path . '<args>'
 LoadScript base.vim
 
 " vim-plug 载入插件
-call plug#begin(g:plugins_install_path)
+call plug#begin(get(g:, 'plugins_install_path', '~/.vim/plugin/'))
 LoadScript plugin_list.vim
 call plug#end()
 
