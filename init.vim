@@ -1,5 +1,5 @@
 " 防止重复加载
-if get(s:. 'loaded', 0) != 0
+if get(s:, 'loaded', 0) != 0
     finish
 else
     let s:loaded = 1
