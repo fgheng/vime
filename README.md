@@ -1,6 +1,5 @@
 <div align='center' ><strong><font size='500'>vime</font></strong></div>
-
----
+===
 
 ![vime](./assets/readme2.png)
 
