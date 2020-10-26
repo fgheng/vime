@@ -22,6 +22,8 @@ nnoremap <c-w>l :rightbelow vsplit <cr>
 nnoremap <silent> q <esc>:close<cr>
 vnoremap <silent> q <esc>:close<cr>
 
+" 使用回车打开关闭折叠
+nnoremap <CR> za
 " 关闭搜索颜色
 nnoremap <BackSpace> :nohl<cr>
 
