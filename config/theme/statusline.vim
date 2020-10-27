@@ -1,0 +1,49 @@
+" 自定义状态栏和tab栏
+if common#functions#HasPlug('vim-crystalline')
+    \ || common#functions#HasPlug('lightline.vim')
+    \ || common#functions#HasPlug('vim-airline')
+    finish
+endif
+
+" 状态栏
+set statusline=2
+set showtabline=2
+
+" 黑名单
+let s:disable_statusline =
+	\ 'defx\|denite\|vista\|tagbar\|undotree\|diff\|peekaboo\|sidemenu\|qf|coc-explorer|startify'
+
+let s:stl = ""
+let s:stl .= "%#ToolbarButton# %{common#functions#ModeLabel()} "
+let s:stl .= "%#Substitute# %n %f%h%w%r "
+let s:stl .= "%#IncSearch#%{common#functions#ReadOnly()}"
+let s:stl .= "%#WildMenu# %{common#functions#GitBranch()} %{common#functions#GitCount()}"
+let s:stl .= "%{common#functions#CocStatus()} "
+
+let s:stl .= "%="
+let s:stl .= "%<"
+
+let s:stl .= "%#PmenuSel# [%{&fileformat}] %{&fileencoding?&fileencoding:&encoding} "
+let s:stl .= "%#Substitute# %{common#functions#BufLineAndColInfo()} "
+let s:stl .= "%#ToolbarButton# %{common#functions#FileType()} "
+" let s:stl .= "%#IncSearch#%{common#functions#CocError()}"
+
+let s:stl_nc = ""
+let s:stl_nc .= "%{&ft}"
+
+function s:active() abort
+    let &l:statusline = s:stl
+endfunction
+
+function s:inactive() abort
+    let &l:statusline = s:stl_nc
+endfunction
+
+augroup vime_theme_statusline_group
+    autocmd!
+
+    autocmd VimEnter,ColorScheme,FileType,WinEnter,BufWinEnter * call s:active()
+	autocmd WinLeave * call s:inactive()
+
+    autocmd FileChangedShellPost,BufFilePost,BufNewFile,BufWritePost * redrawstatus
+augroup END
