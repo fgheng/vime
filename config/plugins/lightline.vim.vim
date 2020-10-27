@@ -44,46 +44,6 @@ function! LightLineGitInfo()abort
     return trim(join(gitinfo,''))
 endfunction
 
-function! LightLineCocError()
-    if !common#functions#HasPlug('coc.nvim')
-        return ""
-    endif
-    let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
-    let info = get(b:, 'coc_diagnostic_info', {})
-    if empty(info)
-        return ''
-    endif
-    let errmsgs = []
-    if get(info, 'error', 0)
-        call add(errmsgs, error_sign . info['error'])
-    endif
-    return join(errmsgs, ' ')
-endfunction
-
-function! LightLineCocWarn() abort
-    if !common#functions#HasPlug('coc.nvim')
-        return ""
-    endif
-    let warning_sign = get(g:, 'coc_status_warning_sign')
-    let info = get(b:, 'coc_diagnostic_info', {})
-    if empty(info)
-        return ''
-    endif
-    let warnmsgs = []
-    if get(info, 'warning', 0)
-        call add(warnmsgs, warning_sign . info['warning'])
-    endif
-    return join(warnmsgs, ' ')
-endfunction
-
-function! LightlineCocFixes() abort
-    if !common#functions#HasPlug('coc.nvim')
-        return ""
-    endif
-    let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
-    return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
-endfunction
-
 let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
@@ -104,9 +64,9 @@ let g:lightline = {
     \   'lineinfo': 'LightlineLineinfo',
     \   'readonly': 'common#functions#ReadOnly',
     \   'gitinfo': 'LightLineGitInfo',
-    \   'cocerror': 'LightLineCocError',
-    \   'cocwarn' : 'LightLineCocWarn',
-    \   'cocfix': 'LightLineCocFixes',
+    \   'cocerror': 'common#functions#CocError',
+    \   'cocwarn' : 'common#functions#CocWarn',
+    \   'cocfix': 'common#functions#CocFix',
     \ },
     \ 'component_expand': {
     \ },
