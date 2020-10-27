@@ -674,6 +674,10 @@ Plug 'pseewald/vim-anyfold'
 | zM   | normal | 关闭所有折叠                                           |
 | zr   | normal | 一层一层的打开折叠                                     |
 | zR   | normal | 打开所有折叠                                           |
+| zn   | normal | 禁用折叠                                               |
+| zN   | normal | 启用折叠                                               |
+| zj   | normal | 移动到下一个折叠                                       |
+| zk   | normal | 移动到上一个折叠                                       |
 
 ### 笔记
 
