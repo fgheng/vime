@@ -85,8 +85,11 @@
 ├── config/
 │   ├── plugins/
 │   ├── other/
+│   ├── theme/
+│   │   ├── theme.vim
+│   │   ├── statusline.vim
+│   │   └── tabline.vim
 │   ├── base.vim
-│   ├── theme.vim
 │   ├── keymap.vim
 │   └── plugin_list.vim
 ├── scripts/
@@ -131,6 +134,10 @@
 
      此目录主要存放一些插件需要用到的文件，比如插件[coc](https://github.com/neoclide/coc.nvim)用到的`coc-settings.json`等文件。
 
+   - `config/theme/`：
+
+     主题配置，(neo)vim主题相关的配置基本上都放到该文件夹下。
+
    - `config/plugin_list.vim`：
 
      此文件是插件列表文件，想要使用什么插件都写到此文件中。(neo)vim在启动的时候会依据该文件中的插件到`plugins_config/plugins/`目录下寻找对应的配置文件并加载。
@@ -143,9 +150,6 @@
 
      此文件是一些快捷键配置，通常这些快捷键与插件无关，自定义的插件快捷键我一般放到插件对应的配置文件中。
 
-   - `theme.vim`：
-
-     主题配置，(neo)vim主题相关的配置基本上都放到该文件中了。
 
 4. `scripts/`：
 
