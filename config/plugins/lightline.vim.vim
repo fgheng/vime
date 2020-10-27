@@ -26,7 +26,7 @@ function! LightlineLineinfo() abort
     \      printf(' %d%% ☰ %d:%d', 100*line('.')/line('$'),  line('.'), col('.'))
 endfunction
 
-function! LightLineGit()abort
+function! LightLineGitInfo()abort
     if &filetype ==? 'defx' || &filetype ==? 'vista'
         return ""
     endif
@@ -103,7 +103,7 @@ let g:lightline = {
     \   'cocstatus': 'coc#status',
     \   'lineinfo': 'LightlineLineinfo',
     \   'readonly': 'common#functions#ReadOnly',
-    \   'gitinfo': 'LightLineGit',
+    \   'gitinfo': 'LightLineGitInfo',
     \   'cocerror': 'LightLineCocError',
     \   'cocwarn' : 'LightLineCocWarn',
     \   'cocfix': 'LightLineCocFixes',
