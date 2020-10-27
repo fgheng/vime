@@ -1,5 +1,7 @@
 " 基本配置
-set nocompatible                                            " 不要兼容vi
+if &compatible
+    set nocompatible                                            " 不要兼容vi
+endif
 
 if has('syntax')
     syntax enable
