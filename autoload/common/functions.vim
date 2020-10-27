@@ -148,9 +148,7 @@ endfunction
 
 function! common#functions#ReadOnly() abort
     " 判断是否只读
-    if &filetype == "help"
-        return ""
-    elseif &readonly
+    if &readonly
         return "  "
     else
         return ""
@@ -158,12 +156,17 @@ function! common#functions#ReadOnly() abort
 endfunction
 
 function! common#functions#GitBranch() abort
-    " 获取git分支
-    let l:git_branch=get(g:, 'coc_git_status', '')
-    if empty(l:git_branch)
-        return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-    else
+    " 根据不同的插件获取git分支
+
+    let l:git_branch = get(g:, 'coc_git_status', '')
+    if l:git_branch != ''
         return strlen(l:git_branch) > 0 ? l:git_branch : ''
+    elseif exists('fugitive#head')
+        return fugitive#head(8)
+    elseif exists('*gitbranch#name')
+        return gitbranch#name()
+    elseif exists('*vcs#info')
+        return vcs#info('%b')
     endif
 endfunction
 
@@ -205,4 +208,51 @@ function! common#functions#getVisualSelection() abort
     let lines[-1] = lines[-1][: column_end - (&selection == 'inclusive' ? 1 : 2)]
     let lines[0] = lines[0][column_start - 1:]
     return join(lines, "\n")
+endfunction
+
+function! common#functions#CocError() abort
+    if !common#functions#HasPlug('coc.nvim')
+        return ""
+    endif
+    let error_sign = get(g:, 'coc_status_error_sign', has('mac') ? '❌ ' : 'E')
+    let info = get(b:, 'coc_diagnostic_info', {})
+    if empty(info)
+        return ''
+    endif
+    let errmsgs = []
+    if get(info, 'error', 0)
+        call add(errmsgs, error_sign . info['error'])
+    endif
+    return join(errmsgs, ' ')
+endfunction
+
+function! common#functions#CocWarn() abort
+    if !common#functions#HasPlug('coc.nvim')
+        return ""
+    endif
+    let warning_sign = get(g:, 'coc_status_warning_sign')
+    let info = get(b:, 'coc_diagnostic_info', {})
+    if empty(info)
+        return ''
+    endif
+    let warnmsgs = []
+    if get(info, 'warning', 0)
+        call add(warnmsgs, warning_sign . info['warning'])
+    endif
+    return join(warnmsgs, ' ')
+endfunction
+
+function! common#functions#CocFixes() abort
+    if !common#functions#HasPlug('coc.nvim')
+        return ""
+    endif
+    let b:coc_line_fixes = get(get(b:, 'coc_quickfixes', {}), line('.'), 0)
+    return b:coc_line_fixes > 0 ? printf('%d ', b:coc_line_fixes) : ''
+endfunction
+
+function! common#functions#CocStatus() abort
+    if !common#functions#HasPlug('coc.nvim')
+        return ""
+    endif
+    return coc#status()
 endfunction
