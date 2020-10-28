@@ -7,7 +7,6 @@ endif
 
 " 状态栏
 set statusline=2
-set showtabline=2
 
 " 黑名单
 let s:disable_statusline =
