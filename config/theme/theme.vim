@@ -59,7 +59,7 @@ endif
 
 " silent! colorscheme ci_dark
 
-silent! colorscheme sonokai
+" silent! colorscheme sonokai
 
 " let g:signify_sign_add    = '┃'
 " let g:signify_sign_change = '┃'
@@ -78,7 +78,7 @@ silent! colorscheme sonokai
 " let g:tokyonight_style = 'storm' " available: night, storm
 " let g:tokyonight_enable_italic = 1
 " silent! colorscheme tokyonight
-" silent! colorscheme edge
+silent! colorscheme edge
 
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
