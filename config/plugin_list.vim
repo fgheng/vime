@@ -123,6 +123,9 @@ Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 Plug 'yianwillis/vimcdoc'
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+    Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    Plug 'romgrk/nvim-treesitter-context'
 else
     Plug 'sheerun/vim-polyglot'
     Plug 'octol/vim-cpp-enhanced-highlight'
