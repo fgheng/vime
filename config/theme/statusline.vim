@@ -28,7 +28,7 @@ let s:stl .= "%#ToolbarButton# %{common#functions#FileType()} "
 " let s:stl .= "%#IncSearch#%{common#functions#CocError()}"
 
 let s:stl_nc = ""
-let s:stl_nc .= "%{&ft}"
+let s:stl_nc .= "%#PmenuThumb# %n %f%h%w%r"
 
 function s:active() abort
     let &l:statusline = s:stl
