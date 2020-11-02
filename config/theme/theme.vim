@@ -8,14 +8,15 @@ endif
 
 if has('termguicolors')
     " fix bug for vim
-    if !has('nvim')
+    " if !has('nvim')
         if &term =~# '^screen\|^tmux'
             let &t_8f = "\e[38;2;%lu;%lu;%lum"
             let &t_8b = "\e[48;2;%lu;%lu;%lum"
         endif
-    endif
+    " endif
     set termguicolors
 endif
+set termguicolors
 
 " 美化相关基本配置
 " 高亮当前行列
@@ -75,10 +76,10 @@ endif
                 " \ autocmd signify TextChanged,TextChangedI * call sy#start()
 " augroup END
 
-" let g:tokyonight_style = 'storm' " available: night, storm
-" let g:tokyonight_enable_italic = 1
-" silent! colorscheme tokyonight
-silent! colorscheme edge
+let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_enable_italic = 1
+silent! colorscheme tokyonight
+" silent! colorscheme edge
 
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
