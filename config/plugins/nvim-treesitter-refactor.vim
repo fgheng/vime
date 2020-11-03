@@ -2,7 +2,7 @@ lua <<EOF
     require'nvim-treesitter.configs'.setup {
         refactor = {
             highlight_definitions = { enable = true },   -- 定义高亮
-            highlight_current_scope = { enable = true }, -- 范围高亮
+            highlight_current_scope = { enable = false }, -- 范围高亮
 
             -- 智能重命名
             smart_rename = {
