@@ -10,7 +10,7 @@ set statusline=2
 
 " 黑名单
 let s:disable_statusline =
-	\ 'defx\|denite\|vista\|tagbar\|undotree\|diff\|peekaboo\|sidemenu\|qf|coc-explorer|startify'
+	\ 'defx\|denite\|vista\|tagbar\|undotree\|diff\|peekaboo\|sidemenu\|qf\|coc-explorer\|startify'
 
 let s:stl = ""
 let s:stl .= "%#ToolbarButton# %{common#functions#ModeLabel()} "
@@ -31,6 +31,9 @@ let s:stl_nc = ""
 let s:stl_nc .= "%#PmenuThumb# %n %f%h%w%r"
 
 function s:active() abort
+    if &ft =~? s:disable_statusline
+        return
+    endif
     let &l:statusline = s:stl
 endfunction
 
