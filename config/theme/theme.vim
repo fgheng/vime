@@ -21,7 +21,7 @@ set termguicolors
 " 美化相关基本配置
 " 高亮当前行列
 set cursorline
-set cursorcolumn
+" set cursorcolumn
 " 高亮textwidth后的一列
 set colorcolumn=+1
 " 光标
@@ -78,7 +78,11 @@ endif
 
 let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 1
+let g:tokyonight_menu_selection_background = 'red'
+let g:tokyonight_current_word = 'underline'
 silent! colorscheme tokyonight
+
 " silent! colorscheme edge
 
 " coc 美化
