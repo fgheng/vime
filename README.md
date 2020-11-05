@@ -124,11 +124,11 @@
 
 3. `config/`：
 
-   该目录是我自定义的目录，是配置文件所在的主要目录
+   该目录是我自定义的目录，是主要的配置文件目录。
 
    - `config/plugins/`：
 
-     此目录下面就是所有插件的配置，一个插件对应一个文件，文件的名称与插件的名称相同，比如我又一个插件`Plug user_name/plugin_name.vim`，那么该插件对应的配置文件名称为`plugin_name.vim.vim`
+     此目录下面就是所有插件的配置，一个插件对应一个文件，文件的名称与插件的名称相同，比如我有一个插件`Plug "user_name/plugin_name.vim"`，那么该插件对应的配置文件名称为`plugin_name.vim.vim`
 
    - `config/other/`：
 
