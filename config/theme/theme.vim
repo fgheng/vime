@@ -16,7 +16,7 @@ if has('termguicolors')
     " endif
     set termguicolors
 endif
-set termguicolors
+" set termguicolors
 
 " 美化相关基本配置
 " 高亮当前行列
@@ -58,7 +58,7 @@ endif
 
 " silent! colorscheme one
 
-" silent! colorscheme ci_dark
+silent! colorscheme ci_dark
 
 " silent! colorscheme sonokai
 
@@ -76,12 +76,12 @@ endif
                 " \ autocmd signify TextChanged,TextChangedI * call sy#start()
 " augroup END
 
-let g:tokyonight_style = 'storm' " available: night, storm
-let g:tokyonight_enable_italic = 1
-let g:tokyonight_transparent_background = 1
-let g:tokyonight_menu_selection_background = 'red'
-let g:tokyonight_current_word = 'underline'
-silent! colorscheme tokyonight
+" let g:tokyonight_style = 'storm' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+" let g:tokyonight_transparent_background = 1
+" let g:tokyonight_menu_selection_background = 'red'
+" let g:tokyonight_current_word = 'underline'
+" silent! colorscheme tokyonight
 
 " silent! colorscheme edge
 
