@@ -6,7 +6,7 @@ if common#functions#HasPlug('vim-crystalline')
 endif
 
 " 状态栏
-set statusline=2
+" set statusline=2
 
 " 黑名单
 let s:disable_statusline =
