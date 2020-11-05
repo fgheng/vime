@@ -9,11 +9,12 @@ endif
 if has('termguicolors')
     " fix bug for vim
     " if !has('nvim')
-        if &term =~# '^screen\|^tmux'
-            let &t_8f = "\e[38;2;%lu;%lu;%lum"
-            let &t_8b = "\e[48;2;%lu;%lu;%lum"
-        endif
+    if &term =~# '^screen\|^tmux'
+        let &t_8f = "\e[38;2;%lu;%lu;%lum"
+        let &t_8b = "\e[48;2;%lu;%lu;%lum"
+    endif
     " endif
+    " enable true color
     set termguicolors
 endif
 " set termguicolors
@@ -58,7 +59,7 @@ endif
 
 " silent! colorscheme one
 
-silent! colorscheme ci_dark
+" silent! colorscheme ci_dark
 
 " silent! colorscheme sonokai
 
@@ -76,12 +77,12 @@ silent! colorscheme ci_dark
                 " \ autocmd signify TextChanged,TextChangedI * call sy#start()
 " augroup END
 
-" let g:tokyonight_style = 'storm' " available: night, storm
-" let g:tokyonight_enable_italic = 1
-" let g:tokyonight_transparent_background = 1
-" let g:tokyonight_menu_selection_background = 'red'
-" let g:tokyonight_current_word = 'underline'
-" silent! colorscheme tokyonight
+let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 1
+let g:tokyonight_menu_selection_background = 'red'
+let g:tokyonight_current_word = 'underline'
+silent! colorscheme tokyonight
 
 " silent! colorscheme edge
 
