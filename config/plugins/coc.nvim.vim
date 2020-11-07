@@ -401,7 +401,7 @@ function! s:lc_coc_explorer() abort
     call coc#config("explorer.file.column.icon.renamed", "R")
     call coc#config("explorer.file.column.icon.unmerged", "≠")
     call coc#config("explorer.file.column.icon.ignored", "ⁱ")
-    call coc#config("explorer.keyMappings", {
+    call coc#config("explorer.keyMappings.global", {
       \ 'k': 'nodePrev',
       \ 'j': 'nodeNext',
       \ 'h': 'collapse',
