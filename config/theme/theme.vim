@@ -86,6 +86,9 @@ silent! colorscheme tokyonight
 
 " silent! colorscheme edge
 
+" autocmd InsertEnter * hi CursorLineNr ctermbg=blue
+" autocmd InsertLeave * hi CursorLineNr ctermbg=green
+
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
     if !common#functions#HasPlug('vim-multiple-cursors.vim')
