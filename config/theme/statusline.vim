@@ -45,7 +45,7 @@ augroup vime_theme_statusline_group
     autocmd!
 
     autocmd VimEnter,ColorScheme,FileType,WinEnter,BufWinEnter * call s:active()
-	autocmd WinLeave * call s:inactive()
+    autocmd WinLeave * call s:inactive()
 
     autocmd FileChangedShellPost,BufFilePost,BufNewFile,BufWritePost * redrawstatus
 augroup END
