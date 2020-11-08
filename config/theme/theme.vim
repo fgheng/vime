@@ -86,6 +86,7 @@ silent! colorscheme tokyonight
 
 " silent! colorscheme edge
 
+
 " autocmd InsertEnter * hi CursorLineNr ctermbg=blue
 " autocmd InsertLeave * hi CursorLineNr ctermbg=green
 
