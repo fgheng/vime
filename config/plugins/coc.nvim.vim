@@ -228,6 +228,9 @@ function! s:lc_coc_lists() abort
     nnoremap <silent> <M-m> :CocList marks<CR>
     nnoremap <silent> <M-M> :CocList maps<CR>
     nnoremap <silent> <M-w> :CocList windows<CR>
+    nnoremap <silent> <M-y> :CocList yank<CR>
+    nnoremap <silent> <F8> :CocList locationlist<CR>
+    nnoremap <silent> <F9> :CocList quickfix<CR>
 endfunction
 
 function! s:lc_coc_yank() abort
@@ -347,7 +350,7 @@ function! s:lc_coc_fzf_preview() abort
         return
     endif
 
-    let g:_yankround_cache = g:cache_root_path . "/coc/yank"
+    " let g:_yankround_cache = g:cache_root_path . "/coc/yank"
 
     " TODO 重新写定义
     " 行为要一致
