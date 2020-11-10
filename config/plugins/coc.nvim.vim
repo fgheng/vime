@@ -126,12 +126,7 @@ if common#functions#HasPlug('coc-fzf')
     nnoremap <silent> <space>p  :<C-u>CocFzfListResume<CR>
 else
     " Show all diagnostics
-    if common#functions#HasPlug('fzf-preview.vim')
-        nnoremap <silent> <space>a  :<C-u>CocCommand fzf-preview.CocCurrentDiagnostics<cr>
-        nnoremap <silent> <space>A  :<C-u>CocCommand fzf-preview.CocDiagnostics<cr>
-    else
-        nnoremap <silent> <space>a  :<C-u>CocList --normal diagnostics<cr>
-    endif
+    nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
     " Manage extensions
     " nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
     nnoremap <silent> <space>o  :<C-u>CocList --auto-preview outline<cr>
@@ -208,6 +203,8 @@ function! s:lc_coc_lists() abort
     if common#functions#HasPlug('fzf.vim')
         \ || common#functions#HasPlug('LeaderF')
         \ || common#functions#HasPlug('vim-clap')
+        \ || common#functions#HasPlug('fzf-preview.vim')
+        \ || common#functions#HasCocPlug('coc-fzf-preview')
         return
     endif
 
@@ -342,6 +339,50 @@ function! s:lc_coc_rainbow_fart() abort
     call coc#config("rainbow-fart.ffplay", "ffplay")
 endfunction
 
+function! s:lc_coc_fzf_preview() abort
+    if common#functions#HasPlug('fzf.vim')
+        \ || common#functions#HasPlug('LeaderF')
+        \ || common#functions#HasPlug('vim-clap')
+        \ || common#functions#HasPlug('fzf-preview.vim')
+        return
+    endif
+
+    let g:_yankround_cache = g:cache_root_path . "/coc/yank"
+
+    " TODO 重新写定义
+    " 行为要一致
+    function s:cocFzfPreviewWithWiki(query) abort
+        if empty(a:query) && &ft ==? 'vimwiki'
+            exec "CocCommand fzf-preview.DirectoryFiles " . g:vimwiki_path
+        else
+            exec "CocCommand fzf-preview.DirectoryFiles " . a:query
+        endif
+    endfunction
+    nnoremap <silent> <M-f> :call <SID>cocFzfPreviewWithWiki("")<CR>
+    nnoremap <silent> <M-F> :call <SID>cocFzfPreviewWithWiki($HOME)<CR>
+    nnoremap <silent> <M-b> :<c-u>CocCommand fzf-preview.AllBuffers<CR>
+    nnoremap <silent> <M-c> :<c-u>CocCommand fzf-preview.CommandPalette<CR>
+    nnoremap <silent> <M-C> :<c-u>CocCommand fzf-preview.Changes<CR>
+    " tags, 需要先generate tags
+    if common#functions#HasPlug('vista.vim')
+        nnoremap <silent> <M-t> :<c-u>CocCommand fzf-preview.VistaBufferCtags<cr>
+        nnoremap <silent> <M-T> :<c-u>CocCommand fzf-preview.VistaCtags<cr>
+    else
+        nnoremap <silent> <M-t> :<c-u>CocCommand fzf-preview.BufferTags<cr>
+        nnoremap <silent> <M-T> :<c-u>CocCommand fzf-preview.Ctags<cr>
+    endif
+    nnoremap <silent> <M-s> :<c-u>CocCommand fzf-preview.ProjectGrep<cr>
+    nnoremap <silent> ? :<c-u>CocCommand fzf-preview.Lines<cr>
+    nnoremap <silent> <M-r> :<c-u>CocCommand fzf-preview.MruFiles<CR>
+    nnoremap <silent> <M-m> :CocCommand fzf-preview.Marks<CR>
+    " nnoremap <silent> <M-M> :CocList maps<CR>
+    nnoremap <silent> <M-y> :<c-u>CocCommand fzf-preview.Yankround<CR>
+    nnoremap <silent> <M-J> :<c-u>CocCommand fzf-preview.Jumps<CR>
+
+    nnoremap <silent> <F8> :<c-u>CocCommand fzf-preview.QuickFix<CR>
+    nnoremap <silent> <F9> :<c-u>CocCommand fzf-preview.LocationList<CR>
+endfunction
+
 function! s:lc_coc_explorer() abort
     let g:coc_explorer_global_presets = {
         \   '.vim': {
@@ -470,6 +511,7 @@ let s:coc_config_functions = {
             \ 'coc-explorer': function('<SID>lc_coc_explorer'),
             \ 'coc-ci': function('<SID>lc_coc_ci'),
             \ 'coc-vimlsp': function('<SID>lc_coc_vimlsp'),
+            \ 'coc-fzf-preview': function('<SID>lc_coc_fzf_preview'),
             \ }
 
 " TODO 更改调用方式
