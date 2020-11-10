@@ -3,8 +3,7 @@
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 检索
 Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
-\ |Plug 'junegunn/fzf.vim'
-\ | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
+Plug 'junegunn/fzf.vim' | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 " git插件
 Plug 'tpope/vim-fugitive', {'on': ['Gwrite', 'Gcommit', 'Gread', 'Gdiff', 'Gblame']}
 \ | Plug 'rbong/vim-flog'
