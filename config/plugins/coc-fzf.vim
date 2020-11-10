@@ -1,8 +1,4 @@
-if has('nvim')
-    let g:coc_fzf_preview = 'up:50%:wrap'
-else
-    let g:coc_fzf_preview = 'right:50%:wrap'
-endif
+let g:coc_fzf_preview = 'up:50%:wrap'
 let g:coc_fzf_opts = []
 
 " 因为要配合coc，因此快捷键放到了coc.nvim.vim文件中了
