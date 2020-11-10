@@ -2,8 +2,8 @@
 " Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --all'} | Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 检索
-Plug 'junegunn/fzf.vim'
-\ | Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
+Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
+\ |Plug 'junegunn/fzf.vim'
 \ | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 " git插件
 Plug 'tpope/vim-fugitive', {'on': ['Gwrite', 'Gcommit', 'Gread', 'Gdiff', 'Gblame']}
@@ -180,6 +180,7 @@ let g:coc_global_extensions = [
     \ 'coc-git',
     \ ]
 
+    " \ 'coc-fzf-preview',
     "\ 'coc-bookmark',
     "\ 'coc-rainbow-fart',
     "\ 'coc-lists',
