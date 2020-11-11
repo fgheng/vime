@@ -318,8 +318,8 @@ endfunction
 function! s:lc_coc_snippets() abort
     call coc#config("snippets.ultisnips.enable", v:true)
     call coc#config("snippets.ultisnips.directories", [
-                \ 'UltiSnips',
-                \ 'gosnippets/UltiSnips'
+                \ g:other_config_root_path . '/UltiSnips',
+                \ g:other_config_root_path . '/gosnippets/UltiSnips',
             \ ])
     call coc#config("snippets.extends", {
                 \ 'cpp': ['c', 'cpp'],
