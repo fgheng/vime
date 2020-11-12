@@ -10,7 +10,7 @@ endif
 
 " 黑名单
 let s:disable_statusline =
-	\ 'defx\|denite\|vista\|tagbar\|undotree\|diff\|peekaboo\|sidemenu\|qf\|coc-explorer\|startify\|vim-plug'
+    \ 'defx\|denite\|vista\|tagbar\|undotree\|diff\|peekaboo\|sidemenu\|qf\|coc-explorer\|startify\|vim-plug'
 
 let s:stl = ""
 let s:stl .= "%#ToolbarButton# %{common#functions#ModeLabel()} "
