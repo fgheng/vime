@@ -1,4 +1,4 @@
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+" let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_ctags_cmd = {
     \ 'haskell': 'hasktags -x -o - -c',
     \ }
