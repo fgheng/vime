@@ -11,7 +11,7 @@ Plug 'tpope/vim-fugitive', {'on': ['Gwrite', 'Gcommit', 'Gread', 'Gdiff', 'Gblam
 " 注释插件
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
-Plug 'kkoomen/vim-doge', {'on': 'DogeGenerate'}
+Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}, 'on': 'DogeGenerate'}
 " 数据库
 Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
 " 全局替换插件
