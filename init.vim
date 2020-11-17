@@ -1,9 +1,9 @@
-" 防止重复加载
-if get(s:, 'vime_loaded', 0) != 0
-    finish
-else
-    let s:vime_loaded = 1
-endif
+" " 防止重复加载
+" if get(s:, 'vime_loaded', 0) != 0
+    " finish
+" else
+    " let s:vime_loaded = 1
+" endif
 
 " 初始化一些全局变量
 call common#common#init()
