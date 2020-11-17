@@ -41,6 +41,7 @@ Plug 'sainnhe/sonokai'
 Plug 'sonph/onehalf'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'sainnhe/edge'
+Plug 'reedes/vim-colors-pencil'
 " 顶栏和底栏
 " Plug 'rbong/vim-crystalline'
 " Plug 'itchyny/lightline.vim'
