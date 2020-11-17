@@ -86,6 +86,11 @@ silent! colorscheme tokyonight
 
 " silent! colorscheme edge
 
+" set background=light
+" let g:pencil_gutter_color = 1
+" let g:pencil_spell_undercurl = 1
+" let g:pencil_higher_contrast_ui = 0
+" silent! colorscheme pencil
 
 " autocmd InsertEnter * hi CursorLineNr ctermbg=blue
 " autocmd InsertLeave * hi CursorLineNr ctermbg=green
