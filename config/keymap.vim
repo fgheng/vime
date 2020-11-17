@@ -45,6 +45,10 @@ nmap >> >>_
 
 nnoremap ! :!
 
+" 跳转到最后
+" 0是跳转到开头
+nnoremap 9 $
+
 augroup vime_keymap_group
     autocmd!
     " 使用esc退出终端
