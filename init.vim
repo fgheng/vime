@@ -20,8 +20,8 @@ LoadScript theme/statusline.vim
 LoadScript theme/tabline.vim
 
 " 依据插件名字载入对应的插件配置
-function s:source_config(pluginName) abort
-    let l:config_path = g:plugins_config_root_path . a:pluginName . ".vim"
+function s:source_config(plugName) abort
+    let l:config_path = g:plugins_config_root_path . a:plugName . ".vim"
     if filereadable(l:config_path)
         exec 'source' fnameescape(l:config_path)
     endif
