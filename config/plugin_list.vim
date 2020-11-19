@@ -156,6 +156,11 @@ Plug 'matze/vim-move', {'on': [
             \ '<Plug>MoveBlockRight',
             \ '<Plug>MoveBlockLeft']}
 Plug 'simnalamburt/vim-mundo'
+if has('nvim')
+    Plug 'kyazdani42/nvim-web-devicons'
+else
+    Plug 'ryanoasis/vim-devicons'
+endif
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
