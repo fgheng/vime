@@ -44,8 +44,8 @@ Plug 'sainnhe/edge'
 Plug 'reedes/vim-colors-pencil'
 " 顶栏和底栏
 " Plug 'rbong/vim-crystalline'
-" Plug 'itchyny/lightline.vim'
-Plug 'liuchengxu/eleline.vim'
+Plug 'itchyny/lightline.vim'
+" Plug 'liuchengxu/eleline.vim'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
 " 函数列表
