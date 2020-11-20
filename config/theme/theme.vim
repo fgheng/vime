@@ -77,12 +77,12 @@ endif
                 " \ autocmd signify TextChanged,TextChangedI * call sy#start()
 " augroup END
 
-let g:tokyonight_style = 'storm' " available: night, storm
-let g:tokyonight_enable_italic = 1
-let g:tokyonight_transparent_background = 1
-let g:tokyonight_menu_selection_background = 'red'
-let g:tokyonight_current_word = 'underline'
-silent! colorscheme tokyonight
+" let g:tokyonight_style = 'storm' " available: night, storm
+" let g:tokyonight_enable_italic = 1
+" let g:tokyonight_transparent_background = 1
+" let g:tokyonight_menu_selection_background = 'red'
+" let g:tokyonight_current_word = 'underline'
+" silent! colorscheme tokyonight
 
 " silent! colorscheme edge
 
@@ -91,6 +91,8 @@ silent! colorscheme tokyonight
 " let g:pencil_spell_undercurl = 1
 " let g:pencil_higher_contrast_ui = 0
 " silent! colorscheme pencil
+"
+silent! colorscheme gruvbox-material
 
 " autocmd InsertEnter * hi CursorLineNr ctermbg=blue
 " autocmd InsertLeave * hi CursorLineNr ctermbg=green
