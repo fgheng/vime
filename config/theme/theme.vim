@@ -92,7 +92,7 @@ endif
 " let g:pencil_higher_contrast_ui = 0
 " silent! colorscheme pencil
 "
-silent! colorscheme gruvbox-material
+silent! colorscheme OceanicNext
 
 " autocmd InsertEnter * hi CursorLineNr ctermbg=blue
 " autocmd InsertLeave * hi CursorLineNr ctermbg=green
