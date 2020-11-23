@@ -86,13 +86,15 @@ endif
 
 " silent! colorscheme edge
 
-" set background=light
-" let g:pencil_gutter_color = 1
-" let g:pencil_spell_undercurl = 1
-" let g:pencil_higher_contrast_ui = 0
-" silent! colorscheme pencil
+set background=dark
+let g:pencil_gutter_color = 1
+let g:pencil_spell_undercurl = 1
+let g:pencil_higher_contrast_ui = 0
+silent! colorscheme pencil
 "
-silent! colorscheme OceanicNext
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" silent! colorscheme OceanicNext
 
 " autocmd InsertEnter * hi CursorLineNr ctermbg=blue
 " autocmd InsertLeave * hi CursorLineNr ctermbg=green
