@@ -37,6 +37,8 @@ cnoremap <C-l> <End>
 
 " 使用leader q执行宏录制功能
 nnoremap <leader>q q
+" 去除EX模式
+nmap Q <nop>
 " jk表示esc
 inoremap jk <esc>
 
