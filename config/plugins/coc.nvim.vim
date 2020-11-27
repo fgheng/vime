@@ -389,7 +389,7 @@ endfunction
 function! s:lc_coc_explorer() abort
     let g:coc_explorer_global_presets = {
         \   '.vim': {
-        \      'root-uri': '~/.vim',
+        \      'root-uri': g:vim_root_path,
         \   },
         \   'floating': {
         \      'position': 'floating',
