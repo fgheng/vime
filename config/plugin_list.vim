@@ -75,7 +75,7 @@ Plug 'easymotion/vim-easymotion', {'on':
 " 对齐
 Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign', '<Plug>(EasyAlign)']}
 " 对齐线
-Plug 'Yggdroot/indentLine', {'for': ['c', 'h', 'cpp', 'go', 'java', 'vim']}
+Plug 'Yggdroot/indentLine', {'for': ['python', 'c', 'h', 'cpp', 'go', 'java', 'vim']}
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " csv插件
@@ -123,10 +123,10 @@ Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 if has('nvim')
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-    Plug 'nvim-treesitter/nvim-treesitter-refactor'
-    Plug 'romgrk/nvim-treesitter-context'
+    " Plug 'nvim-treesitter/nvim-treesitter'
+    " Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+    " Plug 'nvim-treesitter/nvim-treesitter-refactor'
+    " Plug 'romgrk/nvim-treesitter-context'
 else
     Plug 'sheerun/vim-polyglot'
     Plug 'octol/vim-cpp-enhanced-highlight'
@@ -180,13 +180,13 @@ let g:coc_global_extensions = [
     \ 'coc-lists',
     \ 'coc-word',
     \ 'coc-python',
-    \ 'coc-tabnine',
     \ 'coc-explorer',
     \ 'coc-ci',
     \ 'coc-git',
     \ ]
 
+    " \ 'coc-tabnine',
     " \ 'coc-fzf-preview',
-    "\ 'coc-bookmark',
-    "\ 'coc-rainbow-fart',
-    "\ 'coc-lists',
+    " \ 'coc-bookmark',
+    " \ 'coc-rainbow-fart',
+    " \ 'coc-lists',
