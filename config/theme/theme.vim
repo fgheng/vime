@@ -53,9 +53,9 @@ endif
 " let g:srcery_transparent_background = 1
 " silent! colorscheme srcery
 
-" let g:forest_night_enable_italic = 1
-" let g:forest_night_transparent_background = 1
-" silent! colorscheme forest-night
+let g:forest_night_enable_italic = 1
+let g:forest_night_transparent_background = 1
+silent! colorscheme forest-night
 
 " silent! colorscheme one
 
@@ -86,11 +86,11 @@ endif
 
 " silent! colorscheme edge
 
-set background=dark
-let g:pencil_gutter_color = 1
-let g:pencil_spell_undercurl = 1
-let g:pencil_higher_contrast_ui = 0
-silent! colorscheme pencil
+" set background=dark
+" let g:pencil_gutter_color = 1
+" let g:pencil_spell_undercurl = 1
+" let g:pencil_higher_contrast_ui = 0
+" silent! colorscheme pencil
 "
 " let g:oceanic_next_terminal_bold = 1
 " let g:oceanic_next_terminal_italic = 1
