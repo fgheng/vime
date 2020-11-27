@@ -1,4 +1,5 @@
 # vime
+注意：nvim-treesitter插件需要最新的neovim，当前的neovim发布的版本为5.828，这不是最新的，最新的需要自己编译，如果暂时不想编译的话，可以使用指定版本的nvim-treesitter
 
 ![vime](./assets/readme2.png)
 
