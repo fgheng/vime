@@ -31,6 +31,33 @@ let g:tex_conceal='abdmg'
 " \lm查看内置的imaps
 "
 
+" 自动打开inkscape绘图，然后插入到latex中
+if  executable("inkscape")
+    " 参考:
+    " https://zhuanlan.zhihu.com/p/64205323
+    " https://github.com/gillescastel/inkscape-figures
+    " 需要pip install inkscape-figures
+    inoremap <C-i> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+    nnoremap <C-i> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+endif
+
+function! CloseViewers()
+    " 关闭buffer的时候自动关闭浏览软件
+    if executable('xdotool') && exists('b:vimtex')
+        \ && exists('b:vimtex.viewer') && b:vimtex.viewer.xwin_id > 0
+        silent call system('xdotool windowclose '. b:vimtex.viewer.xwin_id)
+    endif
+endfunction
+
+augroup vime_vimtex_event_1
+    autocmd!
+    " 打开自动编译
+    au User VimtexEventInitPost call vimtex#compiler#compile()
+    " 退出自动关闭预览
+    au User VimtexEventQuit     call vimtex#compiler#clean(0)
+    au User VimtexEventQuit     call CloseViewers()
+augroup END
+
 augroup vime_vimtex_group
     autocmd!
     autocmd FileType tex setl tw=80
