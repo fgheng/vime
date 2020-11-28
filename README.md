@@ -194,9 +194,11 @@
 
    此处的neovim是指python包中neovim，通过`pip install neovim`进行安装，必须安装。
 
-4. `neovim-remote`、`xdotool`
+4. `neovim-remote`、`xdotool`、`inkscape`、`rofi`、`pip install inkscape-figures`
 
-   该软件主要用于[vimtex](https://github.com/lervag/vimtex)插件，写latex的用户可能会用到。
+   这些软件主要用于[vimtex](https://github.com/lervag/vimtex)插件，写latex的用户可能会用到。
+
+   其中xdotool主要用于在预览软件中按下ctrl+鼠标左键定位到代码位置，inkscape、rofi、inkscape-figures三个软件主要用于使用inkscape绘图然后自动插入到latex中，主要参考[inkscape-figures](https://github.com/gillescastel/inkscape-figures)。
 
 5. `zathura`
 
@@ -746,15 +748,16 @@ Plug 'lervag/vimtex'
 
 #### 快捷键
 
-| 按键              | 模式   | 描述                        |
-| ----------------- | ------ | --------------------------- |
-| \<leader>ll       | normal | 准备编译文档                |
-| \<leader>lv       | normal | 在pdf文档中定位到当前位置   |
-| \<leader>ll or lk | normal | 停止编译                    |
-| \<leader>le       | normal | 删除log，errors以及warnings |
-| \<leader>lc       | normal | 删除多余的文档              |
-| %                 | normal | 在定界符之间跳转            |
-|                   |        |                             |
+| 按键              | 模式   | 描述                                         |
+| ----------------- | ------ | -------------------------------------------- |
+| \<leader>ll       | normal | 准备编译文档                                 |
+| \<leader>lv       | normal | 在pdf文档中定位到当前位置                    |
+| \<leader>ll or lk | normal | 停止编译                                     |
+| \<leader>le       | normal | 删除log，errors以及warnings                  |
+| \<leader>lc       | normal | 删除多余的文档                               |
+| %                 | normal | 在定界符之间跳转                             |
+| \<c-i>            | insert | 打开inkscape绘图，然后插入到latex中          |
+| \<c-i>            | normal | normal模式下打开inkscape绘图，修改当前的图形 |
 
 #### 其他
 
