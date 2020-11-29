@@ -162,6 +162,8 @@ if has('nvim')
 else
     Plug 'ryanoasis/vim-devicons'
 endif
+" 忘记sudo?使用sudowrite或sw
+Plug 'lambdalisue/suda.vim'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
