@@ -33,7 +33,6 @@
     "variable": ""
   },
 
-  "diagnostic.signOffset": 9999,
   "diagnostic.errorSign": "■",
   "diagnostic.warningSign": "▲",
   "diagnostic.infoSign": "●",
