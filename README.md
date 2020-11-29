@@ -671,22 +671,45 @@ Plug 'pseewald/vim-anyfold'
 
 #### 快捷键
 
-| 按键 | 模式   | 描述                                                   |
-| ---- | ------ | --------------------                                   |
-| zc   | normal | 关闭光标下的折叠                                       |
-| zC   | normal | 关闭光标下的折叠以及嵌套的折叠                         |
-| zo   | normal | 打开光标下的折叠                                       |
-| zO   | normal | 打开光标下的折叠以及嵌套的折叠                         |
-| za   | normal | 光标下折叠若是关闭则打开若是打开则关闭                 |
-| zA   | normal | 光标下折叠若是关闭则打开包括嵌套若是打开则关闭包括嵌套 |
-| zm   | normal | 一层一层的关闭折叠                                     |
-| zM   | normal | 关闭所有折叠                                           |
-| zr   | normal | 一层一层的打开折叠                                     |
-| zR   | normal | 打开所有折叠                                           |
-| zn   | normal | 禁用折叠                                               |
-| zN   | normal | 启用折叠                                               |
-| zj   | normal | 移动到下一个折叠                                       |
-| zk   | normal | 移动到上一个折叠                                       |
+| 按键     | 模式   | 描述                                                   |
+| -------- | ------ | ------------------------------------------------------ |
+| zc       | normal | 关闭光标下的折叠                                       |
+| zC       | normal | 关闭光标下的折叠以及嵌套的折叠                         |
+| zo       | normal | 打开光标下的折叠                                       |
+| zO       | normal | 打开光标下的折叠以及嵌套的折叠                         |
+| za       | normal | 光标下折叠若是关闭则打开若是打开则关闭                 |
+| zA       | normal | 光标下折叠若是关闭则打开包括嵌套若是打开则关闭包括嵌套 |
+| zm       | normal | 一层一层的关闭折叠                                     |
+| zM       | normal | 关闭所有折叠                                           |
+| zr       | normal | 一层一层的打开折叠                                     |
+| zR       | normal | 打开所有折叠                                           |
+| zn       | normal | 禁用折叠                                               |
+| zN       | normal | 启用折叠                                               |
+| zj       | normal | 移动到下一个折叠                                       |
+| zk       | normal | 移动到上一个折叠                                       |
+| \<enter> | normal | 打开或者关闭折叠                                       |
+
+
+
+### 格式化
+
+#### 可选插件
+
+格式化主要是使用coc中的格式化功能，当然你也可以自己增加格式化插件比如[sbdchd/*neoformat*](https://github.com/sbdchd/neoformat)等，另外格式化部分还有[junegunn/*vim*-*easy*-*align*](https://github.com/junegunn/vim-easy-align)这个插件，该插件主要用于对齐。
+
+```
+Plug 'junegunn/vim-easy-align'
+```
+
+#### 快捷键
+
+| 快捷键    | 模式               | 描述                                                    |
+| --------- | ------------------ | ------------------------------------------------------- |
+| Format    | 命令               | 格式化代码                                              |
+| EasyAlign | visual模式下的命令 | 代码对齐，按下enter可以选择对齐方式（居左，居右，居中） |
+|           |                    |                                                         |
+
+
 
 ### 笔记
 
