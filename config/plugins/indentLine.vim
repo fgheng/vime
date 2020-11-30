@@ -4,7 +4,7 @@
 " let g:indentLine_color_term = 120
 " let g:indentLine_leadingSpaceEanbled = 1
 " let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_char = '│'
+let g:indentLine_char = '┊'
 " let g:indentLine_first_char = '*'
 
 " 使用自己的conceal设置而不是由indentline进行设置
