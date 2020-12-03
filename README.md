@@ -116,7 +116,7 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 
    - `config/plugins/`：
 
-     此目录下面就是所有插件的配置，一个插件对应一个文件，文件的名称与插件的名称相同，比如我有一个插件`Plug "user_name/plugin_name.vim"`，那么该插件对应的配置文件名称为`plugin_name.vim.vim`
+     此目录下面就是所有插件的配置，一个插件对应一个文件，文件的名称与插件的名称相同，比如我有一个插件`Plug "user_name/plugin_name.vim"`，那么该插件对应的配置文件名称为`plugin_name.vim.vim`，关于该目录下插件的配置，我们统一一下，所有关于该插件的快捷键都统一放到该配置文件的最后。
 
    - `config/other/`：
 
