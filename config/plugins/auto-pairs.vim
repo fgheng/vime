@@ -14,7 +14,6 @@ augroup vime_auto_paris_group
     autocmd!
     au FileType php  let b:AutoPairs = AutoPairsDefine({'<?' : '?>', '<?php': '?>'})
     au FileType rust let b:AutoPairs = AutoPairsDefine({'\w\zs<': '>'})
-    au FileType cpp  let b:AutoPairs = AutoPairsDefine({'<':'>'})
     " add <!-- --> pair and remove '{' for html file
     au FileType html let b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['{'])
     au FileType md   let b:AutoPairs = AutoPairsDefine({'```':'```'})
