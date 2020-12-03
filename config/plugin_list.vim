@@ -124,7 +124,7 @@ Plug 'troydm/zoomwintab.vim', {'on': 'ZoomWinTabToggle'}
 " vim中文文档
 Plug 'yianwillis/vimcdoc'
 if has('nvim')
-    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'nvim-treesitter/nvim-treesitter-textobjects'
     Plug 'nvim-treesitter/nvim-treesitter-refactor'
     Plug 'romgrk/nvim-treesitter-context'
@@ -167,11 +167,7 @@ Plug 'lambdalisue/suda.vim'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
-    \ 'coc-tsserver',
-    \ 'coc-prettier',
-    \ 'coc-calc',
     \ 'coc-vimlsp',
-    \ 'coc-marketplace',
     \ 'coc-xml',
     \ 'coc-yank',
     \ 'coc-sh',
@@ -188,6 +184,10 @@ let g:coc_global_extensions = [
     \ 'coc-git',
     \ ]
 
+    " \ 'coc-marketplace',
+    " \ 'coc-tsserver',
+    " \ 'coc-prettier',
+    " \ 'coc-calc',
     " \ 'coc-tabnine',
     " \ 'coc-fzf-preview',
     " \ 'coc-bookmark',
