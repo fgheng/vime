@@ -38,7 +38,6 @@ if  executable("inkscape")
     " https://github.com/gillescastel/inkscape-figures
     " 需要pip install inkscape-figures
     inoremap <C-i> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-    nnoremap <C-i> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 endif
 
 function! CloseViewers()
