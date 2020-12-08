@@ -7,12 +7,14 @@ tnoremap <c-h> <c-\><c-n><c-w>h
 tnoremap <c-j> <c-\><c-n><c-w>j
 tnoremap <c-k> <c-\><c-n><c-w>k
 tnoremap <c-l> <c-\><c-n><c-w>l
-" 更改窗口垂直大小
-nnoremap <M--> :resize +3<CR>
-nnoremap <M-_> :resize -3<CR>
-" 更改窗口水平大小
-nnoremap <M-(> :vertical resize -3<CR>
-nnoremap <M-)> :vertical resize +3<CR>
+if !common#functions#HasPlug('ResizeWindow.vim')
+    " 更改窗口垂直大小
+    nnoremap <M--> :resize +3<CR>
+    nnoremap <M-_> :resize -3<CR>
+    " 更改窗口水平大小
+    nnoremap <M-(> :vertical resize -3<CR>
+    nnoremap <M-)> :vertical resize +3<CR>
+endif
 " 分割窗口
 nnoremap <c-w>k :abo split <cr>
 nnoremap <c-w>h :abo vsplit <cr>
