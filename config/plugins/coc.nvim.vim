@@ -518,6 +518,7 @@ let s:coc_config_functions = {
             \ }
 
 " TODO 更改调用方式
+" 调用插件的配置函数
 for extension in g:coc_global_extensions
     call get(s:coc_config_functions, extension, function('<SID>tmp'))()
 endfor
