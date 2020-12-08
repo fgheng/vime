@@ -86,7 +86,7 @@ endfunction
 
 let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
-    \ 'ctrl-x': 'split',
+    \ 'ctrl-s': 'split',
     \ 'ctrl-v': 'vsplit',
     \ 'alt-x': function('s:SystemExecute'),
 \ }
