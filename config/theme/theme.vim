@@ -24,7 +24,7 @@ endif
 set cursorline
 " set cursorcolumn
 " 高亮textwidth后的一列
-set colorcolumn=+1
+set colorcolumn=81
 " 光标
 set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20
 " 搜索高亮
