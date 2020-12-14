@@ -37,8 +37,8 @@ cnoremap <C-l> <End>
 " cnoremap <C-l> <Right>
 " cnoremap <C-j> <Left>
 
-" 使用leader q执行宏录制功能
-nnoremap <leader>q q
+" 使用alt q执行宏录制功能
+nnoremap <M-q> q
 " 去除EX模式
 nmap Q <nop>
 " jk表示esc
