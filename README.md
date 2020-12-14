@@ -904,12 +904,12 @@ debug可以选择使用[puremourning/*vimspector*](https://github.com/puremourni
 
 ### 其他
 
-| 按键             | 模式   | 描述                                                          |
-| ---------------- | ------ | ----------------------------------------------------------    |
-| leader q         | normal | 进入宏录制，因为q映射为了关闭窗口，所以使用leader q作为宏录制 |
-| alt x            | normal | 使用系统默认应用打开当前buffer文件                            |
-| \<space>\<space> | normal | 保存当前的buffer，不包括terminal，目录树等                    |
-|                  |        |                                                               |
+| 按键             | 模式   | 描述                                                       |
+| ---------------- | ------ | ---------------------------------------------------------- |
+| alt q            | normal | 进入宏录制，因为q映射为了关闭窗口，所以使用alt q作为宏录制 |
+| alt x            | normal | 使用系统默认应用打开当前buffer文件                         |
+| \<space>\<space> | normal | 保存当前的buffer，不包括terminal，目录树等                 |
+|                  |        |                                                            |
 
 
 
