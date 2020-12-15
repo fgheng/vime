@@ -15,7 +15,6 @@ let g:tex_conceal='abdmg'
 " let g:latex_view_general_viewer = 'zathura'
 " let g:latex_view_general_options = shellescape('--synctex-forward "' . exepath(v:progpath) . ' --servername ' . v:servername . ' +{%lline} {%ffile}"')
 " let g:latex_view_general_options = shellescape('--synctex-forward "' . v:progname . ' --servername ' . v:servername . ' +{%line} {%file}"')
-
 " \ll编译tex文件 (注意：\ll执行后，表示进入continuous mode，每次编辑过后，:w保存文档，对应的pdf就会自动更新)
 " \lk(或\ll)停止编译 (注意：当执行\lk或再次执行\ll后，表示退出continuous mode，:w保存文档，对应的pdf就不会自动更新)
 " \lv打开pdf阅读器查看文档，或在pdf文档已经打开的情况下向前搜索pdf中对应的目前光标所在位置的内容
@@ -57,13 +56,13 @@ augroup vime_vimtex_event_1
     au User VimtexEventQuit     call CloseViewers()
 augroup END
 
-augroup vime_vimtex_group
-    autocmd!
-    autocmd FileType tex setl tw=80
-    autocmd FileType tex setl fo+=t
-    autocmd FileType tex setl fo-=l
-    autocmd FileType tex setl fo+=mM
-    autocmd FileType tex setl spell
-    autocmd FileType tex setl spelllang=nl,en_gb
-    " autocmd FileType tex setl conceallevel=0
-augroup END
+" augroup vime_vimtex_group
+    " autocmd!
+    " autocmd FileType tex setl tw=80
+    " autocmd FileType tex setl fo+=t
+    " autocmd FileType tex setl fo-=l
+    " autocmd FileType tex setl fo+=mM
+    " autocmd FileType tex setl spell
+    " autocmd FileType tex setl spelllang=nl,en_gb
+    " " autocmd FileType tex setl conceallevel=0
+" augroup END
