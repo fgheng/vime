@@ -92,6 +92,7 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 │   ├── base.vim
 │   ├── keymap.vim
 │   └── plugin_list.vim
+├── ftplugin/
 ├── scripts/
 ├── init.vim
 └── vimrc -> ./init.vim
@@ -136,15 +137,19 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
      此文件是一些快捷键配置，通常这些快捷键与插件无关，自定义的插件快捷键我一般放到插件对应的配置文件中。
 
 
-4. `scripts/`
+4. `ftplugin`
+
+   该目录是(neo)vim的目录，该目录下的文件都是文件类型.vim类型的，比如c.vim，cpp.vim，表示遇到c，cpp文件的时候要执行的代码。
+
+5. `scripts/`
 
    该目录主要存储一些常用的脚本文件，如`preview.sh`等。
 
-5. `init.vim`
+6. `init.vim`
 
    (neo)vim初始化时要读取的文件。
 
-6. `vimrc`
+7. `vimrc`
 
    (neo)vim初始化时要读取的文件，该文件链接到`init.vim`。
 
