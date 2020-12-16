@@ -1,3 +1,4 @@
+" 一个教程 https://jdhao.github.io/2019/03/26/nvim_latex_write_preview/
 let g:vimtex_cache_root = g:cache_root_path . '/vim/vimtex'
 " https://zhuanlan.zhihu.com/p/61036165
 let g:tex_flavor='latex'
@@ -29,6 +30,17 @@ let g:tex_conceal='abdmg'
 " \li查看latex项目信息，按Esc或q退出
 " \lm查看内置的imaps
 "
+" TOC settings
+let g:vimtex_toc_config = {
+      \ 'name' : 'TOC',
+      \ 'layers' : ['content', 'todo', 'include'],
+      \ 'todo_sorted' : 0,
+      \ 'show_help' : 1,
+      \ 'show_numbers' : 1,
+      \ 'mode' : 2,
+      \ 'split_width' : 50,
+      \}
+
 
 " 自动打开inkscape绘图，然后插入到latex中
 if  executable("inkscape")
