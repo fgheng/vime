@@ -39,6 +39,7 @@ let g:vimtex_toc_config = {
       \ 'show_numbers' : 1,
       \ 'mode' : 2,
       \ 'split_width' : 50,
+      \ 'split_pos' : 'rightbelow',
       \}
 
 
