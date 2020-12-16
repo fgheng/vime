@@ -8,6 +8,7 @@ let g:vista#renderer#icons = {
     \   "function": "\uf794",
     \   "variable": "\uf71b",
     \  }
+let g:vista_sidebar_width = 50
 
 function s:vista_toggle() abort
     if &ft == "tex"
