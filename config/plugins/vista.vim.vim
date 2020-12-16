@@ -9,4 +9,15 @@ let g:vista#renderer#icons = {
     \   "variable": "\uf71b",
     \  }
 
-nnoremap <F3> :Vista!!<CR>
+function s:vista_toggle() abort
+    if &ft == "tex"
+        if common#functions#HasPlug('vimtex')
+            exec "VimtexTocToggle"
+        endif
+    else
+        exec "Vista!!"
+    endif
+endfunction
+
+" nnoremap <F3> :Vista!!<CR>
+nnoremap <F3> :call <SID>vista_toggle()<CR>
