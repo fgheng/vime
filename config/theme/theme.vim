@@ -47,9 +47,9 @@ if has('nvim')
 endif
 
 " 主题选择
-let g:srcery_italic = 1
-let g:srcery_transparent_background = 1
-silent! colorscheme srcery
+" let g:srcery_italic = 1
+" let g:srcery_transparent_background = 1
+" silent! colorscheme srcery
 
 " let g:forest_night_enable_italic = 1
 " let g:forest_night_transparent_background = 1
@@ -96,6 +96,7 @@ silent! colorscheme srcery
 
 " autocmd InsertEnter * hi CursorLineNr ctermbg=blue
 " autocmd InsertLeave * hi CursorLineNr ctermbg=green
+silent! colorscheme edge
 
 " coc 美化
 if common#functions#HasPlug('coc.nvim')

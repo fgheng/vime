@@ -50,7 +50,12 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'itchyny/lightline.vim'
 " Plug 'liuchengxu/eleline.vim'
 " 彩虹括号
-Plug 'luochen1990/rainbow'
+if has("nvim")
+    " 使用treesitter的彩虹括号
+    Plug 'p00f/nvim-ts-rainbow'
+else
+    Plug 'luochen1990/rainbow'
+endif
 " 函数列表
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号

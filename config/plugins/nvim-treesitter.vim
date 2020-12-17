@@ -38,6 +38,12 @@ lua << EOF
         -- indent
         indent = {
             enable = true
+        },
+
+        -- rainbow
+        rainbow = {
+            enable = true,
+            disable = {'bash'}
         }
 
     }
