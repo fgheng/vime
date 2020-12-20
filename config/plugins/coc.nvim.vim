@@ -306,8 +306,8 @@ function! s:lc_coc_git() abort
     call coc#config('git.changeRemovedSign.text', '▋')
 
     " 导航到修改块
-    nnoremap <silent> <leader>gk <Plug>(coc-git-prevchunk)
-    nnoremap <silent> <leader>gj <Plug>(coc-git-nextchunk)
+    nmap <leader>gk <Plug>(coc-git-prevchunk)
+    nmap <leader>gj <Plug>(coc-git-nextchunk)
     " 显示光标处的修改信息
     nnoremap <silent> <leader>gp <esc>:CocCommand git.chunkInfo<cr>
     " 撤销当前块的修改
