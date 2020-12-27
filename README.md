@@ -192,7 +192,7 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 ### 安装
 
 ```bash
-git clone https://github.com/fgheng/vime -C ~/.config/nvim
+git clone https://github.com/fgheng/vime ~/.config/nvim
 ```
 
 然后打开neovim，执行`:PlugInstall`等待插件安装完毕即可！
