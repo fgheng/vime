@@ -185,10 +185,6 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 
    该软件主要是补全插件[coc](https://github.com/neoclide/coc.nvim)下的`coc-clangd`插件使用，用于c系语言的补全，可选（如果需要c系补全的话）
 
-7. `python-pysdl2 sdl2 sdl2-mixer`
-
-   主要是[keysound](https://github.com/skywind3000/vim-keysound)插件使用，用于模拟键盘发声音，可选。
-
 ### 安装
 
 ```bash
