@@ -53,6 +53,7 @@ let g:lightline = {
     \   'right': [
     \       ['cocerror'], ['cocwarn'], ['cocfix'],
     \       [ 'filetype', 'fileencoding', 'fileformat', 'hex', 'asc', 'lineinfo'],
+    \       [ 'percent' ]
     \   ]
     \ },
     \ 'component': {
@@ -67,6 +68,7 @@ let g:lightline = {
     \   'cocerror': 'common#functions#CocError',
     \   'cocwarn' : 'common#functions#CocWarn',
     \   'cocfix': 'common#functions#CocFix',
+    \   'percent': 'ScrollStatus'
     \ },
     \ 'component_expand': {
     \ },
