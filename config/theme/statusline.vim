@@ -24,6 +24,9 @@ let s:stl .= "%{common#functions#CocStatus()} "
 let s:stl .= "%="
 let s:stl .= "%<"
 
+if common#functions#HasPlug('vim-scrollstatus')
+    let s:stl .= '%{ScrollStatus()}'
+endif
 let s:stl .= "%#StatusLine# [%{&fileformat}] %{&fileencoding?&fileencoding:&encoding} "
 let s:stl .= "%#Substitute# %{common#functions#BufLineAndColInfo()} "
 let s:stl .= "%#ToolbarButton# %{common#functions#FileType()} "
