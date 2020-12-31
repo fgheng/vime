@@ -51,8 +51,8 @@ Plug 'itchyny/lightline.vim'
 " Plug 'liuchengxu/eleline.vim'
 " 彩虹括号
 if has("nvim")
-    " 使用treesitter的彩虹括号
-    Plug 'p00f/nvim-ts-rainbow'
+    " 使用treesitter的彩虹括号，python下运行很卡
+    " Plug 'p00f/nvim-ts-rainbow'
 else
     Plug 'luochen1990/rainbow'
 endif
@@ -83,7 +83,7 @@ Plug 'easymotion/vim-easymotion', {'on':
 " 对齐
 Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign', '<Plug>(EasyAlign)']}
 " 对齐线
-Plug 'Yggdroot/indentLine', {'for': ['python', 'c', 'h', 'cpp', 'go', 'java', 'vim']}
+Plug 'Yggdroot/indentLine', {'on': 'IndentLinesEnable'}
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " csv插件
