@@ -51,9 +51,9 @@ endif
 " let g:srcery_transparent_background = 1
 " silent! colorscheme srcery
 
-" let g:forest_night_enable_italic = 1
-" let g:forest_night_transparent_background = 1
-" silent! colorscheme forest-night
+let g:forest_night_enable_italic = 1
+let g:forest_night_transparent_background = 1
+silent! colorscheme forest-night
 
 " silent! colorscheme one
 
@@ -82,8 +82,6 @@ endif
 " let g:tokyonight_current_word = 'underline'
 " silent! colorscheme tokyonight
 
-" silent! colorscheme edge
-
 " set background=dark
 " let g:pencil_gutter_color = 1
 " let g:pencil_spell_undercurl = 1
@@ -96,7 +94,7 @@ endif
 
 " autocmd InsertEnter * hi CursorLineNr ctermbg=blue
 " autocmd InsertLeave * hi CursorLineNr ctermbg=green
-silent! colorscheme edge
+" silent! colorscheme edge
 
 " coc 美化
 if common#functions#HasPlug('coc.nvim')
