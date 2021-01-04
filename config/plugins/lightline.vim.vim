@@ -45,6 +45,7 @@ function! LightLineGitInfo()abort
 endfunction
 
 let g:lightline = {
+    \ 'colorscheme': 'solarized',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'readonly', 'filename', 'modified'],
@@ -75,4 +76,3 @@ let g:lightline = {
     \ 'separator': { 'left': "\ue0b8", 'right': "\ue0ba"},
     \ 'subseparator': { 'left': "\ue0b9", 'right': "\ue0bb"}
 \ }
-"\ 'colorscheme': 'srcery',
