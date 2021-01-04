@@ -2,12 +2,16 @@
 
 ![vime](./assets/readme2.png)
 
-vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配置容易，该项目中每个插件都对应一个单独的配置文件，插件列表可以控制是否载入某个插件及其配置文件，各个插件配置之间的耦合性很低，我们甚至可以将一个插件的配置文件单独拿出来放到自己的(neo)vim配置中直接使用。大家可以根据自己的需求，快速的增减插件。
+vime是一个结构化的(neo)vim配置，具有如下优势：
 
-[点击查看截图](https://github.com/fgheng/vime/issues/7)
-[点击查看GIF](https://github.com/fgheng/vime/issues/8)
+1. 结构简单明了。该项目中每个插件都单独对应一个配置文件，插件列表`config/plugin_list.vim`可以控制所要加载的插件以及该插件配置。
+2. 增删配置容易。大家可以根据自己的需求，快速的增减插件。
+3. 低耦合性。大家可以将某一个插件的配置文件单独拿出来放到自己的(neo)vim配置中直接使用。
 
-[如果你有好用的插件推荐，也可以分享一下哦]
+一些截图和GIF，欢迎各位提供：
+
+1. [点击查看截图](https://github.com/fgheng/vime/issues/7)
+2. [点击查看GIF](https://github.com/fgheng/vime/issues/8)
 
 ## 目录
 
@@ -81,7 +85,6 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 │   ├── common/
 │   │   ├── common.vim
 │   │   └── functions.vim
-├── plugin/
 ├── config/
 │   ├── plugins/
 │   ├── other/
@@ -92,6 +95,7 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 │   ├── base.vim
 │   ├── keymap.vim
 │   └── plugin_list.vim
+├── plugin/
 ├── ftplugin/
 ├── scripts/
 ├── init.vim
@@ -102,23 +106,21 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 
 1. `autoload/`
 
-   在(neo)vim中，`autoload/`目录用于自动加载函数，我将全局变量以及全局函数放到了这个目录下的`common/`目录下了，如果你想直接复制一个插件的配置到自己的(neo)vim配置中，那么请不要忘记将这些全局变量复制过去，因为很多插件的配置都用到了这里的全局变量或者全局函数。
-
-2. `plugin/`
-
-   在(neo)vim中，`plugin/`目录下的配置会在(neo)vim启动的时候自动加载，因此，我主要用于存放一些自定义的配置在这里，此目录相当于旧目录下的`config/custom/`目录。
+   在(neo)vim中，`autoload/`目录用于自动加载。我将全局变量以及全局函数放到了`autoload/common/`目录下的`common.vim`和`functions.vim`文件中，如果大家想单独复制一个插件的配置到自己的(neo)vim配置中，那么请不要忘记将这些全局变量复制过去，因为很多插件配置都用到了这里的全局变量或者全局函数。
 
 3. `config/`
 
-   该目录是我自定义的目录，是主要的配置文件目录。
+   该目录是主要的配置文件目录。
 
    - `config/plugins/`
 
-     此目录下面就是所有插件的配置，一个插件对应一个文件，文件的名称与插件的名称相同，比如我有一个插件`Plug "user_name/plugin_name.vim"`，那么该插件对应的配置文件名称为`plugin_name.vim.vim`，关于该目录下插件的配置，我们统一一下，所有关于该插件的快捷键都统一放到该配置文件的最后。
+     此目录下面就是所有插件的配置，一个插件对应一个文件，文件的名称与插件的名称相同，比如插件`Plug "user_name/plugin_name.vim"`对应的配置文件名称为`plugin_name.vim.vim`。
+
+     对于插件的配置文件，有一个小小的规范，某个插件的按键映射最好写到对应配置文件的最后。
 
    - `config/other/`
 
-     此目录主要存放一些插件需要用到的文件，比如插件[coc](https://github.com/neoclide/coc.nvim)用到的`coc-settings.json`等文件。
+     此目录主要存放一些插件需要用到的文件，比如插件[coc](https://github.com/neoclide/coc.nvim)用到的`coc-settings.json`，ycm用到的`ycm_extra_conf.py`等文件。
 
    - `config/theme/`
 
@@ -126,7 +128,7 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 
    - `config/plugin_list.vim`
 
-     此文件是插件列表文件，想要使用什么插件都写到此文件中。(neo)vim在启动的时候会依据该文件中的插件到`plugins_config/plugins/`目录下寻找对应的配置文件并加载。
+     此文件是插件列表文件，想要使用什么插件都写到此文件中。(neo)vim在启动的时候会依据该文件所列插件自动加载对应的配置文件。
 
    - `base.vim`
 
@@ -134,12 +136,16 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 
    - `keymap.vim`
 
-     此文件是一些快捷键配置，通常这些快捷键与插件无关，自定义的插件快捷键我一般放到插件对应的配置文件中。
+     此文件是一些快捷键配置，通常这些快捷键与插件无关，与插件相关的快捷键一般都放到插件的配置文件中。
+
+3. `plugin/`
+
+   在(neo)vim中，`plugin/`目录下的配置会在(neo)vim启动的时候自动加载，因此，我主要用于存放一些自定义的配置在这里。
 
 
 4. `ftplugin`
 
-   该目录是(neo)vim的目录，该目录下的文件都是文件类型.vim类型的，比如c.vim，cpp.vim，表示遇到c，cpp文件的时候要执行的代码。
+   该目录是(neo)vim的目录，该目录下的文件都是以`文件类型.vim`格式进行命名，比如`c.vim`，`cpp.vim`，表示遇到`c`，`cpp`文件的时候要执行对应文件的代码。
 
 5. `scripts/`
 
@@ -159,17 +165,17 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 
 下面是一些必须或者可选的一些依赖：
 
-1. `ripgrep`
+1. `neovim`
+
+   此处的`neovim`是指python包中`neovim`，通过`pip install neovim`进行安装，必须安装。
+
+2. `ripgrep`
 
    该软件主要用于`fzf`、`clap`、`leaderf`等插件，主要用于内容检索，建议安装。
 
-2. `nodejs`、`npm`
+3. `nodejs`、`npm`
 
-   该软件主要用于[coc](https://github.com/neoclide/coc.nvim)补全插件，建议安装。
-
-3. `neovim`
-
-   此处的neovim是指python包中neovim，通过`pip install neovim`进行安装，必须安装。
+   该软件主要用于[coc](https://github.com/neoclide/coc.nvim)补全插件，如果使用coc则必须安装。
 
 4. `neovim-remote`、`xdotool`、`inkscape`、`rofi`、`pip install inkscape-figures`
 
@@ -181,29 +187,25 @@ vime是一个结构化的(neo)vim配置，整个结构简单明了，增删配�
 
    该软件是pdf阅读器，同样主要用于[vimtex](https://github.com/lervag/vimtex)插件，主要是用来进行预览，可选。
 
-6. `clangd`
-
-   该软件主要是补全插件[coc](https://github.com/neoclide/coc.nvim)下的`coc-clangd`插件使用，用于c系语言的补全，可选（如果需要c系补全的话）
-
 ### 安装
 
 ```bash
 git clone https://github.com/fgheng/vime ~/.config/nvim
 ```
 
-然后打开neovim，执行`:PlugInstall`等待插件安装完毕即可！
+然后打开(neo)vim，执行`:PlugInstall`等待插件安装完毕即可！
 
 **注意：**
 
 1. 因为一开始没有安装主题，因此在第一次启动的时候可能会提示找不到主题，属于正常现象，执行完`:PlugInstall`之后再打开(neo)vim即可。
 2. 因为列表中有关于`tmux`的插件，而这些插件只有在`tmux`中打开(neo)vim的时候才会加入到插件列表中，因此，第一次运行vime的时候如果没有启动`tmux`，那么这些关于`tmux`的插件将不会安装，要安装这些插件需要在`tmux`中打开(neo)vim后重新执行`PlugInstall`命令才可以。
-3. 如果使用youcomplete等插件，可能要等待的时间会很长
+3. 如果使用youcomplete等插件，可能要等待的时间会很长。
 
 
 
 ## 插件结构
 
-此部分主要介绍vime的插件结构。
+此部分主要介绍`vime`的插件结构。
 
 所有用到的插件都在`config/plugin_list.vim`中，该文件中的内容如下：
 
@@ -218,9 +220,9 @@ Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 
 当需要为自己使用的插件自定义配置的时候，请按照如下的例子进行：
 
-以`Plug 'juegunn/fzf.vim'`为例，首先我们要在`config/plugin_list.vim`中添加一行`Plug 'juegunn/fzf.vim'`，接下来要为该插件自定义配置，那么需要在`config/plugins/`目录下建立与插件名同名的文件`fzf.vim.vim`，注意后缀`.vim`，最后在该文件中写自己关于该插件的自定义配置即可，这样，在(neo)vim启动的时候会自动去加载该配置文件。
+以`Plug 'juegunn/fzf.vim'`为例，首先我们要在`config/plugin_list.vim`中添加一行`Plug 'juegunn/fzf.vim'`，表示我们要安装该插件，接下来要为该插件自定义配置，那么需要在`config/plugins/`目录下建立与插件名同名的文件`fzf.vim.vim`，注意后缀`.vim`，最后在该文件中编写关于该插件的配置即可。
 
-如果不想使用该插件了，那么只需要在`config/plugin_list.vim`中注释掉该插件即可，`config/plugins/fzf.vim.vim`文件则不必删除，(neo)vim在启动的时候将不再加载该配置文件，加减插件十分方便。
+如果不想使用该插件了，那么只需要在`config/plugin_list.vim`中注释掉该插件，`config/plugins/fzf.vim.vim`文件则不必删除，(neo)vim在启动的时候将不再加载该配置文件。
 
 
 
