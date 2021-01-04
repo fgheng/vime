@@ -2,13 +2,13 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
 lua << EOF
-    -- require "nvim-treesitter.highlight"
-    -- local hlmap = vim.treesitter.highlighter.hl_map
+    require "nvim-treesitter.highlight"
+    local hlmap = vim.treesitter.highlighter.hl_map
 
     --Misc
-    -- hlmap.error = nil
-    -- hlmap["punctuation.delimiter"] = "Delimiter"
-    -- hlmap["punctuation.bracket"] = nil
+    hlmap.error = nil
+    hlmap["punctuation.delimiter"] = "Delimiter"
+    hlmap["punctuation.bracket"] = nil
 
     require'nvim-treesitter.configs'.setup {
         -- 解析器的安装，all全部安装
