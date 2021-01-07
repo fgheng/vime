@@ -22,7 +22,7 @@ endif
 " 美化相关基本配置
 " 高亮当前行列
 set cursorline
-set colorcolumn=81
+set colorcolumn=80
 " 光标
 set guicursor=n-v-c-sm:block-Cursor,i-ci-ve:ver25-Cursor,r-cr-o:hor20
 " 搜索高亮
