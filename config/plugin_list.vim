@@ -168,7 +168,10 @@ endif
 Plug 'lambdalisue/suda.vim'
 Plug 'fgheng/ResizeWindow.vim'
 Plug 'tyru/open-browser.vim'
-Plug 'ojroques/vim-scrollstatus'
+" Plug 'ojroques/vim-scrollstatus'
+if has('nvim')
+    Plug 'dstein64/nvim-scrollview'
+endif
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
