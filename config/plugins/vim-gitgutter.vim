@@ -1,5 +1,5 @@
 " 开启gitgutter
-let g:gigutter_enable = 0
+let g:gigutter_enable = 1
 " 开启行高亮
 let g:gitgutter_highlight_lines = 0
 " 开启行号高亮
