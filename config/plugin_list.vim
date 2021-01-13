@@ -66,7 +66,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'honza/vim-snippets'
 " Plug 'SirVer/ultisnips'
 " 快速选择窗口
-Plug 't9md/vim-choosewin',  { 'on': 'ChooseWin' }
+Plug 't9md/vim-choosewin'
 " 快速移动
 Plug 'easymotion/vim-easymotion', {'on':
    \ [
