@@ -22,4 +22,4 @@ endfunction
 " | `<CR>` | win_land   | Navigate to current window    |
 " |        | `<NOP>`    | Disable predefined keymap     |
 
-nnoremap <silent> - <esc>:ChooseWin<cr>
+nnoremap <silent> - :call <SID>chooseWin()<cr>
