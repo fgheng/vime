@@ -101,7 +101,7 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif | normal! zvzz
 endif
 
-" 一下内容来自韦大的配置
+" 以下内容来自韦大的配置
 " 文件搜索和补全时忽略下面的扩展名
 set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
 "stuff to ignore when tab completing
