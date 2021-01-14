@@ -84,6 +84,8 @@ set showmatch
 set matchtime=2
 " 文件换行符，默认使用unix换行符
 set ffs=unix,dos,mac
+" 与系统共用剪切板
+set clipboard=unnamedplus
 
 if has('nvim') == 0 && has('patch-8.1.2020')
     set cursorlineopt=number cursorline
