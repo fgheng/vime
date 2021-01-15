@@ -3,7 +3,7 @@
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.timeout": 5000,
     "suggest.noselect": true,
-    "suggest.snippetIndicator": "  ❄",
+    "suggest.snippetIndicator": "❄",
     "suggest.completionItemKindLabels": {
         "class": "",
         "color": "",
