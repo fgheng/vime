@@ -189,9 +189,9 @@ let g:coc_global_extensions = [
     \ 'coc-python',
     \ 'coc-explorer',
     \ 'coc-ci',
-    \ 'coc-git',
     \ ]
 
+    " \ 'coc-git',
     " \ 'coc-marketplace',
     " \ 'coc-tsserver',
     " \ 'coc-prettier',
