@@ -37,7 +37,7 @@ lua << EOF
 
         -- indent
         indent = {
-            enable = true
+            enable = false
         },
 
         -- rainbow
