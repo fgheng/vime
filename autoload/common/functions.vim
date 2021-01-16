@@ -11,9 +11,46 @@ function! common#functions#PlugHasLoaded(plugName) abort
 endfunction
 
 " TODO 应该先判断g:plugs_order是否存在
-function! common#functions#HasPlug(plugName) abort
+function! common#functions#HasPlug(...) abort
+    " 如果类型是列表，那么列表中的所有插件都要存在才可以
+    " 其他情况如字符串，只需要存在一个即可
+    " HasPlug("f", ["a", "b", "c"], "d", "e")
+    " 需要f存在或者[a b c]都要存在或者d存在或者e存在
+
+    if a:0 == 0
+        return v:false
+    endif
+
+    " 如果有一个存在，那么就返回true
+    for out_item in a:000
+        " 如果类型是列表
+        " 那么列表中的所有插件都要存在
+
+        if type(out_item) == v:t_list
+
+            let list_tag = v:true
+            for item in out_item
+                " 不存在
+                if index(g:plugs_order, item) == -1
+                    let list_tag = v:false
+                    break
+                endif
+            endfor
+            if list_tag
+                return v:true
+            endif
+
+        " 否则，只需要检测是否存在
+        elseif type(out_item) == v:t_string
+            if index(g:plugs_order, out_item) > -1
+                return v:true
+            endif
+        endif
+    endfor
+
+
     " 插件列表中是否存在该插件
-    return (index(g:plugs_order, a:plugName) > -1 ? v:true : v:false)
+    " return (index(g:plugs_order, a:plugName) > -1 ? v:true : v:false)
 endfunction
 
 function! common#functions#HasInstall(plugName) abort
