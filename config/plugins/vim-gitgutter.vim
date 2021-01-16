@@ -13,12 +13,16 @@ let g:gitgutter_max_signs = 500
 let g:gitgutter_preview_win_floating = 1
 
 " 关闭column的提示符号
-let g:gitgutter_signs = 1
-let g:gitgutter_sign_added = '▎'
-let g:gitgutter_sign_modified = '▎'
-let g:gitgutter_sign_removed = '▎'
-let g:gitgutter_sign_removed_first_line = '▔'
-let g:gitgutter_sign_modified_removed = '▋'
+if common#functions#HasCocPlug('coc-git')
+    let g:gitgutter_signs = 0
+else
+    let g:gitgutter_signs = 1
+    let g:gitgutter_sign_added = '▎'
+    let g:gitgutter_sign_modified = '▎'
+    let g:gitgutter_sign_removed = '▎'
+    let g:gitgutter_sign_removed_first_line = '▔'
+    let g:gitgutter_sign_modified_removed = '▋'
+endif
 
 highlight link GitGutterAddLineNr SignifySignAdd
 highlight link GitGutterChangeLineNr SignifySignChange
