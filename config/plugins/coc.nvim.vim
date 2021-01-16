@@ -174,10 +174,11 @@ function! s:lc_coc_highlight() abort
 endfunction
 
 function! s:lc_coc_lists() abort
-    " session 保存目录
+    " session
     call coc#config('session.directory', g:session_dir)
-    if !common#functions#HasPlug('dashboard-nvim')
-        " 退出时自动保存session
+    if common#functions#HasPlug('dashboard-nvim', 'vim-startify')
+        call coc#config('session.saveOnVimLeave', v:false)
+    else
         call coc#config('session.saveOnVimLeave', v:true)
     endif
 
