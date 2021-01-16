@@ -13,11 +13,11 @@ let g:gitgutter_max_signs = 500
 let g:gitgutter_preview_win_floating = 1
 
 " 关闭column的提示符号
-let g:gitgutter_signs = 0
+let g:gitgutter_signs = 1
 let g:gitgutter_sign_added = '▎'
 let g:gitgutter_sign_modified = '▎'
 let g:gitgutter_sign_removed = '▎'
-let g:gitgutter_sign_removed_first_line = '▎'
+let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▋'
 
 highlight link GitGutterAddLineNr SignifySignAdd
@@ -28,11 +28,11 @@ highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 " coc-git优先
 if !common#functions#HasCocPlug('coc-git')
     " 导航到修改块
-    nnoremap <leader>gj <Plug>(GitGutterNextHunk)
-    nnoremap <leader>gk <Plug>(GitGutterPrevHunk)
+    nnoremap <leader>gj :GitGutterNextHunk<cr>
+    nnoremap <leader>gk :GitGutterPrevHunk<cr>
     " 显示光标处的修改信息
-    nnoremap <leader>gp <Plug>(GitGutterPreviewHunk)
+    nnoremap <leader>gp :GitGutterPreviewHunk<cr>
     " 撤销当前块的修改
-    nnoremap <leader>gu <Plug>(GitGutterUndoHunk)
-    nnoremap <leader>gh <Plug>(GitGutterStageHunk)
+    nnoremap <leader>gu :GitGutterUndoHunk<cr>
+    nnoremap <leader>gh :GitGutterStageHunk<cr>
 endif
