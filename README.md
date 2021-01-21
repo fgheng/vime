@@ -199,7 +199,7 @@ git clone https://github.com/fgheng/vime ~/.config/nvim
 
 1. 因为一开始没有安装主题，因此在第一次启动的时候可能会提示找不到主题，属于正常现象，执行完`:PlugInstall`之后再打开(neo)vim即可。
 2. 因为列表中有关于`tmux`的插件，而这些插件只有在`tmux`中打开(neo)vim的时候才会加入到插件列表中，因此，第一次运行vime的时候如果没有启动`tmux`，那么这些关于`tmux`的插件将不会安装，要安装这些插件需要在`tmux`中打开(neo)vim后重新执行`PlugInstall`命令才可以。
-3. 如果使用youcomplete等插件，可能要等待的时间会很长。
+3. 第一次安装可能要等待很长时间，可以稍微耐心等待一下。
 
 
 
