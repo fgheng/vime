@@ -45,6 +45,7 @@ Plug 'sonph/onehalf'
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'sainnhe/edge'
 Plug 'reedes/vim-colors-pencil'
+Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
 " 顶栏和底栏
 " Plug 'rbong/vim-crystalline'
 Plug 'itchyny/lightline.vim'
