@@ -394,6 +394,13 @@ function! s:lc_coc_explorer() abort
         \   '.vim': {
         \      'root-uri': g:vim_root_path,
         \   },
+        \   'cocConfig': {
+        \      'root-uri': '~/.config/coc',
+        \   },
+        \   'tab': {
+        \     'position': 'tab',
+        \     'quit-on-open': v:true,
+        \   },
         \   'floating': {
         \      'position': 'floating',
         \      'floating-position': 'center',
@@ -409,13 +416,13 @@ function! s:lc_coc_explorer() abort
         \     'floating-position': 'center-top',
         \     'open-action-strategy': 'sourceWindow',
         \   },
-        \   'floatingLeftside': {
+        \   'floatingLeftSide': {
         \      'position': 'floating',
         \      'floating-position': 'left-center',
         \      'floating-width': 100,
         \      'open-action-strategy': 'sourceWindow',
         \   },
-        \   'floatingRightside': {
+        \   'floatingRightSide': {
         \      'position': 'floating',
         \      'floating-position': 'right-center',
         \      'floating-width': 100,
@@ -423,7 +430,10 @@ function! s:lc_coc_explorer() abort
         \   },
         \   'simplify': {
         \     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-        \   }
+        \   },
+        \   'buffer': {
+        \     'sources': [{'name': 'buffer', 'expand': v:true}]
+        \   },
     \ }
 
     " Use preset argument to open it
@@ -441,6 +451,7 @@ function! s:lc_coc_explorer() abort
 
     " config
     call coc#config("explorer.icon.enableNerdfont", v:true)
+    call coc#config("explorer.contentWidthType", "win-width")
     call coc#config("explorer.bookmark.child.template", "[selection | 1] [filename] [position] - [annotation]")
     call coc#config("explorer.file.column.icon.modified", "•")
     call coc#config("explorer.file.column.icon.deleted", "✖")
