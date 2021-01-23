@@ -472,7 +472,7 @@ function! s:lc_coc_explorer() abort
       \
       \ 's': ["wait", 'toggleSelection', 'normal:j'],
       \ 'S': ["wait", 'toggleSelection', 'normal:k'],
-      \ '*': 'toggleSelection',
+      \ '*': ["wait", 'toggleSelection'],
       \ 'gs': ["wait", "reveal:select"],
       \ '\.': 'toggleHidden',
       \
