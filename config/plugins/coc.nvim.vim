@@ -449,23 +449,37 @@ function! s:lc_coc_explorer() abort
     call coc#config("explorer.file.column.icon.unmerged", "≠")
     call coc#config("explorer.file.column.icon.ignored", "ⁱ")
     call coc#config("explorer.keyMappings.global", {
+                \ 's': v:false,
+                \ 't': v:false,
+                \ 'E': v:false,
+                \ 'e': v:false,
+                \ 'zh': v:false,
+                \ 'g.': v:false,
+    \ })
+    call coc#config("explorer.keyMappings.global", {
       \ 'k': 'nodePrev',
       \ 'j': 'nodeNext',
-      \ 'h': 'collapse',
-      \ 'l': ['expandable?', 'expand', 'open'],
-      \ 'L': 'expand:recursive',
-      \ 'H': 'collapse:recursive',
-      \ 'K': 'expandablePrev',
-      \ 'J': 'expandableNext',
-      \ '<cr>': ['expandable?', 'cd', 'open'],
-      \ '<bs>': 'gotoParent',
+      \ 'h': ["wait", 'collapse'],
+      \ 'l': ["wait", 'expandable?', 'expand', 'open'],
+      \ 'L': ["wait", 'expand:recursive'],
+      \ 'H': ["wait", 'collapse:recursive'],
+      \ 'K': ["wait", 'expandablePrev'],
+      \ 'J': ["wait", 'expandableNext'],
+      \ 'o': ["wait", 'expanded?', 'collapse', 'expand'],
+      \ '<cr>': ["wait", 'expandable?', 'cd', 'open'],
+      \ '<bs>': ["wait", 'gotoParent'],
       \ 'r': 'refresh',
-      \ 'v': ['toggleSelection', 'normal:j'],
-      \ 'V': ['toggleSelection', 'normal:k'],
+      \
+      \ 's': ["wait", 'toggleSelection', 'normal:j'],
+      \ 'S': ["wait", 'toggleSelection', 'normal:k'],
       \ '*': 'toggleSelection',
+      \ 'gs': ["wait", "reveal:select"],
+      \ '\.': 'toggleHidden',
+      \
       \ '<c-s>': 'open:split',
       \ '<c-v>': 'open:vsplit',
-      \ 't': 'open:tab',
+      \ '<c-t>': 'open:tab',
+      \
       \ 'dd': 'cutFile',
       \ 'Y': 'copyFile',
       \ 'D': 'delete',
@@ -474,25 +488,42 @@ function! s:lc_coc_explorer() abort
       \ 'N': 'addFile',
       \ 'yp': 'copyFilepath',
       \ 'yn': 'copyFilename',
-      \ 'gp': 'preview:labeling',
+      \
+      \ 'p': 'preview:labeling',
+      \ 'cp': 'preview:content',
+      \
       \ '<M-x>': 'systemExecute',
       \ 'f': 'search',
       \ 'F': 'searchRecursive',
+      \
       \ '<tab>': 'actionMenu',
       \ '?': 'help',
       \ 'q': 'quit',
       \ '<esc>': 'esc',
+      \
       \ 'gf': 'gotoSource:file',
       \ 'gb': 'gotoSource:buffer',
-      \ '[[': 'sourcePrev',
-      \ ']]': 'sourceNext',
-      \ '[d': 'diagnosticPrev',
-      \ ']d': 'diagnosticNext',
-      \ '[c': 'gitPrev',
-      \ ']c': 'gitNext',
-      \ '<<': 'gitStage',
-      \ '>>': 'gitUnstage'
+      \ '[[': ["wait", 'indentPrev'],
+      \ ']]': ["wait", 'indentNext'],
+      \
+      \ '<M-k>': ["wait", 'markPrev:diagnosticError'],
+      \ '<M-j>': ["wait", 'markNext:diagnosticError'],
+      \
+      \ '<leader>gk': ["wait", 'markPrev:git'],
+      \ '<leader>gj': ["wait", 'markNext:git'],
+      \ '<leader>gh': 'gitStage',
+      \ '<leader>gu': 'gitUnstage'
     \ })
+
+    " function! s:ShowFilename()
+        " let s:node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
+        " redraw | echohl Debug | echom exists('s:node_info.fullpath') ?
+        " \ 'FullPath: ' . s:node_info.fullpath .
+        " \ ' Size: ' . s:node_info.lstat.size . 'B' .
+        " \ ' ReadOnly: ' . s:node_info.readonly : '' |  echohl None
+    " endfunction
+    " autocmd CursorMoved \[coc-explorer\]* :call <SID>ShowFilename()
+
 endfunction
 
 function! s:tmp() abort
