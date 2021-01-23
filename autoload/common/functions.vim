@@ -89,6 +89,9 @@ function! common#functions#MoveTabOrBuf(direction) abort
     " 移动buffer或者tab
     " 0 <- 1 ->
 
+    let s:exclude_ft = ["coc-explorer", "vista"]
+    if index(s:exclude_ft, &ft) != -1 | return | endif
+
     " 如果在floaterm中
     if &ft ==# "floaterm"
         if a:direction == 0
