@@ -55,7 +55,9 @@ endif
 " let g:forest_night_transparent_background = 1
 " silent! colorscheme forest-night
 
-silent! colorscheme nvcode
+" silent! colorscheme nvcode
+" silent! colorscheme xcodedark
+silent! colorscheme gruvbox-material
 
 " let g:one_allow_italics = 1
 " silent! colorscheme one
