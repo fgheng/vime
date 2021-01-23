@@ -71,7 +71,8 @@ nnoremap <leader>tt :terminal<cr>
 " 插入模式下的一些快捷键
 inoremap <M-o> <esc>o
 inoremap <M-O> <esc>O
-inoremap <M-h> <HOME>
+" inoremap <M-h> <HOME>
+inoremap <M-h> <esc>^i
 inoremap <M-l> <END>
 inoremap <c-h> <left>
 inoremap <c-j> <down>
