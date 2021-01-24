@@ -48,6 +48,7 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
 Plug 'arzg/vim-colors-xcode'
 " 顶栏和底栏
+" Plug 'romgrk/barbar.nvim'
 " Plug 'rbong/vim-crystalline'
 Plug 'itchyny/lightline.vim'
 " Plug 'liuchengxu/eleline.vim'
@@ -94,7 +95,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug', 'vimwiki'], 'on': 'MarkdownPreview'}
 " Plug 'mzlogin/vim-markdown-toc', {'on': ['GenTocGFM', 'GenTocRedcarpet', 'GenTocGitLab', 'GenTocMarked']}
 " 功能很强的折叠插件, zc zo
-Plug 'pseewald/vim-anyfold'
+" Plug 'pseewald/vim-anyfold', {'on': 'AnyFoldActivate'}
 " 起始界面
 Plug 'mhinz/vim-startify'
 " 翻译插件
@@ -191,6 +192,7 @@ let g:coc_global_extensions = [
     \ 'coc-python',
     \ 'coc-explorer',
     \ 'coc-ci',
+    \ 'coc-zi',
     \ ]
 
     " \ 'coc-git',
