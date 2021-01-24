@@ -487,7 +487,7 @@ function! s:lc_coc_explorer() abort
       \ 'S': ["wait", 'toggleSelection', 'normal:k'],
       \ '*': ["wait", 'toggleSelection'],
       \ 'gs': ["wait", "reveal:select"],
-      \ '\.': 'toggleHidden',
+      \ '<dot>': 'toggleHidden',
       \
       \ '<c-s>': 'open:split',
       \ '<c-v>': 'open:vsplit',
