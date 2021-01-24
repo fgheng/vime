@@ -502,8 +502,8 @@ function! s:lc_coc_explorer() abort
       \ 'yp': 'copyFilepath',
       \ 'yn': 'copyFilename',
       \
-      \ 'p': 'preview:labeling',
-      \ 'cp': 'preview:content',
+      \ 'pl': 'previewOnHover:toggle:labeling',
+      \ 'pc': 'previewOnHover:toggle:content',
       \
       \ '<M-x>': 'systemExecute',
       \ 'f': 'search',
