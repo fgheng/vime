@@ -1,5 +1,5 @@
 if exists('*HasCocPlug') && exists('*HasPlug')
-    if common#functions#HasCocPlug('coc-lists') || common#functions#HasPlug('dashboard-nvim')
+    if common#functions#HasCocPlug('coc-lists') || common#functions#HasPlug('dashboard-nvim', 'vim-startify')
         finish
     endif
 
