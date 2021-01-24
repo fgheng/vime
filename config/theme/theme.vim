@@ -58,6 +58,7 @@ endif
 " silent! colorscheme nvcode
 " silent! colorscheme xcodedark
 silent! colorscheme gruvbox-material
+" silent! colorscheme onedark
 
 " let g:one_allow_italics = 1
 " silent! colorscheme one
