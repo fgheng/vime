@@ -5,10 +5,10 @@ hi Folded term=underline
 
 " 大文件
 " activate anyfold by default
-augroup vime_anyfold_group
-    autocmd!
-    autocmd Filetype * AnyFoldActivate
-augroup END
+" augroup vime_anyfold_group
+    " autocmd!
+    " autocmd Filetype * AnyFoldActivate
+" augroup END
 
 " " disable anyfold for large files
 " let g:LargeFile = 1000000 " file is large if size greater than 1MB
