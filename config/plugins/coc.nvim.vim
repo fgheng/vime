@@ -5,11 +5,13 @@ let g:coc_config_home = g:other_config_root_path
 
 " 卸载不在列表中的插件
 function! s:uninstall_unused_coc_extensions() abort
-    for e in keys(json_decode(join(readfile(expand(g:coc_data_home . '/extensions/package.json')), "\n"))['dependencies'])
-        if index(g:coc_global_extensions, e) < 0
-            execute 'CocUninstall ' . e
-        endif
-    endfor
+    if has_key(g:, 'coc_global_extensions')
+        for e in keys(json_decode(join(readfile(expand(g:coc_data_home . '/extensions/package.json')), "\n"))['dependencies'])
+            if index(g:coc_global_extensions, e) < 0
+                execute 'CocUninstall ' . e
+            endif
+        endfor
+    endif
 endfunction
 autocmd User CocNvimInit call s:uninstall_unused_coc_extensions()
 
@@ -564,6 +566,8 @@ let s:coc_config_functions = {
 
 " TODO 更改调用方式
 " 调用插件的配置函数
-for extension in g:coc_global_extensions
-    call get(s:coc_config_functions, extension, function('<SID>tmp'))()
-endfor
+if has_key(g:, 'coc_global_extensions')
+    for extension in g:coc_global_extensions
+        call get(s:coc_config_functions, extension, function('<SID>tmp'))()
+    endfor
+endif
