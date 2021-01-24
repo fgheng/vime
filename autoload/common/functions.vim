@@ -60,7 +60,8 @@ endfunction
 
 function! common#functions#HasCocPlug(plugName) abort
     " 判断是否安装了coc插件
-    if common#functions#HasPlug('coc.nvim') && index(g:coc_global_extensions, a:plugName) > -1
+    if common#functions#HasPlug('coc.nvim') && has_key(g:, 'coc_global_extensions') &&
+        \ index(g:coc_global_extensions, a:plugName) > -1
         return v:true
     else
         return v:false
