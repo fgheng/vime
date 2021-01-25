@@ -468,6 +468,7 @@ function! s:lc_coc_explorer() abort
                 \ 'e': v:false,
                 \ 'zh': v:false,
                 \ 'g.': v:false,
+                \ 'p': v:false,
     \ })
     call coc#config("explorer.keyMappings.global", {
       \ 'k': 'nodePrev',
