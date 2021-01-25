@@ -193,6 +193,7 @@ let g:coc_global_extensions = [
     \ 'coc-explorer',
     \ 'coc-ci',
     \ 'coc-zi',
+    \ 'coc-sh',
     \ ]
 
     " \ 'coc-git',
