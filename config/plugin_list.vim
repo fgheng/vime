@@ -58,6 +58,7 @@ Plug 'luochen1990/rainbow'
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
+Plug 'Yggdroot/hiPairs'
 " 快速包围
 Plug 'tpope/vim-surround'
 " Plug 'machakann/vim-sandwich'
@@ -194,6 +195,7 @@ let g:coc_global_extensions = [
     \ 'coc-ci',
     \ 'coc-zi',
     \ 'coc-sh',
+    \ 'coc-just-complete'
     \ ]
 
     " \ 'coc-git',
