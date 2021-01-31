@@ -11,6 +11,9 @@ Plug 'puremourning/vimspector'
 Plug 'tpope/vim-fugitive', {'on': ['Gwrite', 'Gcommit', 'Gread', 'Gdiff', 'Gblame']}
 \ | Plug 'rbong/vim-flog'
 \ | Plug 'airblade/vim-gitgutter'
+if has('nvim')
+    Plug 'f-person/git-blame.nvim'
+endif
 " 注释插件
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
@@ -50,7 +53,7 @@ Plug 'arzg/vim-colors-xcode'
 " 顶栏和底栏
 " Plug 'romgrk/barbar.nvim'
 " Plug 'rbong/vim-crystalline'
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 " Plug 'liuchengxu/eleline.vim'
 " 彩虹括号
 Plug 'luochen1990/rainbow'
@@ -176,6 +179,7 @@ Plug 'tyru/open-browser.vim'
 if has('nvim')
     Plug 'dstein64/nvim-scrollview'
 endif
+Plug 'ernstwi/vim-secret'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
