@@ -52,7 +52,8 @@ set shiftround
 if has('folding')
     set foldenable
     " 基于缩进的折叠
-    set foldmethod=indent
+    " set foldmethod=indent
+    set foldmethod=syntax
     " 默认打开所有缩进
     set foldlevel=99
 endif
