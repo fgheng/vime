@@ -95,7 +95,7 @@ endfunction
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 " 函数参数的文档
 nnoremap <silent> <space>k :call CocActionAsync('showSignatureHelp')<CR>
-au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
+" au CursorHoldI * sil call CocActionAsync('showSignatureHelp')
 
 " 格式化代码
 if !common#functions#HasPlug('neoformat')
@@ -392,6 +392,7 @@ function! s:lc_coc_fzf_preview() abort
 endfunction
 
 function! s:lc_coc_explorer() abort
+    if common#functions#HasPlug('nvim-tree.lua') | return | endif
     let g:coc_explorer_global_presets = {
         \   '.vim': {
         \      'root-uri': g:vim_root_path,
@@ -456,10 +457,10 @@ function! s:lc_coc_explorer() abort
     call coc#config("explorer.contentWidthType", "win-width")
     call coc#config("explorer.bookmark.child.template", "[selection | 1] [filename] [position] - [annotation]")
     call coc#config("explorer.file.column.icon.modified", "•")
-    call coc#config("explorer.file.column.icon.deleted", "✖")
-    call coc#config("explorer.file.column.icon.untracked", "ᵁ")
-    call coc#config("explorer.file.column.icon.renamed", "R")
-    call coc#config("explorer.file.column.icon.unmerged", "≠")
+    call coc#config("explorer.file.column.icon.deleted", "✗")
+    call coc#config("explorer.file.column.icon.untracked", "★")
+    call coc#config("explorer.file.column.icon.renamed", "➜")
+    call coc#config("explorer.file.column.icon.unmerged", "")
     call coc#config("explorer.file.column.icon.ignored", "ⁱ")
     call coc#config("explorer.keyMappings.global", {
                 \ 's': v:false,

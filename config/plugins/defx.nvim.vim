@@ -62,7 +62,7 @@ function! DefxOpen(where) abort
     exec "Defx "
 endf
 
-" 自定义快捷键函数
+" 选择窗口
 function! s:selectWindow(filepath)
     if tabpagewinnr(tabpagenr(), '$') > 2
         if exists(':ChooseWin') == 2

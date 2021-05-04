@@ -1,15 +1,7 @@
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
 
 lua << EOF
-    require "nvim-treesitter.highlight"
-    local hlmap = vim.treesitter.highlighter.hl_map
-
-    --Misc
-    hlmap.error = nil
-    hlmap["punctuation.delimiter"] = "Delimiter"
-    hlmap["punctuation.bracket"] = nil
-
     require'nvim-treesitter.configs'.setup {
         -- 解析器的安装，all全部安装
         ensure_installed = 'maintained', -- one of 'all', 'language', or a list of languages
@@ -18,8 +10,8 @@ lua << EOF
         highlight = {
             enable = true,                      -- false将禁用整个插件
             disable = {},                       -- 不使用该插件的语言
-            custom_captures = {                 -- mapping of user defined captures to highlight groups
-                -- ["foo.bar"] = "Identifier"     -- highlight own capture @foo.bar with highlight group "Identifier", see :h nvim-treesitter-query-extensions
+            custom_captures = {                 -- 自定义高亮组
+                -- ["foo.bar"] = "Identifier"     
             },
         },
 

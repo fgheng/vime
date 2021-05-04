@@ -1,7 +1,6 @@
 if &laststatus < 2
     " 窗口一直有状态行
     set laststatus=2
-    set showtabline=2
 endif
 
 
@@ -46,6 +45,9 @@ endfunction
 
 let g:lightline = {
     \ 'colorscheme': 'solarized',
+    \ 'enable': {
+    \ 'tabline': 0
+    \},
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'readonly', 'filename', 'modified'],
