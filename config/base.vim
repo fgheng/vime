@@ -87,7 +87,7 @@ set matchtime=2
 set ffs=unix,dos,mac
 " 与系统共用剪切板
 " 在某些系统上可能会出现vim打开时间长的问题
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 if has('nvim') == 0 && has('patch-8.1.2020')
     set cursorlineopt=number cursorline
