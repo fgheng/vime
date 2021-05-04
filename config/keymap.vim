@@ -37,10 +37,14 @@ cnoremap <C-l> <End>
 " cnoremap <C-l> <Right>
 " cnoremap <C-j> <Left>
 
-" 使用alt q执行宏录制功能
-nnoremap <M-q> q
+" 使用alt q关闭当前buffer
+nnoremap <M-q> <esc>:bdelete<cr>
+
 " 去除EX模式
 nmap Q <nop>
+" 使用Q进行宏录制
+noremap Q q
+
 " jk表示esc
 inoremap jk <esc>
 
