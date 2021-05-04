@@ -105,17 +105,25 @@ function! common#functions#MoveTabOrBuf(direction) abort
     endif
 
     if tabpagenr('$') > 1
-        if a:direction == 0
-            exec 'tabprevious'
-        elseif a:direction == 1
-            exec 'tabnext'
-        endif
+        call common#functions#moveTab(a:direction)
     else
-        if a:direction == 0
-            exec 'bprevious'
-        elseif a:direction == 1
-            exec 'bnext'
-        endif
+        call common#functions#moveBuffer(a:direction)
+    endif
+endfunction
+
+function! common#functions#moveTab(direction) abort
+    if a:direction == 0
+        exec 'tabprevious'
+    elseif a:direction == 1
+        exec 'tabnext'
+    endif
+endfunction
+
+function! common#functions#moveBuffer(direction) abort
+    if a:direction == 0
+        exec 'bprevious'
+    elseif a:direction == 1
+        exec 'bnext'
     endif
 endfunction
 
