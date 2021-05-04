@@ -4,7 +4,7 @@
 
 vime是一个结构化的(neo)vim配置，具有如下优势：
 
-1. 结构简单明了。该项目中每个插件都单独对应一个配置文件，插件列表`config/plugin_list.vim`可以控制所要加载的插件以及该插件配置。
+1. 结构简单明了。该项目中每个插件都单独对应一个配置文件，插件列表`config/layers.vim`可以对插件进行组合。
 2. 增删配置容易。大家可以根据自己的需求，快速的增减插件。
 3. 低耦合性。大家可以将某一个插件的配置文件单独拿出来放到自己的(neo)vim配置中直接使用。
 
@@ -81,34 +81,44 @@ vime是一个结构化的(neo)vim配置，具有如下优势：
 ## 整体结构
 
 ```bash
+├── init.vim
+├── config.vim
+├── vimrc -> ./init.vim
 ├── autoload/
 │   ├── common/
-│   │   ├── common.vim
 │   │   └── functions.vim
 ├── config/
 │   ├── plugins/
+│   ├── layers/
 │   ├── other/
 │   ├── theme/
 │   │   ├── theme.vim
 │   │   ├── statusline.vim
 │   │   └── tabline.vim
+│   ├── layer.vim
 │   ├── base.vim
 │   ├── keymap.vim
 │   └── plugin_list.vim
 ├── plugin/
 ├── ftplugin/
-├── scripts/
-├── init.vim
-└── vimrc -> ./init.vim
+└── scripts/
 ```
 
 **下面简单介绍下整个结构：**
 
-1. `autoload/`
+1. `init.vim`
 
-   在(neo)vim中，`autoload/`目录用于自动加载。我将全局变量以及全局函数放到了`autoload/common/`目录下的`common.vim`和`functions.vim`文件中，如果大家想单独复制一个插件的配置到自己的(neo)vim配置中，那么请不要忘记将这些全局变量复制过去，因为很多插件配置都用到了这里的全局变量或者全局函数。
+   neovim初始化的时候要加载的文件，`vimrc`链接到`init.vim`文件上，是vim初始化时要加载的文件。
 
-3. `config/`
+2. `config.vim`
+
+   该文件主要是一些用户自定义的全局配置文件。
+
+3. `autoload/`
+
+   在(neo)vim中，`autoload/`目录用于自动加载。我将一些通用的函数放到`autoload/common/functions.vim`文件中，如果大家想单独复制一个插件的配置到自己的(neo)vim配置中，那么请不要忘记将这些通用函数复制过去，因为很多插件配置都用到了这里的函数。
+
+4. `config/`
 
    该目录是主要的配置文件目录。
 
@@ -118,6 +128,10 @@ vime是一个结构化的(neo)vim配置，具有如下优势：
 
      对于插件的配置文件，有一个小小的规范，某个插件的按键映射最好写到对应配置文件的最后。
 
+   - `config/layers/`
+
+     该目录主要存储一些插件组合配置文件。
+
    - `config/other/`
 
      此目录主要存放一些插件需要用到的文件，比如插件[coc](https://github.com/neoclide/coc.nvim)用到的`coc-settings.json`，ycm用到的`ycm_extra_conf.py`等文件。
@@ -126,9 +140,9 @@ vime是一个结构化的(neo)vim配置，具有如下优势：
 
      主题配置，(neo)vim主题相关的配置基本上都放到该文件夹下。
 
-   - `config/plugin_list.vim`
+   - `config/layer.vim`
 
-     此文件是插件列表文件，想要使用什么插件都写到此文件中。(neo)vim在启动的时候会依据该文件所列插件自动加载对应的配置文件。
+     此文件主要用于从`config/layers/`目录下选择合适的插件组合。
 
    - `base.vim`
 
@@ -138,7 +152,7 @@ vime是一个结构化的(neo)vim配置，具有如下优势：
 
      此文件是一些快捷键配置，通常这些快捷键与插件无关，与插件相关的快捷键一般都放到插件的配置文件中。
 
-3. `plugin/`
+5. `plugin/`
 
    在(neo)vim中，`plugin/`目录下的配置会在(neo)vim启动的时候自动加载，因此，我主要用于存放一些自定义的配置在这里。
 
@@ -151,13 +165,6 @@ vime是一个结构化的(neo)vim配置，具有如下优势：
 
    该目录主要存储一些常用的脚本文件，如`preview.sh`等。
 
-6. `init.vim`
-
-   (neo)vim初始化时要读取的文件。
-
-7. `vimrc`
-
-   (neo)vim初始化时要读取的文件，该文件链接到`init.vim`。
 
 ## 安装
 
