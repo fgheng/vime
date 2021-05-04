@@ -9,7 +9,7 @@ LoadScript base.vim
 
 " vim-plug 载入插件
 call plug#begin(get(g:, 'plugins_install_path', '~/.vim/plugin/'))
-LoadScript plugin_list.vim
+LoadScript layers.vim
 call plug#end()
 
 " 载入快捷键配置
