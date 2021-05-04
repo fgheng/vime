@@ -1,5 +1,5 @@
-" 初始化一些全局变量
-call common#common#init()
+" 载入个人配置
+exec "source " . fnamemodify($MYVIMRC, ':h') . "/config.vim"
 
 " 定义载入配置命令
 command! -nargs=1 LoadScript exec 'source ' . g:config_root_path . '<args>'
