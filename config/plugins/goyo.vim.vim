@@ -13,6 +13,9 @@ function! s:goyo_enter()
     if common#functions#HasPlug('limelight.vim')
         Limelight
     endif
+    if common#functions#HasPlug('nvim-scrollview')
+        exec "ScrollViewDisable"
+    endif
 endfunction
 
 function! s:goyo_leave()
@@ -25,6 +28,9 @@ function! s:goyo_leave()
 	set scrolloff=5
     if common#functions#HasPlug('limelight.vim')
         Limelight!
+    endif
+    if common#functions#HasPlug('nvim-scrollview')
+        exec "ScrollViewEnable"
     endif
 endfunction
 
