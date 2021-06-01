@@ -5,4 +5,4 @@ LoadScript layers/plugin_list.vim
 " 下面的插件组合是根据我的使用习惯，挑选出来的我常用的插件
 " LoadScript layers/simple.vim
 " " git类插件
-" LoadScript layers/git.vim
+LoadScript layers/git.vim
