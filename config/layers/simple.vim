@@ -91,6 +91,7 @@ Plug 'iamcco/dict.vim', {'on':
 " Plug 'vim-scripts/cpp_cppcheck.vim'
 Plug 'rktjmp/lush.nvim'
 " Plug 'ntpeters/vim-better-whitespace'
+Plug 'ZSaberLv0/ZFVimDirDiff'
 
 " coc插件列表，可根据需要进行删减
 let g:coc_global_extensions = [
