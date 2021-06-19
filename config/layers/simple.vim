@@ -11,7 +11,6 @@ Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 
 " 主题
 Plug 'rakr/vim-one'
-Plug 'sainnhe/forest-night'
 Plug 'npxbr/gruvbox.nvim'
 
 Plug 'itchyny/lightline.vim'
