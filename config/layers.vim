@@ -10,4 +10,5 @@ LoadScript layers/git.vim
 " 其他插件
 LoadScript layers/plugin_list.vim
 
+" 经过长时间的使用，我发现我常用的插件并不多，所以我经常使用下面的simple组合
 " LoadScript layers/simple.vim
