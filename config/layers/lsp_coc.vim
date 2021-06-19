@@ -18,6 +18,6 @@ let g:coc_global_extensions = [
     \ 'coc-ci',
     \ 'coc-zi',
     \ 'coc-just-complete',
-    \ 'coc-pyright',
+    \ 'coc-python',
     \ 'coc-marketplace',
   \ ]
