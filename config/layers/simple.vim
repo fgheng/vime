@@ -1,11 +1,9 @@
 " 够用就好了，我发现我常用的一些功能就是补全，git，以及文件浏览了
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " 检索
 Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'junegunn/fzf.vim'
-Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 
 " 注释插件
 Plug 'scrooloose/nerdcommenter'
@@ -92,23 +90,3 @@ Plug 'iamcco/dict.vim', {'on':
 Plug 'rktjmp/lush.nvim'
 " Plug 'ntpeters/vim-better-whitespace'
 Plug 'ZSaberLv0/ZFVimDirDiff'
-
-" coc插件列表，可根据需要进行删减
-let g:coc_global_extensions = [
-    \ 'coc-vimlsp',
-    \ 'coc-xml',
-    \ 'coc-yank',
-    \ 'coc-sh',
-    \ 'coc-yaml',
-    \ 'coc-cmake',
-    \ 'coc-snippets',
-    \ 'coc-clangd',
-    \ 'coc-json',
-    \ 'coc-lists',
-    \ 'coc-word',
-    \ 'coc-ci',
-    \ 'coc-zi',
-    \ 'coc-just-complete',
-    \ 'coc-pyright',
-    \ 'coc-marketplace',
-  \ ]
