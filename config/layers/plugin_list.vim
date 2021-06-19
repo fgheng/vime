@@ -1,19 +1,9 @@
-" 代码补全插件
-" Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --all'} | Plug 'airblade/vim-gitgutter'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " 检索
 Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'junegunn/fzf.vim' | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 " c debug
 Plug 'puremourning/vimspector'
-" git插件
-Plug 'tpope/vim-fugitive', {'on': ['Gwrite', 'Gcommit', 'Gread', 'Gdiff', 'Gblame']}
-\ | Plug 'rbong/vim-flog'
-\ | Plug 'airblade/vim-gitgutter'
-if has('nvim')
-    Plug 'f-person/git-blame.nvim'
-endif
 " 注释插件
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
