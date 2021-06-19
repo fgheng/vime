@@ -1,6 +1,7 @@
 " 插件组合
 
 " lsp插件选择
+" LoadScript layers/lsp_ycm.vim
 " LoadScript layers/lsp_lspsaga.vim
 LoadScript layers/lsp_coc.vim
 
