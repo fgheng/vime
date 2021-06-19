@@ -1,10 +1,13 @@
-" 很多插件的组合
+" 插件组合
+
+" lsp插件选择
+" LoadScript layers/lsp_lspsaga.vim
+LoadScript layers/lsp_coc.vim
+
+" git类插件组合
+LoadScript layers/git.vim
+
+" 其他插件
 LoadScript layers/plugin_list.vim
 
-" 插件够用就好，不必花里胡哨
-" 下面的插件组合是根据我的使用习惯，挑选出来的我常用的插件
-" LoadScript layers/lsp_lspsaga.vim
-" LoadScript layers/lsp_coc.vim
 " LoadScript layers/simple.vim
-" " git类插件
-LoadScript layers/git.vim
