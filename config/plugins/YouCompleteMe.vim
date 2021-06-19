@@ -52,6 +52,16 @@ let g:ycm_filetype_specific_completion_to_disable = {
             \ 'notes': 1,
             \ }
 
+let g:ycm_language_server =
+  \ [
+  \   {
+  \     'name': 'clangd',
+  \     'cmdline': [ 'clangd'],
+  \     'filetypes': [ 'cc', 'c', 'h', 'cpp', 'hpp', 'cuda' ],
+  \     'project_root_files': ['.git', "compile_commands.json", "compile_flags.txt"]
+  \   },
+  \ ]
+
 nmap <silent> gd :YcmCompleter GoToDefinition<cr>
 nmap <silent> gy :YcmCompleter GoToType<cr>
 nmap <silent> gi :YcmCompleter GoToImplementation<cr>
