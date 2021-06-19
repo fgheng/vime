@@ -66,6 +66,7 @@ nmap <silent> gd :YcmCompleter GoToDefinition<cr>
 nmap <silent> gy :YcmCompleter GoToType<cr>
 nmap <silent> gi :YcmCompleter GoToImplementation<cr>
 nmap <silent> gr :YcmCompleter GoToReferences<cr>
+nmap <silent> gs :YcmCompleter GoToSymbol<cr>
 
 nmap <silent> <space>f    :YcmCompleter FixIt<cr>
 nmap <silent> <space>rn   :YcmCompleter RefactorRename<cr>
