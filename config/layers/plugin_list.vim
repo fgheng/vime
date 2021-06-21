@@ -13,6 +13,7 @@ Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanh
 " 全局替换插件
 Plug 'brooth/far.vim'
 " 主题theme类插件
+Plug 'glepnir/zephyr-nvim'
 Plug 'ajmwagar/vim-deus'
 Plug 'rakr/vim-one'
 Plug 'arcticicestudio/nord-vim'
