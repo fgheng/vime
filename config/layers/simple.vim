@@ -63,6 +63,7 @@ if has('nvim')
 endif
 " 平滑滚动
 " Plug 'psliwka/vim-smoothie'
+Plug 'glepnir/indent-guides.nvim'
 " 重复上次的动作
 Plug 'tpope/vim-repeat'
 " 快速移动
