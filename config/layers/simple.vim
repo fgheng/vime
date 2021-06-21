@@ -10,6 +10,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 
 " 主题
+Plug 'glepnir/zephyr-nvim'
 Plug 'rakr/vim-one'
 Plug 'npxbr/gruvbox.nvim'
 
