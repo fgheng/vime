@@ -4,7 +4,7 @@
 " LoadScript layers/lsp_ycm.vim
 " LoadScript layers/lsp_lspsaga.vim
 " LoadScript layers/lsp_completion-nvim.vim
-loadscript layers/lsp_coc.vim
+Loadscript layers/lsp_coc.vim
 
 " git类插件组合
 LoadScript layers/git.vim
