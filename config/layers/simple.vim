@@ -60,6 +60,7 @@ Plug 'fgheng/ResizeWindow.vim'
 " 显示滚动条
 if has('nvim')
   Plug 'dstein64/nvim-scrollview'
+  Plug 'norcalli/nvim-colorizer.lua'
 endif
 " 平滑滚动
 " Plug 'psliwka/vim-smoothie'
