@@ -75,8 +75,12 @@ Plug 'easymotion/vim-easymotion', {'on':
    \ ]}
 " 对齐
 Plug 'junegunn/vim-easy-align', {'on': ['EasyAlign', '<Plug>(EasyAlign)']}
-" 对齐线
+" 缩进线
 " Plug 'Yggdroot/indentLine', {'on': 'IndentLinesEnable'}
+if has('nvim')
+    " 缩进线
+    Plug 'glepnir/indent-guides.nvim'
+endif
 " 多光标
 Plug 'mg979/vim-visual-multi'
 " csv插件
