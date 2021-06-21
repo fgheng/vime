@@ -31,6 +31,7 @@ else
     Plug 'luochen1990/rainbow'
 endif
 
+Plug 'kyazdani42/nvim-web-devicons'
 if has('nvim')
   Plug 'kyazdani42/nvim-tree.lua'
 endif
