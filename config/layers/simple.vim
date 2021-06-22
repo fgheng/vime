@@ -80,3 +80,4 @@ Plug 'iamcco/dict.vim', {'on':
 Plug 'rktjmp/lush.nvim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'ZSaberLv0/ZFVimDirDiff'
+Plug 'junegunn/vim-easy-align'
