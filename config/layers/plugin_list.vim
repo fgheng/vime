@@ -181,3 +181,6 @@ if has('nvim')
 endif
 Plug 'ernstwi/vim-secret'
 Plug 'ZSaberLv0/ZFVimDirDiff'
+if has('nvim')
+  Plug 'kyazdani42/nvim-tree.lua'
+endif
