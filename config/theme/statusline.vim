@@ -3,6 +3,7 @@ if common#functions#HasPlug('vim-crystalline')
     \ || common#functions#HasPlug('lightline.vim')
     \ || common#functions#HasPlug('vim-airline')
     \ || common#functions#HasPlug('eleline.vim')
+    \ || common#functions#HasPlug('lualine.nvim')
     finish
 endif
 

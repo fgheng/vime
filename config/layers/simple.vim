@@ -14,7 +14,7 @@ Plug 'glepnir/zephyr-nvim'
 Plug 'rakr/vim-one'
 Plug 'npxbr/gruvbox.nvim'
 
-Plug 'itchyny/lightline.vim'
+Plug 'hoob3rt/lualine.nvim'
 
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
@@ -31,7 +31,11 @@ else
     Plug 'luochen1990/rainbow'
 endif
 
-Plug 'kyazdani42/nvim-web-devicons'
+if has('nvim')
+    Plug 'kyazdani42/nvim-web-devicons'
+else
+    Plug 'ryanoasis/vim-devicons'
+endif
 if has('nvim')
   Plug 'kyazdani42/nvim-tree.lua'
 endif

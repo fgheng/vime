@@ -1,3 +1,7 @@
+if !exist("g:lspconfig")
+    finish
+endif
+
 lua << EOF
 -- clangd
 require'lspconfig'.clangd.setup{
