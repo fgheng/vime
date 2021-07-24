@@ -208,6 +208,7 @@ function! s:lc_coc_lists() abort
         \ || common#functions#HasPlug('vim-clap')
         \ || common#functions#HasPlug('fzf-preview.vim')
         \ || common#functions#HasCocPlug('coc-fzf-preview')
+        \ || common#functions#HasCocPlug('telescope.nvim')
         return
     endif
 
