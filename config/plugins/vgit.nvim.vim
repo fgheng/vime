@@ -1,11 +1,47 @@
 lua << EOF
 require('vgit').setup({
+    debug = false,
     hunks_enabled = true,
     blames_enabled = true,
+    diff_preference = 'horizontal',
+    diff_strategy = 'remote',
+    predict_hunk_signs = true,
+    signs = {
+        VGitViewSignAdd = {
+            name = 'VGitViewSignAdd',
+            line_hl = 'VGitViewSignAdd',
+            text_hl = 'VGitViewTextAdd',
+            text = '+'
+        },
+        VGitViewSignRemove = {
+            name = 'VGitViewSignRemove',
+            line_hl = 'VGitViewSignRemove',
+            text_hl = 'VGitViewTextRemove',
+            text = '-'
+        },
+        VGitSignAdd = {
+            name = 'VGitSignAdd',
+            text_hl = 'VGitSignAdd',
+            line_hl = nil,
+            text = '│'
+        },
+        VGitSignRemove = {
+            name = 'VGitSignRemove',
+            text_hl = 'VGitSignRemove',
+            line_hl = nil,
+            text = '│'
+        },
+        VGitSignChange = {
+            name = 'VGitSignChange',
+            text_hl = 'VGitSignChange',
+            line_hl = nil,
+            text = '│'
+        },
+    },
     hls = {
         VGitBlame = {
             bg = nil,
-            fg = '#7D8893',
+            fg = '#b1b1b1',
         },
         VGitDiffAddSign = {
             bg = '#3d5213',
@@ -59,39 +95,27 @@ require('vgit').setup({
             fg = '#e95678',
             bg = nil,
         },
-        VGitHistoryIndicator = {
+        VGitIndicator = {
             fg = '#a6e22e',
             bg = nil,
         },
-        VGitDiffCurrentBorder = {
+        VGitBorder = {
             fg = '#a1b5b1',
             bg = nil,
         },
-        VGitDiffPreviousBorder = {
-            fg = '#a1b5b1',
-            bg = nil,
-        },
-        VGitHistoryCurrentBorder = {
-            fg = '#a1b5b1',
-            bg = nil,
-        },
-        VGitHistoryPreviousBorder = {
-            fg = '#a1b5b1',
-            bg = nil,
-        },
-        VGitHistoryBorder = {
-            fg = '#a1b5b1',
-            bg = nil,
-        },
-        VGitHunkBorder = {
-            fg = '#a1b5b1',
+        VGitBorderFocus = {
+            fg = '#7AA6DA',
             bg = nil,
         },
     },
     blame = {
         hl = 'VGitBlame',
+        window = {
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            border_hl = 'VGitBorder',
+        },
         format = function(blame, git_config)
-            local round = function(x)
+            local function round(x)
                 return x >= 0 and math.floor(x + 0.5) or math.ceil(x - 0.5)
             end
             local config_author = git_config['user.name']
@@ -106,7 +130,7 @@ require('vgit').setup({
             while time < 1 and division_counter ~= #time_divisions do
                 local division = time_divisions[division_counter]
                 time = time * division[1]
-               time_format = string.format('%s %s ago', round(time), division[2])
+                time_format = string.format('%s %s ago', round(time), division[2])
                 division_counter = division_counter + 1
             end
             local commit_message = blame.commit_message
@@ -125,102 +149,77 @@ require('vgit').setup({
         end
     },
     preview = {
-            priority = 10,
-            current_window = {
-                title = 'Current',
-                border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                border_hl = 'VGitDiffCurrentBorder',
-            },
-            previous_window = {
-                title = 'Previous',
-                border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                border_hl = 'VGitDiffPreviousBorder',
-            },
-            signs = {
-                add = {
-                    name = 'VGitDiffAddSign',
-                    sign_hl = 'VGitDiffAddSign',
-                    text_hl = 'VGitDiffAddText',
-                    text = '+'
-                },
-                remove = {
-                    name = 'VGitDiffRemoveSign',
-                    sign_hl = 'VGitDiffRemoveSign',
-                    text_hl = 'VGitDiffRemoveText',
-                    text = '-'
-                },
-            },
+        priority = 10,
+        horizontal_window = {
+            title = 'Preview',
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            border_hl = 'VGitBorder',
+            border_focus_hl = 'VGitBorderFocus'
+        },
+        current_window = {
+            title = 'Current',
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            border_hl = 'VGitBorder',
+            border_focus_hl = 'VGitBorderFocus'
+        },
+        previous_window = {
+            title = 'Previous',
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            border_hl = 'VGitBorder',
+            border_focus_hl = 'VGitBorderFocus'
+        },
+        signs = {
+            add = 'VGitViewSignAdd',
+            remove = 'VGitViewSignRemove',
+        },
+    },
+    history = {
+        indicator = {
+            hl = 'VGitIndicator'
+        },
+        horizontal_window = {
+            title = 'Preview',
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            border_hl = 'VGitBorder',
+            border_focus_hl = 'VGitBorderFocus'
+        },
+        current_window = {
+            title = 'Current',
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            border_hl = 'VGitBorder',
+            border_focus_hl = 'VGitBorderFocus'
+        },
+        previous_window = {
+            title = 'Previous',
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            border_hl = 'VGitBorder',
+            border_focus_hl = 'VGitBorderFocus'
+        },
+        history_window = {
+            title = 'Git History',
+            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+            border_hl = 'VGitBorder',
+            border_focus_hl = 'VGitBorderFocus'
+        },
     },
     hunk = {
         priority = 10,
         window = {
             border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-            border_hl = 'VGitHunkBorder',
+            border_hl = 'VGitBorder',
         },
         signs = {
-            add = {
-                name = 'VGitHunkAddSign',
-                sign_hl = 'VGitHunkAddSign',
-                text_hl = 'VGitHunkAddText',
-                text = '+'
-            },
-            remove = {
-                name = 'VGitHunkRemoveSign',
-                sign_hl = 'VGitHunkRemoveSign',
-                text_hl = 'VGitHunkRemoveText',
-                text = '-'
-            },
+            add = 'VGitViewSignAdd',
+            remove = 'VGitViewSignRemove',
         },
     },
     hunk_sign = {
         priority = 10,
         signs = {
-            add = {
-                name = 'VGitSignAdd',
-                hl = 'VGitSignAdd',
-                text = '│'
-            },
-            remove = {
-                name = 'VGitSignRemove',
-                hl = 'VGitSignRemove',
-                text = '│'
-            },
-            change = {
-                name = 'VGitSignChange',
-                hl = 'VGitSignChange',
-                text = '│'
-            },
+            add = 'VGitSignAdd',
+            remove = 'VGitSignRemove',
+            change = 'VGitSignChange',
         },
-    },
-    history = {
-        indicator = {
-            hl = 'VGitHistoryIndicator'
-        },
-        window = {
-            title = 'Git History',
-            border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-            border_hl = 'VGitHistoryBorder',
-        },
-        history = {
-            indicator = {
-                hl = 'VGitHistoryIndicator'
-            },
-            current_window = {
-                title = 'Current',
-                border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                border_hl = 'VGitHistoryCurrentBorder',
-            },
-            previous_window = {
-                title = 'Previous',
-                border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                border_hl = 'VGitHistoryPreviousBorder',
-            },
-            history_window = {
-                title = 'Git History',
-                border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                border_hl = 'VGitHistoryBorder',
-            },
-        }
     },
 })
 EOF
@@ -235,3 +234,4 @@ if !common#functions#HasPlug("vim-gitgutter") && !common#functions#HasCocPlug('c
     nmap <leader>gd <esc>:VGit diff<CR>
     nmap <leader>gh <esc>:VGit buffer_history<CR>
 endif
+
