@@ -1,9 +1,3 @@
-
-" 检索
-Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
-Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
-Plug 'junegunn/fzf.vim'
-
 " 注释插件
 Plug 'scrooloose/nerdcommenter'
 " 生成注释文档
