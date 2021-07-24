@@ -11,7 +11,7 @@ lua << EOF
             enable = true,                      -- false将禁用整个插件
             disable = {},                       -- 不使用该插件的语言
             custom_captures = {                 -- 自定义高亮组
-                -- ["foo.bar"] = "Identifier"     
+                -- ["foo.bar"] = "Identifier"
             },
         },
 
