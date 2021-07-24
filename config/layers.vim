@@ -10,7 +10,8 @@ LoadScript layers/lsp_coc.vim
 LoadScript layers/git.vim
 
 " search
-LoadScript layers/search_telecope.vim
+" LoadScript layers/search_telecope.vim
+LoadScript layers/search_fzf.vim
 
 " 其他插件
 " LoadScript layers/plugin_list.vim
