@@ -234,4 +234,3 @@ if !common#functions#HasPlug("vim-gitgutter") && !common#functions#HasCocPlug('c
     nmap <leader>gd <esc>:VGit diff<CR>
     nmap <leader>gh <esc>:VGit buffer_history<CR>
 endif
-
