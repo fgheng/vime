@@ -10,3 +10,6 @@ nerdtree.json
 *.old
 *~
 test.vim
+
+config/*.customized.vim
+config/plugins/*.customized.vim
