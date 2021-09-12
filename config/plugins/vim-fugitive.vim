@@ -9,3 +9,4 @@ nnoremap <leader>gf <esc>:Gvdiffsplit<cr>
 "
 nnoremap <leader>gb <esc>:Git blame<cr>
 nnoremap <leader>gl <esc>:Git log<cr>
+nnoremap <leader>gg <esc>:Git<cr>
