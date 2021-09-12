@@ -116,7 +116,7 @@ if  executable("tmux") && strlen($TMUX)
     " tmux.conf set -g focus-events on
     Plug 'tmux-plugins/vim-tmux-focus-events'
     " 在tmux和vim之间进行复制与粘贴
-    Plug 'roxma/vim-tmux-clipboard'
+    " Plug 'roxma/vim-tmux-clipboard'
     " tmux补全插件
     Plug 'wellle/tmux-complete.vim'
 endif
