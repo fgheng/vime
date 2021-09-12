@@ -1,5 +1,5 @@
 " git插件
-Plug 'tpope/vim-fugitive', {'on': ['Gwrite', 'Git commit', 'Git read', 'Gdiffsplit', 'Gvdiffsplit', 'Git blame']}
+Plug 'tpope/vim-fugitive'
 
 if has('nvim')
     Plug 'nvim-lua/plenary.nvim' | Plug 'tanvirtin/vgit.nvim'
