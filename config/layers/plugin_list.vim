@@ -45,9 +45,9 @@ Plug 'arzg/vim-colors-xcode'
 " 顶栏和底栏
 " Plug 'romgrk/barbar.nvim'
 " Plug 'rbong/vim-crystalline'
-" Plug 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 " Plug 'liuchengxu/eleline.vim'
-Plug 'hoob3rt/lualine.nvim'
+" Plug 'hoob3rt/lualine.nvim'
 " 彩虹括号
 if has('nvim')
     Plug 'p00f/nvim-ts-rainbow'
