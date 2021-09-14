@@ -58,7 +58,7 @@ endif
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
-Plug 'Yggdroot/hiPairs'
+Plug 'andymass/vim-matchup'
 " 快速包围
 Plug 'tpope/vim-surround'
 " Plug 'machakann/vim-sandwich'
