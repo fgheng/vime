@@ -280,7 +280,7 @@ function! s:lc_coc_kite() abort
 endfunction
 
 function! s:lc_coc_xml() abort
-    call coc#config('xml.java.home', '/usr/lib/jvm/default/')
+    " call coc#config('xml.java.home', '/usr/lib/jvm/default/')
 endfunction
 
 function! s:lc_coc_prettier() abort
