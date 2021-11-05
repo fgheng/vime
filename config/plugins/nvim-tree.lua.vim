@@ -15,13 +15,14 @@ lua << EOF
         -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
         open_on_tab         = false,
         -- hijacks new directory buffers when they are opened.
-        update_to_buf_dir   = true,
+        update_to_buf_dir   = {
+            enable = true,
+            auto_open = true,
+        },
         -- hijack the cursor in the tree to put it at the start of the filename
         hijack_cursor       = false,
         -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
         update_cwd          = true,
-        -- show lsp diagnostics in the signcolumn
-        lsp_diagnostics     = true,
         -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
         update_focused_file = {
             -- enables the feature
@@ -40,6 +41,11 @@ lua << EOF
             -- the command arguments as a list
             args = {}
         },
+        filters = {
+            -- hides files and folders starting with a dot `.`
+            dotfiles = true,
+            custom = {}
+         },
 
         view = {
             -- width of the window, can be either a number (columns) or a string in `%`
@@ -99,7 +105,6 @@ EOF
 " let g:nvim_tree_gitignore = 1 " 0 by default
 " let g:nvim_tree_quit_on_open = 0 " 0 by default, closes the tree when you open a file
 " let g:nvim_tree_indent_markers = 1 " 0 by default, this option shows indent markers when folders are open
-let g:nvim_tree_hide_dotfiles = 1 " 0 by default, this option hides files and folders starting with a dot `.`
 let g:nvim_tree_git_hl = 1 " 0 by default, will enable file highlight for git attributes (can be used without the icons).
 let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
 let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
