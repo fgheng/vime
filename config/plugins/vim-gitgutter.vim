@@ -30,7 +30,7 @@ highlight link GitGutterDeleteLineNr SignifySignDelete
 highlight link GitGutterChangeDeleteLineNr SignifySignDelete
 
 " coc-git优先
-if !common#functions#HasCocPlug('coc-git')
+if !common#functions#HasCocPlug('coc-git') && !common#functions#HasPlug('vgit.nvim')
     " 导航到修改块
     " nnoremap <leader>gj :GitGutterNextHunk<cr>
     " nnoremap <leader>gk :GitGutterPrevHunk<cr>

@@ -315,10 +315,10 @@ function! s:lc_coc_git() abort
     nmap <leader>gk <Plug>(coc-git-prevchunk)
     nmap <leader>gj <Plug>(coc-git-nextchunk)
     " 显示光标处的修改信息
-    nnoremap <silent> <leader>gp <esc>:CocCommand git.chunkInfo<cr>
+    nnoremap <silent> <leader>gcp <esc>:CocCommand git.chunkInfo<cr>
     " 撤销当前块的修改
     nnoremap <silent> <leader>gu <esc>:CocCommand git.chunkUndo<cr>
-    nnoremap <silent> <leader>gh <esc>:CocCommand git.chunkStage<cr>
+    " nnoremap <silent> <leader>gh <esc>:CocCommand git.chunkStage<cr>
 endfunction
 
 function! s:lc_coc_snippets() abort

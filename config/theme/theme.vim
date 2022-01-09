@@ -48,4 +48,4 @@ endif
 
 " 主题选择
 let g:one_allow_italics = 1
-silent! colorscheme one
+silent! colorscheme edge

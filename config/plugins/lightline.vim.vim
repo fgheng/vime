@@ -44,7 +44,7 @@ function! LightLineGitInfo()abort
 endfunction
 
 let g:lightline = {
-    \ 'colorscheme': 'solarized',
+    \ 'colorscheme': 'edge',
     \ 'enable': {
     \ 'tabline': 0
     \},
