@@ -58,7 +58,9 @@ endif
 Plug 'liuchengxu/vista.vim', {'on': ['Vista!!', 'Vista']}
 " 自动补全括号
 Plug 'jiangmiao/auto-pairs'
-Plug 'andymass/vim-matchup'
+if has("nvim")
+    Plug 'andymass/vim-matchup'
+endif
 " 快速包围
 Plug 'tpope/vim-surround'
 " Plug 'machakann/vim-sandwich'
@@ -166,7 +168,9 @@ Plug 'matze/vim-move', {'on': [
             \ '<Plug>MoveBlockUp',
             \ '<Plug>MoveBlockRight',
             \ '<Plug>MoveBlockLeft']}
-Plug 'simnalamburt/vim-mundo'
+if has("nvim")
+    Plug 'simnalamburt/vim-mundo'
+endif
 if has('nvim')
     Plug 'kyazdani42/nvim-web-devicons'
 else

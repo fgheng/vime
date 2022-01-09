@@ -5,5 +5,5 @@ if has('nvim')
     Plug 'nvim-lua/plenary.nvim' | Plug 'tanvirtin/vgit.nvim'
 else
     Plug 'rbong/vim-flog' | Plug 'airblade/vim-gitgutter'
-    " Plug 'f-person/git-blame.nvim'
+    " " Plug 'f-person/git-blame.nvim'
 endif
