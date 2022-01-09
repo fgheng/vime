@@ -225,12 +225,21 @@ require('vgit').setup({
 EOF
 
 if !common#functions#HasPlug("vim-gitgutter") && !common#functions#HasCocPlug('coc-git')
-    nmap <leader>gp <esc>:VGit buffer_hunk_preview<CR>
-    nmap <leader>gP <esc>:VGit buffer_diff_preview<CR>
-    nmap <leader>gh <esc>:VGit buffer_history_preview<CR>
     nmap <leader>gj <esc>:VGit hunk_down<CR>
     nmap <leader>gk <esc>:VGit hunk_up<CR>
+
+    nmap <leader>gp <esc>:VGit buffer_hunk_preview<CR>
+    nmap <leader>gP <esc>:VGit project_hunks_preview<CR>
+    nmap <leader>gd <esc>:VGit buffer_diff_preview<CR>
+    nmap <leader>gD <esc>:VGit project_diff_preview<CR>
+
+    nmap <leader>gh <esc>:VGit buffer_history_preview<CR>
+
     nmap <leader>gu <esc>:VGit buffer_hunk_reset<CR>
     nmap <leader>gU <esc>:VGit buffer_reset<CR>
-    nmap <leader>gd <esc>:VGit diff<CR>
+
+    nmap <leader>gb <esc>:VGit buffer_blame_preview<CR>
+    nmap <leader>gB <esc>:VGit buffer_gutter_blame_preview<CR>
+
+    nmap <leader>gt <esc>:VGit toggle_diff_preference<CR>
 endif
