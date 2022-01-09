@@ -111,6 +111,8 @@ Plug 'iamcco/dict.vim', {'on':
     \ '<Plug>DictSearch', '<Plug>DictVSearch', '<Plug>DictWSearch',
     \ '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch'
     \ ]}
+" 搜索显示数量
+Plug 'kevinhwang91/nvim-hlslens'
 " tmux相关插件
 if  executable("tmux") && strlen($TMUX)
     " tmux与vim窗口间导航
