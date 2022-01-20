@@ -13,6 +13,9 @@ LoadScript layers/git.vim
 " LoadScript layers/search_telecope.vim
 LoadScript layers/search_fzf.vim
 
+" theme
+LoadScript layers/theme.vim
+
 " 其他插件
 LoadScript layers/plugin_list.vim
 

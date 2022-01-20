@@ -1,6 +1,6 @@
 " 检索
 Plug 'junegunn/fzf', { 'do': {-> fzf#install()} }
-Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
+" Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'junegunn/fzf.vim' | Plug 'antoinemadec/coc-fzf',  {'branch': 'release'}
 " c debug
 Plug 'puremourning/vimspector'
@@ -12,36 +12,7 @@ Plug 'kkoomen/vim-doge', {'do': {-> doge#install()}}
 Plug 'tpope/vim-dadbod' | Plug 'kristijanhusak/vim-dadbod-ui' | Plug 'kristijanhusak/vim-dadbod-completion'
 " 全局替换插件
 Plug 'brooth/far.vim'
-" 主题theme类插件
-Plug 'glepnir/zephyr-nvim'
-Plug 'ajmwagar/vim-deus'
-Plug 'rakr/vim-one'
-Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
-Plug 'sainnhe/gruvbox-material'
-Plug 'npxbr/gruvbox.nvim'
-Plug 'sainnhe/forest-night'
-Plug 'srcery-colors/srcery-vim'
-Plug 'hardcoreplayers/oceanic-material'
-Plug 'chuling/ci_dark'
-Plug 'kristijanhusak/vim-hybrid-material'
-Plug 'mhartington/oceanic-next'
-Plug '986299679/space-vim-theme'
-Plug 'ayu-theme/ayu-vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'flrnd/candid.vim'
-Plug 'jaredgorski/spacecamp'
-Plug 'bluz71/vim-moonfly-colors'
-Plug 'cormacrelf/vim-colors-github'
-Plug 'arzg/vim-colors-xcode'
-Plug 'sainnhe/sonokai'
-Plug 'sonph/onehalf'
-Plug 'ghifarit53/tokyonight-vim'
-Plug 'sainnhe/edge'
-Plug 'reedes/vim-colors-pencil'
-Plug 'ChristianChiarulli/nvcode-color-schemes.vim'
-Plug 'arzg/vim-colors-xcode'
+
 " 顶栏和底栏
 " Plug 'romgrk/barbar.nvim'
 " Plug 'rbong/vim-crystalline'

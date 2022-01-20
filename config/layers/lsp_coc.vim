@@ -14,10 +14,8 @@ let g:coc_global_extensions = [
     \ 'coc-clangd',
     \ 'coc-json',
     \ 'coc-lists',
-    \ 'coc-word',
-    \ 'coc-ci',
-    \ 'coc-zi',
     \ 'coc-just-complete',
     \ 'coc-python',
     \ 'coc-marketplace',
+    \ 'coc-java',
   \ ]
